@@ -8,7 +8,7 @@ type = "git-repo"
 url = "https://github.com/nils-degroot/sprimed.git"
 refreshPeriod = "168h"
 
-[".config/awesome/awesomewm-micky.git"]
+[".config/awesome/awesomewm-micky"]
 type = "git-repo"
 url = "https://github.com/basaran/awesomewm-micky.git"
 refreshPeriod = "168h"
