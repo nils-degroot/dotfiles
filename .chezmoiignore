@@ -1,2 +1,4 @@
 .config/awesome/images/**/*
 .config/awesome/persistant-wallpaper.txt
+
+.config/nvim/plugin/*

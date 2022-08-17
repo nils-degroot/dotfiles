@@ -263,11 +263,15 @@ awful.screen.connect_for_each_screen(function(s)
 					ternary(
 						hostname == "void-nils",
 						mpd_widget_render,
-						two_sided_presets.battery:new{ left_bg = beautiful.bg_normal }:render()
+						two_sided_presets.battery:new{
+							left_bg = beautiful.bg_normal,
+							right_bg = beautiful.bg_normal
+						}:render()
 					),
-				    two_sided_presets.mem:new{ left_bg = beautiful.bg_normal }:render(),
-				    two_sided_presets.df:new{ left_bg = beautiful.bg_normal }:render(),
-				    two_sided_presets.clock:new{ left_bg = beautiful.bg_normal }:render(),
+				    two_sided_presets.clock:new{
+						left_bg = beautiful.bg_normal,
+						right_bg = beautiful.bg_normal
+					}:render(),
 					{
 						markup = "|",
 						widget = wibox.widget.textbox
