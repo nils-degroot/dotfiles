@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 local config_path = os.getenv("HOME") .. "/.config/awesome/"
 local theme = {}
 
-theme.font          = "JetBrainsMono Nerd Font 8"
+theme.font          = "Iosevka 8"
 
 theme.bg_dark       = "#1c1b19"
 theme.bg_normal     = "#222222"
@@ -149,6 +149,6 @@ theme.icon_theme = nil
 theme.tabbar_ontop = false
 
 theme.tabbar_bg_focus  = "#E02C6D"
-theme.tabbar_font  = "JetBrainsMono Nerd Font 11"
+theme.tabbar_font  = "Iosevka 11"
 
 return theme

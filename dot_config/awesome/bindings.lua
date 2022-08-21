@@ -112,6 +112,10 @@ globalkeys = gears.table.join(
 
 	-- Menubar
 	awful.key({ modkey }, "p", function()
+		awful.spawn("rofi -show drun")
+	end, { description = "show the menubar", group = "rofi" }),
+
+	awful.key({ modkey, "Shift" }, "p", function()
 		awful.spawn("rofi -show run")
 	end, { description = "show the menubar", group = "rofi" }),
 
