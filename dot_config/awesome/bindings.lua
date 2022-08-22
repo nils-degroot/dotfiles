@@ -119,10 +119,6 @@ globalkeys = gears.table.join(
 		awful.spawn("rofi -show run")
 	end, { description = "show the menubar", group = "rofi" }),
 
-	awful.key({ modkey }, "r", function()
-		awful.spawn("dmenu-surf")
-	end, { description = "dmenu-surf", group = "rofi" }),
-
 	awful.key({ modkey }, "a", function()
 		awful.spawn("dmenu-mpd")
 	end, { description = "dmenu-mpd", group = "rofi" }),
@@ -139,6 +135,12 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "w", function()
 		awful.spawn("dmenu-emoji")
 	end, { description = "dmenu-emoji", group = "rofi" }),
+
+	-- {{- if eq .chezmoi.hostname "nils-work" }}
+	awful.key({ modkey }, "d", function()
+		awful.spawn("xrandr-setup")
+	end, { description = "xrandr-setup", group = "rofi" }),
+	-- {{- end }}
 
 	awful.key({ modkey }, "c", function()
 		bling.module.tabbed.pick_with_dmenu()
