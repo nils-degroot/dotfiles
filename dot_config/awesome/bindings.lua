@@ -10,7 +10,21 @@ local logout_popup = require("sprimed.menu.logout-popup")
 -- Bling
 local bling = require("bling")
 
-modkey = "Mod4"
+local modifiers = {
+	["control"] = "Control",
+	["shift"] = "Shift",
+	["alt"] = "Mod1",
+	["super"] = "Mod4"
+}
+
+modkey = modifiers.super
+
+local hypr = {
+	modifiers.control,
+	modifiers.shift,
+	modifiers.alt,
+	modifiers.super
+}
 
 globalkeys = gears.table.join(
 	awful.key({ modkey, }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
@@ -32,19 +46,19 @@ globalkeys = gears.table.join(
 	end, { description = "Open password store", group = "launcher" }),
 
 	-- Layout manipulation
-	awful.key({ modkey, "Shift" }, "j", function()
+	awful.key({ modkey, modifiers.shift }, "j", function()
 	    awful.client.swap.byidx(1)
 	end, { description = "swap with next client by index", group = "client" }),
 
-	awful.key({ modkey, "Shift" }, "k", function()
+	awful.key({ modkey, modifiers.shift }, "k", function()
 	    awful.client.swap.byidx(-1)
 	end, { description = "swap with previous client by index", group = "client" }),
 
-	awful.key({ modkey, "Control" }, "j", function()
+	awful.key({ modkey, modifiers.control }, "j", function()
 	    awful.screen.focus_relative(1)
 	end, { description = "focus the next screen", group = "screen" }),
 
-	awful.key({ modkey, "Control" }, "k", function()
+	awful.key({ modkey, modifiers.control }, "k", function()
 	    awful.screen.focus_relative(-1)
 	end, { description = "focus the previous screen", group = "screen" }),
 
@@ -62,11 +76,11 @@ globalkeys = gears.table.join(
 	    awful.spawn(terminal)
 	end, { description = "open a terminal", group = "launcher" }),
 
-	awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
+	awful.key({ modkey, modifiers.control, }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
 
-	awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
+	awful.key({ modkey, modifiers.shift, }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
 
-	awful.key({ modkey }, "Escape", function()
+	awful.key({ modkey, }, "Escape", function()
 		logout_popup.launch()
 	end, { description = "Show logout popup", group = "awesome" }),
 
@@ -78,19 +92,19 @@ globalkeys = gears.table.join(
 	    awful.tag.incmwfact(-0.05)
 	end, { description = "decrease master width factor", group = "layout" }),
 
-	awful.key({ modkey, "Shift" }, "h", function()
+	awful.key({ modkey, modifiers.shift, }, "h", function()
 	    awful.tag.incnmaster(1, nil, true)
 	end, { description = "increase the number of master clients", group = "layout" }),
 
-	awful.key({ modkey, "Shift" }, "l", function()
+	awful.key({ modkey, modifiers.shift, }, "l", function()
 	    awful.tag.incnmaster(-1, nil, true)
 	end, { description = "decrease the number of master clients", group = "layout" }),
 
-	awful.key({ modkey, "Control" }, "h", function()
+	awful.key({ modkey, modifiers.control, }, "h", function()
 	    awful.tag.incncol(1, nil, true)
 	end, { description = "increase the number of columns", group = "layout" }),
 
-	awful.key({ modkey, "Control" }, "l", function()
+	awful.key({ modkey, modifiers.control, }, "l", function()
 	    awful.tag.incncol(-1, nil, true)
 	end, { description = "decrease the number of columns", group = "layout" }),
 
@@ -98,13 +112,13 @@ globalkeys = gears.table.join(
 	    awful.layout.inc(1)
 	end, { description = "select next", group = "layout" }),
 
-	awful.key({ modkey, "Shift" }, "Return", function()
+	awful.key({ modkey, modifiers.shift, }, "Return", function()
 	    awful.layout.inc(-1)
 	end, { description = "select previous", group = "layout" }),
 
-	awful.key({ modkey, "Control" }, "n", function()
+	awful.key({ modkey, modifiers.control }, "n", function()
 	    local c = awful.client.restore()
-	    -- Focus restored client
+
 	    if c then
 	        c:emit_signal("request::activate", "key.unminimize", { raise = true })
 	    end
@@ -115,7 +129,7 @@ globalkeys = gears.table.join(
 		awful.spawn("rofi -show drun")
 	end, { description = "show the menubar", group = "rofi" }),
 
-	awful.key({ modkey, "Shift" }, "p", function()
+	awful.key({ modkey, modifiers.shift }, "p", function()
 		awful.spawn("rofi -show run")
 	end, { description = "show the menubar", group = "rofi" }),
 
@@ -152,7 +166,55 @@ globalkeys = gears.table.join(
 
 	awful.key({ modkey }, "z", function()
 		bling.module.tabbed.iter()
-	end, { description = "Iterate through a tabbed group", group = "bling" })
+	end, { description = "Iterate through a tabbed group", group = "bling" }),
+
+	awful.key(hypr, "F1", function()
+		awful.spawn("qutebrowser")
+	end, { description = "Hotkey 1", group = "macropad" }),
+
+	awful.key(hypr, "F2", function()
+		awful.spawn("qutebrowser")
+	end, { description = "Hotkey 2", group = "macropad" }),
+
+	awful.key(hypr, "F3", function()
+		awful.spawn("qutebrowser")
+	end, { description = "Hotkey 3", group = "macropad" }),
+
+	awful.key(hypr, "F4", function()
+		awful.spawn("qutebrowser")
+	end, { description = "Hotkey 4", group = "macropad" }),
+
+	awful.key(hypr, "F5", function()
+		awful.spawn("qutebrowser")
+	end, { description = "Hotkey 5", group = "macropad" }),
+
+	awful.key(hypr, "F6", function()
+		awful.spawn("qutebrowser")
+	end, { description = "Hotkey 6", group = "macropad" }),
+
+	awful.key(hypr, "F7", function()
+		awful.spawn("qutebrowser")
+	end, { description = "Hotkey 7", group = "macropad" }),
+
+	awful.key(hypr, "F8", function()
+		awful.spawn("qutebrowser")
+	end, { description = "Hotkey 8", group = "macropad" }),
+
+	awful.key(hypr, "F9", function()
+		awful.spawn("qutebrowser")
+	end, { description = "Hotkey 9", group = "macropad" }),
+
+	awful.key(hypr, "F10", function()
+		awful.spawn("qutebrowser")
+	end, { description = "Hotkey 10", group = "macropad" }),
+
+	awful.key(hypr, "F11", function()
+		awful.spawn("qutebrowser")
+	end, { description = "Hotkey 11", group = "macropad" }),
+
+	awful.key(hypr, "F12", function()
+		awful.spawn("qutebrowser")
+	end, { description = "Hotkey 12", group = "macropad" })
 )
 
 clientkeys = gears.table.join(
@@ -167,7 +229,7 @@ clientkeys = gears.table.join(
 
 	awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle, { description = "toggle floating", group = "client" }),
 
-	awful.key({ modkey, "Control" }, "Return", function(c)
+	awful.key({ modkey, modifiers.control, }, "Return", function(c)
 	    c:swap(awful.client.getmaster())
 	end, { description = "move to master", group = "client" }),
 
@@ -175,7 +237,7 @@ clientkeys = gears.table.join(
 	    c:move_to_screen()
 	end, { description = "move to screen", group = "client" }),
 
-	awful.key({ modkey, "Shift" }, "o", function(c)
+	awful.key({ modkey, modifiers.shift }, "o", function(c)
 	    c:move_to_screen(c.screen.index - 1)
 	end, { description = "move to screen", group = "client" }),
 
@@ -199,7 +261,7 @@ clientkeys = gears.table.join(
 	    c:raise()
 	end, { description = "(un)maximize vertically", group = "client" }),
 
-	awful.key({ modkey, "Shift" }, "m", function(c)
+	awful.key({ modkey, modifiers.shift }, "m", function(c)
 	    c.maximized_horizontal = not c.maximized_horizontal
 	    c:raise()
 	end, { description = "(un)maximize horizontally", group = "client" })
@@ -220,7 +282,7 @@ for i = 1, 5 do
         end, { description = "view tag #" .. i, group = "tag" }),
 
 		-- Toggle tag display.
-        awful.key({ modkey, "Control" }, "#" .. i + 9, function()
+        awful.key({ modkey, modifiers.control }, "#" .. i + 9, function()
             local screen = awful.screen.focused()
             local tag = screen.tags[i]
             if tag then
@@ -229,7 +291,7 @@ for i = 1, 5 do
         end, { description = "toggle tag #" .. i, group = "tag" }),
 
 		-- Move client to tag.
-        awful.key({ modkey, "Shift" }, "#" .. i + 9, function()
+        awful.key({ modkey, modifiers.shift }, "#" .. i + 9, function()
             if client.focus then
                 local tag = client.focus.screen.tags[i]
                 if tag then
@@ -239,7 +301,7 @@ for i = 1, 5 do
         end, { description = "move focused client to tag #" .. i, group = "tag" }),
 
 		-- Toggle tag on focused client.
-        awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9, function()
+        awful.key({ modkey, modifiers.control, modifiers.shift }, "#" .. i + 9, function()
             if client.focus then
                 local tag = client.focus.screen.tags[i]
                 if tag then
