@@ -1,4 +1,4 @@
-local g = vim.g
+local dashboard = require("dashboard")
 
 local dashboard_footers = {
 	{ " A wizard is never late, Frodo Baggins. Nor is he early; he arrives precisely when he means to." },
@@ -10,21 +10,25 @@ local dashboard_footers = {
 math.randomseed(os.time())
 local foot_rand = math.random(1, #dashboard_footers)
 
-g.dashboard_preview_command = "cat"
-g.dashboard_preview_pipeline = "lolcat"
-g.dashboard_preview_file = "~/.config/nvim/nvim-logo.cat"
+dashboard.preview_command = "cat | lolcat"
 
-g.dashboard_preview_file_height = 10
-g.dashboard_preview_file_width = 80
+dashboard.preview_file_path = "~/.config/nvim/nvim-logo.cat"
+dashboard.preview_file_height = 10
+dashboard.preview_file_width = 80
 
-g.dashboard_custom_footer = dashboard_footers[foot_rand]
-g.dashboard_custom_section = {
-    find_files = {
-    	description = { " Find files     " },
-    	command = "Telescope fd"
-    },
-    edit_nvim_config = {
-    	description = { " Edit vim config" },
-    	command = ":e ~/.config/nvim/init.vim"
-    },
+dashboard.custom_center = {
+	{
+		icon = " ",
+		desc = "Find file         ",
+		action = "Telescope fd",
+		shortcut = "SPC p f"
+	},
+	{
+		icon = " ",
+		desc = "Edit vim config   ",
+		action = ":e ~/.config/nvim/lua/config.lua",
+		shortcut = "SPC f p"
+	},
 }
+
+dashboard.custom_footer = dashboard_footers[foot_rand]
