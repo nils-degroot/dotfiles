@@ -126,7 +126,7 @@ globalkeys = gears.table.join(
 
 	-- Menubar
 	awful.key({ modkey }, "p", function()
-		awful.spawn("rofi -show drun")
+		awful.spawn("rofi -show drun -icon-theme Papirus-Dark -show-icons")
 	end, { description = "show the menubar", group = "rofi" }),
 
 	awful.key({ modkey, modifiers.shift }, "p", function()
@@ -147,8 +147,8 @@ globalkeys = gears.table.join(
 	end, { description = "dmenu-vpn", group = "rofi" }),
 
 	awful.key({ modkey }, "w", function()
-		awful.spawn("dmenu-emoji")
-	end, { description = "dmenu-emoji", group = "rofi" }),
+		awful.spawn("rofi -show window")
+	end, { description = "Rofi select windcow", group = "rofi" }),
 
 	-- {{- if eq .chezmoi.hostname "nils-work" }}
 	awful.key({ modkey }, "d", function()

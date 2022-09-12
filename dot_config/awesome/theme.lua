@@ -49,8 +49,8 @@ theme.border_marked = "#91231c"
 theme.titlebar_bg_normal = "#3c3836"
 theme.titlebar_bg_focus = theme.bg_focus
 
-theme.taglist_bg_focus = theme.bg_focus
-theme.taglist_bg_hover = "#918175"
+theme.taglist_bg_focus  = theme.bg_focus
+theme.taglist_bg_hover  = "#918175"
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
@@ -74,6 +74,7 @@ theme.taglist_spacing = 0
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
+
 theme.menu_submenu_icon = themes_path .. "default/submenu.png"
 theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)

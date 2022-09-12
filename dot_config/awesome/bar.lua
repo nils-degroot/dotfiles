@@ -2,6 +2,7 @@ local gears = require("gears")
 local awful = require("awful")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
+local bar_util= require("bar_util")
 
 -- Custom widgets
 local two_sided_presets = require("sprimed.widgets.presets.two-sided")
@@ -22,8 +23,7 @@ end
 
 local mpd_widget_render
 local mpd_widget = two_sided_presets.mpd:new{
-	left_bg = beautiful.bg_normal,
-	icon = ""
+	left_bg = "#0aaeb3",
 }
 mpd_widget.right_inner.tick_hook = function(state)
 	mpd_widget_render.visible = state ~= "stopped"
@@ -209,88 +209,42 @@ awful.screen.connect_for_each_screen(function(s)
     s.bar = awful.wibar({
         position = "top",
         screen = s,
-		bg = beautiful.bg_normal
+		bg = "#00000000"
     })
-
-	local center_text = wibox.widget {
-		markup = "<b>Welcome</b>",
-		widget = wibox.widget.textbox
-	}
-
-	local set_center_text = function(c)
-		center_text.markup = "<b>" .. (c.name or c.class or "An unnamed window") .. "</b>"
-	end
-
-	client.connect_signal("focus", function(c) -- Add a signal to update the name
-		set_center_text(c)
-		c:connect_signal("property::name", set_center_text)
-	end)
-
-	client.connect_signal("unfocus", function(c) -- Disconnect the signal to update the name
-		c:disconnect_signal("property::name", set_center_text)
-	end)
 
     -- Add widgets to the wibox
     s.bar:setup {
-		{
+		{ -- Left widgets
 			{
-				markup = "",
-				widget = wibox.widget.textbox
-			},
-			center_text,
-			{
-				markup = "",
-				widget = wibox.widget.textbox
-			},
-			expand = "none",
-		    layout = wibox.layout.align.horizontal,
-		},
-    	{
-			{ -- Left widgets
-				{
-					s.taglist,
-					widget = wibox.container.background,
-					bg = beautiful.bg_normal,
-	    		},
+				s.taglist,
 				s.tasklist,
-	    		layout = wibox.layout.align.horizontal,
+				layout = wibox.layout.align.horizontal,
 			},
-			{ -- Center widgets
-			    layout = wibox.layout.align.horizontal,
-			},
-			{ -- Right widgets
+			bg = beautiful.bg_normal,
+			widget = wibox.container.background,
+		},
+		{ -- Center widgets
+			layout = wibox.layout.stack,
+		},
+		{ -- Right widgets
+			{
+				ternary(
+					hostname == "void-nils",
+					mpd_widget_render,
+					two_sided_presets.battery:new{ left_bg = "#0aaeb3" }:render()
+				),
+				two_sided_presets.clock:new{ left_bg = "#f75341" }:render(),
+				bar_util.textbox_seperator(),
 				{
-					ternary(
-						hostname == "void-nils",
-						mpd_widget_render,
-						two_sided_presets.battery:new{
-							left_bg = beautiful.bg_normal,
-							right_bg = beautiful.bg_normal
-						}:render()
-					),
-				    two_sided_presets.clock:new{
-						left_bg = beautiful.bg_normal,
-						right_bg = beautiful.bg_normal
-					}:render(),
-					{
-						markup = "|",
-						widget = wibox.widget.textbox
-					},
-					{
-						wibox.widget.systray(),
-						s.mylayoutbox,
-				    	layout = wibox.layout.fixed.horizontal
-					},
-					spacing = 3,
-				    layout = wibox.layout.fixed.horizontal,
+					wibox.widget.systray(),
+					s.mylayoutbox,
+					layout = wibox.layout.fixed.horizontal
 				},
-				widget = wibox.container.background,
-				fg = beautiful.fg_dark,
-				bg = beautiful.bg_normal
+				layout = wibox.layout.fixed.horizontal,
 			},
-    	    layout = wibox.layout.align.horizontal,
-			expand = "inside",
-    	},
-        layout = wibox.layout.stack,
+			bg = beautiful.bg_dark,
+			widget = wibox.container.background,
+		},
+		layout = wibox.layout.align.horizontal,
 	}
 end)

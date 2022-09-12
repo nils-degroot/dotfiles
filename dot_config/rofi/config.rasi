@@ -1,5 +1,5 @@
 configuration {
-	font: "JetBrainsMono Nerd Font 18px";
+	font: "Iosevka 18px";
 }
 
 @theme "~/.config/rofi/srcery.rasi"
