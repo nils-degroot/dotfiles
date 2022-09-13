@@ -2,7 +2,7 @@ local gears = require("gears")
 local awful = require("awful")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
-local bar_util= require("bar_util")
+local bar_util = require("bar_util")
 
 -- Custom widgets
 local two_sided_presets = require("sprimed.widgets.presets.two-sided")

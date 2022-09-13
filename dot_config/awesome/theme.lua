@@ -11,11 +11,13 @@ local themes_path = gfs.get_themes_dir()
 local config_path = os.getenv("HOME") .. "/.config/awesome/"
 local theme = {}
 
+theme.green = "#519f50"
+
 theme.font          = "Iosevka 8"
 
 theme.bg_dark       = "#1c1b19"
 theme.bg_normal     = "#222222"
-theme.bg_focus      = "#519F50"
+theme.bg_focus      = "#ff5f00"
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
@@ -27,7 +29,7 @@ theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
 theme.useless_gap   = dpi(5)
-theme.border_width  = dpi(3)
+theme.border_width  = dpi(2)
 
 theme.border_normal = theme.bg_normal
 theme.border_focus  = theme.bg_focus
@@ -47,10 +49,12 @@ theme.border_marked = "#91231c"
 --theme.taglist_bg_focus = "#ff0000"
 
 theme.titlebar_bg_normal = "#3c3836"
-theme.titlebar_bg_focus = theme.bg_focus
+theme.titlebar_bg_focus  = theme.green
 
-theme.taglist_bg_focus  = theme.bg_focus
+theme.taglist_bg_focus  = theme.green
 theme.taglist_bg_hover  = "#918175"
+
+theme.tasklist_bg_focus = theme.green
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
@@ -147,9 +151,10 @@ theme.awesome_icon = theme_assets.awesome_icon(
 theme.icon_theme = nil
 
 -- Bling config
-theme.tabbar_ontop = false
-
-theme.tabbar_bg_focus  = "#E02C6D"
-theme.tabbar_font  = "Iosevka 11"
+theme.tabbed_spawn_in_tab = true
+theme.tabbar_bg_focus     = theme.bg_focus
+theme.tabbar_font         = "Iosevka 8"
+theme.tabbar_position     = "bottom"
+theme.tabbar_style        = "boxes"
 
 return theme
