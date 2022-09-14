@@ -24,6 +24,7 @@ end
 local mpd_widget_render
 local mpd_widget = two_sided_presets.mpd:new{
 	left_bg = "#0aaeb3",
+	left_font = beautiful.icon_font,
 }
 mpd_widget.right_inner.tick_hook = function(state)
 	mpd_widget_render.visible = state ~= "stopped"
@@ -233,8 +234,8 @@ awful.screen.connect_for_each_screen(function(s)
 					mpd_widget_render,
 					two_sided_presets.battery:new{ left_bg = "#0aaeb3" }:render()
 				),
-				two_sided_presets.clock:new{ left_bg = "#f75341" }:render(),
-				bar_util.textbox_seperator(),
+				two_sided_presets.clock:new{ left_bg = "#f75341", left_font = beautiful.icon_font }:render(),
+				bar_util.seperator(),
 				{
 					wibox.widget.systray(),
 					s.mylayoutbox,

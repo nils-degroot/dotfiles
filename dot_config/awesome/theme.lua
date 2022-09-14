@@ -14,6 +14,7 @@ local theme = {}
 theme.green = "#519f50"
 
 theme.font          = "Iosevka 8"
+theme.icon_font     = "Symbols Nerd Font Mono 8"
 
 theme.bg_dark       = "#1c1b19"
 theme.bg_normal     = "#222222"
@@ -122,7 +123,6 @@ for line in wallpaper_file:lines() do
 end
 wallpaper_file:close()
 
-
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
 theme.layout_fairv = themes_path.."default/layouts/fairvw.png"
@@ -148,13 +148,12 @@ theme.awesome_icon = theme_assets.awesome_icon(
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = nil
+theme.icon_theme = "Papirus-Dark"
 
 -- Bling config
-theme.tabbed_spawn_in_tab = true
-theme.tabbar_bg_focus     = theme.bg_focus
-theme.tabbar_font         = "Iosevka 8"
-theme.tabbar_position     = "bottom"
-theme.tabbar_style        = "boxes"
+theme.tabbar_bg_focus = theme.bg_focus
+theme.tabbar_font     = "Iosevka 8"
+theme.tabbar_position = "bottom"
+theme.tabbar_style    = "boxes"
 
 return theme

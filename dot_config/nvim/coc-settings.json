@@ -21,7 +21,5 @@
 			"filetypes": ["kotlin"]
 		}
     },
-	"eslint.autoFixOnSave": true,
-	"prettier.printWidth": 120,
-	"coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "javascript", "typescript"]
+    "svelte.enable-ts-plugin": true
 }
