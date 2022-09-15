@@ -17,14 +17,15 @@ local modifiers = {
 	["super"] = "Mod4"
 }
 
-modkey = modifiers.super
-
 local hypr = {
 	modifiers.control,
 	modifiers.shift,
 	modifiers.alt,
 	modifiers.super
 }
+
+modkey = modifiers.super
+
 
 globalkeys = gears.table.join(
 	awful.key({ modkey, }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
@@ -41,9 +42,13 @@ globalkeys = gears.table.join(
 	    awful.client.focus.byidx(-1)
 	end, { description = "focus previous by index", group = "client" }),
 
-	awful.key({ modkey, }, "e", function()
+	awful.key({ modkey, }, "r", function()
 		awful.spawn("dmenu-pass")
 	end, { description = "Open password store", group = "launcher" }),
+
+	awful.key({ modkey, }, "e", function()
+		awful.spawn("alacritty -e ranger")
+	end, { description = "Open file explorer", group = "launcher" }),
 
 	-- Layout manipulation
 	awful.key({ modkey, modifiers.shift }, "j", function()
@@ -66,11 +71,12 @@ globalkeys = gears.table.join(
 
 	awful.key({ modkey, }, "Tab", function()
 	    awful.client.focus.history.previous()
+
 	    if client.focus then
 	        client.focus:raise()
 	    end
 	end, { description = "go back", group = "client" }),
-	
+
 	-- Standard program
 	awful.key({ modkey, }, "t", function()
 	    awful.spawn(terminal)
@@ -80,9 +86,7 @@ globalkeys = gears.table.join(
 
 	awful.key({ modkey, modifiers.shift, }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
 
-	awful.key({ modkey, }, "Escape", function()
-		logout_popup.launch()
-	end, { description = "Show logout popup", group = "awesome" }),
+	awful.key({ modkey, }, "Escape", logout_popup.launch, { description = "Show logout popup", group = "awesome" }),
 
 	awful.key({ modkey, }, "l", function()
 	    awful.tag.incmwfact(0.05)
@@ -156,33 +160,27 @@ globalkeys = gears.table.join(
 	end, { description = "xrandr-setup", group = "rofi" }),
 	-- {{- end }}
 
-	awful.key({ modkey }, "c", function()
-		bling.module.tabbed.pick_with_dmenu()
-	end, { description = "Pick client for tab", group = "bling" }),
+	awful.key({ modkey }, "c", bling.module.tabbed.pick_with_dmenu, { description = "Pick client for tab", group = "bling" }),
 
-	awful.key({ modkey }, "x", function()
-		bling.module.tabbed.pop()
-	end, { description = "Pop tabbed client", group = "bling" }),
+	awful.key({ modkey }, "x", bling.module.tabbed.pop, { description = "Pop tabbed client", group = "bling" }),
 
-	awful.key({ modkey }, "z", function()
-		bling.module.tabbed.iter()
-	end, { description = "Iterate through a tabbed group", group = "bling" }),
+	awful.key({ modkey }, "z", bling.module.tabbed.iter, { description = "Iterate through a tabbed group", group = "bling" }),
 
 	awful.key(hypr, "F1", function()
 		awful.spawn("qutebrowser")
-	end, { description = "Hotkey 1", group = "macropad" }),
+	end, { description = "Open Qutebrowser", group = "macropad" }),
 
 	awful.key(hypr, "F2", function()
-		awful.spawn("qutebrowser")
-	end, { description = "Hotkey 2", group = "macropad" }),
+		awful.spawn("firefox")
+	end, { description = "Open Firefox", group = "macropad" }),
 
 	awful.key(hypr, "F3", function()
-		awful.spawn("qutebrowser")
-	end, { description = "Hotkey 3", group = "macropad" }),
+		awful.spawn("thunderbird")
+	end, { description = "Open Thunderbird", group = "macropad" }),
 
 	awful.key(hypr, "F4", function()
-		awful.spawn("qutebrowser")
-	end, { description = "Hotkey 4", group = "macropad" }),
+		awful.spawn("alacritty -e ranger")
+	end, { description = "Open Ranger", group = "macropad" }),
 
 	awful.key(hypr, "F5", function()
 		awful.spawn("qutebrowser")

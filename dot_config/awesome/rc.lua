@@ -73,10 +73,11 @@ do
         end
         in_error = true
 
-        naughty.notify({ 
+        naughty.notify({
 			preset = naughty.config.presets.critical,
             title = "Oops, an error happened!",
-            text = tostring(err) })
+            text = tostring(err)
+		})
         in_error = false
     end)
 end
@@ -146,12 +147,12 @@ awful.rules.rules = {
         	    "Blueman-manager",
         	    "Gpick",
         	    "Kruler",
-        	    "MessageWin", -- kalarm.
         	    "Sxiv",
         	    "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
         	    "Wpa_gui",
         	    "veromix",
-        	    "xtightvncviewer"
+        	    "xtightvncviewer",
+				"Pavucontrol",
 			},
         	-- Note that the name property shown in xprop might be set slightly after creation of the client
         	-- and the name shown there might not match defined rules here.
@@ -168,9 +169,7 @@ awful.rules.rules = {
 	},
     -- Add titlebars to normal clients and dialogs
     {
-		rule_any = {
-			type = { "normal", "dialog" }
-		},
+		rule_any = { type = { "normal", "dialog" } },
 		properties = { titlebars_enabled = true }
     },
 }
@@ -201,9 +200,7 @@ client.connect_signal("request::titlebars", function(c)
     	end)
     )
 
-    awful.titlebar(c, {
-        size = 0
-    }):setup {
+    awful.titlebar(c, { size = 0 }):setup {
         layout = wibox.layout.align.horizontal
     }
 end)
