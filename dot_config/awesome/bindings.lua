@@ -166,6 +166,10 @@ globalkeys = gears.table.join(
 
 	awful.key({ modkey }, "z", bling.module.tabbed.iter, { description = "Iterate through a tabbed group", group = "bling" }),
 
+	awful.key({ modkey, modifiers.shift }, "z", function()
+		bling.module.tabbed.iter(-1)
+	end, { description = "Iterate through a tabbed group counter clock wise", group = "bling" }),
+
 	awful.key(hypr, "F1", function()
 		awful.spawn("qutebrowser")
 	end, { description = "Open Qutebrowser", group = "macropad" }),
