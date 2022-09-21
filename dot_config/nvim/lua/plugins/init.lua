@@ -22,30 +22,24 @@ return require("packer").startup(function ()
 	-- Menus
     use "airblade/vim-gitgutter"
 	use "vim-airline/vim-airline"
-	use {
-		"kyazdani42/nvim-tree.lua",
-		config = function ()
-			require("nvim-tree").setup {
-
-			}
-		end
-	}
+	use "kyazdani42/nvim-tree.lua"
     use "glepnir/dashboard-nvim"
     use "nvim-lua/plenary.nvim"
 	use "kyazdani42/nvim-web-devicons"
+	use "folke/which-key.nvim"
     use {
 		"nvim-telescope/telescope.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
 	}
 
 	-- Coc
+    use "tjdevries/coc-zsh"
+    use "rafcamlet/coc-nvim-lua"
     use {
 		"neoclide/coc.nvim",
 		branch = "master",
 		run = "yarn install --frozen-lockfile"
 	}
-    use "tjdevries/coc-zsh"
-    use "rafcamlet/coc-nvim-lua"
 
 	-- etc
 	use "tpope/vim-surround"

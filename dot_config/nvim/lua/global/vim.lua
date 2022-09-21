@@ -8,6 +8,7 @@ g.termguicolors = true
 go.mouse = "a"
 go.shiftwidth = 4
 go.tabstop = 4
+go.timeoutlen = 500
 
 wo.number = true
 wo.relativenumber = true

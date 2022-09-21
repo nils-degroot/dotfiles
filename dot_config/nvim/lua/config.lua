@@ -7,5 +7,6 @@ require("global")
 -- Setup keybindinds
 require("bindings")
 
--- Setup auto cmd hooks
+-- Setup auto CMD hooks
 require("auto")
+

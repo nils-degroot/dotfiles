@@ -61,7 +61,6 @@ nmap <Leader>pm <Action>(Maven.ExecuteGoal)
 nmap <Leader>pg <Action>(Gradle.ExecuteTask)
 nmap <Leader>pc <Action>(Cargo.RunCargoCommand)
 nmap <Leader>pp <Action>(RecentProjectListGroup)
-nmap <Leader>pn <Action>(OpenFile)
 nmap <Leader>pt :NERDTree<CR>
 
 " Code
@@ -70,6 +69,7 @@ nmap <Leader>cr <Action>(RenameElement)
 nmap <Leader>cac <Action>(IntroduceConstant)
 nmap <Leader>cf <Action>(CollapseRegion)
 nmap <Leader>ce <Action>(ExpandRegion)
+
 
 " File
 nmap <Leader>fj <Action>(NewClass)
