@@ -1,0 +1,85 @@
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+let mapleader = ' '
+
+" Enable plugins
+set NERDTree easymotion highlightedyank surround
+set which-key notimeout
+
+" Use relative numbers
+set number relativenumber
+
+" highlightedyank config
+let g:highlightedyank_highlight_duration = "1000"
+
+" WhichKey
+let g:WhichKeyDesc_code = "<Space>c code"
+let g:WhichKeyDesc_code_action = "<Space>ca action"
+let g:WhichKeyDesc_file = "<Space>f file"
+let g:WhichKeyDesc_goto = "<Space>g goto/git"
+let g:WhichKeyDesc_project = "<Space>p project"
+let g:WhichKeyDesc_show = "<Space>s show"
+let g:WhichKeyDesc_toggle = "<Space>t toggle"
+
+" Keybindings
+" Build/Run actions
+nmap <Leader>b <Action>(Build)
+nmap <Leader>r <Action>(Run)
+nmap <Leader>m <Action>(HideAllWindows)
+nmap <Leader>k <Action>(Stop)
+nmap <Leader>a <Action>(RunAnything)
+nmap <Leader>i <Action>(ChooseRunConfiguration)
+
+" Goto/Git
+nmap <Leader>gi <Action>(GotoImplementation)
+nmap <Leader>gt <Action>(GotoTest)
+nmap <Leader>gb <Action>(Git.Branches)
+nmap <Leader>gc <Action>(Git.CompareWithBranch)
+
+" Shows
+nmap <Leader>sd <Action>(QuickJavaDoc)
+nmap <Leader>sr <Action>(FindUsages)
+nmap <Leader>se <Action>(ShowErrorDescription)
+nmap <Leader>sm <Action>(MainMenu)
+
+" F keys
+nmap <F1> <Action>(ToggleDistractionFreeMode)
+nmap <F2> :source ~/.ideavimrc<CR>
+
+" Project
+nmap <Leader>pf <Action>(SearchEverywhere)
+nmap <Leader>pm <Action>(Maven.ExecuteGoal)
+nmap <Leader>pg <Action>(Gradle.ExecuteTask)
+nmap <Leader>pc <Action>(Cargo.RunCargoCommand)
+nmap <Leader>pp <Action>(RecentProjectListGroup)
+nmap <Leader>pn <Action>(OpenFile)
+nmap <Leader>pt :NERDTree<CR>
+
+" Code
+nmap <Leader>co <Action>(OptimizeImports)
+nmap <Leader>cr <Action>(RenameElement)
+nmap <Leader>cac <Action>(IntroduceConstant)
+nmap <Leader>cf <Action>(CollapseRegion)
+nmap <Leader>ce <Action>(ExpandRegion)
+
+" File
+nmap <Leader>fj <Action>(NewClass)
+nmap <Leader>fn <Action>(Kotlin.NewFile)
+nmap <Leader>fm <Action>(Move)
+nmap <Leader>fp :e ~/.ideavimrc<CR>
+
+" Other
+nmap <CR> <Action>(ShowIntentionActions)
+nmap <Leader>cd <Action>(ToggleLineBreakpoint)
+
+" Toggle
+nmap <Leader>tt :NERDTreeToggle<CR><CR>
