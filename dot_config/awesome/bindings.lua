@@ -138,7 +138,11 @@ globalkeys = gears.table.join(
 	end, { description = "show the menubar", group = "rofi" }),
 
 	awful.key({ modkey }, "a", function()
-		awful.spawn("dmenu-mpd")
+		if os.getenv("HOSTNAME") == "void-nils" then
+			awful.spawn("dmenu-mpd")
+		else
+			awful.spawn("audio-card-profile")
+		end
 	end, { description = "dmenu-mpd", group = "rofi" }),
 
 	awful.key({ modkey }, "b", function()
