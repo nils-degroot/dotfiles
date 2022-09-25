@@ -1,4 +1,4 @@
-local dashboard = require("dashboard")
+local db = require("dashboard")
 
 local dashboard_footers = {
 	{ " A wizard is never late, Frodo Baggins. Nor is he early; he arrives precisely when he means to." },
@@ -10,13 +10,13 @@ local dashboard_footers = {
 math.randomseed(os.time())
 local foot_rand = math.random(1, #dashboard_footers)
 
-dashboard.preview_command = "cat | lolcat"
+db.preview_command = "cat | lolcat"
 
-dashboard.preview_file_path = "~/.config/nvim/nvim-logo.cat"
-dashboard.preview_file_height = 10
-dashboard.preview_file_width = 80
+db.preview_file_path = "~/.config/nvim/nvim-logo.cat"
+db.preview_file_height = 10
+db.preview_file_width = 80
 
-dashboard.custom_center = {
+db.custom_center = {
 	{
 		icon = " ",
 		desc = "Find file         ",
@@ -31,4 +31,4 @@ dashboard.custom_center = {
 	},
 }
 
-dashboard.custom_footer = dashboard_footers[foot_rand]
+db.custom_footer = dashboard_footers[foot_rand]

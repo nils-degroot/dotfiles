@@ -2,6 +2,7 @@ local actions = require("telescope.actions")
 
 require("telescope").setup {
 	defaults = {
+		theme = "ivy",
 		mappings = {
 			i = {
 				["<esc>"] = actions.close

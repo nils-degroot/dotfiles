@@ -9,7 +9,3 @@ end
 
 -- Colorscheme
 autocmd("vimenter", "*", "++nested colorscheme srcery")
-
--- Coc format
-autocmd("BufWritePre", "*.rs", ":silent call CocAction('runCommand', 'editor.action.organizeImport')")
-autocmd("BufWritePre", "*.rs", ":silent call CocAction('runCommand', 'editor.action.formatDocument')")

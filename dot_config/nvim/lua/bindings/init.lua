@@ -1,10 +1,16 @@
 local util = require("bindings.util")
 
 local nnoremap = util.nnoremap
+local vnoremap = util.vnoremap
 local silent = util.silent
 
 nnoremap("<Leader>cc", ":noh<CR>", silent)
 nnoremap("<F1>", ":execute 'silent ! alacritty &'<CR>", silent)
+
+vnoremap("<", "<gv", silent)
+vnoremap(">", ">gv", silent)
+
+nnoremap("<CR>", ":Lspsaga code_action<CR>", silent)
 
 require("which-key").register({
 	p = {
@@ -20,7 +26,7 @@ require("which-key").register({
 	},
 	c = {
 		name = "code",
-		r = { "<Plug>(coc-rename)", "Rename element" }
+		r = { ":Lspsaga rename", "Rename element" }
 	},
 	f = {
 		name = "file",
@@ -35,7 +41,17 @@ require("which-key").register({
 	},
 	s = {
 		name = "show",
-		d = { "<CMD>call CocAction('definitionHover')<CR>", "Show definition" }
+		d = { "<CMD>Lspsaga peek_definition<CR>", "Show definition" },
+		s = { "<CMD>Lspsaga hover_doc<CR>", "Show doc" },
+	},
+	v = {
+		name = "vim",
+		p = {
+			name = "packer",
+			i = { "<CMD>PackerInstall<CR>", "Packer install" },
+			c = { "<CMD>PackerClean<CR>", "Packer clean" },
+			u = { "<CMD>PackerUpdate<CR>", "Packer update" },
+		}
 	}
 }, {
 	prefix = "<Leader>"

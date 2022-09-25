@@ -21,5 +21,6 @@
 			"filetypes": ["kotlin"]
 		}
     },
-    "svelte.enable-ts-plugin": true
+    "svelte.enable-ts-plugin": true,
+	"coc.preferences.formatOnSaveFiletypes": ["markdown", "css"]
 }

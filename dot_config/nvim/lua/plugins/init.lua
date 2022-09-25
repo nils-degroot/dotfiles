@@ -9,6 +9,8 @@ return require("packer").startup(function ()
     use "tbastos/vim-lua"
 	use "othree/html5.vim"
 	use "pangloss/vim-javascript"
+	use "udalov/kotlin-vim"
+	use "purescript-contrib/purescript-vim"
 	use {
 		"evanleck/vim-svelte",
 		branch = "main"
@@ -32,20 +34,31 @@ return require("packer").startup(function ()
 		requires = { "nvim-lua/plenary.nvim" },
 	}
 
-	-- Coc
-    use "tjdevries/coc-zsh"
-    use "rafcamlet/coc-nvim-lua"
-    use {
-		"neoclide/coc.nvim",
-		branch = "master",
-		run = "yarn install --frozen-lockfile"
+	-- Lsp
+	use "neovim/nvim-lspconfig"
+	use {
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		config = require("plugins.config-lspsaga")
 	}
+	use {
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-buffer",
+			"saadparwaiz1/cmp_luasnip",
+		}
+	}
+	use "L3MON4D3/LuaSnip"
 
 	-- etc
 	use "tpope/vim-surround"
 	use "easymotion/vim-easymotion"
 	use "mattn/emmet-vim"
 	use "srcery-colors/srcery-vim"
+	use "lewis6991/impatient.nvim"
+	use "editorconfig/editorconfig-vim"
 	use {
 		"lukas-reineke/indent-blankline.nvim",
 		config = require("plugins.config-indent-blankline")
