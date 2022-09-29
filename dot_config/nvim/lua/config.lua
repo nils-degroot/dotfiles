@@ -13,25 +13,25 @@ require("auto")
 -- Add additional capabilities supported by nvim-cmp
 local lspconfig = require("lspconfig")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 for _, lsp in ipairs({
 	"sumneko_lua",
 	"rust_analyzer",
 	"kotlin_language_server",
-	"purescriptls"
+	"purescriptls",
 }) do
-	lspconfig[lsp].setup {
+	lspconfig[lsp].setup({
 		capabilities = capabilities,
-	}
+	})
 end
 
 -- nvim-cmp setup
 local luasnip = require("luasnip")
 local cmp = require("cmp")
 
-cmp.setup {
+cmp.setup({
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -41,10 +41,10 @@ cmp.setup {
 		["<C-d>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
-		["<CR>"] = cmp.mapping.confirm {
+		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
-		},
+		}),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
@@ -66,6 +66,7 @@ cmp.setup {
 	}),
 	sources = {
 		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 	},
 	preselect = cmp.PreselectMode.Item,
@@ -73,4 +74,4 @@ cmp.setup {
 		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
 	},
-}
+})

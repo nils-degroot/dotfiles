@@ -1,4 +1,5 @@
 local db = require("dashboard")
+local util = require("util")
 
 local dashboard_footers = {
 	{ " A wizard is never late, Frodo Baggins. Nor is he early; he arrives precisely when he means to." },
@@ -19,13 +20,13 @@ db.preview_file_width = 80
 db.custom_center = {
 	{
 		icon = " ",
-		desc = "Find file         ",
+		desc = util.string_pad("Find file", 18),
 		action = "Telescope fd",
 		shortcut = "SPC p f"
 	},
 	{
 		icon = " ",
-		desc = "Edit vim config   ",
+		desc = util.string_pad("Edit vim config", 18),
 		action = ":e ~/.config/nvim/lua/config.lua",
 		shortcut = "SPC f p"
 	},

@@ -22,15 +22,15 @@ require("which-key").register({
 	t = {
 		name = "toggle",
 		t = { "<CMD>NvimTreeToggle<CR>", "Toggle tree" },
-		f = { "<CMD>Limelight!!<CR><CMD>Goyo<CR>", "Toggle focus mode" }
+		f = { "<CMD>Limelight!!<CR><CMD>Goyo<CR>", "Toggle focus mode" },
 	},
 	c = {
 		name = "code",
-		r = { ":Lspsaga rename", "Rename element" }
+		r = { ":Lspsaga rename", "Rename element" },
 	},
 	f = {
 		name = "file",
-		p = { "<CMD>e ~/.config/nvim/lua/config.lua<CR>", "Edit vim config"}
+		p = { "<CMD>e ~/.config/nvim/lua/config.lua<CR>", "Edit vim config" },
 	},
 	g = {
 		name = "goto/git",
@@ -51,8 +51,8 @@ require("which-key").register({
 			i = { "<CMD>PackerInstall<CR>", "Packer install" },
 			c = { "<CMD>PackerClean<CR>", "Packer clean" },
 			u = { "<CMD>PackerUpdate<CR>", "Packer update" },
-		}
-	}
+		},
+	},
 }, {
-	prefix = "<Leader>"
+	prefix = "<Leader>",
 })
