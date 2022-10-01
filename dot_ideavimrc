@@ -70,16 +70,15 @@ nmap <Leader>cac <Action>(IntroduceConstant)
 nmap <Leader>cf <Action>(CollapseRegion)
 nmap <Leader>ce <Action>(ExpandRegion)
 
-
 " File
 nmap <Leader>fj <Action>(NewClass)
 nmap <Leader>fn <Action>(Kotlin.NewFile)
 nmap <Leader>fm <Action>(Move)
 nmap <Leader>fp :e ~/.ideavimrc<CR>
 
+" Toggle
+nmap <Leader>tt :NERDTreeToggle<CR><CR>
+
 " Other
 nmap <CR> <Action>(ShowIntentionActions)
 nmap <Leader>cd <Action>(ToggleLineBreakpoint)
-
-" Toggle
-nmap <Leader>tt :NERDTreeToggle<CR><CR>

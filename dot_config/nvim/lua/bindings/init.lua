@@ -53,6 +53,21 @@ require("which-key").register({
 			u = { "<CMD>PackerUpdate<CR>", "Packer update" },
 		},
 	},
+	n = {
+		name = "notes",
+		f = { "<CMD>Telekasten find_notes<CR>", "Find notes" },
+		t = { "<CMD>Telekasten show_tags<CR>", "Show tags" },
+		n = { "<CMD>Telekasten new_note<CR>", "New note" },
+		g = {
+			name = "goto",
+			d = { "<CMD>Telekasten follow_link<CR>", "Follow link" },
+		},
+		i = {
+			name = "insert",
+			l = { "<CMD>Telekasten insert_link<CR>", "Insert link" },
+			m = { "<CMD>Telekasten insert_img_link<CR>", "Insert media" },
+		},
+	},
 }, {
 	prefix = "<Leader>",
 })

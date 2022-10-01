@@ -24,6 +24,13 @@ return require("packer").startup(function()
 	use("junegunn/limelight.vim")
 	use("junegunn/goyo.vim")
 	use("nils-degroot/citatie")
+	use("https://git.sr.ht/~renerocksai/telekasten.nvim")
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
 
 	-- Menus
 	use("airblade/vim-gitgutter")
@@ -35,7 +42,11 @@ return require("packer").startup(function()
 	use("folke/which-key.nvim")
 	use({
 		"nvim-telescope/telescope.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-lua/popup.nvim",
+			"nvim-telescope/telescope-media-files.nvim",
+		},
 	})
 
 	-- Lsp
@@ -68,7 +79,4 @@ return require("packer").startup(function()
 		"lukas-reineke/indent-blankline.nvim",
 		config = require("plugins.config-indent-blankline"),
 	})
-
-	-- Custom
-	use("~/Documents/code/lua/confirm.nvim")
 end)

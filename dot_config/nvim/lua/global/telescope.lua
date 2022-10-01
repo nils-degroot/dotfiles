@@ -1,17 +1,26 @@
 local actions = require("telescope.actions")
 
-require("telescope").setup {
+local telescope = require("telescope")
+
+telescope.load_extension("media_files")
+
+telescope.setup({
 	defaults = {
 		theme = "ivy",
 		mappings = {
 			i = {
-				["<esc>"] = actions.close
+				["<esc>"] = actions.close,
 			},
 		},
 	},
 	pickers = {
 		fd = {
-			find_command = { "fd", "--type", "f", "--strip-cwd-prefix" }
+			find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
 		},
-	}
-}
+	},
+	extensions = {
+		media_files = {
+			filetypes = { "png", "webp", "jpg", "jpeg" },
+		},
+	},
+})
