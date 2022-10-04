@@ -75,6 +75,7 @@ return require("packer").startup(function()
 	use("srcery-colors/srcery-vim")
 	use("lewis6991/impatient.nvim")
 	use("editorconfig/editorconfig-vim")
+	use("junegunn/vim-emoji")
 	use({
 		"lukas-reineke/indent-blankline.nvim",
 		config = require("plugins.config-indent-blankline"),

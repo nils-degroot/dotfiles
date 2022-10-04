@@ -1,5 +1,4 @@
 local actions = require("telescope.actions")
-
 local telescope = require("telescope")
 
 telescope.load_extension("media_files")

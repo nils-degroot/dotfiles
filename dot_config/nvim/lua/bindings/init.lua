@@ -26,7 +26,7 @@ require("which-key").register({
 	},
 	c = {
 		name = "code",
-		r = { ":Lspsaga rename", "Rename element" },
+		r = { "<CMD>Lspsaga rename<CR>", "Rename element" },
 	},
 	f = {
 		name = "file",
