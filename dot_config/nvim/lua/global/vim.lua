@@ -14,5 +14,6 @@ wo.number = true
 wo.relativenumber = true
 wo.linebreak = true
 
+vim.opt.termguicolors = true
 vim.opt.list = true
-vim.cmd [[set listchars=space:·,tab:>·]]
+vim.cmd([[set listchars=space:·,tab:>·]])

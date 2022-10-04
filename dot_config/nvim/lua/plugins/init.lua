@@ -11,6 +11,7 @@ return require("packer").startup(function()
 	use("pangloss/vim-javascript")
 	use("udalov/kotlin-vim")
 	use("purescript-contrib/purescript-vim")
+	use("digitaltoad/vim-pug")
 	use({
 		"evanleck/vim-svelte",
 		branch = "main",
@@ -34,7 +35,13 @@ return require("packer").startup(function()
 
 	-- Menus
 	use("airblade/vim-gitgutter")
-	use("vim-airline/vim-airline")
+	use({
+		"glepnir/galaxyline.nvim",
+		requires = {
+			"kyazdani42/nvim-web-devicons",
+		},
+		config = require("plugins.config-galaxyline"),
+	})
 	use("kyazdani42/nvim-tree.lua")
 	use("glepnir/dashboard-nvim")
 	use("nvim-lua/plenary.nvim")
@@ -71,6 +78,7 @@ return require("packer").startup(function()
 	-- etc
 	use("tpope/vim-surround")
 	use("easymotion/vim-easymotion")
+	use("savq/melange")
 	use("mattn/emmet-vim")
 	use("srcery-colors/srcery-vim")
 	use("lewis6991/impatient.nvim")

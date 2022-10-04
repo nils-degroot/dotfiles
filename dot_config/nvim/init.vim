@@ -11,3 +11,5 @@ augroup telekasten
 	autocmd FileType telekasten hi tkTag ctermfg=175 guifg=#d3869B
 	autocmd FileType telekasten hi link CalNavi CalRuler
 augroup END
+
+autocmd BufReadPost * hi StatusLine guibg=#00000000
