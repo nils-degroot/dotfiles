@@ -1,7 +1,7 @@
 local M = {}
 
 M.string_pad = function(input, size)
-	if string.len(input) >= size then
+	if input:len() >= size then
 		return input
 	end
 

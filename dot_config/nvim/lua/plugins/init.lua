@@ -24,6 +24,10 @@ return require("packer").startup(function()
 	-- Writing
 	use("junegunn/limelight.vim")
 	use("junegunn/goyo.vim")
+	use({
+		"folke/zen-mode.nvim",
+		config = require("plugins.config-zen"),
+	})
 	use("nils-degroot/citatie")
 	use("https://git.sr.ht/~renerocksai/telekasten.nvim")
 	use({

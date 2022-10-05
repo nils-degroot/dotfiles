@@ -17,18 +17,20 @@ db.preview_file_path = "~/.config/nvim/nvim-logo.cat"
 db.preview_file_height = 10
 db.preview_file_width = 80
 
+local pad = 24
+
 db.custom_center = {
 	{
 		icon = " ",
-		desc = util.string_pad("Find file", 18),
+		desc = util.string_pad("Find file", pad),
 		action = "Telescope fd",
-		shortcut = "SPC p f"
+		shortcut = "SPC p f",
 	},
 	{
 		icon = " ",
-		desc = util.string_pad("Edit vim config", 18),
+		desc = util.string_pad("Edit vim config", pad),
 		action = ":e ~/.config/nvim/lua/config.lua",
-		shortcut = "SPC f p"
+		shortcut = "SPC f p",
 	},
 }
 

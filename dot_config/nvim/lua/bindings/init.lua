@@ -22,7 +22,7 @@ require("which-key").register({
 	t = {
 		name = "toggle",
 		t = { "<CMD>NvimTreeToggle<CR>", "Toggle tree" },
-		f = { "<CMD>Limelight!!<CR><CMD>Goyo<CR>", "Toggle focus mode" },
+		f = { "<CMD>ZenMode<CR>", "Toggle focus mode" },
 	},
 	c = {
 		name = "code",
