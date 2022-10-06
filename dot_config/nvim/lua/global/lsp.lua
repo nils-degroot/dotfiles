@@ -1,4 +1,4 @@
--- Add additional capabilities supported by nvim-cmp
+-- Add additional capabilities supported by nvim-cmplsp
 local lspconfig = require("lspconfig")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
@@ -15,6 +15,11 @@ for _, lsp in ipairs({
 		capabilities = capabilities,
 	})
 end
+
+lspconfig.marksman.setup({
+	capabilities = capabilities,
+	filetypes = { "markdown", "telekasten" },
+})
 
 -- nvim-cmp setup
 local luasnip = require("luasnip")

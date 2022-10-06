@@ -23,7 +23,10 @@ return require("packer").startup(function()
 
 	-- Writing
 	use("junegunn/limelight.vim")
-	use("junegunn/goyo.vim")
+	use({
+		"folke/twilight.nvim",
+		config = require("plugins.config-twilight"),
+	})
 	use({
 		"folke/zen-mode.nvim",
 		config = require("plugins.config-zen"),
@@ -38,7 +41,7 @@ return require("packer").startup(function()
 	})
 
 	-- Menus
-	use("airblade/vim-gitgutter")
+	use({ "lewis6991/gitsigns.nvim", config = require("plugins.config-gitsigns") })
 	use({
 		"glepnir/galaxyline.nvim",
 		requires = {
@@ -81,13 +84,13 @@ return require("packer").startup(function()
 
 	-- etc
 	use("tpope/vim-surround")
-	use("easymotion/vim-easymotion")
 	use("savq/melange")
 	use("mattn/emmet-vim")
 	use("srcery-colors/srcery-vim")
 	use("lewis6991/impatient.nvim")
 	use("editorconfig/editorconfig-vim")
 	use("junegunn/vim-emoji")
+	use({ "phaazon/hop.nvim", config = require("plugins.config-hop") })
 	use({
 		"lukas-reineke/indent-blankline.nvim",
 		config = require("plugins.config-indent-blankline"),

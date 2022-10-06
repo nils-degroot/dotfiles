@@ -68,6 +68,41 @@ require("which-key").register({
 			m = { "<CMD>Telekasten insert_img_link<CR>", "Insert media" },
 		},
 	},
+	["<Leader>"] = {
+		name = "hop",
+		w = {
+			"<CMD>lua require('util-hop').word_forward()<CR>",
+			"Hop word forward",
+		},
+		b = {
+			"<CMD>lua require('util-hop').word_backward()<CR>",
+			"Hop word backward",
+		},
+		j = {
+			"<CMD>lua require('util-hop').line_forward()<CR>",
+			"Hop line forward",
+		},
+		J = {
+			"<CMD>lua require('util-hop').line_forward_start()<CR>",
+			"Hop line forward start",
+		},
+		k = {
+			"<CMD>lua require('util-hop').line_backward()<CR>",
+			"Hop line backward",
+		},
+		K = {
+			"<CMD>lua require('util-hop').line_backward_start()<CR>",
+			"Hop line backward start",
+		},
+		F = {
+			"<CMD>lua require('util-hop').find_backward()<CR>",
+			"Hop line backward start",
+		},
+		f = {
+			"<CMD>lua require('util-hop').find_forward()<CR>",
+			"Hop line backward start",
+		},
+	},
 }, {
 	prefix = "<Leader>",
 })
