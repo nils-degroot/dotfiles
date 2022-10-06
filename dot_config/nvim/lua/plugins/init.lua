@@ -43,11 +43,11 @@ return require("packer").startup(function()
 	-- Menus
 	use({ "lewis6991/gitsigns.nvim", config = require("plugins.config-gitsigns") })
 	use({
-		"glepnir/galaxyline.nvim",
+		"feline-nvim/feline.nvim",
 		requires = {
 			"kyazdani42/nvim-web-devicons",
 		},
-		config = require("plugins.config-galaxyline"),
+		config = require("plugins.config-feline"),
 	})
 	use("kyazdani42/nvim-tree.lua")
 	use("glepnir/dashboard-nvim")
