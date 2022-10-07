@@ -63,19 +63,9 @@ return function()
 							fg = "yellow",
 							style = "bold",
 						},
-						left_sep = "block",
-						right_sep = "block",
 					},
 				},
 				{
-					{
-						provider = "git_branch",
-						hl = {
-							style = "bold",
-						},
-						left_sep = "block",
-						right_sep = "block",
-					},
 					{
 						provider = "git_diff_added",
 						hl = {
@@ -95,17 +85,22 @@ return function()
 						},
 					},
 					{
+						provider = "git_branch",
+						hl = {
+							style = "bold",
+						},
+						left_sep = " ",
+					},
+					{
 						provider = "position",
-						left_sep = "block",
-						right_sep = "block",
+						left_sep = " ",
 					},
 					{
 						provider = "line_percentage",
 						hl = {
 							style = "bold",
 						},
-						left_sep = "block",
-						right_sep = "block",
+						left_sep = " ",
 					},
 					{
 						provider = "▊",

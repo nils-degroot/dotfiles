@@ -1,6 +1,8 @@
 return function()
-	local saga = require("lspsaga")
-	local diagnostic = require("lspsaga.diagnostic")
-
-	saga.init_lsp_saga({})
+	require("lspsaga").init_lsp_saga({
+		border_style = "rounded",
+		symbol_in_winbar = {
+			enable = false,
+		},
+	})
 end

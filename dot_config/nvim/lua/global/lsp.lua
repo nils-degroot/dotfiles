@@ -62,6 +62,9 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
+		{ name = "buffer" },
+		{ name = "path" },
+		{ name = "crates" },
 	},
 	preselect = cmp.PreselectMode.Item,
 	window = {

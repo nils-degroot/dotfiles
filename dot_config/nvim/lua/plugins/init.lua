@@ -81,6 +81,12 @@ return require("packer").startup(function()
 		},
 	})
 	use("L3MON4D3/LuaSnip")
+	use({
+		"Saecki/crates.nvim",
+		config = function()
+			require("crates").setup()
+		end,
+	})
 
 	-- etc
 	use("tpope/vim-surround")
