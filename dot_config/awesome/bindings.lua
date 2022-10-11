@@ -37,20 +37,28 @@ local hostname = get_hostname()
 modkey = modifiers.super
 
 globalkeys = gears.table.join(
-	awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
+	-- Media
+	awful.key({}, "XF86AudioPlay", function()
+		awful.spawn("playerctl play-pause")
+	end, { description = "Toggle music", group = "media" }),
 
-	awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
+	awful.key({}, "XF86AudioNext", function()
+		awful.spawn("playerctl next")
+	end, { description = "Next song", group = "media" }),
 
-	awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
+	awful.key({}, "XF86AudioPrev", function()
+		awful.spawn("playerctl previous")
+	end, { description = "Previous song", group = "media" }),
 
-	awful.key({ modkey }, "j", function()
-		awful.client.focus.byidx(1)
-	end, { description = "focus next by index", group = "client" }),
+	awful.key({}, "XF86AudioLowerVolume", function()
+		awful.spawn("amixer -q -D pulse sset Master 5%-")
+	end, { description = "Lower volume", group = "media" }),
 
-	awful.key({ modkey }, "k", function()
-		awful.client.focus.byidx(-1)
-	end, { description = "focus previous by index", group = "client" }),
+	awful.key({}, "XF86AudioRaiseVolume", function()
+		awful.spawn("amixer -q -D pulse sset Master 5%+")
+	end, { description = "Raise volume", group = "media" }),
 
+	-- Launcher
 	awful.key({ modkey }, "r", function()
 		awful.spawn("dmenu-pass")
 	end, { description = "Open password store", group = "launcher" }),
@@ -59,7 +67,68 @@ globalkeys = gears.table.join(
 		awful.spawn("alacritty -e ranger")
 	end, { description = "Open file explorer", group = "launcher" }),
 
-	-- Layout manipulation
+	awful.key({ modkey }, "t", function()
+		awful.spawn(terminal)
+	end, { description = "open a terminal", group = "launcher" }),
+
+	awful.key({ modkey }, "p", function()
+		awful.spawn("rofi -show drun -icon-theme Papirus-Dark -show-icons")
+	end, { description = "show the menubar", group = "launcher" }),
+
+	awful.key({ modkey, modifiers.shift }, "p", function()
+		awful.spawn("rofi -show run")
+	end, { description = "show the menubar", group = "launcher" }),
+
+	awful.key({ modkey }, "a", function()
+		if hostname == "void-nils" then
+			awful.spawn("dmenu-mpd")
+		else
+			awful.spawn("audio-card-profile")
+		end
+	end, { description = "dmenu-mpd", group = "launcher" }),
+
+	awful.key({ modkey }, "v", function()
+		awful.spawn("dmenu-vpn")
+	end, { description = "dmenu-vpn", group = "launcher" }),
+
+	awful.key({ modkey }, "w", function()
+		awful.spawn("rofi -show window")
+	end, { description = "Rofi select windcow", group = "launcher" }),
+
+	-- {{- if eq .chezmoi.hostname "nils-work" }}
+	awful.key({ modkey }, "d", function()
+		awful.spawn("xrandr-setup")
+	end, { description = "xrandr-setup", group = "launcher" }),
+	-- {{- end }}
+
+	-- Awesome
+	awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
+
+	awful.key(
+		{ modkey, modifiers.control },
+		"r",
+		awesome.restart,
+		{ description = "reload awesome", group = "awesome" }
+	),
+
+	awful.key({ modkey, modifiers.shift }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
+
+	awful.key({ modkey }, "Escape", logout_popup.launch, { description = "Show logout popup", group = "awesome" }),
+
+	-- Tag
+	awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
+
+	awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
+
+	-- Client
+	awful.key({ modkey }, "j", function()
+		awful.client.focus.byidx(1)
+	end, { description = "focus next by index", group = "client" }),
+
+	awful.key({ modkey }, "k", function()
+		awful.client.focus.byidx(-1)
+	end, { description = "focus previous by index", group = "client" }),
+
 	awful.key({ modkey, modifiers.shift }, "j", function()
 		awful.client.swap.byidx(1)
 	end, { description = "swap with next client by index", group = "client" }),
@@ -86,22 +155,15 @@ globalkeys = gears.table.join(
 		end
 	end, { description = "go back", group = "client" }),
 
-	-- Standard program
-	awful.key({ modkey }, "t", function()
-		awful.spawn(terminal)
-	end, { description = "open a terminal", group = "launcher" }),
+	awful.key({ modkey, modifiers.control }, "n", function()
+		local c = awful.client.restore()
 
-	awful.key(
-		{ modkey, modifiers.control },
-		"r",
-		awesome.restart,
-		{ description = "reload awesome", group = "awesome" }
-	),
+		if c then
+			c:emit_signal("request::activate", "key.unminimize", { raise = true })
+		end
+	end, { description = "restore minimized", group = "client" }),
 
-	awful.key({ modkey, modifiers.shift }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
-
-	awful.key({ modkey }, "Escape", logout_popup.launch, { description = "Show logout popup", group = "awesome" }),
-
+	-- Layout
 	awful.key({ modkey }, "l", function()
 		awful.tag.incmwfact(0.05)
 	end, { description = "increase master width factor", group = "layout" }),
@@ -134,70 +196,7 @@ globalkeys = gears.table.join(
 		awful.layout.inc(-1)
 	end, { description = "select previous", group = "layout" }),
 
-	awful.key({ modkey, modifiers.control }, "n", function()
-		local c = awful.client.restore()
-
-		if c then
-			c:emit_signal("request::activate", "key.unminimize", { raise = true })
-		end
-	end, { description = "restore minimized", group = "client" }),
-
-	-- Menubar
-	awful.key({ modkey }, "p", function()
-		awful.spawn("rofi -show drun -icon-theme Papirus-Dark -show-icons")
-	end, { description = "show the menubar", group = "rofi" }),
-
-	awful.key({ modkey, modifiers.shift }, "p", function()
-		awful.spawn("rofi -show run")
-	end, { description = "show the menubar", group = "rofi" }),
-
-	awful.key({ modkey }, "a", function()
-		if hostname == "void-nils" then
-			awful.spawn("dmenu-mpd")
-		else
-			awful.spawn("audio-card-profile")
-		end
-	end, { description = "dmenu-mpd", group = "rofi" }),
-
-	awful.key({ modkey }, "b", function()
-		local screen = awful.screen.focused()
-		screen.bar.visible = not screen.bar.visible
-	end, { description = "Toggle the topbar", group = "screen" }),
-
-	awful.key({ modkey }, "v", function()
-		awful.spawn("dmenu-vpn")
-	end, { description = "dmenu-vpn", group = "rofi" }),
-
-	awful.key({ modkey }, "w", function()
-		awful.spawn("rofi -show window")
-	end, { description = "Rofi select windcow", group = "rofi" }),
-
-	-- {{- if eq .chezmoi.hostname "nils-work" }}
-	awful.key({ modkey }, "d", function()
-		awful.spawn("xrandr-setup")
-	end, { description = "xrandr-setup", group = "rofi" }),
-	-- {{- end }}
-
-	awful.key(
-		{ modkey },
-		"c",
-		bling.module.tabbed.pick_with_dmenu,
-		{ description = "Pick client for tab", group = "bling" }
-	),
-
-	awful.key({ modkey }, "x", bling.module.tabbed.pop, { description = "Pop tabbed client", group = "bling" }),
-
-	awful.key(
-		{ modkey },
-		"z",
-		bling.module.tabbed.iter,
-		{ description = "Iterate through a tabbed group", group = "bling" }
-	),
-
-	awful.key({ modkey, modifiers.shift }, "z", function()
-		bling.module.tabbed.iter(-1)
-	end, { description = "Iterate through a tabbed group counter clock wise", group = "bling" }),
-
+	-- Macropad
 	awful.key(hypr, "F1", function()
 		awful.spawn("qutebrowser")
 	end, { description = "Open Qutebrowser", group = "macropad" }),
@@ -244,7 +243,33 @@ globalkeys = gears.table.join(
 
 	awful.key(hypr, "F12", function()
 		awful.spawn("qutebrowser")
-	end, { description = "Hotkey 12", group = "macropad" })
+	end, { description = "Hotkey 12", group = "macropad" }),
+
+	-- Other
+	awful.key({ modkey }, "b", function()
+		local screen = awful.screen.focused()
+		screen.bar.visible = not screen.bar.visible
+	end, { description = "Toggle the topbar", group = "screen" }),
+
+	awful.key(
+		{ modkey },
+		"c",
+		bling.module.tabbed.pick_with_dmenu,
+		{ description = "Pick client for tab", group = "bling" }
+	),
+
+	awful.key({ modkey }, "x", bling.module.tabbed.pop, { description = "Pop tabbed client", group = "bling" }),
+
+	awful.key(
+		{ modkey },
+		"z",
+		bling.module.tabbed.iter,
+		{ description = "Iterate through a tabbed group", group = "bling" }
+	),
+
+	awful.key({ modkey, modifiers.shift }, "z", function()
+		bling.module.tabbed.iter(-1)
+	end, { description = "Iterate through a tabbed group counter clock wise", group = "bling" })
 )
 
 clientkeys = gears.table.join(
