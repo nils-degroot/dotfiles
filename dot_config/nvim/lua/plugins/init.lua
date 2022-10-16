@@ -34,7 +34,7 @@ return require("packer").startup(function()
 		requires = { "kyazdani42/nvim-web-devicons" },
 		config = require("plugins.config-feline"),
 	})
-	use("kyazdani42/nvim-tree.lua")
+	use({ "kyazdani42/nvim-tree.lua", config = require("plugins.config-tree") })
 	use("glepnir/dashboard-nvim")
 	use("folke/which-key.nvim")
 	use({

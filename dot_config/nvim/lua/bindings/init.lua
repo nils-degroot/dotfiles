@@ -27,11 +27,13 @@ require("which-key").register({
 		f = { "<CMD>Telescope fd<CR>", "Find file" },
 		b = { "<CMD>Telescope buffers<CR>", "View open buffers" },
 		a = { "<CMD>NvimTreeRefresh<CR>", "Refresh tree" },
+		t = { "<CMD>NvimTreeFocus<CR>", "Focus tree" },
 	},
 	t = {
 		name = "toggle",
 		t = { "<CMD>NvimTreeToggle<CR>", "Toggle tree" },
 		f = { "<CMD>ZenMode<CR>", "Toggle focus mode" },
+		p = { "<CMD>MarkdownPreview<CR>", "Markdown preview" },
 	},
 	c = {
 		name = "code",
