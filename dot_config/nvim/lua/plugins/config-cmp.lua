@@ -1,12 +1,18 @@
 return function()
-	local luasnip = require("luasnip")
 	local cmp = require("cmp")
+	local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
+	local lspkind = require("lspkind")
 
 	cmp.setup({
 		snippet = {
 			expand = function(args)
-				luasnip.lsp_expand(args.body)
+				vim.fn["UltiSnips#Anon"](args.body)
 			end,
+		},
+		formatting = {
+			format = lspkind.cmp_format({
+				mode = "symbol_text",
+			}),
 		},
 		mapping = cmp.mapping.preset.insert({
 			["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -17,32 +23,20 @@ return function()
 				select = true,
 			}),
 			["<Tab>"] = cmp.mapping(function(fallback)
-				if cmp.visible() then
-					cmp.select_next_item()
-				elseif luasnip.expand_or_jumpable() then
-					luasnip.expand_or_jump()
-				else
-					fallback()
-				end
+				cmp_ultisnips_mappings.compose({ "jump_forwards", "select_next_item" })(fallback)
 			end, { "i", "s" }),
 			["<S-Tab>"] = cmp.mapping(function(fallback)
-				if cmp.visible() then
-					cmp.select_prev_item()
-				elseif luasnip.jumpable(-1) then
-					luasnip.jump(-1)
-				else
-					fallback()
-				end
+				cmp_ultisnips_mappings.compose({ "jump_backwards", "select_prev_item" })(fallback)
 			end, { "i", "s" }),
 		}),
 		sources = {
+			{ name = "ultisnips" },
 			{ name = "nvim_lsp" },
 			{ name = "nvim_lua" },
-			{ name = "luasnip" },
+			{ name = "nvim_lsp_signature_help" },
 			{ name = "buffer" },
 			{ name = "path" },
 			{ name = "crates" },
-			{ name = "nvim_lsp_signature_help" },
 			{ name = "templates" },
 		},
 		preselect = cmp.PreselectMode.Item,

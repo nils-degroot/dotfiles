@@ -6,6 +6,7 @@ return require("packer").startup(function()
 
 	-- Syntax
 	use("rust-lang/rust.vim")
+	use("simrat39/rust-tools.nvim")
 	use("tbastos/vim-lua")
 	use("othree/html5.vim")
 	use("pangloss/vim-javascript")
@@ -48,10 +49,17 @@ return require("packer").startup(function()
 
 	-- Lsp
 	use("neovim/nvim-lspconfig")
+	use({ "quangnguyen30192/cmp-nvim-ultisnips", config = require("plugins.config-ultisnips") })
 	use({
-		"glepnir/lspsaga.nvim",
-		branch = "main",
-		config = require("plugins.config-lspsaga"),
+		"SirVer/ultisnips",
+		requires = { { "honza/vim-snippets", rtp = "." } },
+		config = function()
+			vim.g.UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
+			vim.g.UltiSnipsJumpForwardTrigger = "<Plug>(ultisnips_jump_forward)"
+			vim.g.UltiSnipsJumpBackwardTrigger = "<Plug>(ultisnips_jump_backward)"
+			vim.g.UltiSnipsListSnippets = "<c-x><c-s>"
+			vim.g.UltiSnipsRemoveSelectModeMappings = 0
+		end,
 	})
 	use({
 		"hrsh7th/nvim-cmp",
@@ -65,8 +73,13 @@ return require("packer").startup(function()
 		},
 		config = require("plugins.config-cmp"),
 	})
-	use("L3MON4D3/LuaSnip")
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		config = require("plugins.config-lspsaga"),
+	})
 	use({ "Saecki/crates.nvim", config = require("plugins.config-crates") })
+	use("onsails/lspkind.nvim")
 
 	-- etc
 	use("tpope/vim-surround")
@@ -75,5 +88,5 @@ return require("packer").startup(function()
 	use("lewis6991/impatient.nvim")
 	use({ "phaazon/hop.nvim", config = require("plugins.config-hop") })
 	use({ "lukas-reineke/indent-blankline.nvim", config = require("plugins.config-indent-blankline") })
-	use("~/Documents/code/lua/cmp-templates.nvim")
+	use("mg979/vim-visual-multi")
 end)

@@ -46,7 +46,7 @@ require("which-key").register({
 	g = {
 		name = "goto/git",
 		b = { "<CMD>Telescope git_branches<CR>", "View branches for project" },
-		d = { "<CMD>call CocAction('jumpDefinition')<CR>", "Goto definition" },
+		d = { "<CMD>lua vim.lsp.buf.definition()<CR>", "Goto definition" },
 		i = { "<CMD>call CocAction('jumpImplementation')<CR>", "Goto implementation" },
 		r = { "<CMD>call CocAction('jumpReferences')<CR>", "Find references" },
 	},

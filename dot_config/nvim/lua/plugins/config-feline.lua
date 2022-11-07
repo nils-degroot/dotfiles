@@ -39,6 +39,18 @@ return function()
 						right_sep = " ",
 					},
 					{
+						provider = "vi_mode",
+						hl = function()
+							return {
+								name = require("feline.providers.vi_mode").get_mode_highlight_name(),
+								fg = require("feline.providers.vi_mode").get_mode_color(),
+								style = "bold",
+							}
+						end,
+						icon = "",
+						right_sep = " ",
+					},
+					{
 						provider = "file_size",
 						right_sep = " ",
 					},
