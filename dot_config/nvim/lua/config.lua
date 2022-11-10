@@ -9,11 +9,3 @@ require("bindings")
 
 -- Setup auto CMD hooks
 require("auto")
-
-require("rust-tools").setup({
-	tools = {
-		inlay_hints = {
-			auto = true,
-		},
-	},
-})

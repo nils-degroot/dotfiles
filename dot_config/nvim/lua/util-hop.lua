@@ -18,43 +18,36 @@ end
 
 M.word_forward = function()
 	hop_prehook()
-	vim.cmd("noh")
 	hop.hint_words(ac)
 end
 
 M.line_backward_start = function()
 	hop_prehook()
-	vim.cmd("noh")
 	hop.hint_lines(bc)
 end
 
 M.line_forwards_start = function()
 	hop_prehook()
-	vim.cmd("noh")
 	hop.hint_lines(ac)
 end
 
 M.line_backward = function()
 	hop_prehook()
-	vim.cmd("noh")
 	hop.hint_lines_skip_whitespace(bc)
 end
 
 M.line_forward = function()
 	hop_prehook()
-	vim.cmd("noh")
 	hop.hint_lines_skip_whitespace(ac)
 end
 
 M.find_backward = function()
 	hop_prehook()
-	vim.cmd("noh")
 	hop.hint_char1(bc)
 end
 
 M.find_forward = function()
 	hop_prehook()
-	vim.cmd("noh")
 	hop.hint_char1(ac)
 end
 

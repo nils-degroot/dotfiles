@@ -6,12 +6,11 @@ return require("packer").startup(function()
 
 	-- Syntax
 	use("rust-lang/rust.vim")
-	use("simrat39/rust-tools.nvim")
+	use({ "simrat39/rust-tools.nvim", config = require("plugins.config-rust-tools") })
 	use("tbastos/vim-lua")
 	use("othree/html5.vim")
 	use("pangloss/vim-javascript")
 	use("udalov/kotlin-vim")
-	use("purescript-contrib/purescript-vim")
 	use("digitaltoad/vim-pug")
 	use({ "evanleck/vim-svelte", branch = "main" })
 	use({ "wesleimp/stylua.nvim", requires = { "nvim-lua/plenary.nvim" } })
@@ -20,7 +19,7 @@ return require("packer").startup(function()
 	use({ "folke/twilight.nvim", config = require("plugins.config-twilight") })
 	use({ "folke/zen-mode.nvim", config = require("plugins.config-zen") })
 	use("nils-degroot/citatie")
-	use("https://git.sr.ht/~renerocksai/telekasten.nvim")
+	use({ "https://git.sr.ht/~renerocksai/telekasten.nvim", config = require("plugins.config-telekasten") })
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function()
@@ -36,7 +35,7 @@ return require("packer").startup(function()
 		config = require("plugins.config-feline"),
 	})
 	use({ "kyazdani42/nvim-tree.lua", config = require("plugins.config-tree") })
-	use("glepnir/dashboard-nvim")
+	use({ "glepnir/dashboard-nvim", config = require("plugins.config-dashboard") })
 	use("folke/which-key.nvim")
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -45,6 +44,7 @@ return require("packer").startup(function()
 			"nvim-lua/popup.nvim",
 			"nvim-telescope/telescope-media-files.nvim",
 		},
+		config = require("plugins.config-telescope"),
 	})
 
 	-- Lsp
@@ -78,7 +78,13 @@ return require("packer").startup(function()
 		branch = "main",
 		config = require("plugins.config-lspsaga"),
 	})
-	use({ "Saecki/crates.nvim", config = require("plugins.config-crates") })
+	use({
+		"Saecki/crates.nvim",
+		config = require("plugins.config-crates"),
+		requires = {
+			"jose-elias-alvarez/null-ls.nvim",
+		},
+	})
 	use("onsails/lspkind.nvim")
 
 	-- etc

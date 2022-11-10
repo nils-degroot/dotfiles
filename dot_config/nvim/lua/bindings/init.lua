@@ -4,7 +4,6 @@ local nnoremap = util.nnoremap
 local vnoremap = util.vnoremap
 local silent = util.silent
 
-nnoremap("<Leader>cc", ":noh<CR>", silent)
 nnoremap("<F1>", ":execute 'silent ! alacritty &'<CR>", silent)
 
 vnoremap("<", "<gv", silent)
@@ -38,6 +37,7 @@ require("which-key").register({
 	c = {
 		name = "code",
 		r = { "<CMD>Lspsaga rename<CR>", "Rename element" },
+		c = { "<CMD>noh<CR>", "Clear selection" },
 	},
 	f = {
 		name = "file",
