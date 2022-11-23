@@ -69,9 +69,11 @@ require("which-key").register({
 		f = { "<CMD>Telekasten find_notes<CR>", "Find notes" },
 		t = { "<CMD>Telekasten show_tags<CR>", "Show tags" },
 		n = { "<CMD>Telekasten new_note<CR>", "New note" },
+		m = { "<CMD>Telekasten<CR>", "Menu" },
 		g = {
 			name = "goto",
 			d = { "<CMD>Telekasten follow_link<CR>", "Follow link" },
+			t = { "<CMD>Telekasten goto_today<CR>", "Today" },
 		},
 		i = {
 			name = "insert",

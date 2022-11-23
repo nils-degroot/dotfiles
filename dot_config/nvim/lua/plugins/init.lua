@@ -12,6 +12,7 @@ return require("packer").startup(function()
 	use("pangloss/vim-javascript")
 	use("udalov/kotlin-vim")
 	use("digitaltoad/vim-pug")
+	use("purescript-contrib/purescript-vim")
 	use({ "evanleck/vim-svelte", branch = "main" })
 	use({ "wesleimp/stylua.nvim", requires = { "nvim-lua/plenary.nvim" } })
 
