@@ -9,6 +9,7 @@ for _, lsp in ipairs({
 	"kotlin_language_server",
 	"purescriptls",
 	"tsserver",
+	"denols",
 }) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,

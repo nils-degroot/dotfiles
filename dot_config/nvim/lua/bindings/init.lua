@@ -9,14 +9,14 @@ nnoremap("<F1>", ":execute 'silent ! alacritty &'<CR>", silent)
 vnoremap("<", "<gv", silent)
 vnoremap(">", ">gv", silent)
 
-vnoremap("<Leader><Leader>w", "<CMD>lua require('util-hop').word_forward()<CR>", silent)
-vnoremap("<Leader><Leader>b", "<CMD>lua require('util-hop').word_backward()<CR>", silent)
-vnoremap("<Leader><Leader>j", "<CMD>lua require('util-hop').line_forward()<CR>", silent)
-vnoremap("<Leader><Leader>J", "<CMD>lua require('util-hop').line_forward_start()<CR>", silent)
-vnoremap("<Leader><Leader>k", "<CMD>lua require('util-hop').line_backward()<CR>", silent)
-vnoremap("<Leader><Leader>K", "<CMD>lua require('util-hop').line_backward_start()<CR>", silent)
-vnoremap("<Leader><Leader>f", "<CMD>lua require('util-hop').find_forward()<CR>", silent)
-vnoremap("<Leader><Leader>F", "<CMD>lua require('util-hop').find_backward()<CR>", silent)
+-- vnoremap("<Leader><Leader>w", "<CMD>lua require('util-hop').word_forward()<CR>", silent)
+-- vnoremap("<Leader><Leader>b", "<CMD>lua require('util-hop').word_backward()<CR>", silent)
+-- vnoremap("<Leader><Leader>j", "<CMD>lua require('util-hop').line_forward()<CR>", silent)
+-- vnoremap("<Leader><Leader>J", "<CMD>lua require('util-hop').line_forward_start()<CR>", silent)
+-- vnoremap("<Leader><Leader>k", "<CMD>lua require('util-hop').line_backward()<CR>", silent)
+-- vnoremap("<Leader><Leader>K", "<CMD>lua require('util-hop').line_backward_start()<CR>", silent)
+-- vnoremap("<Leader><Leader>f", "<CMD>lua require('util-hop').find_forward()<CR>", silent)
+-- vnoremap("<Leader><Leader>F", "<CMD>lua require('util-hop').find_backward()<CR>", silent)
 
 nnoremap("<CR>", ":Lspsaga code_action<CR>", silent)
 
@@ -81,41 +81,41 @@ require("which-key").register({
 			m = { "<CMD>Telekasten insert_img_link<CR>", "Insert media" },
 		},
 	},
-	["<Leader>"] = {
-		name = "hop",
-		w = {
-			"<CMD>lua require('util-hop').word_forward()<CR>",
-			"Hop word forward",
-		},
-		b = {
-			"<CMD>lua require('util-hop').word_backward()<CR>",
-			"Hop word backward",
-		},
-		j = {
-			"<CMD>lua require('util-hop').line_forward()<CR>",
-			"Hop line forward",
-		},
-		J = {
-			"<CMD>lua require('util-hop').line_forward_start()<CR>",
-			"Hop line forward start",
-		},
-		k = {
-			"<CMD>lua require('util-hop').line_backward()<CR>",
-			"Hop line backward",
-		},
-		K = {
-			"<CMD>lua require('util-hop').line_backward_start()<CR>",
-			"Hop line backward start",
-		},
-		F = {
-			"<CMD>lua require('util-hop').find_backward()<CR>",
-			"Hop line backward start",
-		},
-		f = {
-			"<CMD>lua require('util-hop').find_forward()<CR>",
-			"Hop line backward start",
-		},
-	},
+	--	["<Leader>"] = {
+	--		name = "hop",
+	--		w = {
+	--			"<CMD>lua require('util-hop').word_forward()<CR>",
+	--			"Hop word forward",
+	--		},
+	--		b = {
+	--			"<CMD>lua require('util-hop').word_backward()<CR>",
+	--			"Hop word backward",
+	--		},
+	--		j = {
+	--			"<CMD>lua require('util-hop').line_forward()<CR>",
+	--			"Hop line forward",
+	--		},
+	--		J = {
+	--			"<CMD>lua require('util-hop').line_forward_start()<CR>",
+	--			"Hop line forward start",
+	--		},
+	--		k = {
+	--			"<CMD>lua require('util-hop').line_backward()<CR>",
+	--			"Hop line backward",
+	--		},
+	--		K = {
+	--			"<CMD>lua require('util-hop').line_backward_start()<CR>",
+	--			"Hop line backward start",
+	--		},
+	--		F = {
+	--			"<CMD>lua require('util-hop').find_backward()<CR>",
+	--			"Hop line backward start",
+	--		},
+	--		f = {
+	--			"<CMD>lua require('util-hop').find_forward()<CR>",
+	--			"Hop line backward start",
+	--		},
+	--	},
 }, {
 	prefix = "<Leader>",
 })
