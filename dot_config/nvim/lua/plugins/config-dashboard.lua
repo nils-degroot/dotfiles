@@ -10,30 +10,38 @@ return function()
 	}
 
 	math.randomseed(os.time())
-	local foot_rand = math.random(1, #dashboard_footers)
-
-	db.preview_command = "cat | lolcat"
-
-	db.preview_file_path = "~/.config/nvim/nvim-logo.cat"
-	db.preview_file_height = 10
-	db.preview_file_width = 80
-
 	local pad = 24
 
-	db.custom_center = {
-		{
-			icon = " ",
-			desc = util.string_pad("Find file", pad),
-			action = "Telescope fd",
-			shortcut = "SPC p f",
+	db.setup({
+		theme = "doom",
+		config = {
+			center = {
+				{
+					icon = " ",
+					desc = util.string_pad("Find file", pad),
+					action = "Telescope fd",
+					key = "f",
+				},
+				{
+					icon = " ",
+					desc = util.string_pad("Edit vim config", pad),
+					action = ":e ~/.config/nvim/lua/config.lua",
+					key = "c",
+				},
+				{
+					icon = " ",
+					desc = util.string_pad("Open tree", pad),
+					action = "NvimTreeFocus",
+					key = "t",
+				},
+			},
+			footer = dashboard_footers[math.random(1, #dashboard_footers)],
 		},
-		{
-			icon = " ",
-			desc = util.string_pad("Edit vim config", pad),
-			action = ":e ~/.config/nvim/lua/config.lua",
-			shortcut = "SPC f p",
+		preview = {
+			command = "cat | lolcat",
+			file_path = "~/.config/nvim/nvim-logo.cat",
+			file_height = 10,
+			file_width = 80,
 		},
-	}
-
-	db.custom_footer = dashboard_footers[foot_rand]
+	})
 end
