@@ -9,6 +9,7 @@ local logout_popup = require("sprimed.menu.logout-popup")
 
 -- Bling
 local bling = require("bling")
+local scratchpad = require("bling.module.scratchpad")
 
 local modifiers = {
 	["control"] = "Control",
@@ -36,7 +37,22 @@ local hostname = get_hostname()
 
 modkey = modifiers.super
 
+local term_scratchpad = scratchpad({
+	command = "alacritty --class term_scratchpad",
+	rule = { instance = "term_scratchpad" },
+	sticky = true,
+	autoclose = true,
+	floating = true,
+	dont_focus_before_close = true,
+	geometry = { x = 100, y = 100, height = 880, width = 1720 },
+})
+
 globalkeys = gears.table.join(
+	-- Scratchpad
+	awful.key({ modifiers.control, modkey }, "t", function()
+		term_scratchpad:toggle()
+	end, { description = "Toggle terminal scratchpad", group = "scratchpad" }),
+
 	-- Media
 	awful.key({}, "XF86AudioPlay", function()
 		awful.spawn("playerctl play-pause")

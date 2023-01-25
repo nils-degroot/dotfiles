@@ -21,3 +21,6 @@ if has('persistent_undo')
     let &undodir = target_path
     set undofile
 endif
+
+" Add custom snippets to rtp
+set runtimepath+=~/Documents/code/vim/vim-snippets/

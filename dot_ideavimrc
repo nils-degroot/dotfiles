@@ -12,7 +12,7 @@ map Q gq
 let mapleader = ' '
 
 " Enable plugins
-set NERDTree easymotion highlightedyank surround
+set NERDTree easymotion highlightedyank surround multiple-cursors
 set which-key notimeout
 
 " Use relative numbers
@@ -77,7 +77,8 @@ nmap <Leader>fm <Action>(Move)
 nmap <Leader>fp :e ~/.ideavimrc<CR>
 
 " Toggle
-nmap <Leader>tt :NERDTreeToggle<CR><CR>
+nmap <Leader>tt :NERDTreeToggle<CR>
+nmap <Leader>td <Action>(ActivateDatabaseToolWindow)
 
 " Other
 nmap <CR> <Action>(ShowIntentionActions)

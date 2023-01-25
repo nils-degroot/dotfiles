@@ -11,9 +11,11 @@ return require("packer").startup(function()
 	use("othree/html5.vim")
 	use("pangloss/vim-javascript")
 	use("udalov/kotlin-vim")
-	use("digitaltoad/vim-pug")
-	use("purescript-contrib/purescript-vim")
+	use("burnettk/vim-angular")
+	use("maxmellon/vim-jsx-pretty")
 	use({ "evanleck/vim-svelte", branch = "main" })
+
+	-- Formatting
 	use({ "wesleimp/stylua.nvim", requires = { "nvim-lua/plenary.nvim" } })
 
 	-- Writing
@@ -21,23 +23,17 @@ return require("packer").startup(function()
 	use({ "folke/zen-mode.nvim", config = require("plugins.config-zen") })
 	use("nils-degroot/citatie")
 	use({ "https://git.sr.ht/~renerocksai/telekasten.nvim", config = require("plugins.config-telekasten") })
-	use({
-		"iamcco/markdown-preview.nvim",
-		run = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-	})
 
-	-- Menus
+	-- Ui
 	use({ "lewis6991/gitsigns.nvim", config = require("plugins.config-gitsigns") })
+	use({ "kyazdani42/nvim-tree.lua", config = require("plugins.config-tree") })
+	use({ "glepnir/dashboard-nvim", config = require("plugins.config-dashboard") })
+	use({ "folke/which-key.nvim", config = require("plugins.config-which-key") })
 	use({
 		"feline-nvim/feline.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
 		config = require("plugins.config-feline"),
 	})
-	use({ "kyazdani42/nvim-tree.lua", config = require("plugins.config-tree") })
-	use({ "glepnir/dashboard-nvim", config = require("plugins.config-dashboard") })
-	use("folke/which-key.nvim")
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
@@ -49,11 +45,12 @@ return require("packer").startup(function()
 	})
 
 	-- Lsp
+	use({ "williamboman/mason.nvim", config = require("plugins.config-mason") })
+	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig")
 	use({ "quangnguyen30192/cmp-nvim-ultisnips", config = require("plugins.config-ultisnips") })
 	use({
 		"SirVer/ultisnips",
-		requires = { { "honza/vim-snippets", rtp = "." } },
 		config = function()
 			vim.g.UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
 			vim.g.UltiSnipsJumpForwardTrigger = "<Plug>(ultisnips_jump_forward)"
@@ -82,9 +79,7 @@ return require("packer").startup(function()
 	use({
 		"Saecki/crates.nvim",
 		config = require("plugins.config-crates"),
-		requires = {
-			"jose-elias-alvarez/null-ls.nvim",
-		},
+		requires = { "jose-elias-alvarez/null-ls.nvim" },
 	})
 	use("onsails/lspkind.nvim")
 

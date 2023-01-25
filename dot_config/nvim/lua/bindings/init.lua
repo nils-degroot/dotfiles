@@ -9,22 +9,12 @@ nnoremap("<F1>", ":execute 'silent ! alacritty &'<CR>", silent)
 vnoremap("<", "<gv", silent)
 vnoremap(">", ">gv", silent)
 
--- vnoremap("<Leader><Leader>w", "<CMD>lua require('util-hop').word_forward()<CR>", silent)
--- vnoremap("<Leader><Leader>b", "<CMD>lua require('util-hop').word_backward()<CR>", silent)
--- vnoremap("<Leader><Leader>j", "<CMD>lua require('util-hop').line_forward()<CR>", silent)
--- vnoremap("<Leader><Leader>J", "<CMD>lua require('util-hop').line_forward_start()<CR>", silent)
--- vnoremap("<Leader><Leader>k", "<CMD>lua require('util-hop').line_backward()<CR>", silent)
--- vnoremap("<Leader><Leader>K", "<CMD>lua require('util-hop').line_backward_start()<CR>", silent)
--- vnoremap("<Leader><Leader>f", "<CMD>lua require('util-hop').find_forward()<CR>", silent)
--- vnoremap("<Leader><Leader>F", "<CMD>lua require('util-hop').find_backward()<CR>", silent)
-
 nnoremap("<CR>", ":Lspsaga code_action<CR>", silent)
 
 require("which-key").register({
 	p = {
 		name = "project",
 		f = { "<CMD>Telescope fd<CR>", "Find file" },
-		b = { "<CMD>Telescope buffers<CR>", "View open buffers" },
 		a = { "<CMD>NvimTreeRefresh<CR>", "Refresh tree" },
 		t = { "<CMD>NvimTreeFocus<CR>", "Focus tree" },
 	},
@@ -32,7 +22,6 @@ require("which-key").register({
 		name = "toggle",
 		t = { "<CMD>NvimTreeToggle<CR>", "Toggle tree" },
 		f = { "<CMD>ZenMode<CR>", "Toggle focus mode" },
-		p = { "<CMD>MarkdownPreview<CR>", "Markdown preview" },
 	},
 	c = {
 		name = "code",
@@ -45,8 +34,9 @@ require("which-key").register({
 	},
 	g = {
 		name = "goto/git",
-		b = { "<CMD>Telescope git_branches<CR>", "View branches for project" },
+		b = { "<CMD>Telescope git_branches<CR>", "Git branches" },
 		d = { "<CMD>lua vim.lsp.buf.definition()<CR>", "Goto definition" },
+		s = { "<CMD>Telescope git_status<CR>", "Git status" },
 		i = { "<CMD>call CocAction('jumpImplementation')<CR>", "Goto implementation" },
 		r = { "<CMD>call CocAction('jumpReferences')<CR>", "Find references" },
 	},
@@ -57,11 +47,13 @@ require("which-key").register({
 	},
 	v = {
 		name = "vim",
+		b = { "<CMD>Telescope buffers<CR>", "Buffers" },
 		p = {
 			name = "packer",
 			i = { "<CMD>PackerInstall<CR>", "Packer install" },
-			c = { "<CMD>PackerClean<CR>", "Packer clean" },
-			u = { "<CMD>PackerUpdate<CR>", "Packer update" },
+			k = { "<CMD>PackerClean<CR>", "Packer clean" },
+			u = { "<CMD>PackerSync<CR>", "Packer update" },
+			c = { "<CMD>PackerCompile<CR>", "Packer compile" },
 		},
 	},
 	n = {
@@ -81,41 +73,6 @@ require("which-key").register({
 			m = { "<CMD>Telekasten insert_img_link<CR>", "Insert media" },
 		},
 	},
-	--	["<Leader>"] = {
-	--		name = "hop",
-	--		w = {
-	--			"<CMD>lua require('util-hop').word_forward()<CR>",
-	--			"Hop word forward",
-	--		},
-	--		b = {
-	--			"<CMD>lua require('util-hop').word_backward()<CR>",
-	--			"Hop word backward",
-	--		},
-	--		j = {
-	--			"<CMD>lua require('util-hop').line_forward()<CR>",
-	--			"Hop line forward",
-	--		},
-	--		J = {
-	--			"<CMD>lua require('util-hop').line_forward_start()<CR>",
-	--			"Hop line forward start",
-	--		},
-	--		k = {
-	--			"<CMD>lua require('util-hop').line_backward()<CR>",
-	--			"Hop line backward",
-	--		},
-	--		K = {
-	--			"<CMD>lua require('util-hop').line_backward_start()<CR>",
-	--			"Hop line backward start",
-	--		},
-	--		F = {
-	--			"<CMD>lua require('util-hop').find_backward()<CR>",
-	--			"Hop line backward start",
-	--		},
-	--		f = {
-	--			"<CMD>lua require('util-hop').find_forward()<CR>",
-	--			"Hop line backward start",
-	--		},
-	--	},
 }, {
 	prefix = "<Leader>",
 })

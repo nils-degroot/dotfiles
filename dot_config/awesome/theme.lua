@@ -112,7 +112,7 @@ theme.titlebar_maximized_button_focus_inactive = themes_path .. "default/titleba
 theme.titlebar_maimized_button_normal_active = themes_path .. "default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active = themes_path .. "default/titlebar/maximized_focus_active.png"
 
-local wallpaper_file = io.open(config_path .. "persistant-wallpaper.txt", "r")
+local wallpaper_file = io.open("/home/nils/.local/share/active-wallpaper.txt", "r")
 for line in wallpaper_file:lines() do
 	theme.wallpaper = line
 	break

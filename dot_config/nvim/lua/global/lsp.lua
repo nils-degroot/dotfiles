@@ -6,22 +6,22 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 for _, lsp in ipairs({
 	"sumneko_lua",
 	"rust_analyzer",
-	"kotlin_language_server",
-	"purescriptls",
 	"tsserver",
-	"denols",
+	"angularls",
+	"svelte",
 }) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,
 	})
 end
 
-lspconfig.marksman.setup({
-	capabilities = capabilities,
-	filetypes = { "markdown", "telekasten" },
-})
-
---lspconfig.grammarly.setup({
---	capabilities = capabilities,
---	filetypes = { "markdown", "telekasten" },
---})
+-- General writing lsps
+for _, lsp in ipairs({
+	"marksman",
+	-- "grammarly",
+}) do
+	lspconfig[lsp].setup({
+		capabilities = capabilities,
+		filetypes = { "markdown", "telekasten" },
+	})
+end

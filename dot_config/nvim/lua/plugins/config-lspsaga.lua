@@ -1,6 +1,8 @@
 return function()
-	require("lspsaga").init_lsp_saga({
-		border_style = "rounded",
+	require("lspsaga").setup({
+		ui = {
+			border = "rounded",
+		},
 		symbol_in_winbar = {
 			enable = false,
 		},
