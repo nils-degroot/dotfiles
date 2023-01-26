@@ -3,6 +3,7 @@ return function()
 	local telescope = require("telescope")
 
 	telescope.load_extension("media_files")
+	telescope.load_extension("projects")
 
 	telescope.setup({
 		defaults = {

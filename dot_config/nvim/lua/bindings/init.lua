@@ -17,6 +17,8 @@ require("which-key").register({
 		f = { "<CMD>Telescope fd<CR>", "Find file" },
 		a = { "<CMD>NvimTreeRefresh<CR>", "Refresh tree" },
 		t = { "<CMD>NvimTreeFocus<CR>", "Focus tree" },
+		p = { "<CMD>Telescope projects<CR>", "Change project" },
+		r = { "<CMD>ProjectRoot<CR>", "Change cwd to project root" },
 	},
 	t = {
 		name = "toggle",

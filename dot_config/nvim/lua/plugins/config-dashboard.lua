@@ -34,11 +34,17 @@ return function()
 					action = "NvimTreeFocus",
 					key = "t",
 				},
+				{
+					icon = " ",
+					desc = util.string_pad("Show projects", pad),
+					action = "Telescope projects",
+					key = "p",
+				},
 			},
 			footer = dashboard_footers[math.random(1, #dashboard_footers)],
 		},
 		preview = {
-			command = "cat | lolcat",
+			command = "cat | lolcat -h 3 -v 1",
 			file_path = "~/.config/nvim/nvim-logo.cat",
 			file_height = 10,
 			file_width = 80,
