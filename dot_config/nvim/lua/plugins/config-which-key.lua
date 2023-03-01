@@ -3,5 +3,8 @@ return function()
 		window = {
 			border = "single",
 		},
+		disable = {
+			filetypes = { "TelescopePrompt", "dashboard" },
+		},
 	})
 end

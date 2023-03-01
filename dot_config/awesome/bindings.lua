@@ -12,10 +12,10 @@ local bling = require("bling")
 local scratchpad = require("bling.module.scratchpad")
 
 local modifiers = {
-	["control"] = "Control",
-	["shift"] = "Shift",
-	["alt"] = "Mod1",
-	["super"] = "Mod4",
+	control = "Control",
+	shift = "Shift",
+	alt = "Mod1",
+	super = "Mod4",
 }
 
 local hypr = {
@@ -89,29 +89,25 @@ globalkeys = gears.table.join(
 
 	awful.key({ modkey }, "p", function()
 		awful.spawn("rofi -show drun -icon-theme Papirus-Dark -show-icons")
-	end, { description = "show the menubar", group = "launcher" }),
+	end, { description = "application launcher", group = "launcher" }),
 
 	awful.key({ modkey, modifiers.shift }, "p", function()
 		awful.spawn("rofi -show run")
-	end, { description = "show the menubar", group = "launcher" }),
+	end, { description = "command launcher", group = "launcher" }),
 
+	awful.key({ modkey }, "w", function()
+		awful.spawn("rofi -show window")
+	end, { description = "Rofi select window", group = "launcher" }),
+
+	-- {{- if eq .chezmoi.hostname "nils-void" }}
 	awful.key({ modkey }, "a", function()
-		if hostname == "void-nils" then
-			awful.spawn("dmenu-mpd")
-		else
-			awful.spawn("audio-card-profile")
-		end
+		awful.spawn("dmenu-mpd")
 	end, { description = "dmenu-mpd", group = "launcher" }),
 
 	awful.key({ modkey }, "v", function()
 		awful.spawn("dmenu-vpn")
 	end, { description = "dmenu-vpn", group = "launcher" }),
 
-	awful.key({ modkey }, "w", function()
-		awful.spawn("rofi -show window")
-	end, { description = "Rofi select windcow", group = "launcher" }),
-
-	-- {{- if eq .chezmoi.hostname "nils-work" }}
 	awful.key({ modkey }, "d", function()
 		awful.spawn("xrandr-setup")
 	end, { description = "xrandr-setup", group = "launcher" }),
@@ -317,13 +313,7 @@ clientkeys = gears.table.join(
 		c:move_to_screen(c.screen.index - 1)
 	end, { description = "move to screen", group = "client" }),
 
-	awful.key({ modkey }, "t", function(c)
-		c.ontop = not c.ontop
-	end, { description = "toggle keep on top", group = "client" }),
-
 	awful.key({ modkey }, "m", function(c)
-		-- The client currently has the input focus, so it cannot be
-		-- minimized, since minimized clients can't have the focus.
 		c.minimized = true
 	end, { description = "minimize", group = "client" }),
 

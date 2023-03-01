@@ -6,7 +6,6 @@ return function()
 			options = {
 				number = false,
 				relativenumber = false,
-				list = false,
 			},
 		},
 		plugins = {

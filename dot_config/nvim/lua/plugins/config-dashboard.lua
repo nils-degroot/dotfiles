@@ -40,11 +40,17 @@ return function()
 					action = "Telescope projects",
 					key = "p",
 				},
+				{
+					icon = " ",
+					desc = util.string_pad("Exit", pad),
+					action = "quit",
+					key = "q",
+				},
 			},
 			footer = dashboard_footers[math.random(1, #dashboard_footers)],
 		},
 		preview = {
-			command = "cat | lolcat -h 3 -v 1",
+			command = "cat | lolcat -h 2 -v 1",
 			file_path = "~/.config/nvim/nvim-logo.cat",
 			file_height = 10,
 			file_width = 80,

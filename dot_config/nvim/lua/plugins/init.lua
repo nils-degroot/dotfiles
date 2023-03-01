@@ -5,14 +5,15 @@ return require("packer").startup(function()
 	use("wbthomason/packer.nvim")
 
 	-- Syntax
-	use("rust-lang/rust.vim")
 	use({ "simrat39/rust-tools.nvim", config = require("plugins.config-rust-tools") })
-	use("tbastos/vim-lua")
+	use("rust-lang/rust.vim")
 	use("othree/html5.vim")
-	use("pangloss/vim-javascript")
 	use("udalov/kotlin-vim")
+	use("tbastos/vim-lua")
+	use("pangloss/vim-javascript")
 	use("burnettk/vim-angular")
 	use("maxmellon/vim-jsx-pretty")
+	use("vim-scripts/liquid.vim")
 	use({ "evanleck/vim-svelte", branch = "main" })
 
 	-- Formatting
@@ -21,7 +22,6 @@ return require("packer").startup(function()
 	-- Writing
 	use({ "folke/twilight.nvim", config = require("plugins.config-twilight") })
 	use({ "folke/zen-mode.nvim", config = require("plugins.config-zen") })
-	use("nils-degroot/citatie")
 	use({ "https://git.sr.ht/~renerocksai/telekasten.nvim", config = require("plugins.config-telekasten") })
 
 	-- Ui

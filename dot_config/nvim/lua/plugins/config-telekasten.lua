@@ -4,5 +4,6 @@ return function()
 	require("telekasten").setup({
 		home = home,
 		tag_notation = "yaml-bare",
+		media_previewer = "telescope-media-files",
 	})
 end
