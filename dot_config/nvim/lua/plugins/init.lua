@@ -15,6 +15,9 @@ return require("packer").startup(function()
 	use("maxmellon/vim-jsx-pretty")
 	use("vim-scripts/liquid.vim")
 	use({ "evanleck/vim-svelte", branch = "main" })
+	use("imsnif/kdl.vim")
+	use({ "LhKipp/nvim-nu", config = require("plugins.config-nu") })
+	use("aklt/plantuml-syntax")
 
 	-- Formatting
 	use({ "wesleimp/stylua.nvim", requires = { "nvim-lua/plenary.nvim" } })
@@ -23,6 +26,7 @@ return require("packer").startup(function()
 	use({ "folke/twilight.nvim", config = require("plugins.config-twilight") })
 	use({ "folke/zen-mode.nvim", config = require("plugins.config-zen") })
 	use({ "https://git.sr.ht/~renerocksai/telekasten.nvim", config = require("plugins.config-telekasten") })
+	use("nvim-orgmode/orgmode")
 
 	-- Ui
 	use({ "lewis6991/gitsigns.nvim", config = require("plugins.config-gitsigns") })
@@ -48,6 +52,8 @@ return require("packer").startup(function()
 		},
 		config = require("plugins.config-telescope"),
 	})
+	use("tyru/open-browser.vim")
+	use("weirongxu/plantuml-previewer.vim")
 
 	-- Lsp
 	use({ "williamboman/mason.nvim", config = require("plugins.config-mason") })
@@ -87,6 +93,7 @@ return require("packer").startup(function()
 		requires = { "jose-elias-alvarez/null-ls.nvim" },
 	})
 	use("onsails/lspkind.nvim")
+	use("nvim-treesitter/nvim-treesitter")
 
 	-- etc
 	use("tpope/vim-surround")

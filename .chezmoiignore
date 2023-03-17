@@ -2,3 +2,5 @@
 .config/awesome/persistant-wallpaper.txt
 
 .config/nvim/plugin/*
+
+.config/nushell/history.txt

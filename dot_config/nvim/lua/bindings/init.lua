@@ -14,10 +14,10 @@ nnoremap("<CR>", ":Lspsaga code_action<CR>", silent)
 require("which-key").register({
 	p = {
 		name = "project",
+		p = { "<CMD>Telescope projects<CR>", "Switch project" },
 		f = { "<CMD>Telescope fd<CR>", "Find file" },
-		a = { "<CMD>NvimTreeRefresh<CR>", "Refresh tree" },
 		t = { "<CMD>NvimTreeFocus<CR>", "Focus tree" },
-		p = { "<CMD>Telescope projects<CR>", "Change project" },
+		a = { "<CMD>NvimTreeRefresh<CR>", "Refresh tree" },
 		r = { "<CMD>ProjectRoot<CR>", "Change cwd to project root" },
 	},
 	t = {
@@ -30,15 +30,9 @@ require("which-key").register({
 		r = { "<CMD>Lspsaga rename<CR>", "Rename element" },
 		c = { "<CMD>noh<CR>", "Clear selection" },
 	},
-	f = {
-		name = "file",
-		p = { "<CMD>e ~/.config/nvim/lua/config.lua<CR>", "Edit vim config" },
-	},
 	g = {
-		name = "goto/git",
-		b = { "<CMD>Telescope git_branches<CR>", "Git branches" },
+		name = "goto",
 		d = { "<CMD>lua vim.lsp.buf.definition()<CR>", "Goto definition" },
-		s = { "<CMD>Telescope git_status<CR>", "Git status" },
 		i = { "<CMD>call CocAction('jumpImplementation')<CR>", "Goto implementation" },
 		r = { "<CMD>call CocAction('jumpReferences')<CR>", "Find references" },
 	},
@@ -47,9 +41,12 @@ require("which-key").register({
 		d = { "<CMD>Lspsaga peek_definition<CR>", "Show definition" },
 		s = { "<CMD>Lspsaga hover_doc<CR>", "Show doc" },
 	},
+	b = {
+		name = "buffers",
+		b = { "<CMD>Telescope buffers<CR>", "Buffers" },
+	},
 	v = {
 		name = "vim",
-		b = { "<CMD>Telescope buffers<CR>", "Buffers" },
 		p = {
 			name = "packer",
 			i = { "<CMD>PackerInstall<CR>", "Packer install" },

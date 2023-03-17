@@ -33,7 +33,6 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 for _, lsp in ipairs({
 	"lua_ls",
 	"rust_analyzer",
-	"angularls",
 	"svelte",
 	"denols",
 }) do
