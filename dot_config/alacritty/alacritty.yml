@@ -24,3 +24,6 @@ font:
   bold_italic:
     family: "Iosevka"
     style: "Bold Italic"
+
+shell:
+  program: nu

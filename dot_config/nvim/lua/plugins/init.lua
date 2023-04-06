@@ -18,6 +18,7 @@ return require("packer").startup(function()
 	use("imsnif/kdl.vim")
 	use({ "LhKipp/nvim-nu", config = require("plugins.config-nu") })
 	use("aklt/plantuml-syntax")
+	use({ "nvim-neorg/neorg", run = ":Neorg sync-parsers", config = require("plugins.config-neorg") })
 
 	-- Formatting
 	use({ "wesleimp/stylua.nvim", requires = { "nvim-lua/plenary.nvim" } })
@@ -54,6 +55,8 @@ return require("packer").startup(function()
 	})
 	use("tyru/open-browser.vim")
 	use("weirongxu/plantuml-previewer.vim")
+	use({ "folke/todo-comments.nvim", config = require("plugins.config-todo-comments") })
+	use({ "jghauser/fold-cycle.nvim", config = require("plugins.config-fold-cycle") })
 
 	-- Lsp
 	use({ "williamboman/mason.nvim", config = require("plugins.config-mason") })

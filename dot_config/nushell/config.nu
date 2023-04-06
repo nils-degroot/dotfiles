@@ -545,6 +545,7 @@ let-env config = ($env.config | merge {color_config: (srcery)})
 ## Program alternatives
 alias vi = nvim
 alias vim = nvim
+alias cat = batcat
 
 ## Files
 alias l = ls -la
@@ -558,4 +559,15 @@ alias ga = git add
 alias gp = git push
 alias gpf = git push --force
 
+def git-delete-merged [] {
+	git branch --merged 
+		| lines 
+		| where $it !~ '\*' 
+		| str trim 
+		| where $it != 'master' and $it != 'main' 
+		| each { |it| git branch -d $it }
+}
+
 ## Maven
+alias mcc = maven -B clean -B compile
+alias mci = maven -B clean -B install

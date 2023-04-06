@@ -14,4 +14,4 @@ autocmd("vimenter", "*", "++nested colorscheme srcery")
 autocmd("BufWritePre", "*.lua", ":silent lua require('stylua').format()")
 
 -- Nushell
-autocmd("vimenter", "*.nu", ":TSEnable highlight")
+autocmd("BufEnter", "*.nu", ":TSEnable highlight")

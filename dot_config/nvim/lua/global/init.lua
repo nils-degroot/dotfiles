@@ -35,6 +35,7 @@ for _, lsp in ipairs({
 	"rust_analyzer",
 	"svelte",
 	"denols",
+	"jdtls",
 }) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,
