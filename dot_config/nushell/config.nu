@@ -539,15 +539,13 @@ let-env config = {
 
 # Setup starship
 source ~/.cache/starship/init.nu
-source ~/Documents/src/nu_scripts/filesystem/autojump.nu
+# source ~/Documents/src/nu_scripts/filesystem/autojump.nu
 
 ## Completions
 source ~/Documents/src/nu_scripts/custom-completions/git/git-completions.nu
 source ~/Documents/src/nu_scripts/custom-completions/zellij/zellij-completions.nu
 source ~/Documents/src/nu_scripts/custom-completions/cargo/cargo-completions.nu
 source ~/Documents/src/nu_scripts/custom-completions/npm/npm-completions.nu
-
-source ~/Documents/src/nu-utils/completions/xbps-install-completions.nu
 
 ## Theme
 use ~/Documents/src/nu_scripts/themes/themes/srcery.nu *

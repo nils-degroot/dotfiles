@@ -8,6 +8,7 @@ local dpi = xresources.apply_dpi
 
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
+local wallpaper_path = "/usr/share/backgrounds/"
 
 local theme = {}
 
@@ -17,6 +18,7 @@ theme.bg_normal = "#1c1b19"
 theme.bg_focus = "#ff5f00"
 theme.bg_urgent = "#ef2f27"
 theme.bg_minimize = "#121212"
+theme.bg_light = "#262626"
 theme.bg_systray = theme.bg_normal
 
 theme.fg_normal = "#fce8c3"
@@ -58,7 +60,7 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path .. "default/submenu.png"
-theme.menu_height = dpi(15)
+theme.menu_height = dpi(18)
 theme.menu_width = dpi(100)
 
 -- You can add as many variables as
@@ -93,7 +95,7 @@ theme.titlebar_maximized_button_focus_inactive = themes_path .. "default/titleba
 theme.titlebar_maximized_button_normal_active = themes_path .. "default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active = themes_path .. "default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = themes_path .. "default/background.png"
+theme.wallpaper = wallpaper_path .. "current.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path .. "default/layouts/fairhw.png"
