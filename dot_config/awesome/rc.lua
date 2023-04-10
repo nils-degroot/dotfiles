@@ -22,8 +22,8 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
 -- Load Debian menu entries
-local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
+naughty.config.defaults["icon_size"] = dpi(150)
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -91,32 +91,13 @@ awful.layout.layouts = {
 }
 -- }}}
 
--- {{{ Menu
--- Create a launcher widget and a main menu
-local menu_terminal = { "open terminal", terminal }
-
-if has_fdo then
-	mymainmenu = freedesktop.menu.build({
-		before = { menu_awesome },
-		after = { menu_terminal },
-	})
-else
-	mymainmenu = awful.menu({
-		items = {
-			menu_awesome,
-			{ "Debian", debian.menu.Debian_menu.Debian },
-			menu_terminal,
-		},
-	})
-end
-
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+local mytextclock = wibox.widget.textclock()
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -271,7 +252,6 @@ awful.screen.connect_for_each_screen(function(s)
 			layout = wibox.layout.fixed.horizontal,
 			{
 				widget = wibox.container.margin,
-				right = 12,
 			},
 			wrap_widget(active_client_widget),
 		},
@@ -286,7 +266,7 @@ awful.screen.connect_for_each_screen(function(s)
 			},
 			{
 				layout = wibox.layout.fixed.horizontal,
-				spacing = 8,
+				spacing = dpi(8),
 				wrap_widget(battery_watch),
 				wrap_widget(mytextclock),
 				wibox.widget.systray(),
@@ -402,7 +382,32 @@ globalkeys = gears.table.join(
 
 	awful.key({ modkey }, "w", function()
 		awful.spawn("rofi -show window")
-	end, { description = "Focus a window", group = "launcher" })
+	end, { description = "Focus a window", group = "launcher" }),
+
+	awful.key({ modkey }, "r", function()
+		awful.spawn("dmenu-pass")
+	end, { description = "Open password store", group = "launcher" }),
+
+	-- Media keys
+	awful.key({}, "XF86AudioPlay", function()
+		awful.spawn("playerctl play-pause")
+	end, { description = "Toggle music", group = "media" }),
+
+	awful.key({}, "XF86AudioNext", function()
+		awful.spawn("playerctl next")
+	end, { description = "Next song", group = "media" }),
+
+	awful.key({}, "XF86AudioPrev", function()
+		awful.spawn("playerctl previous")
+	end, { description = "Previous song", group = "media" }),
+
+	awful.key({}, "XF86AudioLowerVolume", function()
+		awful.spawn("amixer -q -D pulse sset Master 5%-")
+	end, { description = "Lower volume", group = "media" }),
+
+	awful.key({}, "XF86AudioRaiseVolume", function()
+		awful.spawn("amixer -q -D pulse sset Master 5%+")
+	end, { description = "Raise volume", group = "media" })
 )
 
 clientkeys = gears.table.join(
