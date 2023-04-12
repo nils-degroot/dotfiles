@@ -91,10 +91,6 @@ awful.layout.layouts = {
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
--- {{{ Wibar
--- Create a textclock widget
-local mytextclock = wibox.widget.textclock()
-
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
 	awful.button({}, 1, function(t)
@@ -288,13 +284,94 @@ awful.screen.connect_for_each_screen(function(s)
 			},
 			{
 				layout = wibox.layout.fixed.horizontal,
-				spacing = dpi(8),
-				wrap_widget(battery_watch, "", function()
-					local _, _, response = os.execute("which acpi")
-					return response
-				end),
-				wrap_widget(mytextclock, ""),
-				s.mylayoutbox,
+
+				-- Battery
+				{
+					widget = wibox.container.margin,
+					top = dpi(5),
+					bottom = dpi(5),
+					right = dpi(3),
+					visible = (function()
+						local _, _, response = os.execute("which acpi")
+						return response == 0
+					end)(),
+					{
+						widget = wibox.container.background,
+						bg = beautiful.bg_light,
+						{
+							widget = wibox.container.margin,
+							left = dpi(6), -- FIXME: Check padding
+							top = dpi(2),
+							bottom = dpi(2),
+							{
+								layout = wibox.layout.fixed.horizontal,
+								{
+									widget = wibox.container.background,
+									fg = beautiful.colours.magenta,
+									{
+										widget = wibox.widget.textbox,
+										font = beautiful.icon_font,
+										markup = "",
+									},
+								},
+								battery_watch,
+							},
+						},
+					},
+				},
+
+				-- Clock
+				{
+					widget = wibox.container.margin,
+					top = dpi(5),
+					bottom = dpi(5),
+					right = dpi(6),
+					{
+						widget = wibox.container.background,
+						bg = beautiful.bg_light,
+						{
+							widget = wibox.container.margin,
+							left = dpi(6),
+							right = dpi(6),
+							top = dpi(2),
+							bottom = dpi(2),
+							{
+								layout = wibox.layout.fixed.horizontal,
+								spacing = dpi(6),
+								{
+									widget = wibox.container.background,
+									fg = beautiful.colours.green,
+									{
+										widget = wibox.widget.textbox,
+										font = beautiful.icon_font,
+										markup = "",
+									},
+								},
+								wibox.widget.textclock("%H:%M"),
+							},
+						},
+					},
+				},
+
+				-- Layout box
+				{
+					widget = wibox.container.margin,
+					top = dpi(5),
+					bottom = dpi(5),
+					right = dpi(6),
+					{
+						widget = wibox.container.background,
+						bg = beautiful.bg_light,
+						{
+							widget = wibox.container.margin,
+							left = dpi(6),
+							right = dpi(6),
+							top = dpi(2),
+							bottom = dpi(2),
+							s.mylayoutbox,
+						},
+					},
+				},
 			},
 		},
 	})
@@ -316,6 +393,7 @@ awful.rules.rules = {
 			raise = true,
 			keys = clientkeys,
 			screen = awful.screen.preferred,
+			buttons = clientbuttons,
 			placement = awful.placement.no_overlap + awful.placement.no_offscreen,
 		},
 	},

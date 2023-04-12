@@ -12,6 +12,26 @@ local wallpaper_path = "/usr/share/backgrounds/"
 
 local theme = {}
 
+-- Colors
+theme.colours = {
+	black = "#1c1b19",
+	red = "#ef2f27",
+	green = "#519f50",
+	yellow = "#fbb829",
+	blue = "#2c78bf",
+	magenta = "#e02c6d",
+	cyan = "#0aaeb3",
+	white = "#baa67f",
+	bright_black = "#918175",
+	bright_red = "#f75341",
+	bright_green = "#98bc37",
+	bright_yellow = "#fed06e",
+	bright_blue = "#68a8e4",
+	bright_magenta = "#ff5c8f",
+	bright_cyan = "#ebe4d0",
+	bright_white = "#fce8c3",
+}
+
 theme.font = "Iosevka 12"
 theme.icon_font = "Symbols Nerd Font 12"
 
