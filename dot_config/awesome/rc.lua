@@ -18,7 +18,7 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
 -- Load Debian menu entries
-local has_fdo, freedesktop = pcall(require, "freedesktop")
+pcall(require, "freedesktop")
 naughty.config.defaults["icon_size"] = dpi(150)
 
 -- {{{ Error handling
@@ -154,51 +154,51 @@ local active_client_widget = wibox.widget({
 })
 
 local battery_watch = awful.widget.watch("acpi -b", 60, function(widget, stdout)
-	for m in stdout:gmatch("%d%d%%") do
+	for m in stdout:gmatch("%d?%d%d%%") do
 		widget:set_text(m)
 	end
 end)
 
-local function wrap_widget(widget, icon, visible_func)
-	if visible_func == nil then
-		visible_func = function()
-			return 0
-		end
-	end
+local function generate_spacer()
+	return wibox.widget({ widget = wibox.container.margin, left = dpi(8) })
+end
 
-	local left_margin = dpi(2)
-	if icon ~= nil then
-		left_margin = dpi(6)
-	end
-
+local function wrap_with_background(widget)
 	return wibox.widget({
 		widget = wibox.container.margin,
-		top = dpi(4),
-		bottom = dpi(4),
-		visible = visible_func() == 0,
+		top = dpi(5),
+		bottom = dpi(5),
+		right = dpi(6),
 		{
 			widget = wibox.container.background,
 			bg = beautiful.bg_light,
 			{
 				widget = wibox.container.margin,
-				left = left_margin,
-				right = dpi(2),
-				{
-					layout = wibox.layout.fixed.horizontal,
-					{
-						widget = wibox.widget.textbox,
-						font = beautiful.icon_font,
-						markup = icon,
-					},
-					widget,
-				},
+				left = dpi(6),
+				right = dpi(6),
+				top = dpi(3),
+				bottom = dpi(3),
+				widget,
 			},
 		},
 	})
 end
 
-local function generate_spacer()
-	return wibox.widget({ widget = wibox.container.margin, left = dpi(8) })
+local function wrap_with_icon(widget, icon, icon_color)
+	return wibox.widget({
+		layout = wibox.layout.fixed.horizontal,
+		spacing = dpi(6),
+		{
+			widget = wibox.container.background,
+			fg = icon_color,
+			{
+				widget = wibox.widget.textbox,
+				font = beautiful.icon_font,
+				markup = icon,
+			},
+		},
+		widget,
+	})
 end
 
 awful.screen.connect_for_each_screen(function(s)
@@ -271,7 +271,7 @@ awful.screen.connect_for_each_screen(function(s)
 				widget = wibox.container.margin,
 				right = dpi(4),
 			},
-			wrap_widget(active_client_widget),
+			wrap_with_background(active_client_widget),
 		},
 		s.taglist,
 		{ -- Right widgets
@@ -284,94 +284,16 @@ awful.screen.connect_for_each_screen(function(s)
 			},
 			{
 				layout = wibox.layout.fixed.horizontal,
-
-				-- Battery
 				{
-					widget = wibox.container.margin,
-					top = dpi(5),
-					bottom = dpi(5),
-					right = dpi(3),
+					widget = wibox.widget.background,
 					visible = (function()
-						local _, _, response = os.execute("which acpi")
-						return response == 0
+						local _, _, result = os.execute("which acpi")
+						return result == 0
 					end)(),
-					{
-						widget = wibox.container.background,
-						bg = beautiful.bg_light,
-						{
-							widget = wibox.container.margin,
-							left = dpi(6), -- FIXME: Check padding
-							top = dpi(2),
-							bottom = dpi(2),
-							{
-								layout = wibox.layout.fixed.horizontal,
-								{
-									widget = wibox.container.background,
-									fg = beautiful.colours.magenta,
-									{
-										widget = wibox.widget.textbox,
-										font = beautiful.icon_font,
-										markup = "",
-									},
-								},
-								battery_watch,
-							},
-						},
-					},
 				},
-
-				-- Clock
-				{
-					widget = wibox.container.margin,
-					top = dpi(5),
-					bottom = dpi(5),
-					right = dpi(6),
-					{
-						widget = wibox.container.background,
-						bg = beautiful.bg_light,
-						{
-							widget = wibox.container.margin,
-							left = dpi(6),
-							right = dpi(6),
-							top = dpi(2),
-							bottom = dpi(2),
-							{
-								layout = wibox.layout.fixed.horizontal,
-								spacing = dpi(6),
-								{
-									widget = wibox.container.background,
-									fg = beautiful.colours.green,
-									{
-										widget = wibox.widget.textbox,
-										font = beautiful.icon_font,
-										markup = "",
-									},
-								},
-								wibox.widget.textclock("%H:%M"),
-							},
-						},
-					},
-				},
-
-				-- Layout box
-				{
-					widget = wibox.container.margin,
-					top = dpi(5),
-					bottom = dpi(5),
-					right = dpi(6),
-					{
-						widget = wibox.container.background,
-						bg = beautiful.bg_light,
-						{
-							widget = wibox.container.margin,
-							left = dpi(6),
-							right = dpi(6),
-							top = dpi(2),
-							bottom = dpi(2),
-							s.mylayoutbox,
-						},
-					},
-				},
+				wrap_with_background(wrap_with_icon(battery_watch, "", beautiful.colours.magenta)),
+				wrap_with_background(wrap_with_icon(wibox.widget.textclock("%H:%M"), "", beautiful.colours.green)),
+				wrap_with_background(s.mylayoutbox),
 			},
 		},
 	})

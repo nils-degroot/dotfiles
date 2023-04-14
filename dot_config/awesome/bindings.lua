@@ -1,7 +1,13 @@
 local gears = require("gears")
 local awful = require("awful")
+local naughty = require("naughty")
 local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
+
+local hostname = nil
+awful.spawn.easy_async_with_shell("hostname", function(stdout)
+	hostname = stdout:gsub("%s+", "")
+end)
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(awful.button({}, 4, awful.tag.viewnext), awful.button({}, 5, awful.tag.viewprev)))
@@ -34,11 +40,19 @@ globalkeys = gears.table.join(
 	end, { description = "swap with previous client by index", group = "client" }),
 
 	awful.key({ modkey, "Control" }, "j", function()
-		awful.screen.focus_relative(1)
+		if hostname == "nils-work" then -- This machine has the display order inverted?
+			awful.screen.focus_relative(-1)
+		else
+			awful.screen.focus_relative(1)
+		end
 	end, { description = "focus the next screen", group = "screen" }),
 
 	awful.key({ modkey, "Control" }, "k", function()
-		awful.screen.focus_relative(-1)
+		if hostname == "nils-work" then
+			awful.screen.focus_relative(1)
+		else
+			awful.screen.focus_relative(-1)
+		end
 	end, { description = "focus the previous screen", group = "screen" }),
 
 	awful.key({ modkey }, "b", function()
@@ -107,6 +121,10 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "r", function()
 		awful.spawn("dmenu-pass")
 	end, { description = "Open password store", group = "launcher" }),
+
+	awful.key({ modkey }, "Escape", function()
+		awful.spawn("lock")
+	end, { description = "Lock the screen", group = "launcher" }),
 
 	-- Media keys
 	awful.key({}, "XF86AudioPlay", function()
