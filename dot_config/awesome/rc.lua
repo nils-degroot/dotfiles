@@ -159,10 +159,6 @@ local battery_watch = awful.widget.watch("acpi -b", 60, function(widget, stdout)
 	end
 end)
 
-local function generate_spacer()
-	return wibox.widget({ widget = wibox.container.margin, left = dpi(8) })
-end
-
 local function wrap_with_background(widget)
 	return wibox.widget({
 		widget = wibox.container.margin,
@@ -285,13 +281,27 @@ awful.screen.connect_for_each_screen(function(s)
 			{
 				layout = wibox.layout.fixed.horizontal,
 				{
-					widget = wibox.widget.background,
+					widget = wibox.container.margin,
+					top = dpi(5),
+					bottom = dpi(5),
+					right = dpi(6),
 					visible = (function()
 						local _, _, result = os.execute("which acpi")
 						return result == 0
 					end)(),
+					{
+						widget = wibox.container.background,
+						bg = beautiful.bg_light,
+						{
+							widget = wibox.container.margin,
+							left = dpi(6),
+							right = dpi(6),
+							top = dpi(3),
+							bottom = dpi(3),
+							wrap_with_icon(battery_watch, "", beautiful.colours.magenta),
+						},
+					},
 				},
-				wrap_with_background(wrap_with_icon(battery_watch, "", beautiful.colours.magenta)),
 				wrap_with_background(wrap_with_icon(wibox.widget.textclock("%H:%M"), "", beautiful.colours.green)),
 				wrap_with_background(s.mylayoutbox),
 			},
