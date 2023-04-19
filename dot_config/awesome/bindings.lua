@@ -106,6 +106,10 @@ globalkeys = gears.table.join(
 		awful.spawn(terminal)
 	end, { description = "Open a terminal", group = "launcher" }),
 
+	awful.key({ modkey }, "Escape", function()
+		awful.spawn("lock")
+	end, { description = "Lock the screen", group = "launcher" }),
+
 	awful.key({ modkey }, "p", function()
 		awful.spawn("rofi -show drun -show-icons")
 	end, { description = "Launch a desktop program", group = "launcher" }),
@@ -122,9 +126,9 @@ globalkeys = gears.table.join(
 		awful.spawn("dmenu-pass")
 	end, { description = "Open password store", group = "launcher" }),
 
-	awful.key({ modkey }, "Escape", function()
-		awful.spawn("lock")
-	end, { description = "Lock the screen", group = "launcher" }),
+	awful.key({ modkey }, "d", function()
+		awful.spawn("xrandr-setup")
+	end, { description = "Setup monitor preset", group = "launcher" }),
 
 	-- Media keys
 	awful.key({}, "XF86AudioPlay", function()
@@ -165,16 +169,20 @@ clientkeys = gears.table.join(
 		{ description = "toggle floating", group = "client" }
 	),
 
-	awful.key({ modkey, "Control" }, "Return", function(c)
-		c:swap(awful.client.getmaster())
-	end, { description = "move to master", group = "client" }),
-
 	awful.key({ modkey }, "o", function(c)
-		c:move_to_screen()
+		if hostname == "nils-work" then -- This machine has the display order inverted?
+			c:move_to_screen(c.screen.index - 1)
+		else
+			c:move_to_screen(c.screen.index + 1)
+		end
 	end, { description = "move to screen", group = "client" }),
 
 	awful.key({ modkey, "Shift" }, "o", function(c)
-		c:move_to_screen(c.screen.index - 1)
+		if hostname == "nils-work" then -- This machine has the display order inverted?
+			c:move_to_screen(c.screen.index + 1)
+		else
+			c:move_to_screen(c.screen.index - 1)
+		end
 	end, { description = "move to screen", group = "client" }),
 
 	awful.key({ modkey }, "t", function(c)

@@ -5,6 +5,9 @@ keybinds {
         // bind "Alt c" { Copy; }
 		unbind "Ctrl o"
 		bind "Ctrl l" { SwitchToMode "Session"; }
+
+		unbind "Ctrl n"
+		bind "Ctrl m" { SwitchToMode "Resize"; }
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }

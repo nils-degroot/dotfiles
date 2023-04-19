@@ -115,25 +115,6 @@ local taglist_buttons = gears.table.join(
 	end)
 )
 
-local tasklist_buttons = gears.table.join(
-	awful.button({}, 1, function(c)
-		if c == client.focus then
-			c.minimized = true
-		else
-			c:emit_signal("request::activate", "tasklist", { raise = true })
-		end
-	end),
-	awful.button({}, 3, function()
-		awful.menu.client_list({ theme = { width = 250 } })
-	end),
-	awful.button({}, 4, function()
-		awful.client.focus.byidx(1)
-	end),
-	awful.button({}, 5, function()
-		awful.client.focus.byidx(-1)
-	end)
-)
-
 local function set_wallpaper(s)
 	-- Wallpaper
 	if beautiful.wallpaper then
@@ -208,8 +189,8 @@ awful.screen.connect_for_each_screen(function(s)
 	s.mypromptbox = awful.widget.prompt()
 	-- Create an imagebox widget which will contain an icon indicating which layout we're using.
 	-- We need one layoutbox per screen.
-	s.mylayoutbox = awful.widget.layoutbox(s)
-	s.mylayoutbox:buttons(gears.table.join(
+	s.layoutbox = awful.widget.layoutbox(s)
+	s.layoutbox:buttons(gears.table.join(
 		awful.button({}, 1, function()
 			awful.layout.inc(1)
 		end),
@@ -246,13 +227,6 @@ awful.screen.connect_for_each_screen(function(s)
 		},
 	})
 
-	-- Create a tasklist widget
-	s.mytasklist = awful.widget.tasklist({
-		screen = s,
-		filter = awful.widget.tasklist.filter.currenttags,
-		buttons = tasklist_buttons,
-	})
-
 	-- Create the wibox
 	s.bar = awful.wibar({ position = "top", screen = s })
 
@@ -286,8 +260,8 @@ awful.screen.connect_for_each_screen(function(s)
 					bottom = dpi(5),
 					right = dpi(6),
 					visible = (function()
-						local _, _, result = os.execute("which acpi")
-						return result == 0
+						local _, _, exit_code = os.execute("which acpi")
+						return exit_code == 0
 					end)(),
 					{
 						widget = wibox.container.background,
@@ -303,7 +277,7 @@ awful.screen.connect_for_each_screen(function(s)
 					},
 				},
 				wrap_with_background(wrap_with_icon(wibox.widget.textclock("%H:%M"), "", beautiful.colours.green)),
-				wrap_with_background(s.mylayoutbox),
+				wrap_with_background(s.layoutbox),
 			},
 		},
 	})
@@ -360,7 +334,10 @@ awful.rules.rules = {
 				"pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
 			},
 		},
-		properties = { floating = true },
+		properties = {
+			floating = true,
+			placement = awful.placement.centered,
+		},
 	},
 
 	-- Add titlebars to normal clients and dialogs
@@ -386,7 +363,11 @@ client.connect_signal("manage", function(c)
 end)
 
 local function update_focused_name_signal(c)
-	active_client_widget.markup = "<b>" .. c.name .. "</b>"
+	if c == nil then
+		return
+	end
+
+	active_client_widget.markup = "<b>" .. (c.name or "Unnamed") .. "</b>"
 end
 
 -- Enable sloppy focus, so that focus follows mouse.
@@ -400,6 +381,7 @@ client.connect_signal("focus", function(c)
 	update_focused_name_signal(c)
 	c:connect_signal("property::name", update_focused_name_signal)
 end)
+
 client.connect_signal("unfocus", function(c)
 	c.border_color = beautiful.border_normal
 
