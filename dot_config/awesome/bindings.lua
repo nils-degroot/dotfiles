@@ -107,7 +107,7 @@ globalkeys = gears.table.join(
 	end, { description = "Open a terminal", group = "launcher" }),
 
 	awful.key({ modkey }, "Escape", function()
-		awful.spawn("lock")
+		awful.spawn("dmenu-power")
 	end, { description = "Lock the screen", group = "launcher" }),
 
 	awful.key({ modkey }, "p", function()
