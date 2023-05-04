@@ -276,6 +276,7 @@ awful.screen.connect_for_each_screen(function(s)
 						},
 					},
 				},
+				wrap_with_background(wrap_with_icon(wibox.widget.textclock("%b %d"), "", beautiful.colours.blue)),
 				wrap_with_background(wrap_with_icon(wibox.widget.textclock("%H:%M"), "", beautiful.colours.green)),
 				wrap_with_background(s.layoutbox),
 			},
@@ -308,21 +309,12 @@ awful.rules.rules = {
 	{
 		rule_any = {
 			instance = {
-				"DTA", -- Firefox addon DownThemAll.
 				"copyq", -- Includes session name in class.
 				"pinentry",
 			},
 			class = {
-				"Arandr",
 				"Blueman-manager",
-				"Gpick",
-				"Kruler",
-				"MessageWin", -- kalarm.
 				"Sxiv",
-				"Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
-				"Wpa_gui",
-				"veromix",
-				"xtightvncviewer",
 				"Pavucontrol",
 			},
 			name = {
@@ -339,13 +331,6 @@ awful.rules.rules = {
 			placement = awful.placement.centered,
 		},
 	},
-
-	-- Add titlebars to normal clients and dialogs
-	{ rule_any = { type = { "normal", "dialog" } }, properties = { titlebars_enabled = true } },
-
-	-- Set Firefox to always map on the tag named "2" on screen 1.
-	-- { rule = { class = "Firefox" },
-	--   properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
