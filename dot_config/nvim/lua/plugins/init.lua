@@ -18,7 +18,7 @@ return require("packer").startup(function()
 	use("imsnif/kdl.vim")
 	use({ "LhKipp/nvim-nu", config = require("plugins.config-nu") })
 	use("aklt/plantuml-syntax")
-	use({ "nvim-neorg/neorg", run = ":Neorg sync-parsers", config = require("plugins.config-neorg") })
+	use({ "nvim-orgmode/orgmode", config = require("plugins.config-orgmode") })
 
 	-- Formatting
 	use({ "wesleimp/stylua.nvim", requires = { "nvim-lua/plenary.nvim" } })
@@ -26,14 +26,13 @@ return require("packer").startup(function()
 	-- Writing
 	use({ "folke/twilight.nvim", config = require("plugins.config-twilight") })
 	use({ "folke/zen-mode.nvim", config = require("plugins.config-zen") })
-	use({ "https://git.sr.ht/~renerocksai/telekasten.nvim", config = require("plugins.config-telekasten") })
-	use("nvim-orgmode/orgmode")
+	use({ "renerocksai/telekasten.nvim", config = require("plugins.config-telekasten") })
 
 	-- Ui
 	use({ "lewis6991/gitsigns.nvim", config = require("plugins.config-gitsigns") })
 	use({ "kyazdani42/nvim-tree.lua", config = require("plugins.config-tree") })
 	use({
-		"/home/nils/Documents/code/vim/dashboard-nvim/",
+		"glepnir/dashboard-nvim",
 		event = "VimEnter",
 		config = require("plugins.config-dashboard"),
 	})

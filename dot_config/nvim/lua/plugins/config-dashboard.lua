@@ -50,7 +50,7 @@ return function()
 			footer = dashboard_footers[math.random(1, #dashboard_footers)],
 		},
 		preview = {
-			command = "cat | lolcat -h 2 -v 1",
+			command = "cat",
 			file_path = "~/.config/nvim/nvim-logo.cat",
 			file_height = 10,
 			file_width = 80,
