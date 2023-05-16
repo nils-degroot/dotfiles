@@ -19,6 +19,7 @@ return require("packer").startup(function()
 	use({ "LhKipp/nvim-nu", config = require("plugins.config-nu") })
 	use("aklt/plantuml-syntax")
 	use({ "nvim-orgmode/orgmode", config = require("plugins.config-orgmode") })
+	use("dhruvasagar/vim-table-mode")
 
 	-- Formatting
 	use({ "wesleimp/stylua.nvim", requires = { "nvim-lua/plenary.nvim" } })
