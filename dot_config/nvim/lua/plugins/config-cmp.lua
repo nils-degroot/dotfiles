@@ -38,7 +38,7 @@ return function()
 			{ name = "path" },
 			{ name = "crates" },
 			{ name = "templates" },
-			{ name = "ormode" },
+			{ name = "orgmode" },
 		},
 		preselect = cmp.PreselectMode.Item,
 		window = {

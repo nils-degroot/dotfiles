@@ -32,11 +32,11 @@ return require("packer").startup(function()
 	-- Ui
 	use({ "lewis6991/gitsigns.nvim", config = require("plugins.config-gitsigns") })
 	use({ "kyazdani42/nvim-tree.lua", config = require("plugins.config-tree") })
-	use({
-		"glepnir/dashboard-nvim",
-		event = "VimEnter",
-		config = require("plugins.config-dashboard"),
-	})
+	--use({
+	--	"glepnir/dashboard-nvim",
+	--	event = "VimEnter",
+	--	config = require("plugins.config-dashboard"),
+	--})
 	use({ "folke/which-key.nvim", config = require("plugins.config-which-key") })
 	use({
 		"feline-nvim/feline.nvim",

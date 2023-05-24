@@ -16,12 +16,12 @@ for _, lsp in ipairs({
 end
 
 -- General writing lsps
-for _, lsp in ipairs({
-	"marksman",
-	-- "grammarly",
-}) do
-	lspconfig[lsp].setup({
-		capabilities = capabilities,
-		filetypes = { "markdown", "telekasten" },
-	})
-end
+lspconfig.marksman.setup({
+	capabilities = capabilities,
+	filetypes = { "markdown", "telekasten" },
+})
+
+lspconfig.grammarly.setup({
+	capabilities = capabilities,
+	filetypes = { "markdown", "telekasten", "org" },
+})

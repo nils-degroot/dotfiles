@@ -53,7 +53,7 @@ lspconfig.marksman.setup({
 	filetypes = { "markdown", "telekasten" },
 })
 
-lspconfig.grammerly.setup({
+lspconfig.grammarly.setup({
 	capabilities = capabilities,
 	filetypes = { "markdown", "telekasten", "org" },
 })
