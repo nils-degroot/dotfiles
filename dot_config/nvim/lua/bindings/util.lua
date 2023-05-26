@@ -16,7 +16,11 @@ return {
 		options = options or {}
 		map("n", lhs, rhs, options)
 	end,
+	vmap = function(lhs, rhs, options)
+		options = options or {}
+		map("v", lhs, rhs, options)
+	end,
 
 	-- Util objects
-	silent = { silent = true }
+	silent = { silent = true },
 }

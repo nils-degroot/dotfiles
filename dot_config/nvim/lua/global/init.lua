@@ -29,6 +29,9 @@ vim.g.rustfmt_autosave = 1
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+-- Notify
+vim.notify = require("notify")
+
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 for _, lsp in ipairs({
 	"lua_ls",

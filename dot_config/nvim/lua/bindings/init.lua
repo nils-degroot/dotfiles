@@ -2,12 +2,18 @@ local util = require("bindings.util")
 
 local nnoremap = util.nnoremap
 local vnoremap = util.vnoremap
+local nmap = util.nmap
+local vmap = util.vmap
 local silent = util.silent
 
 nnoremap("<F1>", ":execute 'silent ! alacritty &'<CR>", silent)
 
 vnoremap("<", "<gv", silent)
 vnoremap(">", ">gv", silent)
+
+nmap("<C-c>", '"+y')
+vmap("<C-c>", '"+y')
+nmap("<C-v>", '"+p')
 
 nnoremap("<CR>", ":Lspsaga code_action<CR>", silent)
 

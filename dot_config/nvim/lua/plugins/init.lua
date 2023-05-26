@@ -32,11 +32,6 @@ return require("packer").startup(function()
 	-- Ui
 	use({ "lewis6991/gitsigns.nvim", config = require("plugins.config-gitsigns") })
 	use({ "kyazdani42/nvim-tree.lua", config = require("plugins.config-tree") })
-	--use({
-	--	"glepnir/dashboard-nvim",
-	--	event = "VimEnter",
-	--	config = require("plugins.config-dashboard"),
-	--})
 	use({ "folke/which-key.nvim", config = require("plugins.config-which-key") })
 	use({
 		"feline-nvim/feline.nvim",
@@ -57,6 +52,20 @@ return require("packer").startup(function()
 	use("weirongxu/plantuml-previewer.vim")
 	use({ "folke/todo-comments.nvim", config = require("plugins.config-todo-comments") })
 	use({ "jghauser/fold-cycle.nvim", config = require("plugins.config-fold-cycle") })
+	use({
+		"stevearc/oil.nvim",
+		config = function()
+			require("oil").setup()
+		end,
+	})
+	use({ "stevearc/dressing.nvim" })
+	use({
+		"stevearc/overseer.nvim",
+		config = function()
+			require("overseer").setup()
+		end,
+	})
+	use({ "rcarriga/nvim-notify" })
 
 	-- Lsp
 	use({ "williamboman/mason.nvim", config = require("plugins.config-mason") })
