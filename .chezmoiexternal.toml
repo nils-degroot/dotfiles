@@ -1,9 +1,9 @@
 [".config/awesome/bling"]
-type = "file"
+type = "git-repo"
 url = "https://github.com/BlingCorp/bling"
 refreshPeriod = "168h"
 
 [".config/awesome/rubato"]
-type = "file"
+type = "git-repo"
 url = "https://github.com/andOrlando/rubato"
 refreshPeriod = "168h"
