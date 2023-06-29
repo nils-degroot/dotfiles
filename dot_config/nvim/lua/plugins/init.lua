@@ -48,22 +48,16 @@ return require("packer").startup(function()
 		},
 		config = require("plugins.config-telescope"),
 	})
-	use("tyru/open-browser.vim")
-	use("weirongxu/plantuml-previewer.vim")
 	use({ "folke/todo-comments.nvim", config = require("plugins.config-todo-comments") })
 	use({ "jghauser/fold-cycle.nvim", config = require("plugins.config-fold-cycle") })
 	use({
 		"stevearc/oil.nvim",
-		config = function()
-			require("oil").setup()
-		end,
+		config = require("plugins.config-oil"),
 	})
 	use({ "stevearc/dressing.nvim" })
 	use({
 		"stevearc/overseer.nvim",
-		config = function()
-			require("overseer").setup()
-		end,
+		config = require("plugins.config-overseer"),
 	})
 	use({ "rcarriga/nvim-notify" })
 

@@ -15,3 +15,8 @@ autocmd("BufWritePre", "*.lua", ":silent lua require('stylua').format()")
 
 -- Nushell
 autocmd("BufEnter", "*.nu", ":TSEnable highlight")
+
+-- Tab sizing
+autocmd("FileType", "markdown", "setlocal shiftwidth=2 softtabstop=2 expandtab")
+autocmd("FileType", "telekasten", "setlocal shiftwidth=2 softtabstop=2 expandtab")
+autocmd("FileType", "nix", "setlocal shiftwidth=2 softtabstop=2 expandtab")

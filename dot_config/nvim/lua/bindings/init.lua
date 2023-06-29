@@ -11,10 +11,6 @@ nnoremap("<F1>", ":execute 'silent ! alacritty &'<CR>", silent)
 vnoremap("<", "<gv", silent)
 vnoremap(">", ">gv", silent)
 
-nmap("<C-c>", '"+y')
-vmap("<C-c>", '"+y')
-nmap("<C-v>", '"+p')
-
 nnoremap("<CR>", ":Lspsaga code_action<CR>", silent)
 
 require("which-key").register({

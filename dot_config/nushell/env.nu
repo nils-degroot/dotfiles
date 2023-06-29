@@ -82,5 +82,16 @@ let-env NU_PLUGIN_DIRS = [
     ($nu.config-path | path dirname | path join 'plugins')
 ]
 
+let-env NPM_PACKAGES = "~/.local/share/npm-packages/"
+
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
-let-env PATH = ($env.PATH | split row (char esep) | prepend '/home/nils/.local/share/bob/nvim-bob')
+let-env PATH = ($env.PATH | split row (char esep) | prepend [
+	"~/.local/share/bob/nvim-bob",
+	"~/.krew/bin",
+	"~/.local/share/npm-packages/bin"
+])
+
+let-env DOCKER_HOST = unix:///run/user/1000/docker.sock
+let-env EDITOR = "nvim"
+let-env JAVA_HOME = "~/.sdkman/candidates/java/current/"
+
