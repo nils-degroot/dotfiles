@@ -549,8 +549,6 @@ source ~/Documents/src/nu_scripts/custom-completions/pass/pass-completions.nu
 
 source ~/.config/nushell/zoxide.nu
 
-source ~/Documents/code/rust/util/resources/util-completions.nu
-
 ## Theme
 use ~/Documents/src/nu_scripts/themes/themes/srcery.nu *
 let-env config = ($env.config | merge {color_config: (srcery)})

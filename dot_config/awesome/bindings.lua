@@ -8,31 +8,6 @@ awful.spawn.easy_async_with_shell("hostname", function(stdout)
 	hostname = stdout:gsub("%s+", "")
 end)
 
--- Scratchpad setup
-local bling = require("bling")
-local rubato = require("rubato")
-
-local anim_y = rubato.timed({
-	pos = -1090,
-	rate = 60,
-	easing = rubato.quadratic,
-	intro = 0.1,
-	duration = 0.2,
-	awestore_compat = true,
-})
-
-local notes_scratch = bling.module.scratchpad({
-	command = "alacritty --class notes_scratchpad -e nvim",
-	rule = { instance = "notes_scratchpad" },
-	sticky = true,
-	autoclose = true,
-	floating = true,
-	geometry = { x = 50, y = 50, height = 900, width = 1500 },
-	reapply = true,
-	dont_focus_before_close = false,
-	rubato = { y = anim_y },
-})
-
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(awful.button({}, 4, awful.tag.viewnext), awful.button({}, 5, awful.tag.viewprev)))
 -- }}}
@@ -46,15 +21,6 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "k", function()
 		awful.client.focus.byidx(-1)
 	end, { description = "focus previous by index", group = "client" }),
-
-	-- Scratchpad
-	awful.key({ modkey, "Control" }, "n", function()
-		notes_scratch:toggle()
-	end, { description = "notes scratchpad", group = "scratchpad" }),
-
-	awful.key({ modkey, "Control" }, "o", function()
-		k9s_scratch:toggle()
-	end, { description = "k9s scratchpad", group = "scratchpad" }),
 
 	-- Awesome
 	awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
