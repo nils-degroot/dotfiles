@@ -8,13 +8,10 @@ return require("packer").startup(function()
 	use({ "simrat39/rust-tools.nvim", config = require("plugins.config-rust-tools") })
 	use("rust-lang/rust.vim")
 	use("othree/html5.vim")
-	use("udalov/kotlin-vim")
 	use("tbastos/vim-lua")
 	use("pangloss/vim-javascript")
-	use("burnettk/vim-angular")
-	use("maxmellon/vim-jsx-pretty")
+	use("easymotion/vim-easymotion")
 	use("vim-scripts/liquid.vim")
-	use({ "evanleck/vim-svelte", branch = "main" })
 	use("imsnif/kdl.vim")
 	use({ "LhKipp/nvim-nu", config = require("plugins.config-nu") })
 	use("aklt/plantuml-syntax")
@@ -31,7 +28,6 @@ return require("packer").startup(function()
 
 	-- Ui
 	use({ "lewis6991/gitsigns.nvim", config = require("plugins.config-gitsigns") })
-	use({ "kyazdani42/nvim-tree.lua", config = require("plugins.config-tree") })
 	use({ "folke/which-key.nvim", config = require("plugins.config-which-key") })
 	use({
 		"feline-nvim/feline.nvim",
@@ -44,7 +40,6 @@ return require("packer").startup(function()
 		requires = {
 			"nvim-lua/plenary.nvim",
 			"nvim-lua/popup.nvim",
-			"nvim-telescope/telescope-media-files.nvim",
 		},
 		config = require("plugins.config-telescope"),
 	})
@@ -55,10 +50,6 @@ return require("packer").startup(function()
 		config = require("plugins.config-oil"),
 	})
 	use({ "stevearc/dressing.nvim" })
-	use({
-		"stevearc/overseer.nvim",
-		config = require("plugins.config-overseer"),
-	})
 	use({ "rcarriga/nvim-notify" })
 
 	-- Lsp
@@ -106,7 +97,8 @@ return require("packer").startup(function()
 	use("mattn/emmet-vim")
 	use("srcery-colors/srcery-vim")
 	use("lewis6991/impatient.nvim")
-	use("easymotion/vim-easymotion")
 	use({ "lukas-reineke/indent-blankline.nvim", config = require("plugins.config-indent-blankline") })
 	use("mg979/vim-visual-multi")
+
+	use({ "ggandor/leap.nvim", config = require("plugins.config-leap") })
 end)
