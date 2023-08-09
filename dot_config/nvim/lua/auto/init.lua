@@ -17,6 +17,6 @@ autocmd("BufWritePre", "*.lua", ":silent lua require('stylua').format()")
 autocmd("BufEnter", "*.nu", ":TSEnable highlight")
 
 -- Tab sizing
-autocmd("FileType", "markdown", "setlocal shiftwidth=2 softtabstop=2 expandtab")
-autocmd("FileType", "telekasten", "setlocal shiftwidth=2 softtabstop=2 expandtab")
-autocmd("FileType", "nix", "setlocal shiftwidth=2 softtabstop=2 expandtab")
+for _, filetype in ipairs({ "markdown", "telekasten", "nix", "json" }) do
+	autocmd("FileType", filetype, "setlocal shiftwidth=2 softtabstop=2 expandtab")
+end

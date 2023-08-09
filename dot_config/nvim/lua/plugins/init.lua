@@ -101,4 +101,5 @@ return require("packer").startup(function()
 	use("mg979/vim-visual-multi")
 
 	use({ "ggandor/leap.nvim", config = require("plugins.config-leap") })
+	use({ "windwp/nvim-autopairs", config = require("plugins.config-autopairs") })
 end)
