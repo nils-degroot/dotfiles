@@ -22,6 +22,8 @@ opt.scrolloff = 5
 
 vim.cmd([[set listchars=space:·,tab:>·]])
 
+vim.loader.enable()
+
 -- rust.vim config
 vim.g.rustfmt_autosave = 1
 
@@ -37,19 +39,14 @@ for _, lsp in ipairs({
 	"lua_ls",
 	"rust_analyzer",
 	"svelte",
-	"denols",
 	"jdtls",
+	"tsserver",
+	"kotlin_language_server",
 }) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,
 	})
 end
-
-lspconfig.tsserver.setup({
-	capabilities = capabilities,
-	single_file_support = false,
-	root_pattern = { "tsconfig.json" },
-})
 
 lspconfig.marksman.setup({
 	capabilities = capabilities,
@@ -58,5 +55,5 @@ lspconfig.marksman.setup({
 
 lspconfig.grammarly.setup({
 	capabilities = capabilities,
-	filetypes = { "markdown", "telekasten", "org" },
+	filetypes = { "markdown", "telekasten", "org", "norg" },
 })

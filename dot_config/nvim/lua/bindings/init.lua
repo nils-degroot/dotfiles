@@ -2,8 +2,6 @@ local util = require("bindings.util")
 
 local nnoremap = util.nnoremap
 local vnoremap = util.vnoremap
-local nmap = util.nmap
-local vmap = util.vmap
 local silent = util.silent
 
 nnoremap("<F1>", ":execute 'silent ! alacritty &'<CR>", silent)
@@ -12,6 +10,8 @@ vnoremap("<", "<gv", silent)
 vnoremap(">", ">gv", silent)
 
 nnoremap("<CR>", ":Lspsaga code_action<CR>", silent)
+nnoremap("<Tab>", ":lua require('fold-cycle').open()<CR>", silent)
+nnoremap("<S-Tab>", ":lua require('fold-cycle').close()<CR>", silent)
 
 require("which-key").register({
 	p = {
@@ -67,6 +67,7 @@ require("which-key").register({
 			name = "goto",
 			d = { "<CMD>Telekasten follow_link<CR>", "Follow link" },
 			t = { "<CMD>Telekasten goto_today<CR>", "Today" },
+			w = { "<CMD>Telekasten goto_thisweek<CR>", "Week" },
 		},
 		i = {
 			name = "insert",

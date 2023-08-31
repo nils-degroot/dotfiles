@@ -15,7 +15,7 @@ return require("packer").startup(function()
 	use({ "LhKipp/nvim-nu", config = require("plugins.config-nu") })
 	use("aklt/plantuml-syntax")
 	use({ "nvim-orgmode/orgmode", config = require("plugins.config-orgmode") })
-	use("dhruvasagar/vim-table-mode")
+	use("udalov/kotlin-vim")
 
 	-- Formatting
 	use({ "wesleimp/stylua.nvim", requires = { "nvim-lua/plenary.nvim" } })
@@ -24,6 +24,7 @@ return require("packer").startup(function()
 	use({ "folke/twilight.nvim", config = require("plugins.config-twilight") })
 	use({ "folke/zen-mode.nvim", config = require("plugins.config-zen") })
 	use({ "renerocksai/telekasten.nvim", config = require("plugins.config-telekasten") })
+	use("dhruvasagar/vim-table-mode")
 
 	-- Ui
 	use({ "lewis6991/gitsigns.nvim", config = require("plugins.config-gitsigns") })
@@ -44,10 +45,7 @@ return require("packer").startup(function()
 	})
 	use({ "folke/todo-comments.nvim", config = require("plugins.config-todo-comments") })
 	use({ "jghauser/fold-cycle.nvim", config = require("plugins.config-fold-cycle") })
-	use({
-		"stevearc/oil.nvim",
-		config = require("plugins.config-oil"),
-	})
+	use({ "stevearc/oil.nvim", config = require("plugins.config-oil") })
 	use({ "stevearc/dressing.nvim" })
 	use({ "rcarriga/nvim-notify" })
 
@@ -79,7 +77,7 @@ return require("packer").startup(function()
 		config = require("plugins.config-cmp"),
 	})
 	use({
-		"glepnir/lspsaga.nvim",
+		"nvimdev/lspsaga.nvim",
 		branch = "main",
 		config = require("plugins.config-lspsaga"),
 	})
@@ -95,10 +93,10 @@ return require("packer").startup(function()
 	use("tpope/vim-surround")
 	use("mattn/emmet-vim")
 	use("srcery-colors/srcery-vim")
-	use("lewis6991/impatient.nvim")
 	use({ "lukas-reineke/indent-blankline.nvim", config = require("plugins.config-indent-blankline") })
 	use("mg979/vim-visual-multi")
-
 	use({ "ggandor/leap.nvim", config = require("plugins.config-leap") })
-	use({ "windwp/nvim-autopairs", config = require("plugins.config-autopairs") })
+	use({ "echasnovski/mini.starter", branch = "stable", config = require("plugins.config-mini-starter") })
+	use({ "echasnovski/mini.cursorword", branch = "stable", config = require("plugins.config-mini-cursorword") })
+	use({ "echasnovski/mini.pairs", branch = "stable", config = require("plugins.config-mini-pairs") })
 end)

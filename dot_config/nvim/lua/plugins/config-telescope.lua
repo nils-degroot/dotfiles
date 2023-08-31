@@ -12,6 +12,9 @@ return function()
 					["<esc>"] = actions.close,
 				},
 			},
+			preview = {
+				treesitter = false,
+			},
 		},
 		pickers = {
 			fd = {
