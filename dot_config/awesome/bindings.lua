@@ -106,8 +106,8 @@ globalkeys = gears.table.join(
 	end, { description = "Open a terminal", group = "launcher" }),
 
 	awful.key({ modkey }, "Escape", function()
-		awful.spawn("dmenu-power")
-	end, { description = "Lock the screen", group = "launcher" }),
+		awful.spawn("/home/nils/Documents/scripts/dmenu-power.nu")
+	end, { description = "Power menu", group = "launcher" }),
 
 	awful.key({ modkey }, "p", function()
 		awful.spawn("rofi -show drun -show-icons")
@@ -122,7 +122,7 @@ globalkeys = gears.table.join(
 	end, { description = "Focus a window", group = "launcher" }),
 
 	awful.key({ modkey }, "r", function()
-		awful.spawn("dmenu-pass-m")
+		awful.spawn("/home/nils/Documents/scripts/dmenu-pass-m.nu")
 	end, { description = "Open password store", group = "launcher" }),
 
 	awful.key({ modkey }, "d", function()

@@ -179,7 +179,7 @@ let light_theme = {
 
 
 # The default config record. This is where much of your global configuration is setup.
-let-env config = {
+$env.config = {
   # true or false to enable or disable the welcome banner at startup
   show_banner: false
   ls: {
@@ -551,7 +551,7 @@ source ~/.config/nushell/zoxide.nu
 
 ## Theme
 use ~/Documents/src/nu_scripts/themes/themes/srcery.nu *
-let-env config = ($env.config | merge {color_config: (srcery)})
+$env.config = ($env.config | merge {color_config: (srcery)})
 
 # Aliases
 ## Program alternatives
