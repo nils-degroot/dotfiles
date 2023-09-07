@@ -14,7 +14,6 @@ return require("packer").startup(function()
 	use("imsnif/kdl.vim")
 	use({ "LhKipp/nvim-nu", config = require("plugins.config-nu") })
 	use("aklt/plantuml-syntax")
-	use({ "nvim-orgmode/orgmode", config = require("plugins.config-orgmode") })
 	use("udalov/kotlin-vim")
 
 	-- Formatting
