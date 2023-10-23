@@ -82,16 +82,16 @@ $env.NU_PLUGIN_DIRS = [
     ($nu.config-path | path dirname | path join 'plugins')
 ]
 
-$env.NPM_PACKAGES = "~/.local/share/npm-packages/"
+$env.PNPM_HOME = "/home/nils/.local/share/pnpm"
 
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 $env.PATH = ($env.PATH | split row (char esep) | prepend [
 	"~/.local/share/bob/nvim-bob"
 	"~/.krew/bin"
-	"~/.local/share/npm-packages/bin"
-	"~/Documents/scripts"
+	"~/.local/share/fnm"
+	$env.PNPM_HOME
 ])
 
 $env.DOCKER_HOST = unix:///run/user/1000/docker.sock
 $env.EDITOR = "nvim"
-
+$env.JAVA_HOME = "/home/nils/.sdkman/candidates/java/current/"

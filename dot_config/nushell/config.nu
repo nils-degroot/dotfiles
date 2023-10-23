@@ -548,6 +548,9 @@ source ~/Documents/src/nu_scripts/custom-completions/npm/npm-completions.nu
 source ~/Documents/src/nu_scripts/custom-completions/pass/pass-completions.nu
 
 source ~/.config/nushell/zoxide.nu
+source ~/Documents/src/nu_scripts/modules/docker/docker.nu
+
+source ~/Documents/code/rust/util/resources/util-completions.nu
 
 ## Theme
 use ~/Documents/src/nu_scripts/themes/themes/srcery.nu *
@@ -557,7 +560,8 @@ $env.config = ($env.config | merge {color_config: (srcery)})
 ## Program alternatives
 alias vi = nvim
 alias vim = nvim
-alias cat = batcat
+alias cat = bat
+alias npm = pnpm
 
 ## Files
 alias l = ls -la
@@ -576,7 +580,7 @@ def git-delete-merged [] {
 		| lines 
 		| where $it !~ '\*' 
 		| str trim 
-		| where $it != 'master' and $it != 'main' 
+		| where $it != 'master' and $it != 'main' and $it != 'dev'
 		| each { |it| git branch -d $it }
 }
 

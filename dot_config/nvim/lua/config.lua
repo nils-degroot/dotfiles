@@ -1,3 +1,5 @@
+vim.opt.termguicolors = true
+
 -- Setup plugins
 require("plugins")
 
@@ -9,9 +11,3 @@ require("bindings")
 
 -- Setup auto CMD hooks
 require("auto")
-
--- Neovide
-if vim.g.neovide then
-	-- Setup neovide
-	require("neovide")
-end

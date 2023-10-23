@@ -5,7 +5,6 @@ local wo = vim.wo
 local opt = vim.opt
 
 g.mapleader = " "
-g.termguicolors = true
 
 go.mouse = "a"
 go.timeoutlen = 500
@@ -14,13 +13,9 @@ wo.number = true
 wo.relativenumber = true
 wo.linebreak = true
 
-opt.termguicolors = true
-opt.list = true
 opt.shiftwidth = 4
 opt.tabstop = 4
 opt.scrolloff = 5
-
-vim.cmd([[set listchars=space:·,tab:>·]])
 
 vim.loader.enable()
 
@@ -41,7 +36,7 @@ for _, lsp in ipairs({
 	"svelte",
 	"jdtls",
 	"tsserver",
-	"kotlin_language_server",
+	"prismals",
 }) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,
@@ -56,4 +51,14 @@ lspconfig.marksman.setup({
 lspconfig.grammarly.setup({
 	capabilities = capabilities,
 	filetypes = { "markdown", "telekasten", "org", "norg" },
+})
+
+lspconfig.eslint.setup({
+	--- ...
+	on_attach = function(_, bufnr)
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			buffer = bufnr,
+			command = "EslintFixAll",
+		})
+	end,
 })

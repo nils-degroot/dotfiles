@@ -9,6 +9,10 @@ config.unbind("T")
 
 # Other config
 c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
+
 c.downloads.position = "bottom"
+
 c.fonts.default_family = ["Iosevka", "Noto Emoji Color"]
-c.url.start_pages = ["http://rp-bottom:7002", "http://rp-bottom:7006"]
+
+c.url.start_pages = ["http://localhost"]
+c.url.searchengines = {"DEFAULT": "https://startpage.com/do/search?query={}"}

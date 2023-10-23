@@ -127,7 +127,7 @@ keybinds {
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
 
-		bind "Ctrl y" {
+		bind "Ctrl z" {
 			LaunchOrFocusPlugin "file:~/.config/zellij/plugins/room.wasm" {
 				floating true
 			}

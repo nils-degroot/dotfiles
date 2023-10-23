@@ -1,4 +1,3 @@
-"" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
 set scrolloff=5
@@ -29,6 +28,7 @@ let g:WhichKeyDesc_goto = "<Space>g goto/git"
 let g:WhichKeyDesc_project = "<Space>p project"
 let g:WhichKeyDesc_show = "<Space>s show"
 let g:WhichKeyDesc_toggle = "<Space>t toggle"
+let g:WhichKey_ShowVimActions = "true"
 
 " Keybindings
 " Build/Run actions
@@ -59,8 +59,8 @@ nmap <F2> :source ~/.ideavimrc<CR>
 nmap <Leader>pf <Action>(SearchEverywhere)
 nmap <Leader>pm <Action>(Maven.ExecuteGoal)
 nmap <Leader>pg <Action>(Gradle.ExecuteTask)
-nmap <Leader>pc <Action>(Cargo.RunCargoCommand)
 nmap <Leader>pp <Action>(RecentProjectListGroup)
+nmap <Leader>pn <Action>(NewProject)
 nmap <Leader>pt :NERDTree<CR>
 
 " Code
@@ -71,9 +71,6 @@ nmap <Leader>cf <Action>(CollapseRegion)
 nmap <Leader>ce <Action>(ExpandRegion)
 
 " File
-nmap <Leader>fj <Action>(NewClass)
-nmap <Leader>fn <Action>(Kotlin.NewFile)
-nmap <Leader>fm <Action>(Move)
 nmap <Leader>fp :e ~/.ideavimrc<CR>
 
 " Toggle
@@ -83,3 +80,4 @@ nmap <Leader>td <Action>(ActivateDatabaseToolWindow)
 " Other
 nmap <CR> <Action>(ShowIntentionActions)
 nmap <Leader>cd <Action>(ToggleLineBreakpoint)
+

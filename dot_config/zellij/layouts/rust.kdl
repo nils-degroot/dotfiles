@@ -9,7 +9,7 @@ layout {
 		pane split_direction="horizontal" {
 			cargo { args "check"; }
 			cargo { args "test"; }
-			cargo { args "rust"; }
+			cargo { args "run"; }
 		}
 	}
 
