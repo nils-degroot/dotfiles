@@ -1,4 +1,3 @@
-// If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
 keybinds {
     normal {
 		unbind "Ctrl o"
@@ -6,9 +5,6 @@ keybinds {
 
 		unbind "Ctrl n"
 		bind "Ctrl m" { SwitchToMode "Resize"; }
-    }
-    locked {
-        bind "Ctrl g" { SwitchToMode "Normal"; }
     }
     resize {
         bind "Ctrl n" { SwitchToMode "Normal"; }
@@ -56,17 +52,6 @@ keybinds {
         bind "l" "Right" "Down" "j" { GoToNextTab; }
         bind "n" { NewTab; SwitchToMode "Normal"; }
         bind "x" { CloseTab; SwitchToMode "Normal"; }
-        bind "s" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
-        bind "1" { GoToTab 1; SwitchToMode "Normal"; }
-        bind "2" { GoToTab 2; SwitchToMode "Normal"; }
-        bind "3" { GoToTab 3; SwitchToMode "Normal"; }
-        bind "4" { GoToTab 4; SwitchToMode "Normal"; }
-        bind "5" { GoToTab 5; SwitchToMode "Normal"; }
-        bind "6" { GoToTab 6; SwitchToMode "Normal"; }
-        bind "7" { GoToTab 7; SwitchToMode "Normal"; }
-        bind "8" { GoToTab 8; SwitchToMode "Normal"; }
-        bind "9" { GoToTab 9; SwitchToMode "Normal"; }
-        bind "Tab" { ToggleTab; }
     }
     scroll {
         bind "Ctrl s" { SwitchToMode "Normal"; }
@@ -79,8 +64,6 @@ keybinds {
         bind "Ctrl b" "PageUp" "Left" "h" { PageScrollUp; }
         bind "d" { HalfPageScrollDown; }
         bind "u" { HalfPageScrollUp; }
-        // uncomment this and adjust key if using copy_on_select=false
-        // bind "Alt c" { Copy; }
     }
     search {
         bind "Ctrl s" { SwitchToMode "Normal"; }
@@ -115,8 +98,6 @@ keybinds {
         bind "d" { Detach; }
     }
     shared_except "locked" {
-        bind "Ctrl g" { SwitchToMode "Locked"; }
-        bind "Ctrl q" { Quit; }
         bind "Alt n" { NewPane; }
         bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
         bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
@@ -130,28 +111,29 @@ keybinds {
 		bind "Ctrl z" {
 			LaunchOrFocusPlugin "file:~/.config/zellij/plugins/room.wasm" {
 				floating true
+				ignore_case true
 			}
 		}
     }
-    shared_except "normal" "locked" {
+    shared_except "normal" {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
     }
-    shared_except "pane" "locked" {
+    shared_except "pane" {
         bind "Ctrl p" { SwitchToMode "Pane"; }
     }
-    shared_except "resize" "locked" {
-        bind "Ctrl n" { SwitchToMode "Resize"; }
+    shared_except "resize" {
+        bind "Ctrl m" { SwitchToMode "Resize"; }
     }
-    shared_except "scroll" "locked" {
+    shared_except "scroll" {
         bind "Ctrl s" { SwitchToMode "Scroll"; }
     }
-    shared_except "session" "locked" {
+    shared_except "session" {
         bind "Ctrl o" { SwitchToMode "Session"; }
     }
-    shared_except "tab" "locked" {
+    shared_except "tab" {
         bind "Ctrl t" { SwitchToMode "Tab"; }
     }
-    shared_except "move" "locked" {
+    shared_except "move" {
         bind "Ctrl h" { SwitchToMode "Move"; }
     }
 }
@@ -225,7 +207,7 @@ theme "srcery"
 // The name of the default layout to load on startup
 // Default: "default"
 //
-// default_layout "compact"
+// default_layout "file:~/.config/zellij/layouts/custom.kdl"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
@@ -238,7 +220,7 @@ theme "srcery"
 // Options:
 //   - true (default)
 //   - false
-//
+// 
 // mouse_mode false
 
 // Configure the scroll back buffer size
@@ -270,7 +252,7 @@ theme "srcery"
 
 // Enable or disable automatic copy (and clear) of selection when releasing mouse
 // Default: true
-//
+// 
 // copy_on_select false
 
 // Path to the default editor to use to edit pane scrollbuffer
@@ -287,7 +269,7 @@ theme "srcery"
 
 // The folder in which Zellij will look for layouts
 
-layout_dir "/home/nils/.config/zellij/layouts/"
+layout_dir "~/.config/zellij/layouts/"
 
 // The folder in which Zellij will look for themes
 //
