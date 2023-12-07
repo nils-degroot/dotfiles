@@ -8,7 +8,7 @@ return function()
 			enable = false,
 		},
 		ui = {
-			border = "rounded",
+			border = "single",
 		},
 	})
 end

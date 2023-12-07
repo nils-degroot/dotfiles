@@ -6,7 +6,7 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
+		"--branch=stable",
 		lazypath,
 	})
 end
@@ -15,17 +15,17 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- Syntax
-	{ "simrat39/rust-tools.nvim", config = true },
-	"rust-lang/rust.vim",
+	{ "simrat39/rust-tools.nvim", config = true, ft = "rust" },
+	{ "rust-lang/rust.vim", ft = "rust" },
 	"othree/html5.vim",
-	"tbastos/vim-lua",
+	{ "tbastos/vim-lua", ft = "lua" },
 	"pangloss/vim-javascript",
 	"vim-scripts/liquid.vim",
-	"imsnif/kdl.vim",
-	{ "LhKipp/nvim-nu", config = true },
-	"aklt/plantuml-syntax",
-	"evanleck/vim-svelte",
-	"prisma/vim-prisma",
+	{ "imsnif/kdl.vim", ft = "kdl" },
+	{ "LhKipp/nvim-nu", config = true, ft = "nu" },
+	{ "aklt/plantuml-syntax", ft = "liquid" },
+	{ "evanleck/vim-svelte", ft = "svelte" },
+	{ "prisma/vim-prisma", ft = "prisma" },
 	"leafgarland/typescript-vim",
 
 	-- Formatting
@@ -45,24 +45,19 @@ require("lazy").setup({
 		dependencies = { "kyazdani42/nvim-web-devicons" },
 		config = require("plugins.config-feline"),
 	},
-	{ "ahmedkhalf/project.nvim", config = require("plugins.config-project") },
 	{
 		"nvim-telescope/telescope.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-lua/popup.nvim",
-		},
+		tag = "0.1.5",
+		dependencies = { "nvim-lua/plenary.nvim" },
 		config = require("plugins.config-telescope"),
 	},
 	{ "folke/todo-comments.nvim", config = true },
-	{ "jghauser/fold-cycle.nvim", config = true },
 	{ "stevearc/oil.nvim", config = require("plugins.config-oil") },
 	"stevearc/dressing.nvim",
 	"rcarriga/nvim-notify",
 
 	-- Lsp
 	{ "williamboman/mason.nvim", config = require("plugins.config-mason") },
-	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
 	{ "quangnguyen30192/cmp-nvim-ultisnips", config = require("plugins.config-ultisnips") },
 	"SirVer/ultisnips",
@@ -102,16 +97,8 @@ require("lazy").setup({
 		config = true,
 	},
 	"mg979/vim-visual-multi",
-	{ "ggandor/leap.nvim", config = require("plugins.config-leap") },
 	{ "echasnovski/mini.starter", branch = "stable", config = require("plugins.config-mini-starter") },
 	{ "echasnovski/mini.pairs", branch = "stable", config = true },
-	{
-		"NeogitOrg/neogit",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-			"sindrets/diffview.nvim",
-		},
-		config = true,
-	},
+	"David-Kunz/gen.nvim",
+	{ "numToStr/Comment.nvim", config = true },
 })
