@@ -9,6 +9,10 @@ return function()
 		},
 		ui = {
 			border = "single",
+			code_action = "🦝",
+		},
+		lightbulb = {
+			sign = false,
 		},
 	})
 end
