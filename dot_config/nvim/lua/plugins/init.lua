@@ -101,4 +101,6 @@ require("lazy").setup({
 	{ "echasnovski/mini.pairs", branch = "stable", config = true },
 	"David-Kunz/gen.nvim",
 	{ "numToStr/Comment.nvim", config = true },
+}, {
+	concurrency = 8,
 })
