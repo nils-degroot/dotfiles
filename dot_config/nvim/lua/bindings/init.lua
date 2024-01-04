@@ -4,23 +4,16 @@ local nnoremap = util.nnoremap
 local vnoremap = util.vnoremap
 local silent = util.silent
 
-nnoremap("<F1>", ":execute 'silent ! alacritty &'<CR>", silent)
-
 vnoremap("<", "<gv", silent)
 vnoremap(">", ">gv", silent)
 
-nnoremap("<CR>", ":Lspsaga code_action<CR>", silent)
-nnoremap("<Tab>", ":lua require('fold-cycle').open()<CR>", silent)
-nnoremap("<S-Tab>", ":lua require('fold-cycle').close()<CR>", silent)
+nnoremap("<CR>", ":lua vim.lsp.buf.code_action()<CR>", silent)
 
 require("which-key").register({
 	p = {
 		name = "project",
-		p = { "<CMD>Telescope projects<CR>", "Switch project" },
 		f = { "<CMD>Telescope fd<CR>", "Find file" },
-		t = { "<CMD>NvimTreeFocus<CR>", "Focus tree" },
-		a = { "<CMD>NvimTreeRefresh<CR>", "Refresh tree" },
-		r = { "<CMD>ProjectRoot<CR>", "Change cwd to project root" },
+		o = { "<CMD>Telescope oldfiles<CR>", "Find recent files" },
 	},
 	t = {
 		name = "toggle",
@@ -35,8 +28,7 @@ require("which-key").register({
 	g = {
 		name = "goto",
 		d = { "<CMD>lua vim.lsp.buf.definition()<CR>", "Goto definition" },
-		i = { "<CMD>call CocAction('jumpImplementation')<CR>", "Goto implementation" },
-		r = { "<CMD>call CocAction('jumpReferences')<CR>", "Find references" },
+		r = { "<CMD>Telescope lsp_references<CR>", "Find references" },
 	},
 	s = {
 		name = "show",
@@ -47,22 +39,13 @@ require("which-key").register({
 		name = "buffers",
 		b = { "<CMD>Telescope buffers<CR>", "Buffers" },
 	},
-	v = {
-		name = "vim",
-		p = {
-			name = "packer",
-			i = { "<CMD>PackerInstall<CR>", "Packer install" },
-			k = { "<CMD>PackerClean<CR>", "Packer clean" },
-			u = { "<CMD>PackerSync<CR>", "Packer update" },
-			c = { "<CMD>PackerCompile<CR>", "Packer compile" },
-		},
-	},
 	n = {
 		name = "notes",
 		f = { "<CMD>Telekasten find_notes<CR>", "Find notes" },
 		t = { "<CMD>Telekasten show_tags<CR>", "Show tags" },
 		n = { "<CMD>Telekasten new_note<CR>", "New note" },
 		m = { "<CMD>Telekasten<CR>", "Menu" },
+		s = { "<CMD>Telekasten search_notes<CR>", "Search in notes" },
 		g = {
 			name = "goto",
 			d = { "<CMD>Telekasten follow_link<CR>", "Follow link" },
@@ -72,7 +55,7 @@ require("which-key").register({
 		i = {
 			name = "insert",
 			l = { "<CMD>Telekasten insert_link<CR>", "Insert link" },
-			m = { "<CMD>Telekasten insert_img_link<CR>", "Insert media" },
+			i = { "<CMD>Telekasten insert_img_link<CR>", "Insert image link" },
 		},
 	},
 }, {

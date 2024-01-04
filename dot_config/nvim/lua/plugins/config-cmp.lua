@@ -1,7 +1,34 @@
+local cmp_kinds = {
+	Text = "  ",
+	Method = "  ",
+	Function = "  ",
+	Constructor = "  ",
+	Field = "  ",
+	Variable = "  ",
+	Class = "  ",
+	Interface = "  ",
+	Module = "  ",
+	Property = "  ",
+	Unit = "  ",
+	Value = "  ",
+	Enum = "  ",
+	Keyword = "  ",
+	Snippet = "  ",
+	Color = "  ",
+	File = "  ",
+	Reference = "  ",
+	Folder = "  ",
+	EnumMember = "  ",
+	Constant = "  ",
+	Struct = "  ",
+	Event = "  ",
+	Operator = "  ",
+	TypeParameter = "  ",
+}
+
 return function()
 	local cmp = require("cmp")
 	local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
-	local lspkind = require("lspkind")
 
 	cmp.setup({
 		snippet = {
@@ -10,9 +37,8 @@ return function()
 			end,
 		},
 		mapping = cmp.mapping.preset.insert({
-			["<C-d>"] = cmp.mapping.scroll_docs(-4),
-			["<C-f>"] = cmp.mapping.scroll_docs(4),
-			["<C-Space>"] = cmp.mapping.complete(),
+			["<C-u>"] = cmp.mapping.scroll_docs(-4),
+			["<C-d>"] = cmp.mapping.scroll_docs(4),
 			["<CR>"] = cmp.mapping.confirm({
 				behavior = cmp.ConfirmBehavior.Replace,
 				select = true,
@@ -36,13 +62,9 @@ return function()
 		preselect = cmp.PreselectMode.Item,
 		formatting = {
 			fields = { "kind", "abbr", "menu" },
-			format = function(entry, vim_item)
-				local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-				local strings = vim.split(kind.kind, "%s", { trimempty = true })
-				kind.kind = " " .. (strings[1] or "") .. " "
-				kind.menu = "    (" .. (strings[2] or "") .. ")"
-
-				return kind
+			format = function(_, vim_item)
+				vim_item.kind = (cmp_kinds[vim_item.kind] or "") .. vim_item.kind
+				return vim_item
 			end,
 		},
 	})

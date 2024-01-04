@@ -1,17 +1,14 @@
 return function()
-	local actions = require("telescope.actions")
 	local telescope = require("telescope")
+	local actions = require("telescope.actions")
+	local themes = require("telescope.themes")
 
 	telescope.setup({
 		defaults = {
-			theme = "ivy",
 			mappings = {
 				i = {
 					["<esc>"] = actions.close,
 				},
-			},
-			preview = {
-				treesitter = false,
 			},
 		},
 		pickers = {
@@ -19,5 +16,14 @@ return function()
 				find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
 			},
 		},
+		extensions = {
+			["ui-select"] = {
+				themes.get_dropdown({
+					width = 0.8,
+				}),
+			},
+		},
 	})
+
+	telescope.load_extension("ui-select")
 end

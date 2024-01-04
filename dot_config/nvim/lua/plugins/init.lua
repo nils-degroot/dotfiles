@@ -23,7 +23,7 @@ require("lazy").setup({
 	"vim-scripts/liquid.vim",
 	{ "imsnif/kdl.vim", ft = "kdl" },
 	{ "LhKipp/nvim-nu", config = true, ft = "nu" },
-	{ "aklt/plantuml-syntax", ft = "liquid" },
+	{ "aklt/plantuml-syntax", ft = "plantuml" },
 	{ "evanleck/vim-svelte", ft = "svelte" },
 	{ "prisma/vim-prisma", ft = "prisma" },
 	"leafgarland/typescript-vim",
@@ -53,8 +53,8 @@ require("lazy").setup({
 	},
 	{ "folke/todo-comments.nvim", config = true },
 	{ "stevearc/oil.nvim", config = require("plugins.config-oil") },
-	"stevearc/dressing.nvim",
 	"rcarriga/nvim-notify",
+	"nvim-telescope/telescope-ui-select.nvim",
 
 	-- Lsp
 	{ "williamboman/mason.nvim", config = require("plugins.config-mason") },
@@ -101,6 +101,10 @@ require("lazy").setup({
 	{ "echasnovski/mini.pairs", branch = "stable", config = true },
 	"David-Kunz/gen.nvim",
 	{ "numToStr/Comment.nvim", config = true },
+	{
+		"weirongxu/plantuml-previewer.vim",
+		dependencies = { "tyru/open-browser.vim" },
+	},
 }, {
 	concurrency = 8,
 })
