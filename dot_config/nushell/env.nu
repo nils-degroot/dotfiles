@@ -12,10 +12,13 @@ def create_left_prompt [] {
         }
     }
 
-    let dir = ([
-        ($env.PWD | str substring 0..($home | str length) | str replace -s $home "~"),
-        ($env.PWD | str substring ($home | str length)..)
-    ] | str join)
+	let dir = (
+        if ($env.PWD | path split | zip ($home | path split) | all { $in.0 == $in.1 }) {
+            ($env.PWD | str replace $home "~")
+        } else {
+            $env.PWD
+        }
+    )
 
     let path_segment = if (is-admin) {
         $"(ansi red_bold)($dir)"
@@ -86,7 +89,7 @@ $env.PNPM_HOME = "/home/nils/.local/share/pnpm"
 
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 $env.PATH = ($env.PATH | split row (char esep) | prepend [
-	"~/.local/share/bob/nvim-bob"
+	"~/.local/share/bob/nvim-bin"
 	"~/.krew/bin"
 	"~/.local/share/fnm"
 	$env.PNPM_HOME
