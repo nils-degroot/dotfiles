@@ -545,10 +545,9 @@ source ~/Documents/src/nu_scripts/custom-completions/npm/npm-completions.nu
 source ~/Documents/src/nu_scripts/custom-completions/pass/pass-completions.nu
 
 source ~/.config/nushell/zoxide.nu
-source ~/Documents/src/nu_scripts/modules/docker/docker.nu
 
 ## Theme
-use ~/Documents/src/nu_scripts/themes/themes/srcery.nu *
+use ~/Documents/src/nu_scripts/themes/nu-themes/srcery.nu *
 $env.config = ($env.config | merge {color_config: (srcery)})
 
 # Aliases
