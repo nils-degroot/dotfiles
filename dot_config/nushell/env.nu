@@ -90,7 +90,6 @@ $env.PNPM_HOME = "/home/nils/.local/share/pnpm"
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 $env.PATH = ($env.PATH | split row (char esep) | prepend [
 	"~/.local/share/bob/nvim-bin"
-	"~/.krew/bin"
 	"~/.local/share/fnm"
 	$env.PNPM_HOME
 ])
