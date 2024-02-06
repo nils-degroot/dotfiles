@@ -85,7 +85,11 @@ require("lazy").setup({
 		dependencies = { "jose-elias-alvarez/null-ls.nvim" },
 	},
 	"onsails/lspkind.nvim",
-	{ "nvim-treesitter/nvim-treesitter", config = require("plugins.config-treesitter") },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		config = require("plugins.config-treesitter"),
+		dependencies = { "nushell/tree-sitter-nu" },
+	},
 
 	-- etc
 	"tpope/vim-surround",

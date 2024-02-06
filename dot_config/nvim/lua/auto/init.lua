@@ -68,3 +68,10 @@ autocmd("FileType", {
 		})
 	end,
 })
+
+autocmd("FileType", {
+	pattern = { "nu" },
+	callback = function()
+		vim.cmd("TSEnable highlight")
+	end,
+})
