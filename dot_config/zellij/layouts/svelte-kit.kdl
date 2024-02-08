@@ -1,0 +1,18 @@
+layout {
+	pane size=1 borderless=true {
+		plugin location="zellij:compact-bar"
+	}
+
+	pane split_direction="vertical" {
+		pane edit="package.json" size="60%"
+
+		pane split_direction="horizontal" {
+			pnpm { args "run" "dev"; }
+			pnpm start_suspended=true { args "run" "test"; }
+		}
+	}
+
+	pane_template name="pnpm" {
+		command "pnpm"
+	}
+}

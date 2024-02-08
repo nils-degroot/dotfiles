@@ -34,7 +34,6 @@ keybinds clear-defaults=true {
         bind "K" { Resize "Decrease Up"; }
         bind "L" { Resize "Decrease Right"; }
     }
-
     move {
         bind "Ctrl h" { SwitchToMode "Normal"; }
         bind "n" "Tab" { MovePane; }
@@ -85,8 +84,9 @@ keybinds clear-defaults=true {
 				"mode pane" 	"<C-p>"
 				"mode tab" 		"<C-t>"
 				"mode scroll" 	"<C-s>"
-				"mode resize" 	"<C-a>"
+				"mode resize" 	"<C-l>"
 				"mode session" 	"<C-b>"
+				"mode session" 	"<C-n>"
 
 				"new pane" 			"<C-p> + n"
 				"new down pane" 	"<C-p> + d"
@@ -121,6 +121,13 @@ keybinds clear-defaults=true {
 
 				"detach session" 	"<C-b> + d"
 
+				"move pane"				"<C-n> n"
+				"move pane backwards"	"<C-n> p"
+				"move pane left"		"<C-n> h"
+				"move pane down"		"<C-n> j"
+				"move pane up"			"<C-n> k"
+				"move pane right"		"<C-n> l"
+
 				floating true
 			}
 		}
@@ -138,10 +145,13 @@ keybinds clear-defaults=true {
         bind "Ctrl s" { SwitchToMode "Scroll"; }
     }
     shared_except "resize" {
-        bind "Ctrl a" { SwitchToMode "Resize"; }
+        bind "Ctrl l" { SwitchToMode "Resize"; }
     }
     shared_except "session" {
         bind "Ctrl b" { SwitchToMode "Session"; }
+    }
+    shared_except "move" {
+        bind "Ctrl n" { SwitchToMode "Move"; }
     }
 }
 

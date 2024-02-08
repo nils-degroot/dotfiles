@@ -17,16 +17,16 @@ require("lazy").setup({
 	-- Syntax
 	{ "simrat39/rust-tools.nvim", config = true, ft = "rust" },
 	{ "rust-lang/rust.vim", ft = "rust" },
-	"othree/html5.vim",
 	{ "tbastos/vim-lua", ft = "lua" },
-	"pangloss/vim-javascript",
-	"vim-scripts/liquid.vim",
 	{ "imsnif/kdl.vim", ft = "kdl" },
-	{ "LhKipp/nvim-nu", config = true, ft = "nu" },
+	{ "LhKipp/nvim-nu", config = true },
 	{ "aklt/plantuml-syntax", ft = "plantuml" },
 	{ "evanleck/vim-svelte", ft = "svelte" },
 	{ "prisma/vim-prisma", ft = "prisma" },
+	"othree/html5.vim",
+	"pangloss/vim-javascript",
 	"leafgarland/typescript-vim",
+	"vim-scripts/liquid.vim",
 
 	-- Formatting
 	{ "wesleimp/stylua.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
@@ -34,7 +34,6 @@ require("lazy").setup({
 	-- Writing
 	{ "folke/twilight.nvim", config = require("plugins.config-twilight") },
 	{ "folke/zen-mode.nvim", config = require("plugins.config-zen") },
-	{ "renerocksai/telekasten.nvim", config = require("plugins.config-telekasten") },
 	"dhruvasagar/vim-table-mode",
 
 	-- Ui
@@ -84,11 +83,9 @@ require("lazy").setup({
 		config = true,
 		dependencies = { "jose-elias-alvarez/null-ls.nvim" },
 	},
-	"onsails/lspkind.nvim",
 	{
 		"nvim-treesitter/nvim-treesitter",
 		config = require("plugins.config-treesitter"),
-		dependencies = { "nushell/tree-sitter-nu" },
 	},
 
 	-- etc
@@ -108,6 +105,21 @@ require("lazy").setup({
 	{
 		"weirongxu/plantuml-previewer.vim",
 		dependencies = { "tyru/open-browser.vim" },
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
+	{
+		"epwalsh/obsidian.nvim",
+		version = "*",
+		lazy = true,
+		ft = "obsidian", -- FIXME: Cannot get this to work with md, will create folder in CWD whenever
+		config = require("plugins.config-obsidian"),
 	},
 }, {
 	concurrency = 8,
