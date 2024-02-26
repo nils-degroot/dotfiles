@@ -59,7 +59,7 @@ $env.config = {
   history: {
     max_size: 10000 # Session has to be reloaded for this to take effect
     sync_on_enter: true # Enable to share history between multiple sessions, else you have to close the session to write history to file
-    file_format: "plaintext" # "sqlite" or "plaintext"
+    file_format: "sqlite" # "sqlite" or "plaintext"
   }
   completions: {
     case_sensitive: false # set to true to enable case-sensitive completions
@@ -367,11 +367,28 @@ alias gpf = git push --force
 ## Clip
 alias copy = xclip -sel clipboard
 
-def git-delete-merged [] {
+# Git wrapper commands
+
+# Delete all merged branches
+def "gitw gone" [] {
 	git branch --merged 
 		| lines 
 		| where $it !~ '\*' 
 		| str trim 
 		| where $it != 'master' and $it != 'main' and $it != 'dev'
 		| each { |it| git branch -d $it }
+}
+
+# Show the reflog
+def "gitw reflog" [] {
+	^git reflog | lines | each { |line|
+		let parts = ( $line | split row ":" )
+
+		{
+			commit: ( $parts.0 | split row " " | $in.0 )
+			head: ( $parts.0 | split row " " | $in.1 )
+			action: ( $parts.1 | str trim )
+			message: ( $parts.2 | str trim )
+		}
+	}
 }
