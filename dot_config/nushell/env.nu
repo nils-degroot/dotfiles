@@ -96,4 +96,4 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend [
 
 $env.DOCKER_HOST = unix:///run/user/1000/docker.sock
 $env.EDITOR = "nvim"
-$env.JAVA_HOME = "/home/nils/.sdkman/candidates/java/current/"
+$env.GIT_EXTERNAL_DIFF = "difft"

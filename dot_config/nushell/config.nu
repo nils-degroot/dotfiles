@@ -350,6 +350,7 @@ alias vi = nvim
 alias vim = nvim
 alias cat = bat
 alias npm = pnpm
+alias diff = difft
 
 ## Files
 alias l = ls -la
@@ -362,7 +363,7 @@ alias gs = git status
 alias gc = git commit
 alias ga = git add
 alias gp = git push
-alias gpf = git push --force
+alias gpf = git push --force-with-lease
 
 ## Clip
 alias copy = xclip -sel clipboard

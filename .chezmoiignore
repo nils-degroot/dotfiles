@@ -3,6 +3,6 @@
 
 .config/nvim/plugin/*
 
-.config/nushell/history.txt
+.config/nushell/history.*
 
 .config/ncspot/userstate.cbor
