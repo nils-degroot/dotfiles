@@ -118,16 +118,6 @@ require("lazy").setup({
 		config = require("plugins.config-obsidian"),
 	},
 	{
-		"kndndrj/nvim-dbee",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-		},
-		build = function()
-			require("dbee").install()
-		end,
-		config = true,
-	},
-	{
 		"stevearc/conform.nvim",
 		config = require("plugins.config-conform"),
 	},
