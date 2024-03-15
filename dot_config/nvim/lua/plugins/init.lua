@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- Syntax
-	{ "simrat39/rust-tools.nvim", config = true, ft = "rust" },
+	{ "mrcjkb/rustaceanvim", ft = "rust" },
 	{ "rust-lang/rust.vim", ft = "rust" },
 	{ "tbastos/vim-lua", ft = "lua" },
 	{ "imsnif/kdl.vim", ft = "kdl" },
@@ -26,15 +26,11 @@ require("lazy").setup({
 	"othree/html5.vim",
 	"pangloss/vim-javascript",
 	"leafgarland/typescript-vim",
-	"vim-scripts/liquid.vim",
-
-	-- Formatting
-	{ "wesleimp/stylua.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 
 	-- Writing
 	{ "folke/twilight.nvim", config = require("plugins.config-twilight") },
 	{ "folke/zen-mode.nvim", config = require("plugins.config-zen") },
-	"dhruvasagar/vim-table-mode",
+	{ "dhruvasagar/vim-table-mode", ft = "markdown" },
 
 	-- Ui
 	{ "lewis6991/gitsigns.nvim", config = true },
@@ -118,8 +114,22 @@ require("lazy").setup({
 		"epwalsh/obsidian.nvim",
 		version = "*",
 		lazy = true,
-		ft = "obsidian", -- FIXME: Cannot get this to work with md, will create folder in CWD whenever
+		ft = "markdown",
 		config = require("plugins.config-obsidian"),
+	},
+	{
+		"kndndrj/nvim-dbee",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+		build = function()
+			require("dbee").install()
+		end,
+		config = true,
+	},
+	{
+		"stevearc/conform.nvim",
+		config = require("plugins.config-conform"),
 	},
 }, {
 	concurrency = 8,

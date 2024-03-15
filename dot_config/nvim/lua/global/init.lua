@@ -16,6 +16,7 @@ wo.linebreak = true
 opt.shiftwidth = 4
 opt.tabstop = 4
 opt.scrolloff = 5
+opt.conceallevel = 1
 
 vim.loader.enable()
 
@@ -32,11 +33,13 @@ vim.notify = require("notify")
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 for _, lsp in ipairs({
 	"lua_ls",
-	"rust_analyzer",
+	-- "rust_analyzer",
 	"svelte",
 	"jdtls",
 	"tsserver",
 	"prismals",
+	"pyright",
+	"phpactor",
 }) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,

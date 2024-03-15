@@ -17,7 +17,7 @@ require("which-key").register({
 	},
 	t = {
 		name = "toggle",
-		t = { "<CMD>NvimTreeToggle<CR>", "Toggle tree" },
+		t = { "<CMD>TableModeToggle<CR>", "Toggle table mode" },
 		f = { "<CMD>ZenMode<CR>", "Toggle focus mode" },
 	},
 	c = {
@@ -41,21 +41,12 @@ require("which-key").register({
 	},
 	n = {
 		name = "notes",
-		f = { "<CMD>Telekasten find_notes<CR>", "Find notes" },
-		t = { "<CMD>Telekasten show_tags<CR>", "Show tags" },
-		n = { "<CMD>Telekasten new_note<CR>", "New note" },
-		m = { "<CMD>Telekasten<CR>", "Menu" },
-		s = { "<CMD>Telekasten search_notes<CR>", "Search in notes" },
+		f = { "<CMD>ObsidianSearch<CR>", "Find notes" },
+		n = { "<CMD>ObsidianNew new_note<CR>", "New note" },
+		t = { "<CMD>ObsidianTemplate<CR>", "Insert template" },
 		g = {
 			name = "goto",
-			d = { "<CMD>Telekasten follow_link<CR>", "Follow link" },
-			t = { "<CMD>Telekasten goto_today<CR>", "Today" },
-			w = { "<CMD>Telekasten goto_thisweek<CR>", "Week" },
-		},
-		i = {
-			name = "insert",
-			l = { "<CMD>Telekasten insert_link<CR>", "Insert link" },
-			i = { "<CMD>Telekasten insert_img_link<CR>", "Insert image link" },
+			t = { "<CMD>ObsidianToday<CR>", "Today" },
 		},
 	},
 }, {

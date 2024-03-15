@@ -1,10 +1,10 @@
 local autocmd = vim.api.nvim_create_autocmd
+local conform = require("conform")
 
--- Stylua
 autocmd("BufWritePre", {
-	pattern = "*.lua",
-	callback = function()
-		require("stylua").format()
+	pattern = "*",
+	callback = function(args)
+		conform.format({ bufnr = args.buf })
 	end,
 })
 
@@ -29,46 +29,6 @@ autocmd("TextYankPost", {
 })
 
 -- Telekasten colors
-autocmd("FileType", {
-	pattern = { "telekasten" },
-	callback = function()
-		vim.api.nvim_set_hl(0, "tklink", {
-			ctermfg = 72,
-			fg = "#689d6a",
-			bold = true,
-			underline = true,
-		})
-
-		vim.api.nvim_set_hl(0, "tkBrackets", {
-			ctermfg = "gray",
-			fg = "gray",
-		})
-
-		vim.api.nvim_set_hl(0, "tkHighlight", {
-			ctermbg = "yellow",
-			ctermfg = "darkred",
-			bg = "yellow",
-			fg = "darkred",
-			bold = true,
-		})
-
-		vim.api.nvim_set_hl(0, "tkTagSep", {
-			ctermfg = "gray",
-			fg = "gray",
-		})
-
-		vim.api.nvim_set_hl(0, "tkTag", {
-			ctermfg = 175,
-			fg = "#d3869B",
-		})
-
-		vim.api.nvim_set_hl(0, "link", {
-			ctermfg = 175,
-			fg = "#d3869B",
-		})
-	end,
-})
-
 autocmd("FileType", {
 	pattern = { "nu" },
 	callback = function()

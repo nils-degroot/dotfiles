@@ -14,30 +14,30 @@ end
 
 return function()
 	require("obsidian").setup({
-		{
-			workspaces = {
-				{
-					name = "zettel",
-					path = "~/Nextcloud/Documents/zettel/",
+		workspaces = {
+			{
+				name = "zettel",
+				path = "~/Nextcloud/Documents/zettel/",
+				overrides = {
+					daily_notes = {
+						folder = "reccuring/dailies/",
+					},
+					templates = {
+						subdir = "templates",
+					},
 				},
-				{
-					name = "work",
-					path = "~/Nextcloud/Documents/work/",
-				},
-				{
-					name = "beer",
-					path = "~/Nextcloud/Documents/beer/",
-				},
+			},
+			{
+				name = "work",
+				path = "~/Nextcloud/Documents/work/",
+			},
+			{
+				name = "beer",
+				path = "~/Nextcloud/Documents/beer/",
 			},
 		},
 		notes_subdir = "notes",
-		daily_notes = {
-			folder = "reccuring/dailies/",
-		},
 		note_id_func = kebabcase,
 		disable_frontmatter = false,
-		templates = {
-			subdir = "templates",
-		},
 	})
 end
