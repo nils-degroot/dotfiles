@@ -28,8 +28,6 @@ require("lazy").setup({
 	"leafgarland/typescript-vim",
 
 	-- Writing
-	{ "folke/twilight.nvim", config = require("plugins.config-twilight") },
-	{ "folke/zen-mode.nvim", config = require("plugins.config-zen") },
 	{ "dhruvasagar/vim-table-mode", ft = "markdown" },
 
 	-- Ui
@@ -42,7 +40,7 @@ require("lazy").setup({
 	},
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.5",
+		tag = "0.1.6",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = require("plugins.config-telescope"),
 	},
@@ -96,19 +94,10 @@ require("lazy").setup({
 	"mg979/vim-visual-multi",
 	{ "echasnovski/mini.starter", branch = "stable", config = require("plugins.config-mini-starter") },
 	{ "echasnovski/mini.pairs", branch = "stable", config = true },
-	"David-Kunz/gen.nvim",
 	{ "numToStr/Comment.nvim", config = true },
 	{
 		"weirongxu/plantuml-previewer.vim",
 		dependencies = { "tyru/open-browser.vim" },
-	},
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
 	},
 	{
 		"epwalsh/obsidian.nvim",

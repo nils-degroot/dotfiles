@@ -5,6 +5,6 @@ return function()
 			"mtime",
 		},
 		delete_to_trash = true,
-		trash_command = "rip",
+		trash_command = "rm",
 	})
 end

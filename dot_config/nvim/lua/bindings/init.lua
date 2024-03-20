@@ -19,6 +19,7 @@ require("which-key").register({
 		name = "toggle",
 		t = { "<CMD>TableModeToggle<CR>", "Toggle table mode" },
 		f = { "<CMD>ZenMode<CR>", "Toggle focus mode" },
+		h = { "<CMD>set invlist<CR>", "Show hidden characters" },
 	},
 	c = {
 		name = "code",
