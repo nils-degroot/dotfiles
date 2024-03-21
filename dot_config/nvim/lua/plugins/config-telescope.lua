@@ -14,6 +14,11 @@ return function()
 		pickers = {
 			fd = {
 				find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
+				theme = "ivy",
+			},
+			lsp_references = {
+				theme = "ivy",
+				previewer = false,
 			},
 		},
 		extensions = {

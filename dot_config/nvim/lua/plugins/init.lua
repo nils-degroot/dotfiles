@@ -84,7 +84,6 @@ require("lazy").setup({
 
 	-- etc
 	"tpope/vim-surround",
-	"mattn/emmet-vim",
 	"srcery-colors/srcery-vim",
 	{
 		"lukas-reineke/indent-blankline.nvim",
