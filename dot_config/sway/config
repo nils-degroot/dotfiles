@@ -9,6 +9,8 @@ set $right l
 set $run rofi -show run | xargs swaymsg exec
 set $drun rofi -show drun | xargs swaymsg exec
 
+set $background_path /usr/share/backgrounds
+
 bindsym $mod+t exec $term
 bindsym $mod+p exec $drun
 bindsym $mod+Shift+p exec $run
@@ -50,18 +52,40 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+bindsym $mod+r exec /home/nils/Documents/scripts/dmenu-pass-m.nu
+
 bindsym $mod+q exec swaymsg -t get_tree | \
 	jq 'recurse(.nodes[], .floating_nodes[]) | select(.focused).pid' | \
 	xargs -L 1 kill -9
 
+client.focused #585858 #585858 #fce8c3 #585858
+client.focused_inactive #1c1b19 #1c1b19 #fce8c3
+client.unfocused #1c1b19 #1c1b19 #fce8c3
+
+exec_always dunst
+
+output * bg /usr/share/backgrounds/current.jpg fill
+
 bar {
     position top
+	font "Iosevka Term 10"
 
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+    status_command exec /home/nils/Documents/scripts/bar.nu
 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #323232 #323232 #5c5c5c
+        statusline #fce8c3
+        background #1c1b19
+		focused_workspace #ff5f00 #ff5f00 #fce8c3
+		active_workspace #303030 #303030 #fce8c3
+        inactive_workspace #1c1b19 #1c1b19 #fce8c3
     }
 }
