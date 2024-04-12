@@ -97,3 +97,6 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend [
 $env.DOCKER_HOST = unix:///run/user/1000/docker.sock
 $env.EDITOR = "nvim"
 $env.GIT_EXTERNAL_DIFF = "difft"
+
+mkdir ~/.cache/carapace
+carapace _carapace nushell | save --force ~/.cache/carapace/init.nu

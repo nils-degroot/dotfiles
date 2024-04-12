@@ -332,16 +332,8 @@ $env.config = {
   ]
 }
 
-# Setup starship
 source ~/.cache/starship/init.nu
-
-## Completions
-source ~/Documents/src/nu_scripts/custom-completions/git/git-completions.nu
-source ~/Documents/src/nu_scripts/custom-completions/zellij/zellij-completions.nu
-source ~/Documents/src/nu_scripts/custom-completions/cargo/cargo-completions.nu
-source ~/Documents/src/nu_scripts/custom-completions/npm/npm-completions.nu
-source ~/Documents/src/nu_scripts/custom-completions/pass/pass-completions.nu
-
+source ~/.cache/carapace/init.nu
 source ~/.config/nushell/zoxide.nu
 
 # Aliases
