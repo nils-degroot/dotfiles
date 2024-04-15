@@ -33,13 +33,8 @@ vim.notify = require("notify")
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 for _, lsp in ipairs({
 	"lua_ls",
-	-- "rust_analyzer",
-	"svelte",
-	"jdtls",
 	"tsserver",
-	"prismals",
 	"pyright",
-	"phpactor",
 }) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,
