@@ -1,0 +1,172 @@
+keybinds clear-defaults=true {
+    pane {
+        bind "n" { NewPane; SwitchToMode "Normal"; }
+        bind "d" { NewPane "Down"; SwitchToMode "Normal"; }
+        bind "r" { NewPane "Right"; SwitchToMode "Normal"; }
+        bind "x" { CloseFocus; SwitchToMode "Normal"; }
+        bind "w" { ToggleFloatingPanes; SwitchToMode "Normal"; }
+        bind "h" "Left" { MoveFocus "Left"; }
+        bind "l" "Right" { MoveFocus "Right"; }
+        bind "j" "Down" { MoveFocus "Down"; }
+        bind "k" "Up" { MoveFocus "Up"; }
+    }
+    tab {
+        bind "n" { NewTab; SwitchToMode "Normal"; }
+        bind "x" { CloseTab; SwitchToMode "Normal"; }
+        bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
+        bind "h" "Left" { GoToPreviousTab; }
+        bind "l" "Right" { GoToNextTab; }
+    }
+    scroll {
+        bind "G" { ScrollToBottom; SwitchToMode "Normal"; }
+        bind "j" { ScrollDown; }
+        bind "k" { ScrollUp; }
+        bind "Ctrl d" { PageScrollDown; }
+        bind "Ctrl u" { PageScrollUp; }
+    }
+    resize {
+        bind "h" { Resize "Increase Left"; }
+        bind "j" { Resize "Increase Down"; }
+        bind "k" { Resize "Increase Up"; }
+        bind "l" { Resize "Increase Right"; }
+        bind "H" { Resize "Decrease Left"; }
+        bind "J" { Resize "Decrease Down"; }
+        bind "K" { Resize "Decrease Up"; }
+        bind "L" { Resize "Decrease Right"; }
+    }
+    move {
+        bind "Ctrl h" { SwitchToMode "Normal"; }
+        bind "n" "Tab" { MovePane; }
+        bind "p" { MovePaneBackwards; }
+        bind "h" "Left" { MovePane "Left"; }
+        bind "j" "Down" { MovePane "Down"; }
+        bind "k" "Up" { MovePane "Up"; }
+        bind "l" "Right" { MovePane "Right"; }
+    }
+    search {
+        bind "Ctrl s" { SwitchToMode "Normal"; }
+        bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
+        bind "j" "Down" { ScrollDown; }
+        bind "k" "Up" { ScrollUp; }
+        bind "Ctrl f" "PageDown" "Right" "l" { PageScrollDown; }
+        bind "Ctrl b" "PageUp" "Left" "h" { PageScrollUp; }
+        bind "d" { HalfPageScrollDown; }
+        bind "u" { HalfPageScrollUp; }
+        bind "n" { Search "down"; }
+        bind "p" { Search "up"; }
+        bind "c" { SearchToggleOption "CaseSensitivity"; }
+        bind "w" { SearchToggleOption "Wrap"; }
+        bind "o" { SearchToggleOption "WholeWord"; }
+    }
+    session {
+        bind "d" { Detach; }
+    }
+    renametab {
+        bind "Esc" { UndoRenameTab; SwitchToMode "Tab"; }
+        bind "Enter" { SwitchToMode "Normal"; }
+    }
+    shared_except "locked" {
+        bind "Alt n" { NewPane; }
+        bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
+        bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
+        bind "Alt j" "Alt Down" { MoveFocus "Down"; }
+        bind "Alt k" "Alt Up" { MoveFocus "Up"; }
+
+		bind "Ctrl z" {
+			LaunchOrFocusPlugin "file:~/.config/zellij/plugins/room.wasm" {
+				floating true
+				ignore_case true
+			}
+		}
+
+		bind "Ctrl h" {
+			LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zellij_forgot.wasm" {
+				"mode pane" 	"<C-p>"
+				"mode tab" 		"<C-t>"
+				"mode scroll" 	"<C-s>"
+				"mode resize" 	"<C-l>"
+				"mode session" 	"<C-b>"
+				"mode session" 	"<C-n>"
+
+				"new pane" 			"<C-p> + n"
+				"new down pane" 	"<C-p> + d"
+				"new right pane" 	"<C-p> + r"
+				"close pane" 		"<C-p> + x"
+				"toggle floating" 	"<C-p> + w"
+				"focus pane left" 	"<C-p> + h"
+				"focus pane right" 	"<C-p> + l"
+				"focus pane down" 	"<C-p> + j"
+				"focus pane up" 	"<C-p> + k"
+
+				"new tab"		"<C-t> + n"
+				"close tab"		"<C-t> + x"
+				"rename tab"	"<C-t> + r"
+				"previous tab"	"<C-t> + h"
+				"next tab"		"<C-t> + l"
+
+				"scroll to bottom"	"<C-s> + G"
+				"scroll up"			"<C-s> + j"
+				"scroll down"		"<C-s> + k"
+				"scroll page up"	"<C-s> + <C-u>"
+				"scroll page down"	"<C-s> + <C-d>"
+
+				"resize increase left"	"<C-a> + h"
+				"resize increase down"	"<C-a> + j"
+				"resize increase up"	"<C-a> + k"
+				"resize increase right"	"<C-a> + l"
+				"resize decrease left"	"<C-a> + H"
+				"resize decrease down"	"<C-a> + J"
+				"resize decrease up"	"<C-a> + K"
+				"resize decrease right"	"<C-a> + L"
+
+				"detach session" 	"<C-b> + d"
+
+				"move pane"				"<C-n> n"
+				"move pane backwards"	"<C-n> p"
+				"move pane left"		"<C-n> h"
+				"move pane down"		"<C-n> j"
+				"move pane up"			"<C-n> k"
+				"move pane right"		"<C-n> l"
+
+				floating true
+			}
+		}
+    }
+    shared_except "normal" {
+        bind "Esc" { SwitchToMode "Normal"; }
+    }
+    shared_except "pane" {
+        bind "Ctrl p" { SwitchToMode "Pane"; }
+    }
+    shared_except "tab" {
+        bind "Ctrl t" { SwitchToMode "Tab"; }
+    }
+    shared_except "scroll" {
+        bind "Ctrl s" { SwitchToMode "Scroll"; }
+    }
+    shared_except "resize" {
+        bind "Ctrl l" { SwitchToMode "Resize"; }
+    }
+    shared_except "session" {
+        bind "Ctrl b" { SwitchToMode "Session"; }
+    }
+    shared_except "move" {
+        bind "Ctrl i" { SwitchToMode "Move"; }
+    }
+}
+
+plugins {
+    tab-bar { path "tab-bar"; }
+    status-bar { path "status-bar"; }
+    strider { path "strider"; }
+    compact-bar { path "compact-bar"; }
+}
+
+pane_frames false
+
+default_shell "nu"
+
+theme "srcery"
+theme_dir "/home/nils/.config/zellij/themes/"
+
+layout_dir "/home/nils/.config/zellij/layouts/"

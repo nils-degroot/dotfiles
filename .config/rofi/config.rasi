@@ -1,0 +1,5 @@
+configuration {
+	font: "Iosevka 18px";
+}
+
+@theme "~/.config/rofi/srcery.rasi"

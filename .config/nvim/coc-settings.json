@@ -1,0 +1,26 @@
+{
+    "languageserver": {
+		"ccls": {
+			"command": "ccls",
+		    "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+		    "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+		    "initializationOptions": {
+				"cache": {
+				    "directory": "/tmp/ccls"
+				}
+			}
+		},
+		"haskell": {
+			"command": "haskell-language-server-wrapper",
+			"args": ["--lsp"],
+			"rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+			"filetypes": ["haskell", "lhaskell"]
+		},
+		"kotlin": {
+			"command": "/bin/kotlin-language-server",
+			"filetypes": ["kotlin"]
+		}
+    },
+    "svelte.enable-ts-plugin": true,
+	"coc.preferences.formatOnSaveFiletypes": ["markdown", "css"]
+}
