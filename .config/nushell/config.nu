@@ -385,3 +385,5 @@ def "gitw reflog" [] {
 		}
 	}
 }
+
+source ~/Documents/src/nu_scripts/custom-completions/zellij/zellij-completions.nu
