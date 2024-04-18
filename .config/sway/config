@@ -91,7 +91,7 @@ output * bg /usr/share/backgrounds/current.jpg fill
 
 bar {
     position top
-	font "Iosevka Term 10"
+	font "Iosevka Nerd Font 10"
 
     status_command exec /home/nils/Documents/scripts/bar.nu
 

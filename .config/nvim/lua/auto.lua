@@ -28,7 +28,7 @@ autocmd("TextYankPost", {
 	end,
 })
 
--- Telekasten colors
+-- Nushell highlight
 autocmd("FileType", {
 	pattern = { "nu" },
 	callback = function()

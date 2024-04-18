@@ -5,7 +5,7 @@ def join_option [option] {
 }
 
 let options = [
-	{ icon: "", text: "Lock screen", command: "lock" },
+	{ icon: "", text: "Lock screen", command: "dm-tool lock" },
 	{ icon: "", text: "Reboot", command: "reboot" },
 	{ icon: "", text: "Poweroff", command: "poweroff" },
 ]

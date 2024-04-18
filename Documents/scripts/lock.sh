@@ -1,1 +1,0 @@
-../../dotfiles/Documents/scripts/lock.sh
