@@ -85,18 +85,18 @@ $env.NU_PLUGIN_DIRS = [
     ($nu.config-path | path dirname | path join 'plugins')
 ]
 
-$env.PNPM_HOME = "/home/nils/.local/share/pnpm"
-
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 $env.PATH = ($env.PATH | split row (char esep) | prepend [
 	"~/.local/share/bob/nvim-bin"
-	"~/.local/share/fnm"
-	$env.PNPM_HOME
 ])
 
 $env.DOCKER_HOST = unix:///run/user/1000/docker.sock
 $env.EDITOR = "nvim"
 $env.GIT_EXTERNAL_DIFF = "difft"
 
+# Program setup
 mkdir ~/.cache/carapace
-carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
+carapace _carapace nushell | save -f ~/.cache/carapace/init.nu
+
+mkdir ~/.cache/starship
+starship init nu | save -f ~/.cache/starship/init.nu

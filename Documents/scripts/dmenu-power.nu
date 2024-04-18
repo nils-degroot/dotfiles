@@ -15,4 +15,4 @@ if ($user_option | is-empty) {
 	exit
 }
 
-sh -c ($options | filter { |it| $user_option == (join_option $it) }).command
+sh -c ($options | filter { |it| $user_option == (join_option $it) }).0.command

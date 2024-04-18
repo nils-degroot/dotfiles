@@ -2,15 +2,14 @@ My personal dotfile collection.
 
 # Dependencies
 
-- alacritty
-  - zellij
-  - nu
+- alacritty (won't start unless both nu and zellij are installed)
 - dunst
 - nu
-  - nu_scripts
   - carapace-bin
+  - starship
 - nvim
 - ranger
+  - ueberzug
 - rofi
 - sway
   - playerctl

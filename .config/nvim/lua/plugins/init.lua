@@ -19,7 +19,7 @@ require("lazy").setup({
 	{ "rust-lang/rust.vim", ft = "rust" },
 	{ "tbastos/vim-lua", ft = "lua" },
 	{ "imsnif/kdl.vim", ft = "kdl" },
-	{ "LhKipp/nvim-nu", config = true },
+	{ "LhKipp/nvim-nu", opts = {} },
 	{ "aklt/plantuml-syntax", ft = "plantuml" },
 	{ "evanleck/vim-svelte", ft = "svelte" },
 	{ "prisma/vim-prisma", ft = "prisma" },
@@ -31,7 +31,7 @@ require("lazy").setup({
 	{ "dhruvasagar/vim-table-mode", ft = "markdown" },
 
 	-- Ui
-	{ "lewis6991/gitsigns.nvim", config = true },
+	{ "lewis6991/gitsigns.nvim", opts = {} },
 	{ "folke/which-key.nvim", config = require("plugins.config-which-key") },
 	{
 		"feline-nvim/feline.nvim",
@@ -44,7 +44,7 @@ require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = require("plugins.config-telescope"),
 	},
-	{ "folke/todo-comments.nvim", config = true },
+	{ "folke/todo-comments.nvim", opts = {} },
 	{ "stevearc/oil.nvim", config = require("plugins.config-oil") },
 	"rcarriga/nvim-notify",
 	"nvim-telescope/telescope-ui-select.nvim",
@@ -74,7 +74,7 @@ require("lazy").setup({
 	{
 		"Saecki/crates.nvim",
 		ft = "toml",
-		config = true,
+		opts = {},
 		dependencies = { "jose-elias-alvarez/null-ls.nvim" },
 	},
 	{
@@ -88,12 +88,12 @@ require("lazy").setup({
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-		config = true,
+		opts = {},
 	},
 	"mg979/vim-visual-multi",
 	{ "echasnovski/mini.starter", branch = "stable", config = require("plugins.config-mini-starter") },
-	{ "echasnovski/mini.pairs", branch = "stable", config = true },
-	{ "numToStr/Comment.nvim", config = true },
+	{ "echasnovski/mini.pairs", branch = "stable", opts = {} },
+	{ "numToStr/Comment.nvim", opts = {} },
 	{
 		"weirongxu/plantuml-previewer.vim",
 		dependencies = { "tyru/open-browser.vim" },
@@ -108,6 +108,11 @@ require("lazy").setup({
 	{
 		"stevearc/conform.nvim",
 		config = require("plugins.config-conform"),
+	},
+	{
+		"m4xshen/hardtime.nvim",
+		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+		opts = {},
 	},
 }, {
 	concurrency = 8,

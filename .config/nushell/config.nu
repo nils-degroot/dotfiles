@@ -2,7 +2,7 @@
 #
 # version = 0.78.1
 
-use ~/.config/nushell/srcery.nu *
+use ~/.config/nushell/themes/srcery.nu *
 
 # The default config record. This is where much of your global configuration is setup.
 $env.config = {
@@ -332,16 +332,19 @@ $env.config = {
   ]
 }
 
-source ~/.cache/starship/init.nu
+# Setup programs
+source ~/.config/nushell/programs/zoxide.nu
 source ~/.cache/carapace/init.nu
-source ~/.config/nushell/zoxide.nu
+source ~/.cache/starship/init.nu
+
+# Custom completions
+source ~/.config/nushell/completions/zellij-completions.nu
 
 # Aliases
 ## Program alternatives
 alias vi = nvim
 alias vim = nvim
 alias cat = bat
-alias npm = pnpm
 alias diff = difft
 
 ## Files
@@ -353,6 +356,7 @@ alias gal = git commit --amend --no-edit
 alias gala = git commit --amend --no-edit --all
 alias gs = git status
 alias gc = git commit
+alias gca = git commit --all
 alias ga = git add
 alias gp = git push
 alias gpf = git push --force-with-lease
@@ -366,9 +370,8 @@ alias copy = xclip -sel clipboard
 def "gitw gone" [] {
 	git branch --merged 
 		| lines 
-		| where $it !~ '\*' 
 		| str trim 
-		| where $it != 'master' and $it != 'main' and $it != 'dev'
+		| where $it !~ "\\*" and $it != "master" and $it != "main" and $it != "dev"
 		| each { |it| git branch -d $it }
 }
 
@@ -386,4 +389,3 @@ def "gitw reflog" [] {
 	}
 }
 
-source ~/Documents/src/nu_scripts/custom-completions/zellij/zellij-completions.nu
