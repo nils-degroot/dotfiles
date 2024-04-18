@@ -8,9 +8,12 @@ My personal dotfile collection.
 - dunst
 - nu
   - nu_scripts
+  - carapace-bin
 - nvim
 - ranger
 - rofi
 - sway
   - playerctl
+  - xorg-xwayland
+  - swaybg
 - zellij

@@ -36,8 +36,17 @@ return function()
 				path = "~/Nextcloud/Documents/beer/",
 			},
 		},
+		ui = {
+			checkboxes = {
+				[" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+				["x"] = { char = "󰱒", hl_group = "ObsidianDone" },
+			},
+		},
 		notes_subdir = "notes",
 		note_id_func = kebabcase,
 		disable_frontmatter = false,
+		daily_notes = {
+			folder = "dailies",
+		},
 	})
 end
