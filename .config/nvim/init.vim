@@ -11,7 +11,4 @@ if has('persistent_undo')
     set undofile
 endif
 
-" Add custom snippets to rtp
-set runtimepath+=~/Documents/code/vim/vim-snippets/
-
 colorscheme srcery

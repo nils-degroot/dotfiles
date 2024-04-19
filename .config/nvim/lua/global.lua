@@ -6,7 +6,6 @@ local opt = vim.opt
 
 g.mapleader = " "
 
-go.mouse = "a"
 go.timeoutlen = 500
 
 wo.number = true
