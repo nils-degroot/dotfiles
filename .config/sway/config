@@ -94,6 +94,8 @@ bar {
 	font "Iosevka Nerd Font 10"
 
     status_command exec /home/nils/Documents/scripts/bar.nu
+	status_padding 0 
+	status_edge_padding 0
 
     colors {
         statusline #fce8c3
