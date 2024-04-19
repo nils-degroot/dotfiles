@@ -1,18 +1,22 @@
 #!/usr/bin/env -S nu --stdin
 
+let default_player = { name: player }
+
 def player_widget []: nothing -> record {
 	let player_status = ( playerctl status | complete ) 
 
 	if $player_status.exit_code == 1 {
-		return { name: "player" }
+		return $default_player
 	} 
 
 	let player_meta = ( 
 		playerctl metadata | detect columns -n -c 2.. | rename player key value 
 	)
 
-	if ( $player_meta | where key =~ "title" | is-empty ) {
-		return { name: "player" }
+	let title = ( $player_meta | where key =~ "title" and value != "" )
+
+	if ( $title | is-empty ) {
+		return $default_player
 	}
 
 	let player_icon = match ($player_status.stdout | str trim) {
@@ -20,9 +24,17 @@ def player_widget []: nothing -> record {
 		"Paused" => ""
 	}
 
+	let artist = ( $player_meta | where key =~ "artist" and value != "" )
+
+	let text = if ( $artist | is-empty ) {
+		$' ( $player_icon ) ( $title.0.value ) '
+	} else {
+		$' ( $player_icon ) ( $artist.0.value ) - (  $title.0.value ) '
+	}
+
 	{
 		name: "player"
-		full_text: $' ( $player_icon ) ( $player_meta | where key =~ "artist" | get 0.value ) - ( $player_meta | where key =~ "title" | get 0.value ) '
+		full_text: $text
 		background: '#e02c6d'
 		separator: false
 	}

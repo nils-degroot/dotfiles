@@ -24,7 +24,7 @@ bindsym Ctrl+$mod+q exit
 bindsym $mod+p exec $drun
 bindsym $mod+Shift+p exec $run
 bindsym $mod+r exec /home/nils/Documents/scripts/dmenu-pass-m.nu
-bindsym $mod+w exec /home/nils/Documents/scripts/dmenu-window-sway.sh
+bindsym $mod+w exec /home/nils/Documents/scripts/dmenu-window-sway.nu
 
 ## Container
 bindsym $mod+f fullscreen
