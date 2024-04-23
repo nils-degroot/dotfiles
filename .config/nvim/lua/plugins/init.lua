@@ -109,11 +109,6 @@ require("lazy").setup({
 		"stevearc/conform.nvim",
 		config = require("plugins.config-conform"),
 	},
-	{
-		"m4xshen/hardtime.nvim",
-		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-		opts = {},
-	},
 }, {
 	concurrency = 8,
 })
