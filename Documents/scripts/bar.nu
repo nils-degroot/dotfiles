@@ -2,6 +2,27 @@
 
 let default_player = { name: player }
 
+def battery_widget []: nothing -> record {
+	let precentage = ( 
+		acpi | split row " " | get 3 | str replace "%," "" | str trim 
+	)
+
+	let icon = match ( $precentage | into int ) {
+		..20 => ""
+		..30 => ""
+		..40 => ""
+		..80 => ""
+		..100 => ""
+	}
+
+	{
+		name: "battery"
+		full_text: $" ($icon)  ($precentage)% "
+		background: "#0aaeb3"
+		separator: false
+	}
+}
+
 def player_widget []: nothing -> record {
 	let player_status = ( playerctl status | complete ) 
 
@@ -62,6 +83,7 @@ print $"( { version: 1, click_event: false } | to json -r )\n[\n[]"
 loop {
 	print ,(
 		[
+			( battery_widget )
 			( player_widget )
 			( disk_widget )
 			( clock_widget )

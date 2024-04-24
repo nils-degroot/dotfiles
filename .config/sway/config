@@ -10,10 +10,16 @@ set $right l
 set $run rofi -show run | xargs swaymsg exec
 set $drun rofi -show drun | xargs swaymsg exec
 
-set $background_path /usr/share/backgrounds
-
 # Daemons
 exec_always dunst
+
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
 
 # Bindings
 bindsym $mod+t exec $term

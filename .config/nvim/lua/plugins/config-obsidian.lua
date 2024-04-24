@@ -35,6 +35,10 @@ return function()
 				name = "beer",
 				path = "~/Nextcloud/Documents/beer/",
 			},
+			{
+				name = "dnd",
+				path = "~/Nextcloud/Documents/dnd/",
+			},
 		},
 		ui = {
 			checkboxes = {
