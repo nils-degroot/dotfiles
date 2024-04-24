@@ -64,7 +64,7 @@ def player_widget []: nothing -> record {
 def disk_widget []: nothing -> record {
 	{
 		name: "disk"
-		full_text: $" 󱛟 ( df -h / | detect columns | get 0.Use% ) "
+		full_text: $"  ( df -h / | detect columns | get 0.Use% ) "
 		background: "#2c78bf"
 		separator: false
 	}

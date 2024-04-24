@@ -1,5 +1,15 @@
 #!/usr/bin/env nu
 
+def copy []: any -> nothing {
+	let input = $in
+
+	match ( hostname ) {
+		"nils-laptop" => ( wl-copy $input )
+		"station" => ( wl-copy $input )
+		"nils-work" => ( $input | xlip -sel clipboard )
+	}
+}
+
 let username_option = "Username (by seperator)"
 let password_option = "Password"
 
@@ -31,7 +41,7 @@ if ($selected_password | is-empty) {
 		let seperator_position = ( $selected_password | str index-of $seperator )
 		let username = ( $selected_password | str substring ( $seperator_position + 1 ).. )
 
-		$username | xclip -sel clipboard
+		$username | copy
 		exit
 	}
 }

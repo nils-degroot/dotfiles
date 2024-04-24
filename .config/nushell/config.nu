@@ -361,8 +361,16 @@ alias ga = git add
 alias gp = git push
 alias gpf = git push --force-with-lease
 
-## Clip
-alias copy = xclip -sel clipboard
+## Copy the input stream to the clipboard
+def copy []: any -> nothing {
+	let input = $in
+
+	match ( hostname ) {
+		"nils-laptop" => ( wl-copy $input )
+		"station" => ( wl-copy $input )
+		"nils-work" => ( $input | xlip -sel clipboard )
+	}
+}
 
 # Git wrapper commands
 
