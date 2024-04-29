@@ -368,7 +368,7 @@ def copy []: any -> nothing {
 	match ( hostname ) {
 		"nils-laptop" => ( wl-copy $input )
 		"station" => ( wl-copy $input )
-		"nils-work" => ( $input | xlip -sel clipboard )
+		"nils-work" => ( $input | xclip -sel clipboard )
 	}
 }
 
