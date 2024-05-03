@@ -1,13 +1,17 @@
 #!/usr/bin/env -S nu
 
+let windows = (
+	swaymsg -t get_tree | from json | get nodes.nodes | flatten | get nodes | flatten
+)
+
+let windows = [
+	...($windows | where layout == "none")
+	...($windows | where layout != "none" | get nodes | flatten)
+]
+
 let selected = (
-	swaymsg -t get_tree 
-		| from json 
-		| get nodes.nodes 
-		| flatten 
-		| get nodes 
-		| flatten 
-		| each { |it| $"($it.id) - ($it.name)" } 
+	 $windows 
+	 	| each { |it| $"($it.id) - ($it.name)" } 
 		| str join "\n" 
 		| rofi -dmenu -i
 )
