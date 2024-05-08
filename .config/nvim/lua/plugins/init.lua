@@ -83,7 +83,6 @@ require("lazy").setup({
 	},
 
 	-- etc
-	"tpope/vim-surround",
 	"srcery-colors/srcery-vim",
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -108,6 +107,18 @@ require("lazy").setup({
 	{
 		"stevearc/conform.nvim",
 		config = require("plugins.config-conform"),
+	},
+	{
+		"ggandor/leap.nvim",
+		config = function()
+			require("leap").create_default_mappings()
+		end,
+	},
+	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+		opts = {},
 	},
 }, {
 	concurrency = 8,
