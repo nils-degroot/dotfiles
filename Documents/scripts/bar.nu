@@ -3,6 +3,12 @@
 let default_player = { name: player }
 
 def battery_widget []: nothing -> record {
+	if (hostname) == "station" {
+		return {
+			name: "battery"
+		}
+	}
+
 	let precentage = ( 
 		acpi | split row " " | get 3 | str replace "%," "" | str trim 
 	)
