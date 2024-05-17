@@ -7,6 +7,7 @@ set("v", "<", "<gv", silent_noremap)
 set("v", ">", ">gv", silent_noremap)
 
 set("n", "<CR>", ":lua vim.lsp.buf.code_action()<CR>", silent_noremap)
+set("n", "-", ":Oil<CR>", silent_noremap)
 
 require("which-key").register({
 	p = {

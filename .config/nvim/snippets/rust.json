@@ -1,0 +1,36 @@
+{
+  "require": {
+    "prefix": ["allow"],
+    "body": ["#![allow(${1})]"]
+  },
+  "cfg": {
+    "prefix": ["cfg!"],
+    "body": ["#[cfg(${1})]"]
+  },
+  "tests": {
+    "prefix": ["tests"],
+    "body": [
+      "#[cfg(test)]",
+      "mod tests {",
+      "    ${1}",
+      "}"
+    ]
+  },
+  "test": {
+    "prefix": ["test"],
+    "body": [
+      "#[test]",
+      "fn ${1:name}() {",
+      "    ${2}",
+      "}"
+    ]
+  },
+  "mod": {
+    "prefix": ["mod"],
+    "body": [
+      "mod ${1:name} {",
+      "    ${2}",
+      "}"
+    ]
+  }
+}

@@ -27,14 +27,14 @@ local cmp_kinds = {
 }
 
 return {
-	"SirVer/ultisnips",
 	{
-		"quangnguyen30192/cmp-nvim-ultisnips",
-		opts = {
-			filetype_source = "ultisnips_default",
-			show_snippets = "expandable",
-		},
+		"L3MON4D3/LuaSnip",
+		-- follow latest release.
+		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		-- install jsregexp (optional!).
+		build = "make install_jsregexp",
 	},
+	"saadparwaiz1/cmp_luasnip",
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
@@ -47,30 +47,54 @@ return {
 		},
 		config = function()
 			local cmp = require("cmp")
-			local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
+			local luasnip = require("luasnip")
+
+			require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/snippets/" })
 
 			cmp.setup({
 				snippet = {
 					expand = function(args)
-						vim.fn["UltiSnips#Anon"](args.body)
+						require("luasnip").lsp_expand(args.body)
 					end,
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-u>"] = cmp.mapping.scroll_docs(-4),
 					["<C-d>"] = cmp.mapping.scroll_docs(4),
-					["<C-y>"] = cmp.mapping.confirm({
-						behavior = cmp.ConfirmBehavior.Insert,
-						select = true,
-					}),
+					["<CR>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							if luasnip.expandable() then
+								luasnip.expand()
+							else
+								cmp.confirm({
+									select = true,
+								})
+							end
+						else
+							fallback()
+						end
+					end),
 					["<Tab>"] = cmp.mapping(function(fallback)
-						cmp_ultisnips_mappings.compose({ "jump_forwards", "select_next_item" })(fallback)
+						if cmp.visible() then
+							cmp.select_next_item()
+						elseif luasnip.locally_jumpable(1) then
+							luasnip.jump(1)
+						else
+							fallback()
+						end
 					end, { "i", "s" }),
+
 					["<S-Tab>"] = cmp.mapping(function(fallback)
-						cmp_ultisnips_mappings.compose({ "jump_backwards", "select_prev_item" })(fallback)
+						if cmp.visible() then
+							cmp.select_prev_item()
+						elseif luasnip.locally_jumpable(-1) then
+							luasnip.jump(-1)
+						else
+							fallback()
+						end
 					end, { "i", "s" }),
 				}),
 				sources = {
-					{ name = "ultisnips" },
+					{ name = "luasnip" },
 					{ name = "nvim_lsp" },
 					{ name = "nvim_lua" },
 					{ name = "nvim_lsp_signature_help" },
@@ -82,7 +106,7 @@ return {
 				formatting = {
 					fields = { "kind", "abbr", "menu" },
 					format = function(_, vim_item)
-						vim_item.kind = (cmp_kinds[vim_item.kind] or "") .. vim_item.kind
+						vim_item.kind = (cmp_kinds[vim_item.kind] or "") .. (vim_item.kind or "")
 						return vim_item
 					end,
 				},
