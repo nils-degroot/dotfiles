@@ -39,6 +39,10 @@ return function()
 				name = "dnd",
 				path = "~/Nextcloud/Documents/dnd/",
 			},
+			{
+				name = "personal",
+				path = "~/Nextcloud/Documents/personal/",
+			},
 		},
 		ui = {
 			checkboxes = {

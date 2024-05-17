@@ -1,1 +1,3 @@
 .config/nushell/history.*
+.config/nvim/spell/*.utf-8.add
+.config/nvim/spell/*.utf-8.add.spl
