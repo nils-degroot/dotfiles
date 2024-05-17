@@ -1,12 +1,12 @@
-local nvim_set_keymap = vim.api.nvim_set_keymap
+local set = vim.api.nvim_set_keymap
 
 -- Util objects
 local silent_noremap = { silent = true, noremap = true }
 
-nvim_set_keymap("v", "<", "<gv", silent_noremap)
-nvim_set_keymap("v", ">", ">gv", silent_noremap)
+set("v", "<", "<gv", silent_noremap)
+set("v", ">", ">gv", silent_noremap)
 
-nvim_set_keymap("n", "<CR>", ":lua vim.lsp.buf.code_action()<CR>", silent_noremap)
+set("n", "<CR>", ":lua vim.lsp.buf.code_action()<CR>", silent_noremap)
 
 require("which-key").register({
 	p = {
