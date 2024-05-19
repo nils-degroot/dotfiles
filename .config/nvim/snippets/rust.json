@@ -32,5 +32,14 @@
       "    ${2}",
       "}"
     ]
+  },
+  "struct": {
+    "prefix": ["struct"],
+    "body": [
+      "#[derive(Debug, Clone)]",
+      "struct ${1:name} {",
+      "    ${2}",
+      "}"
+    ]
   }
 }

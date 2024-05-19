@@ -1,5 +1,5 @@
 return {
-	{ "mrcjkb/rustaceanvim", ft = "rust" },
+	{ "mrcjkb/rustaceanvim", version = 4, ft = "rust" },
 	{ "rust-lang/rust.vim", ft = "rust" },
 	{ "tbastos/vim-lua", ft = "lua" },
 	{ "imsnif/kdl.vim", ft = "kdl" },
