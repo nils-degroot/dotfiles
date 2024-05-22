@@ -28,6 +28,8 @@ return {
 				capabilities = capabilities,
 				filetypes = { "markdown", "telekasten" },
 			})
+
+			vim.lsp.inlay_hint.enable()
 		end,
 	},
 	{

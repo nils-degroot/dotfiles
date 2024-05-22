@@ -1,5 +1,9 @@
 local set = vim.api.nvim_set_keymap
-local silent_noremap = { silent = true, noremap = true }
+local set_opts = { silent = true, noremap = true }
 
-set("n", "<Leader>ck", ":RustLsp moveItem up<CR>", silent_noremap)
-set("n", "<Leader>cj", ":RustLsp moveItem down<CR>", silent_noremap)
+set("n", "<Leader>ck", ":RustLsp moveItem up<CR>", set_opts)
+set("n", "<Leader>cj", ":RustLsp moveItem down<CR>", set_opts)
+
+set("n", "<Leader>se", ":RustLsp explainError<CR>", set_opts)
+
+set("n", "<Leader>gs", ":RustLsp openDocs<CR>", set_opts)
