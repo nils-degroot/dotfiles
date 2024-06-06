@@ -32,6 +32,7 @@ return {
 				formatters_by_ft = {
 					lua = { "stylua" },
 					rust = { "rustfmt" },
+					markdown = { "prettier" },
 				},
 			})
 
@@ -55,4 +56,5 @@ return {
 		event = "VeryLazy",
 		opts = {},
 	},
+	"nvim-lua/plenary.nvim",
 }

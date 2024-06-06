@@ -1,13 +1,5 @@
 return {
 	{
-		"williamboman/mason.nvim",
-		opts = {
-			ui = {
-				border = "single",
-			},
-		},
-	},
-	{
 		"neovim/nvim-lspconfig",
 		config = function()
 			-- Lsp config

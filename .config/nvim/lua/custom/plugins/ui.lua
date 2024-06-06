@@ -32,4 +32,9 @@ return {
 		end,
 	},
 	{ "dhruvasagar/vim-table-mode", ft = "markdown" },
+	{
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = { "skim" },
+	},
 }

@@ -10,7 +10,7 @@ def battery_widget []: nothing -> record {
 	}
 
 	let precentage = ( 
-		acpi | split row " " | get 3 | str replace "%," "" | str trim 
+		acpi | parse --regex "(?<percentage>[0-9]+)%" | each { |it| $it.percentage | into int } | where $it > 0 | first
 	)
 
 	let icon = match ( $precentage | into int ) {

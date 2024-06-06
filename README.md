@@ -5,9 +5,10 @@ My personal dotfile collection.
 - alacritty (won't start unless both nu and zellij are installed)
 - dunst
 - nu
-  - carapace-bin
+  - carapace-bin (aur)
   - starship
 - nvim
+  - skim
 - ranger
   - ueberzug
 - rofi
@@ -15,4 +16,6 @@ My personal dotfile collection.
   - playerctl
   - xorg-xwayland
   - swaybg
+  - swaylock
+  - swayidle
 - zellij

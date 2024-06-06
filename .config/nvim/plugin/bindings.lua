@@ -6,13 +6,13 @@ local silent_noremap = { silent = true, noremap = true }
 set("v", "<", "<gv", silent_noremap)
 set("v", ">", ">gv", silent_noremap)
 
-set("n", "<CR>", ":lua vim.lsp.buf.code_action()<CR>", silent_noremap)
+set("n", "<CR>", ":FzfLua lsp_code_actions<CR>", silent_noremap)
 set("n", "-", ":Oil<CR>", silent_noremap)
 
 require("which-key").register({
 	p = {
 		name = "project",
-		f = { "<CMD>Telescope fd<CR>", "Find file" },
+		f = { "<CMD>FzfLua files<CR>", "Find file" },
 	},
 	t = {
 		name = "toggle",
@@ -28,7 +28,7 @@ require("which-key").register({
 	g = {
 		name = "goto",
 		d = { "<CMD>lua vim.lsp.buf.definition()<CR>", "Goto definition" },
-		r = { "<CMD>Telescope lsp_references<CR>", "Find references" },
+		r = { "<CMD>FzfLua lsp_references<CR>", "Find references" },
 	},
 	s = {
 		name = "show",
@@ -37,7 +37,7 @@ require("which-key").register({
 	},
 	b = {
 		name = "buffers",
-		b = { "<CMD>Telescope buffers<CR>", "Buffers" },
+		b = { "<CMD>FzfLua buffers<CR>", "Buffers" },
 	},
 	n = {
 		name = "notes",
