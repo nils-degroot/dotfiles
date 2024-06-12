@@ -33,8 +33,10 @@ bindsym Ctrl+$mod+q exit
 ## Rofi scripts
 bindsym $mod+p exec $drun
 bindsym $mod+Shift+p exec $run
+
 bindsym $mod+r exec ~/.config/nushell/scripts/dmenu-pass.nu
 bindsym $mod+w exec ~/.config/nushell/scripts/dmenu-window-sway.nu
+bindsym $mod+Escape exec ~/.config/nushell/scripts/power.nu
 
 ## Container
 bindsym $mod+f fullscreen
