@@ -33,8 +33,8 @@ bindsym Ctrl+$mod+q exit
 ## Rofi scripts
 bindsym $mod+p exec $drun
 bindsym $mod+Shift+p exec $run
-bindsym $mod+r exec /home/nils/Documents/scripts/dmenu-pass-m.nu
-bindsym $mod+w exec /home/nils/Documents/scripts/dmenu-window-sway.nu
+bindsym $mod+r exec ~/.config/nushell/scripts/dmenu-pass.nu
+bindsym $mod+w exec ~/.config/nushell/scripts/dmenu-window-sway.nu
 
 ## Container
 bindsym $mod+f fullscreen
@@ -103,8 +103,8 @@ bar {
     position top
 	font "Iosevka Nerd Font 10"
 
-    status_command exec /home/nils/Documents/scripts/bar.nu
-	status_padding 0 
+    status_command exec ~/.config/nushell/scripts/bar.nu
+	status_padding 0
 	status_edge_padding 0
 
     colors {

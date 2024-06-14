@@ -1,5 +1,7 @@
 #!/usr/bin/env nu
 
+use ~/.config/nushell/lib/ui.nu *
+
 def join_option [option] {
 	$option.icon + " " + $option.text
 }
@@ -10,9 +12,10 @@ let options = [
 	{ icon: "", text: "Poweroff", command: "poweroff" },
 ]
 
-let user_option = ($options | each { |it| join_option $it } | str join "\n" | rofi -dmenu -i -p "Power menu")
+let user_option = ($options | each { |it| join_option $it } | dmenu -t "Power menu")
+
 if ($user_option | is-empty) {
 	exit
 }
 
-sh -c ($options | filter { |it| $user_option == (join_option $it) }).0.command
+sh -c ($options | where $user_option == (join_option $it)).0.command

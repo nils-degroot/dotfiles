@@ -1,9 +1,10 @@
 #!/usr/bin/env nu
 
+use ~/.config/nushell/lib/ui.nu *
+
 let username_option = "Username (by seperator)"
 let password_option = "Password"
 
-let seperator = "@"
 let options = [ $username_option $password_option ]
 
 let passwords = (
@@ -12,19 +13,17 @@ let passwords = (
 		| str replace -n ".gpg" ""
 )
 
-let selected_password = ( $passwords | str join "\n" | rofi -dmenu -n -i -p "Pass" )
+let selected_password = ( $passwords | dmenu -t "Pass" )
 
-if ($selected_password | is-empty) {
-	exit
-} else if ($selected_password | str contains $seperator) {
-	let selected_option = ( 
-		$options 
-			| str join "\n" 
-			| rofi -dmenu -n -i -p "Action" -mesg $"<b>Password</b>: ($selected_password)" -l 2
+if ($selected_password | is-empty) { exit }
+
+if ($selected_password | str contains "@") {
+	let selected_option = (
+		$options | dmenu -t "Action" -m $"<b>Password</b>: ($selected_password)" -c 2
 	)
 
 	if ($selected_option == $username_option) {
-		let seperator_position = ( $selected_password | str index-of $seperator )
+		let seperator_position = ( $selected_password | str index-of "@" )
 		let username = ( $selected_password | str substring ( $seperator_position + 1 ).. )
 
 		$username | wl-copy

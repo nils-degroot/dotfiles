@@ -1,5 +1,7 @@
 #!/usr/bin/env -S nu
 
+use ~/.config/nushell/lib/ui.nu *
+
 let windows = (
 	swaymsg -t get_tree | from json | get nodes.nodes | flatten | get nodes | flatten
 )
@@ -11,9 +13,8 @@ let windows = [
 
 let selected = (
 	 $windows 
-	 	| each { |it| $"($it.id) - ($it.name)" } 
-		| str join "\n" 
-		| rofi -dmenu -i
+	 	| each { |it| $"($it.id) - ($it.name)" }
+		| dmenu
 )
 
 if ( $selected | is-empty ) {
