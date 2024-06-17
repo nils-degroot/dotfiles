@@ -1,134 +1,46 @@
 return {
 	{
-		"feline-nvim/feline.nvim",
-		dependencies = { "kyazdani42/nvim-web-devicons" },
-		config = function()
-			local line_ok, feline = pcall(require, "feline")
-			if not line_ok then
-				return
-			end
-
-			feline.setup({
-				theme = {
-					bg = "#1c1b19",
-					fg = "#baa67f",
-					yellow = "#fbb829",
-					cyan = "#0aaeb3",
-					darkblue = "#3c78bf",
-					green = "#519f50",
-					orange = "#ff5f00",
-					violet = "#690fad",
-					magenta = "#e02c6d",
-					blue = "#68a8e4",
-					red = "#ef2f27",
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {
+			options = {
+				icons_enabled = true,
+				theme = "auto",
+				component_separators = { left = "", right = "" },
+				section_separators = { left = "", right = "" },
+				disabled_filetypes = {
+					statusline = {},
+					winbar = {},
 				},
-				vi_mode_colors = {
-					NORMAL = "green",
-					OP = "green",
-					INSERT = "yellow",
-					VISUAL = "purple",
-					LINES = "orange",
-					BLOCK = "dark_red",
-					REPLACE = "red",
-					COMMAND = "aqua",
+				ignore_focus = {},
+				always_divide_middle = true,
+				globalstatus = false,
+				refresh = {
+					statusline = 1000,
+					tabline = 1000,
+					winbar = 1000,
 				},
-				components = {
-					active = {
-						{
-							{
-								provider = "▊",
-								hl = {
-									fg = "violet",
-								},
-								right_sep = " ",
-							},
-							{
-								provider = "vi_mode",
-								hl = function()
-									return {
-										name = require("feline.providers.vi_mode").get_mode_highlight_name(),
-										fg = require("feline.providers.vi_mode").get_mode_color(),
-										style = "bold",
-									}
-								end,
-								icon = "",
-								right_sep = " ",
-							},
-							{
-								provider = "file_size",
-								right_sep = " ",
-							},
-							{
-								provider = {
-									name = "file_info",
-									opts = {
-										type = "relative-short",
-									},
-								},
-								hl = {
-									style = "bold",
-								},
-								left_sep = " ",
-								right_sep = " ",
-							},
-						},
-						{
-							{
-								provider = "lsp_client_names",
-								hl = {
-									fg = "yellow",
-									style = "bold",
-								},
-							},
-						},
-						{
-							{
-								provider = "git_diff_added",
-								hl = {
-									fg = "green",
-								},
-							},
-							{
-								provider = "git_diff_removed",
-								hl = {
-									fg = "red",
-								},
-							},
-							{
-								provider = "git_diff_changed",
-								hl = {
-									fg = "orange",
-								},
-							},
-							{
-								provider = "git_branch",
-								hl = {
-									style = "bold",
-								},
-								left_sep = " ",
-							},
-							{
-								provider = "position",
-								left_sep = " ",
-							},
-							{
-								provider = "line_percentage",
-								hl = {
-									style = "bold",
-								},
-								left_sep = " ",
-							},
-							{
-								provider = "▊",
-								hl = {
-									fg = "violet",
-								},
-								left_sep = " ",
-							},
-						},
-					},
-				},
-			})
-		end,
+			},
+			sections = {
+				lualine_a = { "mode" },
+				lualine_b = { "branch", "diff", "diagnostics" },
+				lualine_c = { "filename" },
+				lualine_x = { "filetype" },
+				lualine_y = { "progress" },
+				lualine_z = { "location" },
+			},
+			inactive_sections = {
+				lualine_a = {},
+				lualine_b = {},
+				lualine_c = { "filename" },
+				lualine_x = { "location" },
+				lualine_y = {},
+				lualine_z = {},
+			},
+			tabline = {},
+			winbar = {},
+			inactive_winbar = {},
+			extensions = {},
+		},
 	},
 }
