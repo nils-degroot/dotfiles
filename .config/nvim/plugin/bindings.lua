@@ -24,6 +24,8 @@ require("which-key").register({
 		name = "code",
 		r = { "<CMD>Lspsaga rename<CR>", "Rename element" },
 		c = { "<CMD>noh<CR>", "Clear selection" },
+		d = { "<CMD>FzfLua diagnostics_document<CR>", "Document diagnostics" },
+		w = { "<CMD>FzfLua diagnostics_workspace<CR>", "Workspace diagnostics" },
 	},
 	g = {
 		name = "goto",
