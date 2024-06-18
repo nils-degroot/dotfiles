@@ -365,17 +365,6 @@ alias ga = git add
 alias gp = git push
 alias gpf = git push --force-with-lease
 
-## Copy the input stream to the clipboard
-def copy []: any -> nothing {
-	let input = $in
-
-	match ( hostname ) {
-		"nils-laptop" => ( wl-copy $input )
-		"station" => ( wl-copy $input )
-		"nils-work" => ( $input | xclip -sel clipboard )
-	}
-}
-
 # Git wrapper commands
 
 # Delete all merged branches

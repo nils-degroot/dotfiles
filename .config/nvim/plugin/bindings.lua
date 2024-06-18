@@ -26,6 +26,7 @@ require("which-key").register({
 		c = { "<CMD>noh<CR>", "Clear selection" },
 		d = { "<CMD>FzfLua diagnostics_document<CR>", "Document diagnostics" },
 		w = { "<CMD>FzfLua diagnostics_workspace<CR>", "Workspace diagnostics" },
+		f = { "<CMD>FzfLua live_grep<CR>", "Live grep" },
 	},
 	g = {
 		name = "goto",
