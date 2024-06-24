@@ -40,6 +40,7 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend [
 $env.DOCKER_HOST = unix:///run/user/1000/docker.sock
 $env.EDITOR = "nvim"
 $env.GIT_EXTERNAL_DIFF = "difft"
+$env.DO_NOT_TRACK = 1
 
 # Program setup
 mkdir ~/.cache/carapace

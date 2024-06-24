@@ -33,6 +33,8 @@ return {
 					lua = { "stylua" },
 					rust = { "rustfmt" },
 					markdown = { "prettier" },
+					typescript = { "prettier" },
+					json = { "prettier" },
 				},
 			})
 
