@@ -35,6 +35,7 @@ return {
 					markdown = { "prettier" },
 					typescript = { "prettier" },
 					json = { "prettier" },
+					yaml = { "prettier" },
 				},
 			})
 

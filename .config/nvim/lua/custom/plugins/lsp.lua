@@ -10,6 +10,7 @@ return {
 			for _, lsp in ipairs({
 				"lua_ls",
 				"tsserver",
+				"astro",
 			}) do
 				lspconfig[lsp].setup({
 					capabilities = capabilities,
