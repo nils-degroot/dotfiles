@@ -60,4 +60,5 @@ return {
 		opts = {},
 	},
 	"nvim-lua/plenary.nvim",
+	"github/copilot.vim",
 }

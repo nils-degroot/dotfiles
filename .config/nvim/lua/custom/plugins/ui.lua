@@ -1,16 +1,6 @@
 return {
 	{ "lewis6991/gitsigns.nvim", opts = {} },
-	{
-		"folke/which-key.nvim",
-		opts = {
-			window = {
-				border = "single",
-			},
-			disable = {
-				filetypes = { "TelescopePrompt", "dashboard" },
-			},
-		},
-	},
+	{ "folke/which-key.nvim", opts = {} },
 	{ "folke/todo-comments.nvim", opts = {} },
 	{
 		"stevearc/oil.nvim",
