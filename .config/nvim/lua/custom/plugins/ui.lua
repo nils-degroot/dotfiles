@@ -2,6 +2,25 @@ return {
 	{ "lewis6991/gitsigns.nvim", opts = {} },
 	{ "folke/which-key.nvim", opts = {} },
 	{ "folke/todo-comments.nvim", opts = {} },
+	{ "j-hui/fidget.nvim", opts = {} },
+	{
+		"gelguy/wilder.nvim",
+		opts = {},
+		config = function()
+			local wilder = require("wilder")
+
+			wilder.setup({ modes = { ":", "/", "?" } })
+			wilder.set_option(
+				"renderer",
+				wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
+					highlights = {
+						border = "Normal", -- highlight to use for the border
+					},
+					border = "rounded",
+				}))
+			)
+		end,
+	},
 	{
 		"stevearc/oil.nvim",
 		opts = {
