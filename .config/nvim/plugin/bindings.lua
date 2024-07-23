@@ -40,4 +40,5 @@ require("which-key").add({
 	{ "<Leader>nn", "<CMD>ObsidianNew new_note<CR>", desc = "New note" },
 	{ "<Leader>nt", "<CMD>ObsidianTemplate<CR>", desc = "Insert template" },
 	{ "<Leader>ngt", "<CMD>ObsidianToday<CR>", desc = "Goto today" },
+	{ "<Leader>ngy", "<CMD>ObsidianTomorrow<CR>", desc = "Goto tomorrow" },
 })

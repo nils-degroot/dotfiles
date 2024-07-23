@@ -48,6 +48,14 @@ return {
 					{
 						name = "personal",
 						path = "~/Nextcloud/Documents/personal/",
+						overrides = {
+							templates = {
+								subdir = "templates",
+							},
+							daily_notes = {
+								template = "daily",
+							},
+						},
 					},
 				},
 				ui = {

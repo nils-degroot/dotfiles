@@ -43,4 +43,5 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = { "skim" },
 	},
+	{ "petertriho/nvim-scrollbar", opts = {} },
 }
