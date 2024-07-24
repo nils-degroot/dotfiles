@@ -11,15 +11,27 @@ return {
 				"lua_ls",
 				"tsserver",
 				"astro",
+				"marksman",
 			}) do
 				lspconfig[lsp].setup({
 					capabilities = capabilities,
 				})
 			end
 
-			lspconfig.marksman.setup({
+			lspconfig.yamlls.setup({
 				capabilities = capabilities,
-				filetypes = { "markdown", "telekasten" },
+				settings = {
+					yaml = {
+						schemas = {
+							["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+							["https://moonrepo.dev/schemas/workspace.json"] = ".moon/workspace.yml",
+							["https://moonrepo.dev/schemas/toolchain.json"] = ".moon/toolchain.yml",
+							["https://moonrepo.dev/schemas/tasks.json"] = ".moon/tasks/**/*.yml",
+							["https://moonrepo.dev/schemas/project.json"] = "moon.yml",
+							["https://moonrepo.dev/schemas/template.json"] = "template.yml",
+						},
+					},
+				},
 			})
 
 			vim.lsp.inlay_hint.enable()
