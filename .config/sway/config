@@ -98,7 +98,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym F9 exec swaymsg output eDP-1 toggle
 
 # Theme
-client.focused #585858 #585858 #fce8c3 #585858
+client.focused #3a3a3a #3a3a3a #fce8c3 #3a3a3a
 client.focused_inactive #1c1b19 #1c1b19 #fce8c3
 client.unfocused #1c1b19 #1c1b19 #fce8c3
 
