@@ -21,6 +21,7 @@ require("lazy").setup({
 	import = "custom/plugins",
 }, {
 	concurrency = 8,
+	lockfile = vim.fn.stdpath("data") .. "/lazy.lock",
 	ui = {
 		icons = {
 			cmd = "⌘",
