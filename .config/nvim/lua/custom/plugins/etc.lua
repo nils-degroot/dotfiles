@@ -1,5 +1,10 @@
 return {
-	"srcery-colors/srcery-vim",
+	{
+		"srcery-colors/srcery-vim",
+		config = function()
+			vim.cmd([[colorscheme srcery]])
+		end,
+	},
 	"mg979/vim-visual-multi",
 	{
 		"echasnovski/mini.starter",
