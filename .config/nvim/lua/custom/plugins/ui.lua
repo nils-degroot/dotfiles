@@ -1,6 +1,5 @@
 return {
 	{ "lewis6991/gitsigns.nvim", opts = {} },
-	{ "folke/which-key.nvim", opts = {} },
 	{ "folke/todo-comments.nvim", opts = {} },
 	{ "j-hui/fidget.nvim", opts = {} },
 	{
