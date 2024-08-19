@@ -2,15 +2,13 @@ My personal dotfile collection.
 
 # Dependencies
 
-- alacritty (won't start unless both nu and zellij are installed)
+- alacritty (won't start unless both nu and tmux are installed)
 - dunst
 - nu
   - carapace-bin (aur)
   - starship
 - nvim
   - skim
-- ranger
-  - ueberzug
 - rofi
 - sway
   - playerctl
@@ -18,4 +16,5 @@ My personal dotfile collection.
   - swaybg
   - swaylock
   - swayidle
-- zellij
+- tmux
+  - tpm
