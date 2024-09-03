@@ -1,0 +1,84 @@
+@define-color bg #1c1b19;
+@define-color fg #fce8c3;
+
+@define-color green #519f50;
+@define-color red #ef2f27;
+@define-color blue #2c78bf;
+@define-color orange #ff5f00;
+
+@define-color bright_green #98bc37;
+
+* {
+	border: none;
+	border-radius: 0;
+	font-family: "Iosevka Nerd Font", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	min-height: 24px;
+}
+
+window#waybar {
+	background: @bg;
+	color: @fg;
+}
+
+tooltip {
+	background: rgba(43, 48, 59, 0.5);
+	border: 1px solid rgba(100, 114, 125, 0.5);
+}
+
+tooltip label {
+	color: white;
+}
+
+#workspaces button {
+	padding: 0 5px;
+	background-color: transparent;
+	color: @fg;
+}
+
+#workspaces button.focused {
+	background-color: @orange;
+}
+
+#workspaces button.active {
+	background-color: @orange;
+}
+
+#mode, #clock, #battery {
+	padding: 0 10px;
+}
+
+#mode {
+	background: #64727D;
+	border-bottom: 3px solid white;
+}
+
+#clock {
+	background-color: @blue;
+}
+
+#battery {
+	background-color: @green;
+	padding-right: 20px;
+}
+
+#battery.charging {
+	background-color: @bright_green;
+}
+
+@keyframes blink {
+	to {
+		background-color: #ffffff;
+		color: black;
+	}
+}
+
+#battery.warning:not(.charging) {
+	background: @red;
+	color: @fg;
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-timing-function: steps(12);
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
