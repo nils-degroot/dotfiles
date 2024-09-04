@@ -4,6 +4,7 @@
 @define-color green #519f50;
 @define-color red #ef2f27;
 @define-color blue #2c78bf;
+@define-color cyan #0aaeb3;
 @define-color orange #ff5f00;
 
 @define-color bright_green #98bc37;
@@ -44,7 +45,7 @@ tooltip label {
 	background-color: @orange;
 }
 
-#mode, #clock, #battery {
+#mode, #clock, #battery, #mpris {
 	padding: 0 10px;
 }
 
@@ -55,6 +56,10 @@ tooltip label {
 
 #clock {
 	background-color: @blue;
+}
+
+#mpris {
+	background-color: @cyan;
 }
 
 #battery {

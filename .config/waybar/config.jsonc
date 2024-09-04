@@ -7,6 +7,7 @@
 		"hyprland/window"
 	],
     "modules-right": [
+		"mpris",
 		"battery",
 		"clock"
 	],
@@ -16,5 +17,12 @@
     },
     "clock": {
         "format": "{:%a, %d. %b %H:%M}"
-    }
+    },
+	"mpris": {
+		"format": "<b>{status_icon}</b> {dynamic}",
+		"status-icons": {
+			"playing": "▶",
+			"paused": "⏸"
+		}
+	}
 }

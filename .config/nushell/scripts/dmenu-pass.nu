@@ -19,7 +19,7 @@ if ($selected_password | is-empty) { exit }
 
 if ($selected_password | str contains "@") {
 	let selected_option = (
-		$options | dmenu -t "Action" -m $"<b>Password</b>: ($selected_password)" -c 2
+		$options | dmenu -t "Action"
 	)
 
 	if ($selected_option == $username_option) {
