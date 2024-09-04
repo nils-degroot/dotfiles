@@ -16,5 +16,6 @@ My personal dotfile collection.
   - swaybg
   - swaylock
   - waybar
+  - hypridle
 - tmux
   - tpm
