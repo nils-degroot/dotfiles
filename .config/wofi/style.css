@@ -2,6 +2,7 @@ window {
 	font-family: "Iosevka Nerd Font", Helvetica, Arial, sans-serif;
 	margin: 0px;
 	background-color: #1c1b19;
+	border: 2px solid #373b33;
 }
 
 #input {
@@ -44,7 +45,7 @@ window {
 }
 
 #entry:selected {
-	background-color: rgb(55, 59, 65);
+	background-color: #373b33;
 	border: none;
 	border-radius: 0;
 }

@@ -16,10 +16,11 @@
         "format-icons": ["", "", "", "", ""]
     },
     "clock": {
-		"format": "{:%Y-%m-%d %H:%M:%S}  ",
+		"format": " {:%Y-%m-%d %H:%M:%S}",
 		"interval": 1
     },
 	"mpris": {
+		"dynamic-len": 80,
 		"format": "<b>{status_icon}</b> {dynamic}",
 		"status-icons": {
 			"playing": "▶",
