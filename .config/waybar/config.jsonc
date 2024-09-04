@@ -16,7 +16,8 @@
         "format-icons": ["", "", "", "", ""]
     },
     "clock": {
-        "format": "{:%a, %d. %b %H:%M}"
+		"format": "{:%Y-%m-%d %H:%M:%S}  ",
+		"interval": 1
     },
 	"mpris": {
 		"format": "<b>{status_icon}</b> {dynamic}",

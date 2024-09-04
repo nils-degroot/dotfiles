@@ -9,12 +9,12 @@ My personal dotfile collection.
   - starship
 - nvim
   - skim
-- rofi
+- wofi
 - sway
   - playerctl
   - xorg-xwayland
   - swaybg
   - swaylock
-  - swayidle
+  - waybar
 - tmux
   - tpm
