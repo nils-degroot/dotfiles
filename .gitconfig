@@ -1,0 +1,22 @@
+[user]
+	name = nils-degroot
+	email = nils@peeko.nl
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+
+
+[init]
+	defaultBranch = main
+
+[diff]
+	external = difft
+
+[rerere]
+	enabled = true
+
+[help]
+	autocorrect = true
