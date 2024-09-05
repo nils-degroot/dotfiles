@@ -45,7 +45,7 @@ tooltip label {
 	background-color: @orange;
 }
 
-#mode, #clock, #battery, #mpris {
+#mode, #clock, #battery, #mpris, #tray {
 	padding: 0 10px;
 }
 
@@ -64,7 +64,6 @@ tooltip label {
 
 #battery {
 	background-color: @green;
-	padding-right: 20px;
 }
 
 #battery.charging {

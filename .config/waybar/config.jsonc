@@ -9,10 +9,11 @@
     "modules-right": [
 		"mpris",
 		"battery",
-		"clock"
+		"clock",
+		"tray"
 	],
     "battery": {
-        "format": "{capacity}% {icon}",
+        "format": "{icon}  {capacity}%",
         "format-icons": ["", "", "", "", ""]
     },
     "clock": {
@@ -20,11 +21,16 @@
 		"interval": 1
     },
 	"mpris": {
-		"dynamic-len": 80,
+		"dynamic-len": 60,
 		"format": "<b>{status_icon}</b> {dynamic}",
 		"status-icons": {
 			"playing": "▶",
 			"paused": "⏸"
 		}
-	}
+	},
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10,
+        "icon-size": 18
+    }
 }

@@ -10,7 +10,7 @@ let options = [
 
 match ( $options | get name | dmenu ) {
 	"Lock" => {
-		swaylock -c 000000
+		hyprlock
 	}
 	"Poweroff" => {
 		poweroff

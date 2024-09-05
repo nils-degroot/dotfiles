@@ -14,8 +14,8 @@ My personal dotfile collection.
   - playerctl
   - xorg-xwayland
   - swaybg
-  - swaylock
   - waybar
   - hypridle
+  - hyprlock
 - tmux
   - tpm
