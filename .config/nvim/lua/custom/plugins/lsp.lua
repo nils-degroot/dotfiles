@@ -9,7 +9,7 @@ return {
 			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 			for _, lsp in ipairs({
 				"lua_ls",
-				"tsserver",
+				"ts_ls",
 				"astro",
 				"marksman",
 			}) do
