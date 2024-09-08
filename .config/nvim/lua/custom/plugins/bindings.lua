@@ -39,6 +39,25 @@ return {
 				{ "<Leader>ngt", "<CMD>ObsidianToday<CR>", desc = "Goto today" },
 				{ "<Leader>ngy", "<CMD>ObsidianTomorrow<CR>", desc = "Goto tomorrow" },
 
+				-- Movement
+				--- Resize
+				{ "<A-h>", "<CMD>SmartResizeLeft<CR>", desc = "Resize left" },
+				{ "<A-j>", "<CMD>SmartResizeDown<CR>", desc = "Resize down" },
+				{ "<A-k>", "<CMD>SmartResizeUp<CR>", desc = "Resize up" },
+				{ "<A-l>", "<CMD>SmartResizeRight<CR>", desc = "Resize right" },
+
+				--- Move cursor
+				{ "<C-h>", "<CMD>SmartCursorMoveLeft<CR>", desc = "Cursor move left" },
+				{ "<C-j>", "<CMD>SmartCursorMoveDown<CR>", desc = "Cursor move down" },
+				{ "<C-k>", "<CMD>SmartCursorMoveUp<CR>", desc = "Cursor move up" },
+				{ "<C-l>", "<CMD>SmartCursorMoveRight<CR>", desc = "Cursor move right" },
+
+				--- Swap buf
+				{ "<Leader><Leader>h", "<CMD>SmartSwapLeft<CR>", desc = "Swap left" },
+				{ "<Leader><Leader>j", "<CMD>SmartSwapDown<CR>", desc = "Swap down" },
+				{ "<Leader><Leader>k", "<CMD>SmartSwapUp<CR>", desc = "Swap up" },
+				{ "<Leader><Leader>l", "<CMD>SmartSwapRight<CR>", desc = "Swap right" },
+
 				-- Move selection
 				{
 					mode = "v",
