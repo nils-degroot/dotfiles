@@ -65,7 +65,6 @@ return {
 		opts = {},
 	},
 	"nvim-lua/plenary.nvim",
-	"github/copilot.vim",
 	{
 		"mrjones2014/smart-splits.nvim",
 		opts = {},
