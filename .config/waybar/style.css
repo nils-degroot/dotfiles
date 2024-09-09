@@ -45,7 +45,7 @@ tooltip label {
 	background-color: @orange;
 }
 
-#mode, #clock, #battery, #mpris, #tray {
+#mode, #clock, #battery, #mpris, #tray, #idle_inhibitor {
 	padding: 0 10px;
 }
 
@@ -85,4 +85,12 @@ tooltip label {
 	animation-timing-function: steps(12);
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
+}
+
+#idle_inhibitor {
+	padding-right: 15px;
+}
+
+#idle_inhibitor.activated {
+	background-color: @green
 }

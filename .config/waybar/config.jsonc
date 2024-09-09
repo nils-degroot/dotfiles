@@ -1,6 +1,7 @@
 {
     "layer": "top",
     "modules-left": [
+        "idle_inhibitor",
 		"hyprland/workspaces"
 	],
     "modules-center": [
@@ -32,5 +33,12 @@
         "icon-size": 14,
         "spacing": 10,
         "icon-size": 18
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     }
 }
