@@ -27,7 +27,8 @@
 		"status-icons": {
 			"playing": "▶",
 			"paused": "⏸"
-		}
+		},
+        "dynamic-order": ["title", "artist", "album"]
 	},
     "tray": {
         "icon-size": 14,

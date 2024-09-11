@@ -341,9 +341,6 @@ source ~/.config/nushell/programs/zoxide.nu
 source ~/.cache/carapace/init.nu
 source ~/.cache/starship/init.nu
 
-# Custom completions
-source ~/.config/nushell/completions/zellij-completions.nu
-
 # Aliases
 ## Program alternatives
 alias vi = nvim
@@ -364,29 +361,3 @@ alias gca = git commit --all
 alias ga = git add
 alias gp = git push
 alias gpf = git push --force-with-lease
-
-# Git wrapper commands
-
-# Delete all merged branches
-def "gitw gone" [] {
-	git branch --merged 
-		| lines 
-		| str trim 
-		| where $it !~ "\\*" and $it != "master" and $it != "main" and $it != "dev"
-		| each { |it| git branch -d $it }
-}
-
-# Show the reflog
-def "gitw reflog" [] {
-	^git reflog | lines | each { |line|
-		let parts = ( $line | split row ":" )
-
-		{
-			commit: ( $parts.0 | split row " " | $in.0 )
-			head: ( $parts.0 | split row " " | $in.1 )
-			action: ( $parts.1 | str trim )
-			message: ( $parts.2 | str trim )
-		}
-	}
-}
-
