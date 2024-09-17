@@ -361,3 +361,9 @@ alias gca = git commit --all
 alias ga = git add
 alias gp = git push
 alias gpf = git push --force-with-lease
+
+def psub []: string -> string {
+	let path = $"/tmp/psub-(random uuid)"
+	$in | save -f $path
+	$path
+}
