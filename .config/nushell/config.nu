@@ -81,7 +81,6 @@ $env.config = {
     vi_insert: block # block, underscore, line (block is the default)
     vi_normal: underscore # block, underscore, line  (underscore is the default)
   }
-  use_grid_icons: true
   footer_mode: "25" # always, never, number_of_rows, auto
   float_precision: 2 # the precision for displaying floats in tables
   # buffer_editor: "emacs" # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
@@ -363,7 +362,7 @@ alias gp = git push
 alias gpf = git push --force-with-lease
 
 def psub []: string -> string {
-	let path = $"/tmp/psub-(random uuid)"
+	let path = $"/tmp/psub-( random uuid )"
 	$in | save -f $path
 	$path
 }
