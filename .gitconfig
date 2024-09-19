@@ -19,4 +19,4 @@
 	enabled = true
 
 [help]
-	autocorrect = true
+	autocorrect = 2
