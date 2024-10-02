@@ -11,4 +11,5 @@ return {
 	"pangloss/vim-javascript",
 	"leafgarland/typescript-vim",
 	"wuelnerdotexe/vim-astro",
+	"jparise/vim-graphql",
 }
