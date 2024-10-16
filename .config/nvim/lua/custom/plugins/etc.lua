@@ -41,6 +41,7 @@ return {
 					typescript = { "prettier" },
 					json = { "prettier" },
 					yaml = { "prettier" },
+					vue = { "prettier" },
 				},
 			})
 
