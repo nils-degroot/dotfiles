@@ -8,10 +8,10 @@
 		"hyprland/window"
 	],
     "modules-right": [
+		"tray",
 		"mpris",
 		"battery",
-		"clock",
-		"tray"
+		"clock"
 	],
     "battery": {
         "format": "{icon}  {capacity}%",
