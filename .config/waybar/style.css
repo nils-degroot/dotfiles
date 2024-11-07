@@ -11,14 +11,14 @@
 
 * {
 	border: none;
-	border-radius: 0;
+	border-radius: 5;
 	font-family: "Iosevka Nerd Font", Helvetica, Arial, sans-serif;
 	font-size: 13px;
 	min-height: 24px;
 }
 
 window#waybar {
-	background: rgba(28, 27, 25, .7);
+	background: transparent;
 	color: @fg;
 }
 
@@ -31,9 +31,21 @@ tooltip label {
 	color: white;
 }
 
+#workspaces, #mode, #clock, #battery, #mpris, #tray {
+	margin: 5px 5px 0 5px;
+	padding: 0 10px;
+	background: @bg;
+}
+
+#workspaces {
+	margin-left: 10px;
+	padding-left: 0;
+	padding-right: 0;
+}
+
 #workspaces button {
 	padding: 0 5px;
-	background-color: transparent;
+	background-color: @bg;
 	color: @fg;
 }
 
@@ -45,8 +57,8 @@ tooltip label {
 	background-color: @orange;
 }
 
-#mode, #clock, #battery, #mpris, #tray, #idle_inhibitor {
-	padding: 0 10px;
+#clock {
+	margin-right: 10px;
 }
 
 #mode {
@@ -54,43 +66,10 @@ tooltip label {
 	border-bottom: 3px solid white;
 }
 
-#clock {
-	background-color: @blue;
-}
-
-#mpris {
-	background-color: @cyan;
-}
-
-#battery {
-	background-color: @green;
-}
-
 #battery.charging {
-	background-color: @bright_green;
-}
-
-@keyframes blink {
-	to {
-		background-color: #ffffff;
-		color: black;
-	}
+    background-color: @green;
 }
 
 #battery.warning:not(.charging) {
-	background: @red;
-	color: @fg;
-	animation-name: blink;
-	animation-duration: 0.5s;
-	animation-timing-function: steps(12);
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
-}
-
-#idle_inhibitor {
-	padding-right: 15px;
-}
-
-#idle_inhibitor.activated {
-	background-color: @green
+    background: @red;
 }
