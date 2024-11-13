@@ -81,7 +81,7 @@ return {
 		"Saecki/crates.nvim",
 		ft = "toml",
 		opts = {},
-		dependencies = { "jose-elias-alvarez/null-ls.nvim" },
+		dependencies = { "nvimtools/none-ls.nvim" },
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
