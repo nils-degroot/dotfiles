@@ -6,22 +6,6 @@ return {
 		end,
 	},
 	"mg979/vim-visual-multi",
-	{
-		"echasnovski/mini.starter",
-		branch = "stable",
-		config = function()
-			local starter = require("mini.starter")
-
-			starter.setup({
-				header = "",
-				items = {
-					starter.sections.recent_files(10, false),
-					starter.sections.builtin_actions(),
-				},
-				footer = "",
-			})
-		end,
-	},
 	{ "echasnovski/mini.pairs", branch = "stable", opts = {} },
 	{ "numToStr/Comment.nvim", opts = {} },
 	{
