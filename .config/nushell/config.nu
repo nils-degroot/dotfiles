@@ -361,10 +361,11 @@ alias ga = git add
 alias gp = git push
 alias gpf = git push --force-with-lease
 
-## Docker compose
-alias dcu = docker compose up -d
-alias dcd = docker compose down
-alias dcs = docker compose stop
+## Docker
+alias docker = sudo docker
+alias dcu = sudo docker compose up -d
+alias dcd = sudo docker compose down
+alias dcs = sudo docker compose stop
 
 def psub []: string -> string {
 	let path = $"/tmp/psub-( random uuid )"

@@ -32,13 +32,6 @@ return {
 				-- Buffer
 				{ "<Leader>bb", "<CMD>FzfLua buffers<CR>", desc = "Buffers" },
 
-				-- Notes
-				{ "<Leader>nf", "<CMD>ObsidianSearch<CR>", desc = "Find notes" },
-				{ "<Leader>nn", "<CMD>ObsidianNew new_note<CR>", desc = "New note" },
-				{ "<Leader>nt", "<CMD>ObsidianTemplate<CR>", desc = "Insert template" },
-				{ "<Leader>ngt", "<CMD>ObsidianToday<CR>", desc = "Goto today" },
-				{ "<Leader>ngy", "<CMD>ObsidianTomorrow<CR>", desc = "Goto tomorrow" },
-
 				-- Movement
 				--- Resize
 				{ "<A-h>", "<CMD>SmartResizeLeft<CR>", desc = "Resize left" },

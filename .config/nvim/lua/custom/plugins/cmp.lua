@@ -101,6 +101,7 @@ return {
 					{ name = "buffer" },
 					{ name = "path" },
 					{ name = "crates" },
+					{ name = "orgmode" },
 				},
 				preselect = cmp.PreselectMode.Item,
 				formatting = {
