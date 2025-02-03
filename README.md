@@ -10,9 +10,10 @@ My personal dotfile collection.
 - nvim
   - skim
 - wofi
-- sway
+- niri
   - playerctl
   - xorg-xwayland
+  - xwayland-satellite
   - swaybg
   - waybar
   - hypridle

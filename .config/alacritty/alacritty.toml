@@ -24,6 +24,7 @@ program = "tmux"
 
 [window]
 dynamic_padding = true
+decorations = "None"
 
 [window.dimensions]
 columns = 85

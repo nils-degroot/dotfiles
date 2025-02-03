@@ -1,7 +1,8 @@
 {
     "layer": "top",
     "modules-left": [
-		"hyprland/workspaces"
+		"hyprland/workspaces",
+		"niri/workspaces"
 	],
     "modules-right": [
 		"tray",
