@@ -52,7 +52,7 @@ input {
     }
 
     warp-mouse-to-focus
-    focus-follows-mouse max-scroll-amount="0%"
+    focus-follows-mouse max-scroll-amount="20%"
 }
 
 output "Samsung Electric Company Odyssey G93SC HNTX300926" {
@@ -446,7 +446,7 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Mod+Shift+P { screenshot; }
+    Mod+Shift+O { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
@@ -454,6 +454,7 @@ binds {
     Mod+Shift+Q { quit; }
 
 	Mod+P { spawn "wofi" "--show" "drun" "-I"; }
+	Mod+Shift+P { spawn "wofi" "--show" "run" "-I"; }
 	Mod+R { spawn "~/.config/nushell/scripts/dmenu-pass.nu"; }
 	Mod+Escape { spawn "~/.config/nushell/scripts/power.nu"; }
 	Mod+D { spawn "~/.config/nushell/scripts/tmux-attach.nu"; }
@@ -465,12 +466,6 @@ spawn-at-startup "~/.config/nushell/scripts/set-wallpaper.nu"
 // XWayland setup, needed for a bunch of applications
 environment {
     DISPLAY ":0"
-}
-
-switch-events {
-	// TODO: Add a disable monitor thingy here
-    lid-close { spawn "notify-send" "The laptop lid is closed!"; }
-    lid-open { spawn "notify-send" "The laptop lid is open!"; }
 }
 
 hotkey-overlay {

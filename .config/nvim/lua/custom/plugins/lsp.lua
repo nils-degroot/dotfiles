@@ -9,17 +9,11 @@ return {
 			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 			for _, lsp in ipairs({
 				"lua_ls",
-				"marksman",
 			}) do
 				lspconfig[lsp].setup({
 					capabilities = capabilities,
 				})
 			end
-
-			lspconfig.volar.setup({
-				capabilities = capabilities,
-				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
-			})
 
 			lspconfig.ts_ls.setup({
 				init_options = {
