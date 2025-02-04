@@ -61,7 +61,7 @@ output "Samsung Electric Company Odyssey G93SC HNTX300926" {
 }
 
 output "PNP(AOC) 27G1G4 0x000122EE" {
-	position x=3840 y=-420
+	position x=5120 y=-420
     scale 1
     transform "90"
 }
