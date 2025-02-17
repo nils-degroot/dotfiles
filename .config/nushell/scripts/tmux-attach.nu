@@ -2,7 +2,7 @@
 
 use ~/.config/nushell/lib/ui.nu *
 
-let selected = ( tmux list-sessions | dmenu )
+let selected = ( tmux list-sessions | lines | dmenu )
 
 if ( $selected | is-empty ) {
 	notify-send "No entry selected"
