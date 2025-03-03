@@ -10,7 +10,7 @@ My personal dotfile collection.
 - nvim
   - skim
 - wofi
-- niri
+- hyprland
   - playerctl
   - xorg-xwayland
   - xwayland-satellite
@@ -20,3 +20,6 @@ My personal dotfile collection.
   - hyprlock
 - tmux
   - tpm
+- zbar
+- grim
+- slurp

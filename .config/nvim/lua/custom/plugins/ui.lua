@@ -40,7 +40,12 @@ return {
 	{
 		"ibhagwan/fzf-lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = { "skim" },
+		opts = {
+			"skim",
+			grep = {
+				rg_opts = "--sort-files --hidden --column --line-number --no-heading --color=always --smart-case -g '!{.git,node_modules,target}/*'",
+			},
+		},
 	},
 	{ "petertriho/nvim-scrollbar", opts = {} },
 	{

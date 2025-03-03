@@ -13,22 +13,25 @@ let passwords = (
 		| str replace -n ".gpg" ""
 )
 
-let selected_password = ( $passwords | dmenu -t "Pass" )
+let selected_entry = ( $passwords | dmenu -t "Pass" )
 
-if ($selected_password | is-empty) { exit }
+if ($selected_entry | is-empty) { exit }
 
-if ($selected_password | str contains "@") {
+if ($selected_entry | str contains "@") {
 	let selected_option = (
 		$options | dmenu -t "Action"
 	)
 
 	if ($selected_option == $username_option) {
-		let seperator_position = ( $selected_password | str index-of "@" )
-		let username = ( $selected_password | str substring ( $seperator_position + 1 ).. )
+		let seperator_position = ( $selected_entry | str index-of "@" )
+		let username = ( $selected_entry | str substring ( $seperator_position + 1 ).. )
 
 		$username | wl-copy
 		exit
 	}
+} else if ($selected_entry | str contains "-otp") {
+	pass otp code -c $selected_entry
+	exit
 }
 
-pass -c $selected_password
+pass -c $selected_entry
