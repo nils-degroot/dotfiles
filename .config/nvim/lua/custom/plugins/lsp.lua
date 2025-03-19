@@ -6,15 +6,6 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-			for _, lsp in ipairs({
-				"lua_ls",
-			}) do
-				lspconfig[lsp].setup({
-					capabilities = capabilities,
-				})
-			end
-
 			lspconfig.ts_ls.setup({
 				init_options = {
 					plugins = {
@@ -30,6 +21,14 @@ return {
 					"typescript",
 					"vue",
 				},
+			})
+
+			lspconfig.eslint.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
 			})
 
 			lspconfig.yamlls.setup({
@@ -79,6 +78,9 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
+		dependencies = {
+			{ "nushell/tree-sitter-nu" },
+		},
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = {
@@ -91,8 +93,10 @@ return {
 					"markdown_inline",
 					"bash",
 					"regex",
+					"nu",
 				},
 			})
 		end,
+		build = ":TSUpdate",
 	},
 }

@@ -22,7 +22,7 @@ return {
 					lua = { "stylua" },
 					rust = { "rustfmt" },
 					markdown = { "prettier" },
-					typescript = { "prettier" },
+					typescript = { "prettier", "eslint_d" },
 					json = { "prettier" },
 					yaml = { "prettier" },
 					vue = { "prettier" },
@@ -87,6 +87,13 @@ return {
 				"<cmd>Trouble qflist toggle<cr>",
 				desc = "Quickfix List (Trouble)",
 			},
+		},
+	},
+	{
+		"vuki656/package-info.nvim",
+		dependencies = { "MunifTanjim/nui.nvim" },
+		opts = {
+			package_manager = "pnpm",
 		},
 	},
 }

@@ -35,6 +35,7 @@ $env.NU_PLUGIN_DIRS = [
 $env.PATH = ($env.PATH | split row (char esep) | prepend [
 	"~/.local/share/bin"
 	"~/bin/"
+	"~/Documents/src/google-cloud-sdk/bin/"
 ])
 
 $env.DOCKER_HOST = "unix:///run/user/1000/docker.sock"
