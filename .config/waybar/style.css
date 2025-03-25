@@ -19,6 +19,7 @@
 window#waybar {
 	background: @bg;
 	color: @fg;
+	border-bottom: 1px solid #303030;
 }
 
 tooltip {

@@ -18,8 +18,10 @@ My personal dotfile collection.
   - waybar
   - hypridle
   - hyprlock
+  - inotify-tools
 - tmux
   - tpm
 - zbar
 - grim
 - slurp
+- eww

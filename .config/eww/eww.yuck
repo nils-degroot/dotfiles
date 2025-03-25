@@ -1,0 +1,41 @@
+(defwindow uptime
+  :stacking "bg"
+  :focusable "false"
+  :monitor 0
+  :geometry (geometry :x "8px" :y "144px" :width "200px" :height "96px" :anchor "top right")
+  (uptime))
+
+(defwindow system
+  :stacking "bg"
+  :focusable "false"
+  :monitor 0
+  :geometry (geometry :x "8px" :y "8px" :width "290px" :height "128px" :anchor "top right")
+  (system))
+
+(defpoll up-hour :interval "5s" `uptime -r | cut -d, -f1 | cut -d " " -f2 | awk '{ print int($1 / 60 / 60)}'`)
+(defpoll up-min :interval "5s" `uptime -r | cut -d, -f1 | cut -d " " -f2 | awk '{ print int($1 / 60) % 60 }'`)
+
+(defwidget uptime []
+  (box :class "window"
+    (box :orientation "h" :halign "center" :spacing 24 :space-evenly "false" :vexpand "false" :hexpand "false"
+      (label :class "icon icon-uptime" :valign "center" :text "祥")
+      (box :orientation "v" :valign "center" :spacing 0 :space-evenly "false" :vexpand "false" :hexpand "false"
+        (label :class "text-lg" :halign "start" :wrap "true" :limit-width 25 :text "${up-hour} hours")
+        (label :class "text-lg" :halign "start" :wrap "true" :limit-width 25 :text "${up-min} minutes")))))
+
+(defpoll sys-disk-percentage :interval "5s" `df -h / | tail -n 1 | cut -d " " -f9 | sed -e 's/%//'`)
+(defpoll sys-mem-percentage :interval "5s" `free | grep Mem | awk '{ print int($3 / $2 * 100) }'`)
+(defpoll sys-cpu-percentage :interval "5s" `grep 'cpu ' /proc/stat | awk '{ print int(( $2 + $4 ) * 100 / ( $2 + $4 + $5 )) }'`)
+
+(defwidget system []
+  (box :class "window"
+    (box :spacing 32 :orientation "h" :halign "center" :hexpand true
+      (system-circular-progress :label "Cpu" :percentage sys-cpu-percentage :class "text-blue")
+      (system-circular-progress :label "Mem" :percentage sys-mem-percentage :class "text-cyan")
+      (system-circular-progress :label "Disk" :percentage sys-disk-percentage :class "text-magenta")
+      )))
+
+(defwidget system-circular-progress [label percentage ?class]
+  (box :orientation "v" :halign "center" :valign "center" :vexpand true :space-evenly false :spacing 16
+    (circular-progress :thickness 5 :height 64 :width 64 :value percentage :start-at 25 :class "progress ${class}" label)
+    (label :class "text-lg" :text "${percentage}%")))

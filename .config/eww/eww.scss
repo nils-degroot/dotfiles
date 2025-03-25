@@ -1,0 +1,53 @@
+$bg: #1c1b19;
+$fg: #fce8c3;
+$border: #303030;
+
+$bright-magneta: #ff5c8f;
+$bright-cyan: #2be4d0;
+$bright-blue: #68a8e4;
+
+$uptime-icon-color: #2c78bf;
+
+* {
+	all: unset;
+	font-family: "Iosevka Nerd Font";
+    color: $fg;
+}
+
+.window {
+    background-color: $bg;
+    border-radius: 0;
+    border: 1px solid $border;
+}
+
+.icon {
+    font-size: 48px;
+}
+
+.text-lg {
+    font-size: 24px;
+}
+
+.text-magenta {
+    color: $bright-magneta
+}
+
+.text-cyan {
+    color: $bright-cyan
+}
+
+.text-blue {
+    color: $bright-blue
+}
+
+.icon-uptime {
+    color: $uptime-icon-color;
+}
+
+.progress {
+    background-color: $border;
+}
+
+.progress > * {
+    color: $fg;
+}
