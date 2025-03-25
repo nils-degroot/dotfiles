@@ -11,14 +11,13 @@
 
 * {
 	border: none;
-	border-radius: 5;
 	font-family: "Iosevka Nerd Font", Helvetica, Arial, sans-serif;
-	font-size: 13px;
+	font-size: 12px;
 	min-height: 24px;
 }
 
 window#waybar {
-	background: transparent;
+	background: @bg;
 	color: @fg;
 }
 
@@ -32,9 +31,8 @@ tooltip label {
 }
 
 #workspaces, #mode, #clock, #battery, #mpris, #tray {
-	margin: 5px 5px 0 5px;
+	margin: 5px;
 	padding: 0 10px;
-	background: @bg;
 }
 
 #workspaces {

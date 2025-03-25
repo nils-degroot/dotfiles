@@ -1,14 +1,15 @@
 {
     "layer": "top",
     "modules-left": [
-		"hyprland/workspaces",
-		"niri/workspaces"
+		"hyprland/workspaces"
+	],
+	"modules-center": [
+		"mpris"
 	],
     "modules-right": [
-		"tray",
-		"mpris",
 		"battery",
-		"clock"
+		"clock",
+		"tray"
 	],
     "hyprland/workspaces": {
         "format": "<b>{id}</b>"
