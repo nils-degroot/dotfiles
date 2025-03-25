@@ -6,22 +6,22 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			lspconfig.ts_ls.setup({
-				init_options = {
-					plugins = {
-						{
-							name = "@vue/typescript-plugin",
-							location = "/usr/lib/node_modules/@vue/typescript-plugin",
-							languages = { "javascript", "typescript", "vue" },
-						},
-					},
-				},
-				filetypes = {
-					"javascript",
-					"typescript",
-					"vue",
-				},
-			})
+			-- lspconfig.ts_ls.setup({
+			-- 	init_options = {
+			-- 		plugins = {
+			-- 			{
+			-- 				name = "@vue/typescript-plugin",
+			-- 				location = "/usr/lib/node_modules/@vue/typescript-plugin",
+			-- 				languages = { "javascript", "typescript", "vue" },
+			-- 			},
+			-- 		},
+			-- 	},
+			-- 	filetypes = {
+			-- 		"javascript",
+			-- 		"typescript",
+			-- 		"vue",
+			-- 	},
+			-- })
 
 			lspconfig.eslint.setup({
 				capabilities = capabilities,
@@ -98,5 +98,22 @@ return {
 			})
 		end,
 		build = ":TSUpdate",
+	},
+	{
+		"pmizio/typescript-tools.nvim",
+		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		opts = {
+			settings = {
+				tsserver_file_preferences = {
+					includeInlayParameterNameHints = "all",
+					includeCompletionsForModuleExports = true,
+					quotePreference = "auto",
+				},
+				tsserver_format_options = {
+					allowIncompleteCompletions = false,
+					allowRenameOfImportPath = false,
+				},
+			},
+		},
 	},
 }

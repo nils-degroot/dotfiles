@@ -14,4 +14,5 @@ return {
 	"jparise/vim-graphql",
 	"apple/pkl-neovim",
 	"grafana/vim-alloy",
+	"elkowar/yuck.vim",
 }
