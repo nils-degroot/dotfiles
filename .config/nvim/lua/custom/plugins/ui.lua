@@ -33,7 +33,10 @@ return {
 	{
 		"rcarriga/nvim-notify",
 		config = function()
-			vim.notify = require("notify")
+			local notify = require("notify")
+			vim.notify = notify
+
+			notify.setup({ render = "compact", timeout = 2000, stages = "static" })
 		end,
 	},
 	{ "dhruvasagar/vim-table-mode", ft = "markdown" },
