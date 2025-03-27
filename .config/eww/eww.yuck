@@ -23,7 +23,7 @@
         (label :class "text-lg" :halign "start" :wrap "true" :limit-width 25 :text "${up-hour} hours")
         (label :class "text-lg" :halign "start" :wrap "true" :limit-width 25 :text "${up-min} minutes")))))
 
-(defpoll sys-disk-percentage :interval "5s" `df -h / | tail -n 1 | cut -d " " -f9 | sed -e 's/%//'`)
+(defpoll sys-disk-percentage :interval "5s" `df -h / | grep -Eo '[0-9]+%' | sed -e 's/%//'`)
 (defpoll sys-mem-percentage :interval "5s" `free | grep Mem | awk '{ print int($3 / $2 * 100) }'`)
 (defpoll sys-cpu-percentage :interval "5s" `grep 'cpu ' /proc/stat | awk '{ print int(( $2 + $4 ) * 100 / ( $2 + $4 + $5 )) }'`)
 
