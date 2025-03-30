@@ -6,23 +6,6 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			-- lspconfig.ts_ls.setup({
-			-- 	init_options = {
-			-- 		plugins = {
-			-- 			{
-			-- 				name = "@vue/typescript-plugin",
-			-- 				location = "/usr/lib/node_modules/@vue/typescript-plugin",
-			-- 				languages = { "javascript", "typescript", "vue" },
-			-- 			},
-			-- 		},
-			-- 	},
-			-- 	filetypes = {
-			-- 		"javascript",
-			-- 		"typescript",
-			-- 		"vue",
-			-- 	},
-			-- })
-
 			lspconfig.eslint.setup({
 				capabilities = capabilities,
 			})
@@ -48,6 +31,7 @@ return {
 			})
 
 			vim.lsp.inlay_hint.enable()
+			vim.diagnostic.config({ virtual_text = true })
 		end,
 	},
 	{
