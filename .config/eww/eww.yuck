@@ -1,3 +1,10 @@
+(defwindow system
+  :stacking "bg"
+  :focusable "false"
+  :monitor 0
+  :geometry (geometry :x "8px" :y "8px" :width "290px" :height "128px" :anchor "top right")
+  (system))
+
 (defwindow uptime
   :stacking "bg"
   :focusable "false"
@@ -5,12 +12,12 @@
   :geometry (geometry :x "8px" :y "144px" :width "200px" :height "96px" :anchor "top right")
   (uptime))
 
-(defwindow system
+(defwindow player
   :stacking "bg"
   :focusable "false"
   :monitor 0
-  :geometry (geometry :x "8px" :y "8px" :width "290px" :height "128px" :anchor "top right")
-  (system))
+  :geometry (geometry :x "8px" :y "8px" :height "96px" :anchor "top left")
+  (player))
 
 (defpoll up-hour :interval "5s" `uptime -r | cut -d, -f1 | cut -d " " -f2 | awk '{ print int($1 / 60 / 60)}'`)
 (defpoll up-min :interval "5s" `uptime -r | cut -d, -f1 | cut -d " " -f2 | awk '{ print int($1 / 60) % 60 }'`)
@@ -39,3 +46,18 @@
   (box :orientation "v" :halign "center" :valign "center" :vexpand true :space-evenly false :spacing 16
     (circular-progress :thickness 5 :height 64 :width 64 :value percentage :start-at 25 :class "progress ${class}" label)
     (label :class "text-lg" :text "${percentage}%")))
+
+(deflisten player-status `playerctl -F status`)
+(deflisten player-title `playerctl metadata -F -f "{{title}}"`)
+(deflisten player-artist `playerctl metadata -F -f "{{artist}}"`)
+
+(defwidget player []
+  (box :class "window" :visible {player-status != ""}
+    (box :spacing 8 :space-evenly false
+      (box)
+      (box :spacing 32 :orientation "h" :halign "center" :hexpand true :space-evenly false
+        (label :class "icon icon-player" :valign "center" :text "${player-status == "Playing" ? "" : ""}")
+        (box :spacing 4 :orientation "v" :valign "center"
+          (label :halign "start" :markup player-artist)
+          (label :halign "start" :markup player-title))
+        (box)))))

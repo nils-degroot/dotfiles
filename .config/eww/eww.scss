@@ -7,6 +7,7 @@ $bright-cyan: #2be4d0;
 $bright-blue: #68a8e4;
 
 $uptime-icon-color: #2c78bf;
+$player-icon-color: $bright-blue;
 
 * {
 	all: unset;
@@ -42,6 +43,10 @@ $uptime-icon-color: #2c78bf;
 
 .icon-uptime {
     color: $uptime-icon-color;
+}
+
+.icon-player {
+    color: $player-icon-color;
 }
 
 .progress {
