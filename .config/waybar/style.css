@@ -14,6 +14,7 @@
 	font-family: "Iosevka Nerd Font", Helvetica, Arial, sans-serif;
 	font-size: 12px;
 	min-height: 24px;
+	border-radius: 3px;
 }
 
 window#waybar {
