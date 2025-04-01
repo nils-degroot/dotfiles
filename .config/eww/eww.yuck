@@ -56,7 +56,8 @@
     (box :spacing 8 :space-evenly false
       (box)
       (box :spacing 32 :orientation "h" :halign "center" :hexpand true :space-evenly false
-        (label :class "icon icon-player" :valign "center" :text "${player-status == "Playing" ? "" : ""}")
+        (button :onclick `playerctl play-pause`
+          (label :class "icon icon-player" :valign "center" :text "${player-status == "Playing" ? "" : ""}"))
         (box :spacing 4 :orientation "v" :valign "center"
           (label :halign "start" :markup player-artist)
           (label :halign "start" :markup player-title))
