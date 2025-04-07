@@ -89,4 +89,10 @@ return {
 			"rcarriga/nvim-notify",
 		},
 	},
+	{
+		"dylanaraps/wal.vim",
+		config = function()
+			vim.cmd([[colorscheme wal]])
+		end,
+	},
 }

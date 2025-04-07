@@ -1,75 +1,122 @@
-@define-color bg #1c1b19;
-@define-color fg #fce8c3;
+@import "../../.cache/wal/colors-waybar.css";
 
-@define-color green #519f50;
-@define-color red #ef2f27;
-@define-color blue #2c78bf;
-@define-color cyan #0aaeb3;
-@define-color orange #ff5f00;
-
-@define-color bright_green #98bc37;
+@define-color main-color @color13;
 
 * {
-	border: none;
-	font-family: "Iosevka Nerd Font", Helvetica, Arial, sans-serif;
-	font-size: 12px;
-	min-height: 24px;
-	border-radius: 3px;
+    border: none;
+    border-radius: 0px;
+    font-family: "DepartureMono Nerd Font";
+    font-weight: bold;
+    font-size: 15px;
+    min-height: 0;
 }
 
 window#waybar {
-	background: @bg;
-	color: @fg;
-	border-bottom: 1px solid #303030;
+    border-radius: 20px;
+    background: alpha(@background, 0.5);
 }
 
 tooltip {
-	background: rgba(43, 48, 59, 0.5);
-	border: 1px solid rgba(100, 114, 125, 0.5);
+    background: alpha(@background, 0.3);
+    border-radius: 10px;
+    border: 2px solid alpha(lighter(@main-color), 0.3);
 }
 
 tooltip label {
-	color: white;
-}
-
-#workspaces, #mode, #clock, #battery, #mpris, #tray {
-	margin: 5px;
-	padding: 0 10px;
+    color: @foreground;
 }
 
 #workspaces {
-	margin-left: 10px;
-	padding-left: 0;
-	padding-right: 0;
+    background: alpha(@background, 0.2);
+    border-radius: 20px;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 #workspaces button {
-	padding: 0 5px;
-	background-color: @bg;
-	color: @fg;
-}
-
-#workspaces button.focused {
-	background-color: @orange;
+    padding: 0px;
+    color: alpha(@foreground, 0.5);
+    background: transparent;
+    border-radius: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
 #workspaces button.active {
-	background-color: @orange;
+    background: alpha(@background, 0.2);
+    color: lighter(@main-color);
+    border-radius: 20px;
+    transition: color 0.5s;
+    margin-left: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 3px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.8s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#workspaces button.focused {
+    color: @color5;
+    background: transparent;
+}
+
+#workspaces button.urgent {
+    color: @color5;
+    background: transparent;
+}
+
+#workspaces button:hover {
+    background: transparent;
+    color: @color5;
+}
+
+#window,
+#clock,
+#battery,
+#network,
+#memory,
+#bluetooth,
+#workspaces {
+    padding: 0px 14px 0px 14px;
+}
+
+#window {
+    margin-left: 60px;
+    margin-right: 60px;
+    background: alpha(@background, 0.3);
+    border-radius: 10px;
+    color: lighter(@main-color);
 }
 
 #clock {
-	margin-right: 10px;
+    color: lighter(@main-color);
+    background: transparent;
 }
 
-#mode {
-	background: #64727D;
-	border-bottom: 3px solid white;
+#network {
+    color: lighter(@main-color);
+    background: transparent;
 }
 
-#battery.charging {
-    background-color: @green;
+#bluetooth {
+    color: lighter(@main-color);
+    background: transparent;
+} 
+
+#battery {
+    color: lighter(@main-color);
+    background: transparent;
 }
 
-#battery.warning:not(.charging) {
-    background: @red;
+#memory {
+    color: lighter(@main-color);
+    background: transparent;
+}
+
+#calendar {
+    font-family: "DepartureMono Nerd Font";
 }

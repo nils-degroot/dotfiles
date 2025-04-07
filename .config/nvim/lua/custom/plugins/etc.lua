@@ -1,10 +1,4 @@
 return {
-	{
-		"srcery-colors/srcery-vim",
-		config = function()
-			vim.cmd([[colorscheme srcery]])
-		end,
-	},
 	"mg979/vim-visual-multi",
 	{ "echasnovski/mini.pairs", branch = "stable", opts = {} },
 	{ "numToStr/Comment.nvim", opts = {} },
