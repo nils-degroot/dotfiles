@@ -5,11 +5,11 @@
     "fixed center": true,
     "reload_style_on_change": true,
 	"height": 34,
-	"width": 500,
+	"width": 580,
     "include": ["~/.config/waybar/modules.jsonc"],
 	"modules-left": ["clock"],
 	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["group/custom-group"],
+	"modules-right": ["group/custom-group", "battery"],
 	"hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
@@ -36,14 +36,14 @@
 			"warning": 30,
 			"critical": 20
 		},
-		"format": "{icon}   {capacity}",
-		"format-charging": "   {capacity}",
-        "format-plugged": "    {capacity}",
-		"format-alt": "{time}   {icon}",
+		"format": "{icon} {capacity}",
+		"format-charging": " {capacity}",
+        "format-plugged": " {capacity}",
+		"format-alt": "{time} {icon}",
         "format-icons": ["󱢠 󱢠 󱢠 ", "󱢠 󱢠 󰛞 ", "󱢠 󱢠 󰛞 ", "󱢠 󱢠 󰋑 ", "󱢠 󰛞 󰋑 ", "󱢠 󰛞 󰋑 ", "󱢠 󰋑 󰋑 ", "󰛞 󰋑 󰋑 ", "󰛞 󰋑 󰋑 ", "󰋑 󰋑 󰋑 "]
 	},
 	"network": {
-		"format-wifi": "    {signalStrength}%",
+		"format-wifi": "  {signalStrength}%",
 		"format-ethernet": "{ipaddr}/{cidr}",
 		"format-linked": "{ifname} (No IP)",
 		"format-disconnected": "󰖪 ",
@@ -51,13 +51,17 @@
         "tooltip-format":"Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({bandwidthDownBytes})</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>"	
     },
 	"bluetooth": {
-		"format": "󰂯    {status}",
+		"format": "󰂯 {status}",
 		"format-disabled": " off",
 		"format-connected": " {num_connections}",
 		"tooltip-format": "{device_alias}",
 		"tooltip-format-connected": " {device_enumerate}",
 		"tooltip-format-enumerate-connected": "{device_alias}",
 		"on-click": "kitty -e bluetui"
+	},
+	"custom/group-toggle": {
+		"format": "󰢚 ",
+		"tooltip": false
 	},
     "group/custom-group": {
         "orientation": "inherit",
@@ -66,7 +70,7 @@
             "transition-left-to-right": false
         },
         "modules": [
-            "battery",
+			"custom/group-toggle",
             "bluetooth",
             "network"
         ]

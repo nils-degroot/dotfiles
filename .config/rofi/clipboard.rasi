@@ -40,7 +40,7 @@ inputbar {
     spacing:                     0px;
     padding:                     150px 64px;
     orientation:                 horizontal;
-    background-image:            url("~/Pictures/backgrounds/gruvbox-arch.png", width);
+    background-image:            url("~/Pictures/backgrounds/landscape-with-an-obelisk.jpg", width);
 }
 
 dummy {

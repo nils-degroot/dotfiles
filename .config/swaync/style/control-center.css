@@ -8,9 +8,9 @@
 @define-color bg              alpha(@background, 0.5);
 
 * {
-  color: @text;
-
   all: unset;
+
+  color: @text;
   font-size: 15px;
   font-family: "DepartureMono Nerd Font";
   transition: 200ms;
@@ -49,7 +49,7 @@
 }
 
 .control-center .notification-row .notification-background .notification.critical .summary {
-  color: #a7091b;
+  color: @text;
 }
 
 .control-center .notification-row .notification-background .notification .notification-content {
@@ -114,19 +114,13 @@ progressbar {
 .notification-group-headers {
   font-weight: bold;
   font-size: 1.25rem;
-  color: @main-color;
   letter-spacing: 2px;
   transition: background 0.15s ease-in-out;
-}
-
-.notification-group-icon {
-  color: @main-color;
 }
 
 .notification-group-collapse-button,
 .notification-group-close-all-button {
   background: transparent;
-  color: @main-color;
   margin: 0px; 
   border-radius: 3px;
   padding: 0px;
@@ -155,7 +149,6 @@ progressbar {
 
 .widget-title {
   font-weight: bold;
-  color: @main-color;
   margin: 6px;
 }
 
@@ -177,7 +170,6 @@ progressbar {
 .widget-dnd {
   margin: 6px;
   font-weight: bold;
-  color: @main-color;
 }
 
 .widget-dnd > switch {
