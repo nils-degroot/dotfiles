@@ -90,9 +90,9 @@ return {
 		},
 	},
 	{
-		"dylanaraps/wal.vim",
+		"srcery-colors/srcery-vim",
 		config = function()
-			vim.cmd([[colorscheme wal]])
+			vim.cmd([[colorscheme srcery]])
 		end,
 	},
 }

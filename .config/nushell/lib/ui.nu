@@ -10,5 +10,5 @@ export def dmenu [
 	let title = if ($title == null) { "" } else { $"-p '($title)'" }
 	let count = if ($count == null) { "" } else { $"-L '($count)'" }
 
-	$options | str join "\n" | sh -c $'wofi --show dmenu -I -i ($title) ($count)'
+	$options | str join "\n" | sh -c $'rofi -dmenu -I -i ($title) ($count)'
 }

@@ -1,4 +1,4 @@
-general.import = ["/home/nils/.config/alacritty/srcery.toml"]
+general.import = ["~/.cache/wal/colors-alacritty.toml"]
 
 [font]
 size = 12.0

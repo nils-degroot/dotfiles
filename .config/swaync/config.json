@@ -1,13 +1,13 @@
 {
   "$schema": "/etc/xdg/swaync/configSchema.json",
-  "positionX": "right",
+  "positionX": "center",
   "positionY": "top",
   "cssPriority": "application",
   "layer": "overlay",
   "layer-shell": true,
 
   "control-center-layer": "top",
-  "control-center-width": 330,
+  "control-center-width": 720,
   "control-center-height": 725,
   "control-center-margin-top": 2,
   "control-center-margin-bottom": 2,
@@ -36,6 +36,7 @@
   "script-fail-notify": true,
   "widgets": [
     "title",
+	"mpris",
     "dnd",
     "notifications"
   ],
@@ -55,6 +56,5 @@
       "image-size": 76,
       "image-radius": 10
     }
-
   }
 }

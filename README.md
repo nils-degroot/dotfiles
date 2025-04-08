@@ -8,7 +8,6 @@ My personal dotfile collection.
   - starship
 - nvim
   - skim
-- wofi
 - hyprland
   - playerctl
   - xorg-xwayland
