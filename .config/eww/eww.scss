@@ -1,4 +1,4 @@
-$bg: #1c1b19;
+$bg: rgba(28, 27, 25, 0.8);
 $fg: #fce8c3;
 $border: #303030;
 
@@ -16,9 +16,8 @@ $player-icon-color: $bright-blue;
 }
 
 .window {
-    background-color: $bg;
-    border-radius: 0;
-    border: 1px solid $border;
+    background: $bg;
+    border-radius: 3;
 }
 
 .icon {

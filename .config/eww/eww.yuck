@@ -2,21 +2,21 @@
   :stacking "bg"
   :focusable "false"
   :monitor 0
-  :geometry (geometry :x "8px" :y "8px" :width "290px" :height "128px" :anchor "top right")
+  :geometry (geometry :x "50px" :y "50px" :width "290px" :height "128px" :anchor "top left")
   (system))
 
 (defwindow uptime
   :stacking "bg"
   :focusable "false"
   :monitor 0
-  :geometry (geometry :x "8px" :y "144px" :width "240px" :height "96px" :anchor "top right")
+  :geometry (geometry :x "50px" :y "186px" :width "240px" :height "96px" :anchor "top left")
   (uptime))
 
 (defwindow player
   :stacking "bg"
   :focusable "false"
   :monitor 0
-  :geometry (geometry :x "8px" :y "8px" :height "96px" :width "218px" :anchor "top left")
+  :geometry (geometry :x "348px" :y "50px" :height "96px" :width "218px" :anchor "top left")
   (player))
 
 (defpoll up-hour :interval "5s" `uptime -r | cut -d, -f1 | cut -d " " -f2 | awk '{ print int($1 / 60 / 60)}'`)
