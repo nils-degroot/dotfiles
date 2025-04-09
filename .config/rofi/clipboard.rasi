@@ -40,7 +40,7 @@ inputbar {
     spacing:                     0px;
     padding:                     150px 64px;
     orientation:                 horizontal;
-    background-image:            url("~/Pictures/backgrounds/landscape-with-an-obelisk.jpg", width);
+    background-image:            url("~/.local/share/background", width);
 }
 
 dummy {
