@@ -15,8 +15,8 @@
         "on-click": "activate",
         "all-outputs": true,
         "format-icons": {
-        "default": "󰫣 ",
-        "active": "󰫢 "
+        "default": " ",
+        "active": " "
 		}
 	},
 	"clock": {
@@ -63,14 +63,22 @@
 		"format": "󰢚 ",
 		"tooltip": false
 	},
+	"custom/swaync": {
+		"format": " {}",
+		"tooltip": false,
+		"interval": 10,
+		"exec": "swaync-client -c",
+		"on-click": "swaync-client -t"
+	},
     "group/custom-group": {
         "orientation": "inherit",
         "drawer": {
-            "transition-duration": 500,
+            "transition-duration": 300,
             "transition-left-to-right": false
         },
         "modules": [
 			"custom/group-toggle",
+            "custom/swaync",
             "bluetooth",
             "network"
         ]
