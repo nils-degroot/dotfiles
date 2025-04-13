@@ -14,6 +14,10 @@ return {
 				capabilities = capabilities,
 			})
 
+			lspconfig.marksman.setup({
+				capabilities = capabilities,
+			})
+
 			lspconfig.yamlls.setup({
 				capabilities = capabilities,
 				settings = {
