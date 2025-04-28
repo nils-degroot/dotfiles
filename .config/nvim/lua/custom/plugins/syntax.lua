@@ -15,4 +15,5 @@ return {
 	"apple/pkl-neovim",
 	"grafana/vim-alloy",
 	"elkowar/yuck.vim",
+	"digitaltoad/vim-pug",
 }

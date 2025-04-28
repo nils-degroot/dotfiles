@@ -20,6 +20,10 @@ return {
 					json = { "prettier" },
 					yaml = { "prettier" },
 					vue = { "prettier" },
+					javascript = { "prettier" },
+					css = { "prettier" },
+					scss = { "prettier" },
+					pug = { "prettier" },
 				},
 			})
 
