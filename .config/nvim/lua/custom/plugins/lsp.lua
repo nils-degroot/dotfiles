@@ -18,9 +18,9 @@ return {
 				capabilities = capabilities,
 			})
 
-			-- lspconfig.denols.setup({
-			-- 	capabilities = capabilities,
-			-- })
+			lspconfig.somesass_ls.setup({
+				capabilities = capabilities,
+			})
 
 			lspconfig.yamlls.setup({
 				capabilities = capabilities,
