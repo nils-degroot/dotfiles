@@ -16,4 +16,5 @@ return {
 	"grafana/vim-alloy",
 	"elkowar/yuck.vim",
 	"digitaltoad/vim-pug",
+	"cakebaker/scss-syntax.vim",
 }
