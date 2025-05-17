@@ -365,6 +365,9 @@ alias dcu = docker compose up -d
 alias dcd = docker compose down
 alias dcs = docker compose stop
 
+## Etc
+alias c = clear
+
 def psub []: string -> string {
 	let path = $"/tmp/psub-( random uuid )"
 	$in | save -f $path
