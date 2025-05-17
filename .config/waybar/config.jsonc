@@ -2,33 +2,35 @@
 	"layer": "top",
 	"position": "top",
 	"margin": "5 10 0",
-    "fixed center": true,
-    "reload_style_on_change": true,
+	"fixed center": true,
+	"reload_style_on_change": true,
 	"height": 34,
-	"width": 580,
-    "include": ["~/.config/waybar/modules.jsonc"],
-	"modules-left": ["clock"],
-	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["group/custom-group", "battery"],
+	"width": 720,
+	"include": [
+		"~/.config/waybar/modules.jsonc"
+	],
+	"modules-left": [
+		"clock"
+	],
+	"modules-center": [
+		"hyprland/workspaces"
+	],
+	"modules-right": [
+		"group/custom-group",
+		"battery"
+	],
 	"hyprland/workspaces": {
-        "format": "{icon}",
-        "on-click": "activate",
-        "all-outputs": true,
-        "format-icons": {
-        "default": " ",
-        "active": " "
+		"format": "{icon}",
+		"on-click": "activate",
+		"all-outputs": true,
+		"format-icons": {
+			"default": " ",
+			"active": " "
 		}
 	},
 	"clock": {
-		"format": "{:%H:%M}",
-		"tooltip-format": "<tt><small>{calendar}</small></tt>",
-		"calendar": {
-			"format": {
-				"months": "<span color='#ffead3'><b>{}</b></span>",
-				"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-				"today": "<span color='#ffcc66'><b><u>{}</u></b></span>"
-			}
-		}
+		"format": "{:%d %b %H:%M}",
+		"tooltip": false
 	},
 	"battery": {
 		"states": {
@@ -38,18 +40,29 @@
 		},
 		"format": "{icon} {capacity}",
 		"format-charging": " {capacity}",
-        "format-plugged": " {capacity}",
+		"format-plugged": " {capacity}",
 		"format-alt": "{time} {icon}",
-        "format-icons": ["󱢠 󱢠 󱢠 ", "󱢠 󱢠 󰛞 ", "󱢠 󱢠 󰛞 ", "󱢠 󱢠 󰋑 ", "󱢠 󰛞 󰋑 ", "󱢠 󰛞 󰋑 ", "󱢠 󰋑 󰋑 ", "󰛞 󰋑 󰋑 ", "󰛞 󰋑 󰋑 ", "󰋑 󰋑 󰋑 "]
+		"format-icons": [
+			"󱢠 󱢠 󱢠 ",
+			"󱢠 󱢠 󰛞 ",
+			"󱢠 󱢠 󰛞 ",
+			"󱢠 󱢠 󰋑 ",
+			"󱢠 󰛞 󰋑 ",
+			"󱢠 󰛞 󰋑 ",
+			"󱢠 󰋑 󰋑 ",
+			"󰛞 󰋑 󰋑 ",
+			"󰛞 󰋑 󰋑 ",
+			"󰋑 󰋑 󰋑 "
+		]
 	},
 	"network": {
 		"format-wifi": "  {signalStrength}%",
 		"format-ethernet": "{ipaddr}/{cidr}",
 		"format-linked": "{ifname} (No IP)",
 		"format-disconnected": "󰖪 ",
-        "on-click": "alacritty -e nmtui",
-        "tooltip-format":"Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({bandwidthDownBytes})</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>"	
-    },
+		"on-click": "alacritty -e nmtui",
+		"tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({bandwidthDownBytes})</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>"
+	},
 	"bluetooth": {
 		"format": "󰂯 {status}",
 		"format-disabled": " off",
@@ -70,17 +83,17 @@
 		"exec": "swaync-client -c",
 		"on-click": "swaync-client -t"
 	},
-    "group/custom-group": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 300,
-            "transition-left-to-right": false
-        },
-        "modules": [
+	"group/custom-group": {
+		"orientation": "inherit",
+		"drawer": {
+			"transition-duration": 300,
+			"transition-left-to-right": false
+		},
+		"modules": [
 			"custom/group-toggle",
-            "custom/swaync",
-            "bluetooth",
-            "network"
-        ]
-    }
+			"custom/swaync",
+			"bluetooth",
+			"network"
+		]
+	}
 }

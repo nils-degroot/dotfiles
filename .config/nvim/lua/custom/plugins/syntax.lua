@@ -2,8 +2,6 @@ return {
 	{ "mrcjkb/rustaceanvim", version = "^4", ft = "rust" },
 	{ "rust-lang/rust.vim", ft = "rust" },
 	{ "tbastos/vim-lua", ft = "lua" },
-	{ "imsnif/kdl.vim", ft = "kdl" },
-	{ "LhKipp/nvim-nu", opts = {} },
 	{ "aklt/plantuml-syntax", ft = "plantuml" },
 	{ "evanleck/vim-svelte", ft = "svelte" },
 	{ "prisma/vim-prisma", ft = "prisma" },

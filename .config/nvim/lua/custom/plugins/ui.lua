@@ -45,12 +45,17 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
 			"skim",
+			winopts = {
+				border = "single",
+				preview = {
+					border = "single",
+				},
+			},
 			grep = {
 				rg_opts = "--sort-files --hidden --column --line-number --no-heading --color=always --smart-case -g '!{.git,node_modules,target}/*'",
 			},
 		},
 	},
-	{ "petertriho/nvim-scrollbar", opts = {} },
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

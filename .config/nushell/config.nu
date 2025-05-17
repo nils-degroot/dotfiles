@@ -359,6 +359,7 @@ alias gca = git commit --all
 alias ga = git add
 alias gp = git push
 alias gpf = git push --force-with-lease
+alias gd = git diff
 
 ## Docker
 alias dcu = docker compose up -d

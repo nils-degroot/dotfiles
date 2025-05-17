@@ -9,11 +9,10 @@
     font-weight: bold;
     font-size: 15px;
     min-height: 0;
-	color: @foreground;
+    color: @foreground;
 }
 
 window#waybar {
-    border-radius: 20px;
     background: alpha(@background, 0.5);
 }
 
