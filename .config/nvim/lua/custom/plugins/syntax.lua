@@ -8,7 +8,6 @@ return {
 	"othree/html5.vim",
 	"pangloss/vim-javascript",
 	"leafgarland/typescript-vim",
-	"wuelnerdotexe/vim-astro",
 	"jparise/vim-graphql",
 	"apple/pkl-neovim",
 	"grafana/vim-alloy",
