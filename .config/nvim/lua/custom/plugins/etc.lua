@@ -45,12 +45,6 @@ return {
 	"mrjones2014/smart-splits.nvim",
 	"brooth/far.vim",
 	{
-		"ggandor/leap.nvim",
-		config = function()
-			require("leap").create_default_mappings()
-		end,
-	},
-	{
 		"folke/trouble.nvim",
 		opts = {},
 		cmd = "Trouble",
