@@ -80,12 +80,12 @@ return {
 					"vim",
 					"javascript",
 					"typescript",
-					"svelte",
 					"markdown",
 					"markdown_inline",
 					"bash",
 					"regex",
 					"nu",
+					"rust",
 				},
 			})
 		end,

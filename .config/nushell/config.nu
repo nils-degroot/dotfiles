@@ -341,6 +341,7 @@ source ~/.cache/starship/init.nu
 
 # Aliases
 ## Program alternatives
+alias v = nvim
 alias vi = nvim
 alias vim = nvim
 alias cat = bat
@@ -360,6 +361,9 @@ alias ga = git add
 alias gp = git push
 alias gpf = git push --force-with-lease
 alias gd = git diff
+alias gr = git rebase
+alias grom = git rebase origin/main
+alias grc = git rebase --continue
 
 ## Docker
 alias dcu = docker compose up -d
