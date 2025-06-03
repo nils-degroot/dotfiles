@@ -20,7 +20,8 @@ family = "Iosevka Nerd Font"
 style = "Regular"
 
 [terminal.shell]
-program = "tmux"
+# program = "tmux"
+program = "zellij"
 
 [window]
 dynamic_padding = true
