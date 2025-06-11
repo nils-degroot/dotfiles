@@ -46,7 +46,8 @@ $env.DO_NOT_TRACK = 1
 
 # Program setup
 mkdir ~/.cache/carapace
-carapace _carapace nushell | save -f ~/.cache/carapace/init.nu
+# TODO: Re-enable when carapace is bumped to 1.3.3
+# carapace _carapace nushell | save -f ~/.cache/carapace/init.nu
 
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
