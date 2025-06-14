@@ -4,3 +4,6 @@ error_symbol = "[λ](bold red)"
 
 [dotnet]
 disabled = true
+
+[gcloud]
+disabled = true
