@@ -19,6 +19,13 @@
   :geometry (geometry :x "348px" :y "50px" :height "96px" :width "218px" :anchor "top left")
   (player))
 
+(defwindow weather
+  :stacking "bg"
+  :focusable "false"
+  :monitor 0
+  :geometry (geometry :x "50px" :y "50px" :height "100px" :width "300px" :anchor "top right")
+  (weather))
+
 (defpoll up-hour :interval "5s" `uptime -r | cut -d, -f1 | cut -d " " -f2 | awk '{ print int($1 / 60 / 60)}'`)
 (defpoll up-min :interval "5s" `uptime -r | cut -d, -f1 | cut -d " " -f2 | awk '{ print int($1 / 60) % 60 }'`)
 
@@ -62,3 +69,10 @@
           (label :show-truncated true :limit-width 80 :halign "start" :text player-artist)
           (label :show-truncated false :limit-width 80 :halign "start" :text player-title))
         (box)))))
+
+(defpoll weather-text :interval "30m" `curl https://wttr.in/?format=%c+%l+%C+%t`)
+
+(defwidget weather []
+  (box :class "window"
+    (box :halign "center" :valign "center" :hexpand true :vexpand true
+      (label :class "weather-label" :text weather-text))))

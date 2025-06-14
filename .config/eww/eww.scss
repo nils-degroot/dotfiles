@@ -10,49 +10,55 @@ $uptime-icon-color: #2c78bf;
 $player-icon-color: $bright-blue;
 
 * {
-	all: unset;
-	font-family: "DepartureMono Nerd Font";
-    color: $fg;
+  all: unset;
+  font-family: "DepartureMono Nerd Font";
+  color: $fg;
 }
 
 .window {
-    background: $bg;
-    border-radius: 3;
+  background: $bg;
+  border-radius: 3;
 }
 
 .icon {
-    font-family: "Iosevka Nerd Font";
-    font-size: 48px;
+  font-family: "Iosevka Nerd Font";
+  font-size: 48px;
 }
 
 .text-lg {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .text-magenta {
-    color: $bright-magneta
+  color: $bright-magneta;
 }
 
 .text-cyan {
-    color: $bright-cyan
+  color: $bright-cyan;
 }
 
 .text-blue {
-    color: $bright-blue
+  color: $bright-blue;
 }
 
 .icon-uptime {
-    color: $uptime-icon-color;
+  color: $uptime-icon-color;
 }
 
 .icon-player {
-    color: $player-icon-color;
+  color: $player-icon-color;
 }
 
 .progress {
-    background-color: $border;
+  background-color: $border;
 }
 
 .progress > * {
-    color: $fg;
+  color: $fg;
+}
+
+/* Weather */
+.weather-label {
+  font-size: 24px;
+  margin: 32px;
 }
