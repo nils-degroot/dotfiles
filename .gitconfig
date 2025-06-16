@@ -20,3 +20,5 @@
 
 [help]
 	autocorrect = 2
+[advice]
+	addEmptyPathspec = false
