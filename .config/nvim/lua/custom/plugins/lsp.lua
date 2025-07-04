@@ -86,6 +86,7 @@ return {
 					"regex",
 					"nu",
 					"rust",
+					"hurl",
 				},
 			})
 		end,

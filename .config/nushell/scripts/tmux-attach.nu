@@ -8,5 +8,5 @@ if ( $selected | is-empty ) {
 	notify-send "No entry selected"
 } else {
 	let session_id = ( $selected | split row ": " | get 0 )
-	alacritty -e tmux attach -d -t $session_id
+	ghostty -e tmux attach -d -t $session_id
 }

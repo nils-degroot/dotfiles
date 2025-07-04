@@ -60,7 +60,7 @@
 		"format-ethernet": "{ipaddr}/{cidr}",
 		"format-linked": "{ifname} (No IP)",
 		"format-disconnected": "󰖪 ",
-		"on-click": "alacritty -e nmtui",
+		"on-click": "ghostty -e nmtui",
 		"tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({bandwidthDownBytes})</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>"
 	},
 	"bluetooth": {
@@ -70,7 +70,7 @@
 		"tooltip-format": "{device_alias}",
 		"tooltip-format-connected": " {device_enumerate}",
 		"tooltip-format-enumerate-connected": "{device_alias}",
-		"on-click": "alacritty -e bluetui"
+		"on-click": "ghostty -e bluetui"
 	},
 	"custom/group-toggle": {
 		"format": "󰢚 ",
