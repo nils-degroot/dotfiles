@@ -338,6 +338,7 @@ $env.config = {
 source ~/.config/nushell/programs/zoxide.nu
 source ~/.cache/carapace/init.nu
 source ~/.cache/starship/init.nu
+source ~/.cache/jujutsu/init.nu
 
 # Aliases
 ## Program alternatives
