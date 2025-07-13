@@ -9,16 +9,16 @@
 		"~/.config/waybar/modules.jsonc"
 	],
 	"modules-left": [
-		"battery",
-		"network",
-		"bluetooth",
-		"custom/swaync"
+		"clock"
 	],
 	"modules-center": [
 		"hyprland/workspaces"
 	],
 	"modules-right": [
-		"clock"
+		"custom/swaync",
+		"bluetooth",
+		"network",
+		"battery"
 	],
 	"hyprland/workspaces": {
 		"format": "{icon}",
