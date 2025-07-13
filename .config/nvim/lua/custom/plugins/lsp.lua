@@ -88,6 +88,9 @@ return {
 					"rust",
 					"hurl",
 				},
+				highlight = {
+					enable = true,
+				},
 			})
 		end,
 		build = ":TSUpdate",

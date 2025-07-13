@@ -52,10 +52,11 @@ return {
 				},
 			},
 			grep = {
-				rg_opts = "--sort-files --hidden --column --line-number --no-heading --color=always --smart-case -g '!{.git,node_modules,target}/*'",
+				rg_opts = "--sort-files --hidden --column --line-number --no-heading --color=always --smart-case -g '!{.git,node_modules,target,.jj}/*'",
 			},
 			files = {
 				previewer = "bat",
+				fd_opts = [[--color=never --hidden --type f --type l --exclude .git --exclude .jj --exclude target]],
 			},
 		},
 	},
