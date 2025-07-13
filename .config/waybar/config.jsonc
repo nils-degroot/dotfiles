@@ -5,19 +5,20 @@
 	"fixed center": true,
 	"reload_style_on_change": true,
 	"height": 34,
-	"width": 720,
 	"include": [
 		"~/.config/waybar/modules.jsonc"
 	],
 	"modules-left": [
-		"clock"
+		"battery",
+		"network",
+		"bluetooth",
+		"custom/swaync"
 	],
 	"modules-center": [
 		"hyprland/workspaces"
 	],
 	"modules-right": [
-		"group/custom-group",
-		"battery"
+		"clock"
 	],
 	"hyprland/workspaces": {
 		"format": "{icon}",
@@ -72,28 +73,11 @@
 		"tooltip-format-enumerate-connected": "{device_alias}",
 		"on-click": "ghostty -e bluetui"
 	},
-	"custom/group-toggle": {
-		"format": "󰢚 ",
-		"tooltip": false
-	},
 	"custom/swaync": {
 		"format": " {}",
 		"tooltip": false,
 		"interval": 10,
 		"exec": "swaync-client -c",
 		"on-click": "swaync-client -t"
-	},
-	"group/custom-group": {
-		"orientation": "inherit",
-		"drawer": {
-			"transition-duration": 300,
-			"transition-left-to-right": false
-		},
-		"modules": [
-			"custom/group-toggle",
-			"custom/swaync",
-			"bluetooth",
-			"network"
-		]
 	}
 }
