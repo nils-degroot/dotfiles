@@ -150,9 +150,9 @@ keybinds clear-defaults=true {
     shared_except "locked" "move" {
         bind "Ctrl y" { SwitchToMode "move"; }
     }
-    shared_except "locked" "session" {
-        bind "Ctrl a" { SwitchToMode "session"; }
-    }
+    // shared_except "locked" "session" {
+    //     bind "Ctrl k" { SwitchToMode "session"; }
+    // }
     shared_except "locked" "scroll" {
         bind "Alt left" { MoveFocusOrTab "left"; }
         bind "Alt down" { MoveFocus "down"; }
