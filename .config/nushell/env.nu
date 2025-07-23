@@ -54,3 +54,8 @@ starship init nu | save -f ~/.cache/starship/init.nu
 
 mkdir ~/.cache/jujutsu
 jj util completion nushell | save -f ~/.cache/jujutsu/init.nu
+
+# pnpm
+$env.PNPM_HOME = "/home/nils/.local/share/pnpm"
+$env.PATH = ($env.PATH | split row (char esep) | prepend $env.PNPM_HOME )
+# pnpm end

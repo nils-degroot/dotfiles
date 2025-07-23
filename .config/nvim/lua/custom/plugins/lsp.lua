@@ -22,6 +22,24 @@ return {
 				capabilities = capabilities,
 			})
 
+			lspconfig.ts_ls.setup({
+				capabilities = capabilities,
+				init_options = {
+					plugins = {
+						{
+							name = "@vue/typescript-plugin",
+							location = "/home/nils/.local/share/pnpm/global/5/node_modules/@vue/typescript-plugin/",
+							languages = { "javascript", "typescript", "vue" },
+						},
+					},
+				},
+				filetypes = {
+					"javascript",
+					"typescript",
+					"vue",
+				},
+			})
+
 			lspconfig.yamlls.setup({
 				capabilities = capabilities,
 				settings = {
@@ -94,22 +112,5 @@ return {
 			})
 		end,
 		build = ":TSUpdate",
-	},
-	{
-		"pmizio/typescript-tools.nvim",
-		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		opts = {
-			settings = {
-				tsserver_file_preferences = {
-					includeInlayParameterNameHints = "all",
-					includeCompletionsForModuleExports = true,
-					quotePreference = "auto",
-				},
-				tsserver_format_options = {
-					allowIncompleteCompletions = false,
-					allowRenameOfImportPath = false,
-				},
-			},
-		},
 	},
 }
