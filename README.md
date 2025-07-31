@@ -2,7 +2,7 @@ My personal dotfile collection.
 
 # Dependencies
 
-- ghostty (won't start unless both nu and tmux are installed)
+- alacritty (won't start unless both nu and tmux are installed)
 - nu
   - carapace-bin (aur)
   - starship

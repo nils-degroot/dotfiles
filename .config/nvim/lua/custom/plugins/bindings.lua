@@ -4,7 +4,7 @@ return {
 		config = function()
 			require("which-key").add({
 				-- Code actions
-				{ "<CR>", "<CMD>FzfLua lsp_code_actions<CR>", desc = "Code actions" },
+				{ "<Tab>", "<CMD>FzfLua lsp_code_actions<CR>", desc = "Code actions" },
 				{ "-", "<CMD>Oil<CR>", desc = "Open oil" },
 
 				-- Project
