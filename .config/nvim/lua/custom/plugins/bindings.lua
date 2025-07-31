@@ -33,23 +33,17 @@ return {
 				{ "<Leader>bb", "<CMD>FzfLua buffers<CR>", desc = "Buffers" },
 
 				-- Movement
-				--- Resize
-				{ "<A-h>", "<CMD>SmartResizeLeft<CR>", desc = "Resize left" },
-				{ "<A-j>", "<CMD>SmartResizeDown<CR>", desc = "Resize down" },
-				{ "<A-k>", "<CMD>SmartResizeUp<CR>", desc = "Resize up" },
-				{ "<A-l>", "<CMD>SmartResizeRight<CR>", desc = "Resize right" },
-
 				--- Move cursor
-				{ "<C-h>", "<CMD>SmartCursorMoveLeft<CR>", desc = "Cursor move left" },
-				{ "<C-j>", "<CMD>SmartCursorMoveDown<CR>", desc = "Cursor move down" },
-				{ "<C-k>", "<CMD>SmartCursorMoveUp<CR>", desc = "Cursor move up" },
-				{ "<C-l>", "<CMD>SmartCursorMoveRight<CR>", desc = "Cursor move right" },
+				{ "<C-h>", "<C-w>h", desc = "Cursor move left" },
+				{ "<C-j>", "<C-w>j", desc = "Cursor move down" },
+				{ "<C-k>", "<C-w>k", desc = "Cursor move up" },
+				{ "<C-l>", "<C-w>l", desc = "Cursor move right" },
 
 				--- Swap buf
-				{ "<Leader><Leader>h", "<CMD>SmartSwapLeft<CR>", desc = "Swap left" },
-				{ "<Leader><Leader>j", "<CMD>SmartSwapDown<CR>", desc = "Swap down" },
-				{ "<Leader><Leader>k", "<CMD>SmartSwapUp<CR>", desc = "Swap up" },
-				{ "<Leader><Leader>l", "<CMD>SmartSwapRight<CR>", desc = "Swap right" },
+				{ "<Leader><C-h>", "<C-w>H", desc = "Swap left" },
+				{ "<Leader><C-j>", "<C-w>J", desc = "Swap down" },
+				{ "<Leader><C-k>", "<C-w>K", desc = "Swap up" },
+				{ "<Leader><C-l>", "<C-w>L", desc = "Swap right" },
 
 				-- Move selection
 				{

@@ -6,21 +6,11 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			lspconfig.eslint.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.marksman.setup({
-				capabilities = capabilities,
-			})
-
-			lspconfig.somesass_ls.setup({
-				capabilities = capabilities,
-			})
+			for type in { "eslint", "lua_ls", "marksman", "somesass_ls" } do
+				lspconfig[type].setup({
+					capabilities = capabilities,
+				})
+			end
 
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
@@ -28,7 +18,7 @@ return {
 					plugins = {
 						{
 							name = "@vue/typescript-plugin",
-							location = "/home/nils/.local/share/pnpm/global/5/node_modules/@vue/typescript-plugin/",
+							location = "~/.local/share/pnpm/global/5/node_modules/@vue/typescript-plugin/",
 							languages = { "javascript", "typescript", "vue" },
 						},
 					},
@@ -58,6 +48,24 @@ return {
 
 			vim.lsp.inlay_hint.enable()
 			vim.diagnostic.config({ virtual_text = true })
+
+			vim.api.nvim_create_autocmd("LspAttach", {
+				callback = function(args)
+					local client = vim.lsp.get_client_by_id(args.data.client_id)
+					if not client then
+						return
+					end
+
+					if client.supports_method("textDocument/formatting") then
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							buffer = args.buf,
+							callback = function()
+								vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+							end,
+						})
+					end
+				end,
+			})
 		end,
 	},
 	{

@@ -90,9 +90,7 @@ return {
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
-		opts = {
-			-- add any options here
-		},
+		opts = {},
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 			"rcarriga/nvim-notify",
@@ -139,31 +137,4 @@ return {
 		end,
 	},
 	"https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
-	{
-		"jellydn/hurl.nvim",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		ft = "hurl",
-		opts = {
-			debug = false,
-			show_notification = true,
-			mode = "split",
-			formatters = {
-				json = { "jq" },
-				html = {
-					"prettier",
-					"--parser",
-					"html",
-				},
-			},
-			mappings = {
-				close = "q", -- Close the response popup or split view
-				next_panel = "<C-n>", -- Move to the next response popup window
-				prev_panel = "<C-p>", -- Move to the previous response popup window
-			},
-		},
-	},
 }
