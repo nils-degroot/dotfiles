@@ -9,6 +9,8 @@ vim.opt.tabstop = 4
 vim.opt.scrolloff = 5
 vim.opt.termguicolors = true
 
+require('bar')
+
 vim.g.mapleader = " "
 
 -- List stuff
@@ -23,7 +25,7 @@ vim.opt.listchars = {
 	nbsp = "‿",
 }
 
--- Persistant undo
+-- Persistent undo
 local undo_dir = vim.fn.expand("~/.local/share/vim-undo")
 
 if vim.fn.has("persistent_undo") then
@@ -57,10 +59,10 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
-
 vim.keymap.set("n", "<leader>pf", ":FzfLua files<cr>")
 vim.keymap.set("n", "<leader>bb", ":FzfLua buffers<cr>")
 vim.keymap.set("n", "<leader>cf", ":FzfLua live_grep<cr>")
+vim.keymap.set("n", "<leader>h", ":FzfLua helptags<cr>")
 
 vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function()
@@ -144,11 +146,21 @@ require("fzf-lua").setup({
 vim.cmd("FzfLua register_ui_select")
 
 require("nvim-treesitter.configs").setup({
-	ensure_installed = { "rust", "nu", "lua" },
+	auto_install = { "rust", "nu", "lua" },
 	highlight = { enable = true }
 })
 
 vim.cmd("color srcery")
+
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true)
+			}
+		}
+	}
+})
 
 vim.lsp.config("vtsls", {
 	settings = {
