@@ -38,6 +38,7 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend [
 	"~/Documents/src/google-cloud-sdk/bin/"
 	"~/.config/nushell/scripts/"
 	"~/.cargo/bin/"
+	"~/.local/share/bob/nvim-bin"
 ])
 
 $env.DOCKER_HOST = "unix:///run/user/1000/docker.sock"

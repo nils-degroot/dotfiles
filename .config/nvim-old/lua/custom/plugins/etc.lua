@@ -7,12 +7,42 @@ return {
 		dependencies = { "tyru/open-browser.vim" },
 	},
 	{
+		"stevearc/conform.nvim",
+		config = function()
+			local conform = require("conform")
+
+			conform.setup({
+				formatters_by_ft = {
+					lua = { "stylua" },
+					rust = { "rustfmt" },
+					markdown = { "prettier" },
+					typescript = { "prettier", "eslint_d" },
+					json = { "prettier" },
+					yaml = { "prettier" },
+					vue = { "prettier" },
+					javascript = { "prettier" },
+					css = { "prettier" },
+					scss = { "prettier" },
+					pug = { "prettier" },
+				},
+			})
+
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				pattern = "*",
+				callback = function(args)
+					conform.format({ bufnr = args.buf })
+				end,
+			})
+		end,
+	},
+	{
 		"kylechui/nvim-surround",
 		version = "*",
 		event = "VeryLazy",
 		opts = {},
 	},
 	"nvim-lua/plenary.nvim",
+	"mrjones2014/smart-splits.nvim",
 	"brooth/far.vim",
 	{
 		"folke/trouble.nvim",
