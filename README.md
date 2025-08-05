@@ -17,9 +17,6 @@ My personal dotfile collection.
   - hypridle
   - hyprlock
   - inotify-tools
-- tmux
-  - tpm
-- zbar
 - grim
 - slurp
 - python-pywal16
