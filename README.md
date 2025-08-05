@@ -22,7 +22,6 @@ My personal dotfile collection.
 - zbar
 - grim
 - slurp
-- eww
 - python-pywal16
   - pywalfox
 - cliphist

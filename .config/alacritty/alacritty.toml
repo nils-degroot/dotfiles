@@ -20,7 +20,6 @@ family = "Iosevka Nerd Font"
 style = "Regular"
 
 [terminal.shell]
-# program = "tmux"
 program = "zellij"
 
 [window]
