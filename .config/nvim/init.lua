@@ -85,6 +85,7 @@ vim.pack.add({
 	"https://github.com/echasnovski/mini.icons",
 	"https://github.com/echasnovski/mini.pairs",
 	"https://github.com/ibhagwan/fzf-lua",
+	"https://github.com/neovim/nvim-lspconfig",
 
 	-- Ui
 	"https://github.com/folke/todo-comments.nvim",
@@ -94,8 +95,8 @@ vim.pack.add({
 
 	-- Sql
 	"https://github.com/tpope/vim-dadbod",
-	"https://github.com/kristijanhusak/vim-dadbod-completion",
 	"https://github.com/kristijanhusak/vim-dadbod-ui",
+	"https://github.com/kristijanhusak/vim-dadbod-completion",
 })
 
 -- Lsping
@@ -153,4 +154,45 @@ require("todo-comments").setup({})
 
 vim.cmd("color srcery")
 
-vim.lsp.enable({ "lua_ls", "eslint", "vtsls", "vue_ls" })
+vim.lsp.config("vtsls", {
+	settings = {
+		vtsls = {
+			tsserver = {
+				globalPlugins = {
+					{
+						name = "@vue/typescript-plugin",
+						location = "~/.local/share/pnpm/global/5/node_modules/@vue/language-server",
+						languages = { "vue" },
+						configNamespace = "typescript",
+					},
+				},
+			},
+		},
+	},
+	filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+})
+
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true)
+			}
+		}
+	}
+})
+
+local base_on_attach = vim.lsp.config.eslint.on_attach
+vim.lsp.config("eslint", {
+	on_attach = function(client, bufnr)
+		if not base_on_attach then return end
+		base_on_attach(client, bufnr)
+
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			buffer = bufnr,
+			command = "LspEslintFixAll",
+		})
+	end,
+})
+
+vim.lsp.enable({ "lua_ls", "eslint", "vtsls", "vue_ls", "ts_ls" })

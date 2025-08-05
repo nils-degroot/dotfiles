@@ -26,7 +26,7 @@ local function mode()
 	return string.format(" %s ", modes[current_mode]):upper()
 end
 
-local function lsp()
+local function lsp_diagnostics()
 	local function severity_count(severity, group)
 		local count = vim.tbl_count(vim.diagnostic.get(0, { severity = severity }))
 		local text = ""
@@ -96,6 +96,18 @@ local function lineinfo()
 	return " %l:%c "
 end
 
+local function lsp_attached()
+	local result = ""
+
+	for _, client in pairs(vim.lsp.get_clients()) do
+		if client.initialized then
+			result = result .. " " .. client.name
+		end
+	end
+
+	return result
+end
+
 Statusline = {}
 
 Statusline.active = function()
@@ -103,13 +115,14 @@ Statusline.active = function()
 		"%#Statusline#",
 		update_mode_colors(),
 		mode(),
-		lsp(),
+		lsp_diagnostics(),
 		"%#Normal#%=",
 		filetypeicon(),
 		filepath(),
 		filename(),
 		"%#Normal#",
 		"%=%#StatusLineExtra#",
+		-- lsp_attached(),
 		lineinfo(),
 	}
 end
