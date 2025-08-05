@@ -26,21 +26,21 @@ local function mode()
 	return string.format(" %s ", modes[current_mode]):upper()
 end
 
-local function severity_count(severity, group)
-	local count = vim.tbl_count(vim.diagnostic.get(0, { severity = severity }))
-	local text = ""
-
-	if count > 0 then
-		text = group .. count
-	end
-	return text
-end
-
 local function lsp()
-	local errors = severity_count(vim.diagnostic.severity.ERROR, " %#LspDiagnosticsSignError#  ")
-	local warnings = severity_count(vim.diagnostic.severity.WARN, "%#LspDiagnosticsSignWarning#   ")
-	local hints = severity_count(vim.diagnostic.severity.HINT, " %#LspDiagnosticsSignHint#  ")
-	local info = severity_count(vim.diagnostic.severity.INFO, " %#LspDiagnosticsSignInformation#  ")
+	local function severity_count(severity, group)
+		local count = vim.tbl_count(vim.diagnostic.get(0, { severity = severity }))
+		local text = ""
+
+		if count > 0 then
+			text = group .. count
+		end
+		return text
+	end
+
+	local errors = severity_count(vim.diagnostic.severity.ERROR, " %#DiagnosticError#  ")
+	local warnings = severity_count(vim.diagnostic.severity.WARN, "%#DiagnosticWarn#   ")
+	local hints = severity_count(vim.diagnostic.severity.HINT, " %#DiagnosticHint#  ")
+	local info = severity_count(vim.diagnostic.severity.INFO, " %#DiagnosticInfo#  ")
 	return errors .. warnings .. hints .. info .. " %#Normal#"
 end
 
@@ -64,10 +64,12 @@ end
 local function update_mode_colors()
 	local current_mode = vim.api.nvim_get_mode().mode
 	local mode_color = "%#StatusLineAccent#"
+
+	-- TODO: Handle these other colors
 	if current_mode == "n" then
 		mode_color = "%#StatuslineAccent#"
 	elseif current_mode == "i" or current_mode == "ic" then
-		mode_color = "%#StatuslineInsertAccent#"
+		mode_color = "%#SrceryGreen#"
 	elseif current_mode == "v" or current_mode == "V" or current_mode == "" then
 		mode_color = "%#StatuslineVisualAccent#"
 	elseif current_mode == "R" then
@@ -77,12 +79,13 @@ local function update_mode_colors()
 	elseif current_mode == "t" then
 		mode_color = "%#StatuslineTerminalAccent#"
 	end
+
 	return mode_color
 end
 
-local function filetype()
+local function filetypeicon()
 	local icons = require("mini.icons")
-	return " " .. icons.get("filetype", vim.bo.filetype) .. " " .. vim.bo.filetype .. " "
+	return icons.get("filetype", vim.bo.filetype)
 end
 
 local function lineinfo()
@@ -100,13 +103,13 @@ Statusline.active = function()
 		"%#Statusline#",
 		update_mode_colors(),
 		mode(),
-		"%#Normal# ",
+		lsp(),
+		"%#Normal#%=",
+		filetypeicon(),
 		filepath(),
 		filename(),
 		"%#Normal#",
-		lsp(),
 		"%=%#StatusLineExtra#",
-		filetype(),
 		lineinfo(),
 	}
 end

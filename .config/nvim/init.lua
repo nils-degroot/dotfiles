@@ -80,7 +80,6 @@ vim.pack.add({
 	"https://github.com/srcery-colors/srcery-vim",
 	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
-	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/echasnovski/mini.surround",
 	"https://github.com/echasnovski/mini.completion",
 	"https://github.com/echasnovski/mini.icons",
@@ -146,50 +145,12 @@ require("fzf-lua").setup({
 vim.cmd("FzfLua register_ui_select")
 
 require("nvim-treesitter.configs").setup({
-	auto_install = { "rust", "nu", "lua" },
+	ensure_installed = { "rust", "nu", "lua" },
 	highlight = { enable = true }
 })
 
+require("todo-comments").setup({})
+
 vim.cmd("color srcery")
-
-vim.lsp.config("lua_ls", {
-	settings = {
-		Lua = {
-			workspace = {
-				library = vim.api.nvim_get_runtime_file("", true)
-			}
-		}
-	}
-})
-
-vim.lsp.config("vtsls", {
-	settings = {
-		vtsls = {
-			tsserver = {
-				globalPlugins = {
-					{
-						name = "@vue/typescript-plugin",
-						location = "~/.local/share/pnpm/global/5/node_modules/@vue/language-server",
-						languages = { "vue" },
-						configNamespace = "typescript",
-					},
-				},
-			},
-		},
-	},
-	filetypes = { "typescript", "javascript", "vue" },
-})
-
-local base_on_attach = vim.lsp.config.eslint.on_attach
-vim.lsp.config("eslint", {
-	on_attach = function(client, bufnr)
-		if not base_on_attach then return end
-		base_on_attach(client, bufnr)
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			buffer = bufnr,
-			command = "LspEslintFixAll",
-		})
-	end,
-})
 
 vim.lsp.enable({ "lua_ls", "eslint", "vtsls", "vue_ls" })
