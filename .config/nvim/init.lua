@@ -9,8 +9,6 @@ vim.opt.tabstop = 4
 vim.opt.scrolloff = 5
 vim.opt.termguicolors = true
 
-require('bar')
-
 vim.g.mapleader = " "
 
 -- List stuff
@@ -72,6 +70,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 		vim.keymap.set("n", "<tab>", ":FzfLua lsp_code_actions<cr>")
 		vim.keymap.set("n", "<leader>cw", ":FzfLua lsp_workspace_diagnostics<cr>")
+		vim.keymap.set("n", "<leader>gs", ":FzfLua lsp_document_symbols<cr>")
 	end
 })
 
@@ -89,6 +88,7 @@ vim.pack.add({
 
 	-- Ui
 	"https://github.com/folke/todo-comments.nvim",
+	"https://github.com/j-hui/fidget.nvim",
 
 	-- Programming
 	"https://github.com/mrcjkb/rustaceanvim",
@@ -152,6 +152,8 @@ require("nvim-treesitter.configs").setup({
 
 require("todo-comments").setup({})
 
+require("fidget").setup({})
+
 vim.cmd("color srcery")
 
 vim.lsp.config("vtsls", {
@@ -196,3 +198,5 @@ vim.lsp.config("eslint", {
 })
 
 vim.lsp.enable({ "lua_ls", "eslint", "vtsls", "vue_ls", "ts_ls" })
+
+require('bar')

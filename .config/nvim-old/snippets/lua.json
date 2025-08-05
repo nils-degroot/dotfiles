@@ -1,6 +1,0 @@
-{
-  "require": {
-    "prefix": ["require"],
-    "body": ["local ${1:name} = require(${2:package})"]
-  }
-}

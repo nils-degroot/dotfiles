@@ -21,120 +21,114 @@ local modes = {
 	["t"] = "TERMINAL",
 }
 
-local function mode()
-	local current_mode = vim.api.nvim_get_mode().mode
-	return string.format(" %s ", modes[current_mode]):upper()
-end
+local function left()
+	local function mode()
+		local current_mode = vim.api.nvim_get_mode().mode
+		local mode_color = "%#StatusLineAccent#"
 
-local function lsp_diagnostics()
-	local function severity_count(severity, group)
-		local count = vim.tbl_count(vim.diagnostic.get(0, { severity = severity }))
-		local text = ""
-
-		if count > 0 then
-			text = group .. count
+		if current_mode == "i" or current_mode == "ic" then
+			mode_color = "%#SrceryGreen#"
+		elseif current_mode == "v" or current_mode == "V" or current_mode == "" then
+			mode_color = "%#SrceryYellow#"
 		end
-		return text
+
+		return mode_color .. " " .. modes[current_mode] .. " "
 	end
 
-	local errors = severity_count(vim.diagnostic.severity.ERROR, " %#DiagnosticError#  ")
-	local warnings = severity_count(vim.diagnostic.severity.WARN, "%#DiagnosticWarn#   ")
-	local hints = severity_count(vim.diagnostic.severity.HINT, " %#DiagnosticHint#  ")
-	local info = severity_count(vim.diagnostic.severity.INFO, " %#DiagnosticInfo#  ")
-	return errors .. warnings .. hints .. info .. " %#Normal#"
-end
+	local function lsp_diagnostics()
+		local function severity_count(severity, group)
+			local count = vim.tbl_count(vim.diagnostic.get(0, { severity = severity }))
+			if count == 0 then
+				return ""
+			end
 
-local function filepath()
-	local fpath = vim.fn.fnamemodify(vim.fn.expand "%", ":~:.:h")
-	if fpath == "" or fpath == "." then
-		return " "
-	end
-
-	return string.format(" %%<%s/", fpath)
-end
-
-local function filename()
-	local fname = vim.fn.expand "%:t"
-	if fname == "" then
-		return ""
-	end
-	return fname .. " "
-end
-
-local function update_mode_colors()
-	local current_mode = vim.api.nvim_get_mode().mode
-	local mode_color = "%#StatusLineAccent#"
-
-	-- TODO: Handle these other colors
-	if current_mode == "n" then
-		mode_color = "%#StatuslineAccent#"
-	elseif current_mode == "i" or current_mode == "ic" then
-		mode_color = "%#SrceryGreen#"
-	elseif current_mode == "v" or current_mode == "V" or current_mode == "" then
-		mode_color = "%#StatuslineVisualAccent#"
-	elseif current_mode == "R" then
-		mode_color = "%#StatuslineReplaceAccent#"
-	elseif current_mode == "c" then
-		mode_color = "%#StatuslineCmdLineAccent#"
-	elseif current_mode == "t" then
-		mode_color = "%#StatuslineTerminalAccent#"
-	end
-
-	return mode_color
-end
-
-local function filetypeicon()
-	local icons = require("mini.icons")
-	return icons.get("filetype", vim.bo.filetype)
-end
-
-local function lineinfo()
-	if vim.bo.filetype == "alpha" then
-		return ""
-	end
-
-	return " %l:%c "
-end
-
-local function lsp_attached()
-	local result = ""
-
-	for _, client in pairs(vim.lsp.get_clients()) do
-		if client.initialized then
-			result = result .. " " .. client.name
+			return group .. count
 		end
+
+		local base = severity_count(vim.diagnostic.severity.ERROR, " %#DiagnosticError#  ")
+			.. severity_count(vim.diagnostic.severity.WARN, "%#DiagnosticWarn#   ")
+			.. severity_count(vim.diagnostic.severity.HINT, " %#DiagnosticHint#  ")
+			.. severity_count(vim.diagnostic.severity.INFO, " %#DiagnosticInfo#  ")
+
+		if base == "" then
+			return ""
+		end
+
+		return base .. " %#Normal#"
 	end
 
-	return result
+	return mode()
+		.. lsp_diagnostics()
 end
 
-Statusline = {}
+local function center()
+	local function path()
+		local fpath = vim.fn.fnamemodify(vim.fn.expand "%", ":~:.:h")
+		if fpath == "" or fpath == "." then
+			return " "
+		end
 
-Statusline.active = function()
-	return table.concat {
-		"%#Statusline#",
-		update_mode_colors(),
-		mode(),
-		lsp_diagnostics(),
-		"%#Normal#%=",
-		filetypeicon(),
-		filepath(),
-		filename(),
-		"%#Normal#",
-		"%=%#StatusLineExtra#",
-		-- lsp_attached(),
-		lineinfo(),
-	}
+		return string.format(" %%<%s/", fpath)
+	end
+
+	local function file()
+		local fname = vim.fn.expand "%:t"
+		if fname == "" then
+			return ""
+		end
+		return fname .. " "
+	end
+
+	return require("mini.icons").get("filetype", vim.bo.filetype)
+		.. path()
+		.. file()
 end
 
-function Statusline.inactive()
-	return " %F"
+local function right()
+	local function line_info()
+		if vim.bo.filetype == "alpha" then
+			return ""
+		end
+
+		return " %l:%c "
+	end
+
+	local function lsp_attached()
+		local result = ""
+
+		for _, client in pairs(vim.lsp.get_clients()) do
+			if client.initialized then
+				result = result .. " " .. client.name
+			end
+		end
+
+		return result
+	end
+
+	return lsp_attached()
+		.. line_info()
 end
 
-vim.api.nvim_exec([[
+Statusline = {
+	active = function()
+		return "%#Statusline#"
+			.. left()
+			.. "%#Normal#%="
+			.. center()
+			.. "%=%#StatusLineExtra#"
+			.. right()
+	end,
+	inactive = function()
+		return "%="
+			.. center()
+			.. "%="
+	end
+}
+
+vim.api.nvim_exec2([[
   augroup Statusline
   au!
 	  au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()
 	  au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()
   augroup END
-]], false)
+]], {})
