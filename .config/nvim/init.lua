@@ -39,7 +39,7 @@ end
 vim.api.nvim_create_autocmd("TextYankPost", {
 	pattern = { "*" },
 	callback = function()
-		vim.highlight.on_yank({ timeout = 500 })
+		vim.hl.on_yank({ timeout = 500 })
 	end,
 })
 
@@ -59,20 +59,38 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 vim.keymap.set("n", "<leader>pf", ":FzfLua files<cr>")
 vim.keymap.set("n", "<leader>bb", ":FzfLua buffers<cr>")
-vim.keymap.set("n", "<leader>cf", ":FzfLua live_grep<cr>")
+vim.keymap.set("n", "<leader>cf", ":FzfLua live_grep_native<cr>")
 vim.keymap.set("n", "<leader>h", ":FzfLua helptags<cr>")
 
+-- Lsping
 vim.api.nvim_create_autocmd('LspAttach', {
-	callback = function()
+	callback = function(args)
 		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { buffer = true })
 		vim.keymap.set("n", "<leader>sd", vim.lsp.buf.hover, { buffer = true })
+		vim.keymap.set("n", "<leader>sr", vim.lsp.buf.references, { buffer = true })
 		vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { buffer = true })
-
 		vim.keymap.set("n", "<tab>", ":FzfLua lsp_code_actions<cr>")
 		vim.keymap.set("n", "<leader>cw", ":FzfLua lsp_workspace_diagnostics<cr>")
 		vim.keymap.set("n", "<leader>gs", ":FzfLua lsp_document_symbols<cr>")
-	end
+
+		-- Get client instance
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if not client then
+			return
+		end
+
+		-- Auto formatting
+		if client:supports_method("textDocument/formatting") then
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				buffer = args.buf,
+				callback = function()
+					vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+				end,
+			})
+		end
+	end,
 })
+
 
 vim.pack.add({
 	-- Core
@@ -99,35 +117,11 @@ vim.pack.add({
 	"https://github.com/kristijanhusak/vim-dadbod-completion",
 })
 
--- Lsping
-vim.api.nvim_create_autocmd('LspAttach', {
-	callback = function(args)
-		-- Get client instance
-		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		if not client then
-			return
-		end
-
-		-- Auto formatting
-		if client:supports_method("textDocument/formatting") then
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				buffer = args.buf,
-				callback = function()
-					vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-				end,
-			})
-		end
-	end,
-})
-
 vim.diagnostic.config({ virtual_text = true })
 vim.lsp.inlay_hint.enable()
 
 require("oil").setup({
-	columns = {
-		"icon",
-		"mtime",
-	},
+	columns = { "mtime" },
 	delete_to_trash = true,
 	view_options = {
 		show_hidden = true,
@@ -142,6 +136,9 @@ require("mini.pairs").setup()
 
 require("fzf-lua").setup({
 	fzf_bin = 'sk',
+	grep = {
+		hidden = true
+	}
 })
 vim.cmd("FzfLua register_ui_select")
 
@@ -156,6 +153,7 @@ require("fidget").setup({})
 
 vim.cmd("color srcery")
 
+-- Nasty vue_ls setup
 vim.lsp.config("vtsls", {
 	settings = {
 		vtsls = {
@@ -174,6 +172,7 @@ vim.lsp.config("vtsls", {
 	filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
 })
 
+-- Append nvim runtime to lua_ls
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {

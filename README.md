@@ -2,11 +2,11 @@ My personal dotfile collection.
 
 # Dependencies
 
-- alacritty (won't start unless both nu and tmux are installed)
+- alacritty (won't start unless both nu and zellij are installed)
 - nu
   - carapace-bin (aur)
   - starship
-- nvim
+- nvim (requires nightly installation)
   - skim
 - hyprland
   - playerctl
@@ -16,7 +16,6 @@ My personal dotfile collection.
   - waybar
   - hypridle
   - hyprlock
-  - inotify-tools
 - grim
 - slurp
 - python-pywal16
