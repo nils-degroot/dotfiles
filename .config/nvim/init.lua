@@ -62,36 +62,6 @@ vim.keymap.set("n", "<leader>bb", ":FzfLua buffers<cr>")
 vim.keymap.set("n", "<leader>cf", ":FzfLua live_grep_native<cr>")
 vim.keymap.set("n", "<leader>h", ":FzfLua helptags<cr>")
 
--- Lsping
-vim.api.nvim_create_autocmd('LspAttach', {
-	callback = function(args)
-		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { buffer = true })
-		vim.keymap.set("n", "<leader>sd", vim.lsp.buf.hover, { buffer = true })
-		vim.keymap.set("n", "<leader>sr", vim.lsp.buf.references, { buffer = true })
-		vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { buffer = true })
-		vim.keymap.set("n", "<tab>", ":FzfLua lsp_code_actions<cr>")
-		vim.keymap.set("n", "<leader>cw", ":FzfLua lsp_workspace_diagnostics<cr>")
-		vim.keymap.set("n", "<leader>gs", ":FzfLua lsp_document_symbols<cr>")
-
-		-- Get client instance
-		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		if not client then
-			return
-		end
-
-		-- Auto formatting
-		if client:supports_method("textDocument/formatting") then
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				buffer = args.buf,
-				callback = function()
-					vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-				end,
-			})
-		end
-	end,
-})
-
-
 vim.pack.add({
 	-- Core
 	"https://github.com/srcery-colors/srcery-vim",
@@ -103,6 +73,8 @@ vim.pack.add({
 	"https://github.com/echasnovski/mini.pairs",
 	"https://github.com/ibhagwan/fzf-lua",
 	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/echasnovski/mini.snippets",
+	-- "https://github.com/L3MON4D3/LuaSnip",
 
 	-- Ui
 	"https://github.com/folke/todo-comments.nvim",
@@ -199,3 +171,41 @@ vim.lsp.config("eslint", {
 vim.lsp.enable({ "lua_ls", "eslint", "vtsls", "vue_ls", "ts_ls" })
 
 require('bar')
+
+local snippets = require("mini.snippets")
+snippets.setup({
+	snippets = {
+		snippets.gen_loader.from_lang()
+	},
+})
+
+-- Lsping
+vim.api.nvim_create_autocmd('LspAttach', {
+	callback = function(args)
+		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { buffer = true })
+		vim.keymap.set("n", "<leader>sd", vim.lsp.buf.hover, { buffer = true })
+		vim.keymap.set("n", "<leader>sr", vim.lsp.buf.references, { buffer = true })
+		vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { buffer = true })
+		vim.keymap.set("n", "<tab>", ":FzfLua lsp_code_actions<cr>")
+		vim.keymap.set("n", "<leader>cw", ":FzfLua lsp_workspace_diagnostics<cr>")
+		vim.keymap.set("n", "<leader>gs", ":FzfLua lsp_document_symbols<cr>")
+
+		-- Get client instance
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if not client then
+			return
+		end
+
+		snippets.start_lsp_server()
+
+		-- Auto formatting
+		if client:supports_method("textDocument/formatting") then
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				buffer = args.buf,
+				callback = function()
+					vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+				end,
+			})
+		end
+	end,
+})
