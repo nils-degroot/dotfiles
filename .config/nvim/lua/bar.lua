@@ -71,17 +71,9 @@ local function center()
 		return string.format(" %%<%s/", fpath)
 	end
 
-	local function file()
-		local fname = vim.fn.expand "%:t"
-		if fname == "" then
-			return ""
-		end
-		return fname .. " "
-	end
-
 	return require("mini.icons").get("filetype", vim.bo.filetype)
 		.. path()
-		.. file()
+		.. "%t %m %r %h"
 end
 
 local function right()
