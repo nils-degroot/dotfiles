@@ -112,7 +112,6 @@ require("fzf-lua").setup({
 		hidden = true
 	}
 })
-vim.cmd("FzfLua register_ui_select")
 
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "rust", "nu", "lua" },
