@@ -108,8 +108,13 @@ require("mini.pairs").setup()
 
 require("fzf-lua").setup({
 	fzf_bin = 'sk',
+	defaults = {
+		file_icons = "mini",
+		copen = "topleft copen",
+	},
 	grep = {
-		hidden = true
+		hidden = true,
+		rg_opts = [[--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -g "!.git" -e]],
 	}
 })
 

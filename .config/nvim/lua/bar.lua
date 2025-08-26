@@ -62,18 +62,8 @@ local function left()
 end
 
 local function center()
-	local function path()
-		local fpath = vim.fn.fnamemodify(vim.fn.expand "%", ":~:.:h")
-		if fpath == "" or fpath == "." then
-			return " "
-		end
-
-		return string.format(" %%<%s/", fpath)
-	end
-
 	return require("mini.icons").get("filetype", vim.bo.filetype)
-		.. path()
-		.. "%t %m %r %h"
+		.. " %t %m %r %h"
 end
 
 local function right()
