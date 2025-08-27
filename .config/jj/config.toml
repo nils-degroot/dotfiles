@@ -1,0 +1,11 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[user]
+name = "Nils de Groot"
+email = "nils@peeko.nl"
+
+[ui]
+diff-formatter = ["difft", "--color=always", "$left", "$right"]
+
+[revset-aliases]
+main = 'remote_bookmarks(exact:"main", remote="origin")'
