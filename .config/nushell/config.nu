@@ -366,6 +366,12 @@ alias gr = git rebase
 alias grom = git rebase origin/main
 alias grc = git rebase --continue
 
+## jj
+alias jjf = jj git fetch
+alias jjp = jj git push
+alias jjl = jj log --limit 10
+alias jjrm = jj rebase -d main
+
 ## Docker
 alias dcu = docker compose up -d
 alias dcd = docker compose down
