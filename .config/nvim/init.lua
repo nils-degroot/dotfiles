@@ -74,7 +74,6 @@ vim.pack.add({
 	"https://github.com/ibhagwan/fzf-lua",
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/echasnovski/mini.snippets",
-	-- "https://github.com/L3MON4D3/LuaSnip",
 
 	-- Ui
 	"https://github.com/folke/todo-comments.nvim",
@@ -82,6 +81,7 @@ vim.pack.add({
 
 	-- Programming
 	"https://github.com/mrcjkb/rustaceanvim",
+	"https://github.com/mattn/emmet-vim",
 
 	-- Sql
 	"https://github.com/tpope/vim-dadbod",
@@ -172,7 +172,7 @@ vim.lsp.config("eslint", {
 	end,
 })
 
-vim.lsp.enable({ "lua_ls", "eslint", "vtsls", "vue_ls", "ts_ls" })
+vim.lsp.enable({ "lua_ls", "eslint", "vtsls", "vue_ls", "ts_ls", "html" })
 
 require('bar')
 
