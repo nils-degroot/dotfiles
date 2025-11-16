@@ -31,6 +31,8 @@ $env.NU_PLUGIN_DIRS = [
     ($nu.config-path | path dirname | path join 'plugins')
 ]
 
+$env.PNPM_HOME = "~/.local/share/pnpm"
+
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 $env.PATH = ($env.PATH | split row (char esep) | prepend [
 	"~/.local/share/bin"
@@ -39,6 +41,7 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend [
 	"~/.config/nushell/scripts/"
 	"~/.cargo/bin/"
 	"~/.local/share/bob/nvim-bin"
+	$env.PNPM_HOME
 ])
 
 $env.DOCKER_HOST = "unix:///run/user/1000/docker.sock"
@@ -56,7 +59,4 @@ starship init nu | save -f ~/.cache/starship/init.nu
 mkdir ~/.cache/jujutsu
 jj util completion nushell | save -f ~/.cache/jujutsu/init.nu
 
-# pnpm
-$env.PNPM_HOME = "/home/nils/.local/share/pnpm"
-$env.PATH = ($env.PATH | split row (char esep) | prepend $env.PNPM_HOME )
-# pnpm end
+source ~/.config/nushell/completions/mask-completions.nu
