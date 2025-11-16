@@ -74,6 +74,7 @@ vim.pack.add({
 	"https://github.com/ibhagwan/fzf-lua",
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/echasnovski/mini.snippets",
+	"https://github.com/mg979/vim-visual-multi",
 
 	-- Ui
 	"https://github.com/folke/todo-comments.nvim",
@@ -82,6 +83,7 @@ vim.pack.add({
 	-- Programming
 	"https://github.com/mrcjkb/rustaceanvim",
 	"https://github.com/mattn/emmet-vim",
+	"https://github.com/github/copilot.vim",
 
 	-- Sql
 	"https://github.com/tpope/vim-dadbod",
@@ -160,6 +162,7 @@ vim.lsp.config("lua_ls", {
 })
 
 local base_on_attach = vim.lsp.config.eslint.on_attach
+
 vim.lsp.config("eslint", {
 	on_attach = function(client, bufnr)
 		if not base_on_attach then return end
@@ -172,7 +175,15 @@ vim.lsp.config("eslint", {
 	end,
 })
 
-vim.lsp.enable({ "lua_ls", "eslint", "vtsls", "vue_ls", "ts_ls", "html" })
+vim.lsp.enable({
+	"lua_ls",
+	"eslint",
+	"vtsls",
+	"vue_ls",
+	"jsonls",
+	"html",
+	"ts_ls",
+})
 
 require('bar')
 
