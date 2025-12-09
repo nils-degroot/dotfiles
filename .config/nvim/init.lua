@@ -107,7 +107,8 @@ require("mini.completion").setup()
 
 require("mini.pairs").setup()
 
-require("fzf-lua").setup({
+local fzf_lua = require("fzf-lua")
+fzf_lua.setup({
 	fzf_bin = 'sk',
 	defaults = {
 		file_icons = "mini",
@@ -118,6 +119,7 @@ require("fzf-lua").setup({
 		rg_opts = [[--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -g "!.git" -e]],
 	}
 })
+fzf_lua.register_ui_select()
 
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "rust", "nu", "lua" },
