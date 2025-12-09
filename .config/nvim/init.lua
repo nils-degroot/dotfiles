@@ -83,7 +83,6 @@ vim.pack.add({
 	-- Programming
 	"https://github.com/mrcjkb/rustaceanvim",
 	"https://github.com/mattn/emmet-vim",
-	"https://github.com/github/copilot.vim",
 
 	-- Sql
 	"https://github.com/tpope/vim-dadbod",
