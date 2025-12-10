@@ -10,6 +10,7 @@ vim.opt.scrolloff = 5
 vim.opt.termguicolors = true
 
 vim.g.mapleader = " "
+vim.g.spellfile_URL = "http://ftp.vim.org/vim/runtime/spell"
 
 -- List stuff
 vim.opt.list = true
