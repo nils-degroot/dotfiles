@@ -1,7 +1,7 @@
 {
 	"layer": "top",
 	"position": "top",
-	"margin": "5 10 0",
+	"margin": "0",
 	"fixed center": true,
 	"reload_style_on_change": true,
 	"height": 34,
@@ -16,8 +16,6 @@
 	],
 	"modules-right": [
 		"custom/swaync",
-		"bluetooth",
-		"network",
 		"battery"
 	],
 	"hyprland/workspaces": {
@@ -55,23 +53,6 @@
 			"󰛞 󰋑 󰋑 ",
 			"󰋑 󰋑 󰋑 "
 		]
-	},
-	"network": {
-		"format-wifi": "  {signalStrength}%",
-		"format-ethernet": "{ipaddr}/{cidr}",
-		"format-linked": "{ifname} (No IP)",
-		"format-disconnected": "󰖪 ",
-		"on-click": "alacritty -e nmtui",
-		"tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({bandwidthDownBytes})</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>"
-	},
-	"bluetooth": {
-		"format": "󰂯 {status}",
-		"format-disabled": " off",
-		"format-connected": " {num_connections}",
-		"tooltip-format": "{device_alias}",
-		"tooltip-format-connected": " {device_enumerate}",
-		"tooltip-format-enumerate-connected": "{device_alias}",
-		"on-click": "alacritty -e bluetui"
 	},
 	"custom/swaync": {
 		"format": " {}",

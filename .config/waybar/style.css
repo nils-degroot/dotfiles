@@ -13,7 +13,7 @@
 }
 
 window#waybar {
-    background: alpha(@background, 0.5);
+    background: @background;
 }
 
 tooltip {
@@ -68,7 +68,7 @@ tooltip label {
     background: transparent;
 }
 
-#custom-swaync,#window,#clock,#battery,#network,#memory,#bluetooth,#workspaces {
+#custom-swaync,#window,#clock,#battery,#workspaces {
     padding: 0px 14px 0px 14px;
 }
 
@@ -84,22 +84,6 @@ tooltip label {
     background: transparent;
 }
 
-#network {
-    background: transparent;
-}
-
-#bluetooth {
-    background: transparent;
-} 
-
 #battery {
     background: transparent;
-}
-
-#memory {
-    background: transparent;
-}
-
-#calendar {
-    font-family: "DepartureMono Nerd Font";
 }
