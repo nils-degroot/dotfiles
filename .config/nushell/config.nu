@@ -308,7 +308,7 @@ $env.config = {
           {edit: cuttolineend}
         ]
       }
-    }
+      }
     # Keybindings used to trigger the user defined menus
     {
       name: commands_menu
@@ -371,6 +371,12 @@ alias jjf = jj git fetch
 alias jjp = jj git push
 alias jjl = jj log --limit 10
 alias jjrm = jj rebase -d main
+
+def jjrev [ description:string ] {
+  let query = ['description(substring:"', $description, '")']
+  jj log -n 1 -r ($query | str join "")
+  jj log -n 1 -r ($query | str join "") -G | split words | first | wl-copy
+}
 
 ## Docker
 alias dcu = docker compose up -d

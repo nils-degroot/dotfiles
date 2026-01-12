@@ -3,3 +3,10 @@
 [user]
 name = "nils-degroot"
 email = "nils@peeko.nl"
+
+[signing]
+behavior = "own"
+backend = "gpg"
+
+[git]
+sign-on-push = true
