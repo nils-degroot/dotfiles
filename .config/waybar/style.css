@@ -13,7 +13,7 @@
 }
 
 window#waybar {
-    background: @background;
+    background: alpha(@background, 0.5);
 }
 
 tooltip {
