@@ -76,6 +76,8 @@ vim.pack.add({
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/echasnovski/mini.snippets",
 	"https://github.com/mg979/vim-visual-multi",
+	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/nvimtools/none-ls.nvim",
 
 	-- Ui
 	"https://github.com/folke/todo-comments.nvim",
@@ -217,12 +219,23 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 		-- Auto formatting
 		if client:supports_method("textDocument/formatting") then
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				buffer = args.buf,
-				callback = function()
-					vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-				end,
-			})
+			if client.name ~= "eslint" and client.name ~= "vue_ls" and client.name ~= "vtsls" then
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					buffer = args.buf,
+					callback = function()
+						vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+					end,
+				})
+			end
 		end
 	end,
+})
+
+local null_ls = require("null-ls")
+null_ls.setup({
+	sources = {
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.completion.spell,
+		null_ls.builtins.formatting.prettier,
+	}
 })
