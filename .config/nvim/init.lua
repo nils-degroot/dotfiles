@@ -47,8 +47,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.keymap.set("n", "<leader>o", ":update<cr>:so<cr>")
 vim.keymap.set("n", "-", ":Oil<cr>")
 
-vim.keymap.set({ 'n', 'v', 'x' }, '<leader>y', '"+y<cr>')
-vim.keymap.set({ 'n', 'v', 'x' }, '<leader>d', '"+d<cr>')
+vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y<cr>')
+vim.keymap.set({ "n", "v", "x" }, "<leader>d", '"+d<cr>')
 
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
@@ -101,7 +101,7 @@ require("oil").setup({
 	delete_to_trash = true,
 	view_options = {
 		show_hidden = true,
-	}
+	},
 })
 
 require("mini.surround").setup()
@@ -112,7 +112,7 @@ require("mini.pairs").setup()
 
 local fzf_lua = require("fzf-lua")
 fzf_lua.setup({
-	fzf_bin = 'sk',
+	fzf_bin = "sk",
 	defaults = {
 		file_icons = "mini",
 		copen = "topleft copen",
@@ -120,13 +120,13 @@ fzf_lua.setup({
 	grep = {
 		hidden = true,
 		rg_opts = [[--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -g "!.git" -e]],
-	}
+	},
 })
 fzf_lua.register_ui_select()
 
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "rust", "nu", "lua" },
-	highlight = { enable = true }
+	highlight = { enable = true },
 })
 
 require("todo-comments").setup({})
@@ -151,7 +151,7 @@ vim.lsp.config("vtsls", {
 			},
 		},
 	},
-	filetypes = { 'vue' },
+	filetypes = { "vue" },
 })
 
 -- Append nvim runtime to lua_ls
@@ -159,17 +159,19 @@ vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			workspace = {
-				library = vim.api.nvim_get_runtime_file("", true)
-			}
-		}
-	}
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+		},
+	},
 })
 
 local base_on_attach = vim.lsp.config.eslint.on_attach
 
 vim.lsp.config("eslint", {
 	on_attach = function(client, bufnr)
-		if not base_on_attach then return end
+		if not base_on_attach then
+			return
+		end
 		base_on_attach(client, bufnr)
 
 		vim.api.nvim_create_autocmd("BufWritePre", {
@@ -189,17 +191,17 @@ vim.lsp.enable({
 	"ts_ls",
 })
 
-require('bar')
+require("bar")
 
 local snippets = require("mini.snippets")
 snippets.setup({
 	snippets = {
-		snippets.gen_loader.from_lang()
+		snippets.gen_loader.from_lang(),
 	},
 })
 
 -- Lsping
-vim.api.nvim_create_autocmd('LspAttach', {
+vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { buffer = true })
 		vim.keymap.set("n", "<leader>sd", vim.lsp.buf.hover, { buffer = true })
@@ -232,10 +234,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local null_ls = require("null-ls")
+
 null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.completion.spell,
 		null_ls.builtins.formatting.prettier,
-	}
+		require("completions.path"),
+	},
 })
