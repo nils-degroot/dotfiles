@@ -48,6 +48,14 @@
       "rev": "d648a5601e1c48f175b07d10eba141da338a0a2a",
       "src": "https://github.com/echasnovski/mini.surround"
     },
+    "neovim-project": {
+      "rev": "6ecf6253697b2964e9afef9d000357d887221a2c",
+      "src": "https://github.com/coffebar/neovim-project"
+    },
+    "neovim-session-manager": {
+      "rev": "89d253a6c68af60b49570044591d5b8701866601",
+      "src": "https://github.com/Shatur/neovim-session-manager"
+    },
     "none-ls.nvim": {
       "rev": "68ed8b9bf5dfdae4d579fcd19723926f84d7b6cb",
       "src": "https://github.com/nvimtools/none-ls.nvim"
