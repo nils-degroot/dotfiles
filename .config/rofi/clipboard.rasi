@@ -8,17 +8,15 @@ configuration {
 
 * {
     font:                        "Iosevka Nerd Font 11";
-    background:                  transparent;
     background-alt:              rgba(0,0,0,0.2);
-    foreground:                  white;
-    selected:                    @selected-urgent-background;
-    active:                      #909090;
-    urgent:                      #e0e722;
+    selected:                    @selected-normal-background;
+    active:                      @urgent-background;
+    urgent:                      @selected-urgent-background;
 }
 
 window {
-    width:                       100%;
-    height:                      100%;
+    width:                       50%;
+    height:                      50%;
     margin:                      0px;
     padding:                     0px;
 }
@@ -30,7 +28,7 @@ mainbox {
 
     spacing:                     16px;
     margin:                      0px;
-    padding:                     64px;
+    padding:                     16px;
 }
 
 inputbar {
@@ -38,13 +36,8 @@ inputbar {
     border-radius:               5px;
 
     spacing:                     0px;
-    padding:                     150px 64px;
+    padding:                     32px 64px;
     orientation:                 horizontal;
-    background-image:            url("~/.local/share/background", width);
-}
-
-dummy {
-  background-color: transparent;
 }
 
 textbox-help {
@@ -52,7 +45,7 @@ textbox-help {
     content: " [ CTRL DEL ]    DELETE                [ ALT DEL ]   WIPE ALL";
 
     border-radius:                 5px;
-    background-color:              @background-alt;
+    background-color:              @background;
     text-color:                    @selected-urgent-background;
 
     margin:                        0px;
@@ -61,11 +54,11 @@ textbox-help {
 
 entry {
     cursor:                      inherit;
-    placeholder:                 "TYPE TO SEARCH";
-    placeholder-color:           #FFFFFF80;
+    placeholder:                 "SEARCH";
+    placeholder-color:           @foreground;
     border-radius:               5px;
     background-color:            @background-alt;
-    padding:                     10px 125px;
+    padding:                     10px 20px;
 }
 
 listview {
@@ -76,7 +69,7 @@ listview {
 
 listview {
     cursor:                      "default";
-    columns:                     2;
+    columns:                     1;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   true;

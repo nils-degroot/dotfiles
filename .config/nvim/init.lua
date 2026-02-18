@@ -84,6 +84,7 @@ vim.pack.add({
 	-- Ui
 	"https://github.com/folke/todo-comments.nvim",
 	"https://github.com/j-hui/fidget.nvim",
+	"https://github.com/uga-rosa/ccc.nvim",
 
 	-- Programming
 	"https://github.com/mrcjkb/rustaceanvim",
@@ -254,5 +255,12 @@ require("neovim-project").setup({
 	},
 	picket = {
 		type = "fzf-lua",
+	},
+})
+
+require("ccc").setup({
+	highlighter = {
+		auto_enable = true,
+		lsp = true,
 	},
 })
