@@ -78,8 +78,6 @@ vim.pack.add({
 	"https://github.com/mg979/vim-visual-multi",
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/nvimtools/none-ls.nvim",
-	"https://github.com/Shatur/neovim-session-manager",
-	"https://github.com/coffebar/neovim-project",
 
 	-- Ui
 	"https://github.com/folke/todo-comments.nvim",
@@ -244,17 +242,6 @@ null_ls.setup({
 		null_ls.builtins.completion.spell,
 		null_ls.builtins.formatting.prettier,
 		require("completions.path"),
-	},
-})
-
-require("session_manager").setup({})
-
-require("neovim-project").setup({
-	projects = {
-		"~/Documents/code/rust/*",
-	},
-	picket = {
-		type = "fzf-lua",
 	},
 })
 
