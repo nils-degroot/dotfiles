@@ -15,7 +15,6 @@
 		"hyprland/workspaces"
 	],
 	"modules-right": [
-		"custom/swaync",
 		"battery"
 	],
 	"hyprland/workspaces": {
@@ -24,18 +23,18 @@
 		"all-outputs": true,
 		"format-icons": {
 			"default": " ",
-			"active": " "
-		}
+			"active": " ",
+		},
 	},
 	"clock": {
 		"format": "{:%d %b %H:%M}",
-		"tooltip": false
+		"tooltip": false,
 	},
 	"battery": {
 		"states": {
 			"good": 95,
 			"warning": 30,
-			"critical": 20
+			"critical": 20,
 		},
 		"format": "{icon} {capacity}",
 		"format-charging": " {capacity}",
@@ -51,14 +50,7 @@
 			"󱢠 󰋑 󰋑 ",
 			"󰛞 󰋑 󰋑 ",
 			"󰛞 󰋑 󰋑 ",
-			"󰋑 󰋑 󰋑 "
-		]
+			"󰋑 󰋑 󰋑 ",
+		],
 	},
-	"custom/swaync": {
-		"format": " {}",
-		"tooltip": false,
-		"interval": 10,
-		"exec": "swaync-client -c",
-		"on-click": "swaync-client -t"
-	}
 }

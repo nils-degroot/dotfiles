@@ -21,4 +21,4 @@ My personal dotfile collection.
 - python-pywal16
   - pywalfox
 - cliphist
-- swaync
+- dunst

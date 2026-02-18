@@ -3,87 +3,90 @@
 @define-color main-color @color13;
 
 * {
-    border: none;
-    border-radius: 0px;
-    font-family: "DepartureMono Nerd Font";
-    font-weight: bold;
-    font-size: 15px;
-    min-height: 0;
-    color: @foreground;
+  border: none;
+  border-radius: 0px;
+  font-family: "DepartureMono Nerd Font";
+  font-weight: bold;
+  font-size: 15px;
+  min-height: 0;
+  color: @foreground;
 }
 
 window#waybar {
-    background: alpha(@background, 0.5);
+  background: alpha(@background, 0.5);
 }
 
 tooltip {
-    background: alpha(@background, 0.3);
-    border-radius: 10px;
-    border: 2px solid alpha(lighter(@main-color), 0.3);
+  background: alpha(@background, 0.3);
+  border-radius: 10px;
+  border: 2px solid alpha(lighter(@main-color), 0.3);
 }
 
 tooltip label {
-    color: @foreground;
+  color: @foreground;
 }
 
 #workspaces {
-    border-radius: 20px;
-    margin-top: 4px;
-    margin-bottom: 4px;
+  border-radius: 20px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 #workspaces button {
-    padding: 0px;
-    color: @foreground;
-    border-radius: 10px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    padding-left: 3px;
-    padding-right: 3px;
-    animation: gradient_f 20s ease-in infinite;
-    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  padding: 0px;
+  color: @foreground;
+  border-radius: 10px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
 #workspaces button.active {
-    color: @foreground;
-    border-radius: 20px;
-    transition: color 0.5s;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: 3px;
-    margin-right: 3px;
-    animation: gradient_f 20s ease-in infinite;
-    transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  color: @foreground;
+  border-radius: 20px;
+  transition: color 0.5s;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 3px;
+  margin-right: 3px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.2s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
 #workspaces button.focused {
-    background: transparent;
+  background: transparent;
 }
 
 #workspaces button.urgent {
-    background: transparent;
+  background: transparent;
 }
 
 #workspaces button:hover {
-    background: transparent;
+  background: transparent;
 }
 
-#custom-swaync,#window,#clock,#battery,#workspaces {
-    padding: 0px 14px 0px 14px;
+#window,
+#clock,
+#battery,
+#workspaces {
+  padding: 0px 14px 0px 14px;
 }
 
 #window {
-    margin-left: 60px;
-    margin-right: 60px;
-    background: alpha(@background, 0.3);
-    border-radius: 10px;
-    color: lighter(@main-color);
+  margin-left: 60px;
+  margin-right: 60px;
+  background: alpha(@background, 0.3);
+  border-radius: 10px;
+  color: lighter(@main-color);
 }
 
 #clock {
-    background: transparent;
+  background: transparent;
 }
 
 #battery {
-    background: transparent;
+  background: transparent;
 }
