@@ -87,6 +87,7 @@ vim.pack.add({
 	-- Programming
 	"https://github.com/mrcjkb/rustaceanvim",
 	"https://github.com/mattn/emmet-vim",
+	"https://github.com/neoclide/jsonc.vim",
 
 	-- Sql
 	"https://github.com/tpope/vim-dadbod",
@@ -180,6 +181,17 @@ vim.lsp.config("eslint", {
 			command = "LspEslintFixAll",
 		})
 	end,
+})
+
+vim.lsp.config("jsonls", {
+	settings = {
+		json = {
+			schemas = {
+				{ fileMatch = { "*.jsonc" }, schema = { allowTrailingCommas = true } },
+				{ fileMatch = { "*.json" },  schema = { allowTrailingCommas = false } },
+			},
+		},
+	},
 })
 
 vim.lsp.enable({

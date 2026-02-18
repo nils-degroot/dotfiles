@@ -32,6 +32,10 @@
       "rev": "5921997472574fca3880b62949eb8679dc6f5afc",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
+    "jsonc.vim": {
+      "rev": "6fb92460f9e50505c9b93181a00f27d10c9b383f",
+      "src": "https://github.com/neoclide/jsonc.vim"
+    },
     "mini.completion": {
       "rev": "7c5edfc0e479dd4edd898cc9ddd1920d8c1ce420",
       "src": "https://github.com/echasnovski/mini.completion"

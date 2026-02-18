@@ -1,5 +1,14 @@
 {
-	"Derive debug": { "prefix": "drd", "body": "#[derive(Debug)]" },
-	"Test module": { "prefix": "tsm", "body": "#[cfg(test)]\nmod tests {\n\t$1\n}" },
-	"Test function": { "prefix": "tsf", "body": "#[test]\nfn $1() {\n\t$2\n}" }
+	"Derive debug": {
+		"prefix": "drd",
+		"body": "#[derive(Debug)]"
+	},
+	"Test module": {
+		"prefix": "tsm",
+		"body": "#[cfg(test)]\nmod tests {\n\t$1\n}"
+	},
+	"Test function": {
+		"prefix": "tsf",
+		"body": "#[test]\nfn $1() {\n\t$2\n}"
+	}
 }
