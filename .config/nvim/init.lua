@@ -83,6 +83,7 @@ vim.pack.add({
 	"https://github.com/folke/todo-comments.nvim",
 	"https://github.com/j-hui/fidget.nvim",
 	"https://github.com/uga-rosa/ccc.nvim",
+	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
 
 	-- Programming
 	"https://github.com/mrcjkb/rustaceanvim",
