@@ -71,7 +71,9 @@ tooltip label {
 #window,
 #clock,
 #battery,
-#workspaces {
+#workspaces,
+#custom-media,
+#custom-audio {
   padding: 0px 14px 0px 14px;
 }
 

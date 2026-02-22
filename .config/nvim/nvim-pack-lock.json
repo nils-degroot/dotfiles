@@ -72,6 +72,10 @@
       "rev": "48b4175dbca8439d30c1f52231cbe5a712c8f9d9",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
+    "ron.vim": {
+      "rev": "f749e543975a82e8dd9a6e7df9600a1c098ae800",
+      "src": "https://github.com/ron-rs/ron.vim"
+    },
     "rustaceanvim": {
       "rev": "bb57d9a9c3f547504e38df1fc17dbcc7065a23f3",
       "src": "https://github.com/mrcjkb/rustaceanvim"

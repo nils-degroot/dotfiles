@@ -3,12 +3,10 @@
 	font = "Iosevka Nerd Font 10"
 	origin = "top-center"
 	frame_width = 1
+	width = 400
 
-	alignment = "center"
-
-	icon_position = "top"
 	min_icon_size = 64
-	max_icon_size = 256
+	max_icon_size = 128
 
 [main]
 	background = "#1c1b19"

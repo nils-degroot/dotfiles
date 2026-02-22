@@ -89,6 +89,7 @@ vim.pack.add({
 	"https://github.com/mrcjkb/rustaceanvim",
 	"https://github.com/mattn/emmet-vim",
 	"https://github.com/neoclide/jsonc.vim",
+	"https://github.com/ron-rs/ron.vim",
 
 	-- Sql
 	"https://github.com/tpope/vim-dadbod",
@@ -201,6 +202,7 @@ vim.lsp.enable({
 	"vtsls",
 	"vue_ls",
 	"jsonls",
+	"yamlls",
 	"html",
 	"ts_ls",
 })
