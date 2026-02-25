@@ -171,7 +171,7 @@ vim.lsp.config("jsonls", {
 		json = {
 			schemas = {
 				{ fileMatch = { "*.jsonc" }, schema = { allowTrailingCommas = true } },
-				{ fileMatch = { "*.json" },  schema = { allowTrailingCommas = false } },
+				{ fileMatch = { "*.json" }, schema = { allowTrailingCommas = false } },
 			},
 		},
 	},
@@ -216,7 +216,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- Auto formatting
 		if client:supports_method("textDocument/formatting") then
-			if client.name ~= "eslint" and client.name ~= "vue_ls" and client.name ~= "vtsls" then
+			if client.name ~= "eslint" then
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					buffer = args.buf,
 					callback = function()
