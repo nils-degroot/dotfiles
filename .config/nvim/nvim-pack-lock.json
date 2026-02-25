@@ -32,9 +32,17 @@
       "rev": "68c178e0958d95b3977a771f3445429b1bded985",
       "src": "https://github.com/echasnovski/mini.icons"
     },
+    "mini.nvim": {
+      "rev": "9b935c218ddba02e5dc75c94f90143bce1f7c646",
+      "src": "https://github.com/echasnovski/mini.nvim"
+    },
     "mini.pairs": {
       "rev": "d5a29b6254dad07757832db505ea5aeab9aad43a",
       "src": "https://github.com/echasnovski/mini.pairs"
+    },
+    "mini.pick": {
+      "rev": "7c0a674f620ddc701903b887b2dade836b23ea79",
+      "src": "https://github.com/echasnovski/mini.pick"
     },
     "mini.snippets": {
       "rev": "a5e5ff2ff2223aff3fc33e6856935f02337b0ccf",
@@ -47,10 +55,6 @@
     "none-ls.nvim": {
       "rev": "68ed8b9bf5dfdae4d579fcd19723926f84d7b6cb",
       "src": "https://github.com/nvimtools/none-ls.nvim"
-    },
-    "nui.nvim": {
-      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
-      "src": "https://github.com/MunifTanjim/nui.nvim"
     },
     "nvim-lspconfig": {
       "rev": "44acfe887d4056f704ccc4f17513ed41c9e2b2e6",
@@ -99,10 +103,6 @@
     "vim-dadbod-ui": {
       "rev": "07e92e22114cc5b1ba4938d99897d85b58e20475",
       "src": "https://github.com/kristijanhusak/vim-dadbod-ui"
-    },
-    "vim-elixir": {
-      "rev": "6dff29176eb35e025bc94b262bf6d4e517e11f7d",
-      "src": "https://github.com/elixir-editors/vim-elixir"
     },
     "vim-visual-multi": {
       "rev": "a6975e7c1ee157615bbc80fc25e4392f71c344d4",

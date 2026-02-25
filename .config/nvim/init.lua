@@ -139,25 +139,6 @@ require("fidget").setup({})
 
 vim.cmd("color srcery")
 
--- Nasty vue_ls setup
-vim.lsp.config("vtsls", {
-	settings = {
-		vtsls = {
-			tsserver = {
-				globalPlugins = {
-					{
-						name = "@vue/typescript-plugin",
-						location = "~/.local/share/pnpm/global/5/node_modules/@vue/language-server",
-						languages = { "vue" },
-						configNamespace = "typescript",
-					},
-				},
-			},
-		},
-	},
-	filetypes = { "vue" },
-})
-
 -- Append nvim runtime to lua_ls
 vim.lsp.config("lua_ls", {
 	settings = {
@@ -199,8 +180,6 @@ vim.lsp.config("jsonls", {
 vim.lsp.enable({
 	"lua_ls",
 	"eslint",
-	"vtsls",
-	"vue_ls",
 	"jsonls",
 	"yamlls",
 	"html",
