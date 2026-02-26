@@ -78,6 +78,8 @@ vim.pack.add({
 	"https://github.com/mg979/vim-visual-multi",
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/nvimtools/none-ls.nvim",
+	"https://github.com/nvimtools/none-ls-extras.nvim",
+	"https://github.com/pmizio/typescript-tools.nvim",
 
 	-- Ui
 	"https://github.com/folke/todo-comments.nvim",
@@ -171,7 +173,7 @@ vim.lsp.config("jsonls", {
 		json = {
 			schemas = {
 				{ fileMatch = { "*.jsonc" }, schema = { allowTrailingCommas = true } },
-				{ fileMatch = { "*.json" }, schema = { allowTrailingCommas = false } },
+				{ fileMatch = { "*.json" },  schema = { allowTrailingCommas = false } },
 			},
 		},
 	},
@@ -183,7 +185,6 @@ vim.lsp.enable({
 	"jsonls",
 	"yamlls",
 	"html",
-	"ts_ls",
 })
 
 require("bar")
@@ -236,6 +237,7 @@ null_ls.setup({
 		null_ls.builtins.completion.spell,
 		null_ls.builtins.formatting.prettier,
 		require("completions.path"),
+		require("none-ls.diagnostics.eslint"),
 	},
 })
 
@@ -245,3 +247,5 @@ require("ccc").setup({
 		lsp = true,
 	},
 })
+
+require("typescript-tools").setup({})
