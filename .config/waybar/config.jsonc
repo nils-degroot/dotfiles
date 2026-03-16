@@ -1,70 +1,70 @@
 {
-	"layer": "top",
-	"position": "top",
-	"margin": "0",
-	"fixed center": true,
-	"reload_style_on_change": true,
-	"height": 34,
-	"include": [
-		"~/.config/waybar/modules.jsonc"
-	],
-	"modules-left": [
-		"clock"
-	],
-	"modules-center": [
-		"hyprland/workspaces"
-	],
-	"modules-right": [
-		"custom/media",
-		"custom/audio",
-		"battery"
-	],
-	"hyprland/workspaces": {
-		"format": "{icon}",
-		"on-click": "activate",
-		"all-outputs": true,
-		"format-icons": {
-			"default": " ",
-			"active": " ",
-		},
-	},
-	"clock": {
-		"format": "{:%d %b %H:%M}",
-		"tooltip": false,
-	},
-	"battery": {
-		"states": {
-			"good": 95,
-			"warning": 30,
-			"critical": 20,
-		},
-		"format": "{icon} {capacity}",
-		"format-charging": " {capacity}",
-		"format-plugged": " {capacity}",
-		"format-alt": "{time} {icon}",
-		"format-icons": [
-			"󱢠 󱢠 󱢠 ",
-			"󱢠 󱢠 󰛞 ",
-			"󱢠 󱢠 󰛞 ",
-			"󱢠 󱢠 󰋑 ",
-			"󱢠 󰛞 󰋑 ",
-			"󱢠 󰛞 󰋑 ",
-			"󱢠 󰋑 󰋑 ",
-			"󰛞 󰋑 󰋑 ",
-			"󰛞 󰋑 󰋑 ",
-			"󰋑 󰋑 󰋑 ",
-		],
-	},
-	"custom/audio": {
-		"format": "{}",
-		"interval": 1,
-		"on-click": "$HOME/.config/nushell/scripts/waybar.nu audio toggle",
-		"exec": "$HOME/.config/nushell/scripts/waybar.nu audio",
-	},
-	"custom/media": {
-		"format": "{}",
-		"interval": 1,
-		"on-click": "playerctl play-pause",
-		"exec": "$HOME/.config/nushell/scripts/waybar.nu media",
-	},
+  "layer": "top",
+  "position": "top",
+  "margin": "0",
+  "fixed center": true,
+  "reload_style_on_change": true,
+  "height": 34,
+  "include": ["~/.config/waybar/modules.jsonc"],
+  "modules-left": ["clock"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "image#album-art",
+    "custom/media",
+    "custom/audio",
+    "battery",
+  ],
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "all-outputs": true,
+    "format-icons": {
+      "default": " ",
+      "active": " ",
+    },
+  },
+  "clock": {
+    "format": "{:%d %b %H:%M}",
+    "tooltip": false,
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20,
+    },
+    "format": "{icon} {capacity}",
+    "format-charging": " {capacity}",
+    "format-plugged": " {capacity}",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "󱢠 󱢠 󱢠 ",
+      "󱢠 󱢠 󰛞 ",
+      "󱢠 󱢠 󰛞 ",
+      "󱢠 󱢠 󰋑 ",
+      "󱢠 󰛞 󰋑 ",
+      "󱢠 󰛞 󰋑 ",
+      "󱢠 󰋑 󰋑 ",
+      "󰛞 󰋑 󰋑 ",
+      "󰛞 󰋑 󰋑 ",
+      "󰋑 󰋑 󰋑 ",
+    ],
+  },
+  "custom/audio": {
+    "format": "{}",
+    "interval": 1,
+    "on-click": "$HOME/.config/nushell/scripts/waybar.nu audio toggle",
+    "exec": "$HOME/.config/nushell/scripts/waybar.nu audio",
+  },
+  "custom/media": {
+    "format": "{}",
+    "interval": 3,
+    "on-click": "playerctl play-pause",
+    "exec": "$HOME/.config/nushell/scripts/waybar.nu media",
+  },
+  "image#album-art": {
+    "exec": "$HOME/.config/nushell/scripts/waybar.nu media image",
+    "size": 24,
+    "interval": 3,
+  },
 }

@@ -33,14 +33,11 @@ def "main audio toggle" [] {
 }
 
 def "main media" [] {
-  let icon = match ( playerctl status ) {
-    "Playing" => "▶️"
-    "Paused" => "⏯️"
-  }
+  playerctl metadata -f "{{artist}} - {{title}}"
+}
 
-  let title = ( playerctl metadata -f "{{artist}} - {{title}}" )
-
-  $"($icon) ($title)"
+def "main media image" [] {
+  playerctl metadata mpris:artUrl | str replace "file://" ""
 }
 
 def main [] {
