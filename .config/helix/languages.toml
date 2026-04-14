@@ -1,0 +1,8 @@
+[[language]]
+name = "yaml"
+indent = { tab-width = 2, unit = " " }
+
+[[language]]
+name = "typescript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true

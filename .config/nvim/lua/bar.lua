@@ -57,13 +57,11 @@ local function left()
 		return base .. " %#Normal#"
 	end
 
-	return mode()
-		.. lsp_diagnostics()
+	return mode() .. lsp_diagnostics()
 end
 
 local function center()
-	return require("mini.icons").get("filetype", vim.bo.filetype)
-		.. " %t %m %r %h"
+	return require("mini.icons").get("filetype", vim.bo.filetype) .. " %t %m %r %h"
 end
 
 local function right()
@@ -87,30 +85,25 @@ local function right()
 		return result
 	end
 
-	return lsp_attached()
-		.. line_info()
+	return lsp_attached() .. line_info()
 end
 
 Statusline = {
 	active = function()
-		return "%#Statusline#"
-			.. left()
-			.. "%#Normal#%="
-			.. center()
-			.. "%=%#StatusLineExtra#"
-			.. right()
+		return "%#Statusline#" .. left() .. "%#Normal#%=" .. center() .. "%=%#StatusLineExtra#" .. right()
 	end,
 	inactive = function()
-		return "%="
-			.. center()
-			.. "%="
-	end
+		return "%=" .. center() .. "%="
+	end,
 }
 
-vim.api.nvim_exec2([[
+vim.api.nvim_exec2(
+	[[
   augroup Statusline
   au!
 	  au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()
 	  au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()
   augroup END
-]], {})
+]],
+	{}
+)

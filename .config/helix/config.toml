@@ -1,0 +1,25 @@
+theme = "gruvbox_dark_hard"
+
+[editor]
+line-number = "relative"
+mouse = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.auto-save.after-delay]
+enable = true
+timeout = 5000
+
+[editor.indent-guides]
+render = true
+
+[editor.file-picker]
+hidden = false
+
+[keys.normal]
+# Ctrl/Alt-based line modifications
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]

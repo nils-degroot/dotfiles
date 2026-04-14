@@ -40,12 +40,11 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend [
 	"~/Documents/src/google-cloud-sdk/bin/"
 	"~/.config/nushell/scripts/"
 	"~/.cargo/bin/"
-	"~/.local/share/bob/nvim-bin"
 	$env.PNPM_HOME
 ])
 
 $env.DOCKER_HOST = "unix:///run/user/1000/docker.sock"
-$env.EDITOR = "nvim"
+$env.EDITOR = "helix"
 $env.GIT_EXTERNAL_DIFF = "difft"
 $env.DO_NOT_TRACK = 1
 

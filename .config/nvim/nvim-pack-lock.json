@@ -9,15 +9,15 @@
       "src": "https://github.com/uga-rosa/ccc.nvim"
     },
     "emmet-vim": {
-      "rev": "e98397144982d1e75b20d94d55a82de3ec8f648d",
+      "rev": "92ef2f74f4093edc99db5e9e4cf7e40116a85bd6",
       "src": "https://github.com/mattn/emmet-vim"
     },
     "fidget.nvim": {
-      "rev": "64463022a1f2ff1318ab22a2ea4125ed9313a483",
+      "rev": "889e2e96edef4e144965571d46f7a77bcc4d0ddf",
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "fzf-lua": {
-      "rev": "fc42c4c9552c6c0d691a16858f3bd65745fef13f",
+      "rev": "eee072d89ccdc0a4627bf67d0757d2e4981c7292",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "jsonc.vim": {
@@ -25,11 +25,11 @@
       "src": "https://github.com/neoclide/jsonc.vim"
     },
     "mini.completion": {
-      "rev": "4f94cafdeef02bf3ef9997cd6862658801caa22c",
+      "rev": "09884c629cac1a8c999ffb6c57dc8424450aea5e",
       "src": "https://github.com/echasnovski/mini.completion"
     },
     "mini.icons": {
-      "rev": "5b9076dae1bfbe47ba4a14bc8b967cde0ab5d77e",
+      "rev": "7fdae2443a0e2910015ca39ad74b50524ee682d3",
       "src": "https://github.com/echasnovski/mini.icons"
     },
     "mini.nvim": {
@@ -37,7 +37,7 @@
       "src": "https://github.com/echasnovski/mini.nvim"
     },
     "mini.pairs": {
-      "rev": "b7fde3719340946feb75017ef9d75edebdeb0566",
+      "rev": "42387c7fe68fc0b6e95eaf37f1bb76e7bffaa0d9",
       "src": "https://github.com/echasnovski/mini.pairs"
     },
     "mini.pick": {
@@ -45,27 +45,27 @@
       "src": "https://github.com/echasnovski/mini.pick"
     },
     "mini.snippets": {
-      "rev": "0d0b435e3f9563965f73703a6a6d17acb432a93c",
+      "rev": "8e3acd41bd7ee8f89967c83bacc93871b98a14aa",
       "src": "https://github.com/echasnovski/mini.snippets"
     },
     "mini.surround": {
-      "rev": "d205d1741d1fcc1f3117b4e839bf00f74ad72fa2",
+      "rev": "2715e04bea3ec9244f15b421dc5b18c0fe326210",
       "src": "https://github.com/echasnovski/mini.surround"
     },
     "none-ls-extras.nvim": {
-      "rev": "517f87c1e6cd511e787d77127d7fdb12b7b79db3",
+      "rev": "14fa31ce8c0268a3b2c9cc14979ecf771982d433",
       "src": "https://github.com/nvimtools/none-ls-extras.nvim"
     },
     "none-ls.nvim": {
-      "rev": "f61f46ded0ca9edce7a09b674f8e162d10921426",
+      "rev": "7f9301e416533b5d74e2fb3b1ce5059eeaed748b",
       "src": "https://github.com/nvimtools/none-ls.nvim"
     },
     "nvim-lspconfig": {
-      "rev": "ead0f5f342d8d323441e7d4b88f0fc436a81ad5f",
+      "rev": "c588db330592fa477a70d2fee6ba20a57194bdc3",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "42fc28ba918343ebfd5565147a42a26580579482",
+      "rev": "cf12346a3414fa1b06af75c79faebe7f76df080a",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
@@ -73,11 +73,11 @@
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "plenary.nvim": {
-      "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "1c958131c083c8557ea499fdb08c88b8afb05c4e",
+      "rev": "54d4b5431e9634ee3d8d30784e017239b5b89d41",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "ron.vim": {
@@ -85,7 +85,7 @@
       "src": "https://github.com/ron-rs/ron.vim"
     },
     "rustaceanvim": {
-      "rev": "bb57d9a9c3f547504e38df1fc17dbcc7065a23f3",
+      "rev": "ec517a0d223060b79e040e4a187e031b76b307ea",
       "src": "https://github.com/mrcjkb/rustaceanvim"
     },
     "srcery-vim": {

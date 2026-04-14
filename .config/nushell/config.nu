@@ -385,6 +385,7 @@ alias dcs = docker compose stop
 
 ## Etc
 alias c = clear
+alias hx = helix
 
 def psub []: string -> string {
 	let path = $"/tmp/psub-( random uuid )"
