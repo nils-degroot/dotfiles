@@ -35,7 +35,7 @@ let size = ( hyprctl monitors -j | from json | sort-by -r width | get 0  )
 # Create the bg
 (
   magick
-    -size $"($size.width)x($size.height)"
+    -size $"($size.width + 100)x($size.height + 100)"
     $"xc:($background)"
     "(" $tile_path -write mpr:tile +delete ")"
     -fill "mpr:tile"
