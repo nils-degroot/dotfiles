@@ -60,6 +60,10 @@
       "rev": "7f9301e416533b5d74e2fb3b1ce5059eeaed748b",
       "src": "https://github.com/nvimtools/none-ls.nvim"
     },
+    "nui.nvim": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
     "nvim-lspconfig": {
       "rev": "c588db330592fa477a70d2fee6ba20a57194bdc3",
       "src": "https://github.com/neovim/nvim-lspconfig"
@@ -87,6 +91,10 @@
     "rustaceanvim": {
       "rev": "ec517a0d223060b79e040e4a187e031b76b307ea",
       "src": "https://github.com/mrcjkb/rustaceanvim"
+    },
+    "snacks.nvim": {
+      "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
+      "src": "https://github.com/folke/snacks.nvim"
     },
     "srcery-vim": {
       "rev": "38f52babe0fa2b11719b51eb045a85244d6d7883",
