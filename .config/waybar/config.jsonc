@@ -5,13 +5,20 @@
   "fixed center": true,
   "reload_style_on_change": true,
   "height": 34,
-  "include": ["~/.config/waybar/modules.jsonc"],
-  "modules-left": ["clock"],
-  "modules-center": ["hyprland/workspaces"],
+  "include": [
+    "~/.config/waybar/modules.jsonc"
+  ],
+  "modules-left": [
+    "clock"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
   "modules-right": [
     "image#album-art",
     "custom/media",
     "custom/audio",
+    "disk",
     "battery",
   ],
   "hyprland/workspaces": {
@@ -24,7 +31,7 @@
     },
   },
   "clock": {
-    "format": "{:%d %b %H:%M}",
+    "format": " {:%d %b %H:%M}",
     "tooltip": false,
   },
   "battery": {
@@ -66,5 +73,8 @@
     "exec": "$HOME/.config/nushell/scripts/waybar.nu media image",
     "size": 24,
     "interval": 3,
+  },
+  "disk": {
+    "format": " {percentage_free}%"
   },
 }
