@@ -1,5 +1,7 @@
 #!/usr/bin/env -S nu
 
+use ~/.config/nushell/lib/arrayext.nu
+
 let tile_dir = $"($env.HOME)/.config/nushell/scripts/wallpaper-tiles"
 let base_dir = $"($env.HOME)/.local/share/gen-background"
 let tile_path = $base_dir | path join "tile.png"
@@ -9,11 +11,10 @@ mkdir $base_dir
 let background = "#1c1b19"
 
 # Select a tile pattern
-let tile_options = ( ls $tile_dir | get name )
-let selected_tile = $tile_options | get (random int ..(($tile_options | length) - 1))
+let selected_tile = ls $tile_dir | get name | arrayext random
 
 # Find the monitor to use
-let size = ( hyprctl monitors -j | from json | sort-by -r width | get 0  )
+let size = hyprctl monitors -j | from json | sort-by -r width | get 0  
 
 # Create a pattern
 (
