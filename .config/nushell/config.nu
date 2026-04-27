@@ -392,3 +392,5 @@ def psub []: string -> string {
 	$in | save -f $path
 	$path
 }
+
+use ~/.config/nushell/overlays/manager.nu
