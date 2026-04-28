@@ -12,8 +12,6 @@ module log {
   }
 }
 
-const PACKAGES_PATH = "~/dotfiles/manager-packages.json"
-
 export module update { 
   use log
 
@@ -33,7 +31,7 @@ export module update {
   export def missing [ ] {
     log info "Checking if all required packages are installed"
     let installed = yay -Qqe | lines
-    let missing = open $PACKAGES_PATH | where { |e| $e not-in $installed }
+    let missing = open $"($env.HOME)/dotfiles/manager-packages.json" | where { |e| $e not-in $installed }
 
     if ($missing | is-empty) {
       log info "All required packages are installed"
