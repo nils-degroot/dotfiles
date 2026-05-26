@@ -10,3 +10,6 @@ backend = "gpg"
 
 [git]
 sign-on-push = true
+
+[aliases]
+l = ["log", "-r", "(main..@):: | (main..@)-"]

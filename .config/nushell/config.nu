@@ -378,6 +378,17 @@ def jjrev [ description:string ] {
   jj log -n 1 -r ($query | str join "") -G | split words | first | wl-copy
 }
 
+def jjswitch [
+  bookmark:string
+  --new
+] {
+  if $new {
+    jj new $"remote_bookmarks\(($bookmark)\)"
+  } else {
+    jj edit $"remote_bookmarks\(($bookmark)\)"
+  }
+}
+
 ## Docker
 alias dcu = docker compose up -d
 alias dcd = docker compose down
