@@ -379,14 +379,15 @@ def jjrev [ description:string ] {
 }
 
 def jjswitch [
-  bookmark:string
-  --new
+  bookmark: string
+  --new,
+  --ignore-immutable
 ] {
-  if $new {
-    jj new $"remote_bookmarks\(($bookmark)\)"
-  } else {
-    jj edit $"remote_bookmarks\(($bookmark)\)"
-  }
+  let action = if $new { "new" } else { "edit" }
+  let target = $"remote_bookmarks\(($bookmark)\)"
+  let args = [ $action $target ]
+  let args = if $ignore_immutable { $args | append "--ignore-immutable" } else { $args }
+  jj ...$args
 }
 
 ## Docker
